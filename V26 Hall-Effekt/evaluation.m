@@ -1,15 +1,21 @@
-%% script to read data
+%% iterate over temperature files, calculate hole density & mobility, plot result
 
-d = 0.31e-4% sample thickness in cm
-f_a=1;% lazy assumption
+d = 0.31e-4   % sample thickness in cm
+f_a=1;        % correction factor, approximately 1
 
+% vector of temperatures, also used for accessing data files
 T=[82];
+
 for i=1:length(T)
     data=dlmread(['T',num2str(T(i)),'_both.txt'],'\t');
+    % data(:,1) contains voltages V1...V8 for resistivity measurement
+    % data(:,3) contains corresponding Hall voltages
+    % data(:,[2 4]) is the applied current I = 100 \micro A
+    
     if (std([data(1:8,2);data(1:4,4)]) > 1e-6)
         disp('non-uniform current for T = ',num2str(T(i)),'K');
     end
-    % resistivity
+    % calculate resistivity
     I=mean(data(1:8,2)); % average current in mA
     p=d*1.1331*sum(data(2:2:8,1)-data(1:2:7,1))/2;
 end
