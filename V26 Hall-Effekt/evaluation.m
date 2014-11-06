@@ -50,6 +50,7 @@ end
 Nv   = @(T)       2 * (2*pi*mdh*k_B*T).^(3/2) ./ (100*h)^3;
 % hole density equation
 p_eq = @(Ea,Na,x) 2*Na./(1+sqrt( 1+16*Na./Nv(x).*exp(Ea*0.001*e/k_B./x) ));
+p_approx = @(Ea,Na,x) 1/2 * sqrt(Na*Nv(x)).*exp(-Ea*0.001*e./(2*k_B*x));
 
 % p_opt defines bounds for [Na Ea] in meV
 p_opt = fitoptions('Method','NonlinearLeastSquares', ...
@@ -64,11 +65,16 @@ p_coeff  = num2cell(coeffvalues(p_fit));
 [Ea, Na] = p_coeff{:};
 % Ea = 31.73  (31.07, 32.4)
 
+% Arrhenius-Plot von p(T)
 %f1 = figure('Units','normalized','Position',[0 0 1 1]);
 set(gca,'FontSize',14);
 f1a = semilogy(1000./T,p, 'o', 'LineWidth', 2);
-ylabel('p (cm^{-3})');
-xlabel('1000/T (K^{-1})');
+hold on;
+f1b = semilogy(1000./T,p_eq(Ea,Na,T), 'k--', 'LineWidth', 2);
+f1c = semilogy(1000./T,p_approx(Ea,Na,T), 'k:', 'LineWidth', 2);
+ylabel('Löcherdichte p (cm^{-3})');
+xlabel('inverse Temperatur 1000/T (K^{-1})');
+legend('Messwerte', 'Gleichung \eqref{p_ex}', 'Gleichung \eqref{p_ap}');
 %print(f1,'-dpng', pic);
 
 %f2 = figure('Units','normalized','Position',[0 0 1 1]);
