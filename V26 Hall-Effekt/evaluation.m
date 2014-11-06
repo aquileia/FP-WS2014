@@ -1,4 +1,7 @@
-%% iterate over temperature files, calculate hole density & mobility
+%% iterate over temperature files, plot hole density & mobility
+
+% (c) Sebastian Koelle 2014
+% GPL3 licence
 
 % constants and parametres
 e   = 1.60217656535e-19;% electron charge
@@ -51,7 +54,7 @@ p_eq = @(Ea,Na,x) 2*Na./(1+sqrt( 1+16*Na./Nv(x).*exp(Ea*0.001*e/k_B./x) ));
 % p_opt defines bounds for [Na Ea] in meV
 p_opt = fitoptions('Method','NonlinearLeastSquares', ...
        'Lower', [25 1.5e18], 'Upper', [50 2e18], 'StartPoint',[32 1.8e18]);
-   
+
 % p_fct contains the model for p(x)
 p_fct = fittype(p_eq, 'options', p_opt);
 
