@@ -10,6 +10,8 @@ k_B = 1.38064881e-23;   % Boltzmann constant
 h   = 6.62606957e-34;   % Planck constant
 mde = 0.3216 * m_e;     % effective mass of an electron
 mdh = 0.689 * m_e;      % effective mass of a hole
+Mc  = 6;                % conduction band minimum at X points, 6 thereof
+Eg  = 1.15;             % band gap in eV
 d   = 0.31e-4;          % sample thickness in cm
 f   = 1;                % correction factor, approximately 1
 B   = 0.508648;         % magnetic field in T
@@ -47,10 +49,15 @@ for i=1:length(T)
 end
 
 % density of states in the valence band, in cm^{-3}
-Nv   = @(T)       2 * (2*pi*mdh*k_B*T).^(3/2) ./ (100*h)^3;
+Nv   = @(T) ...
+    2 * (2*pi*mdh*k_B*T).^(3/2) ./ (100*h)^3;
 % hole density equation
-p_eq = @(Ea,Na,x) 2*Na./(1+sqrt( 1+16*Na./Nv(x).*exp(Ea*0.001*e/k_B./x) ));
-p_approx = @(Ea,Na,x) 1/2 * sqrt(Na*Nv(x)).*exp(-Ea*0.001*e./(2*k_B*x));
+p_eq = @(Ea,Na,x) ...
+    2 * Na./(1+sqrt( 1+16*Na./Nv(x).*exp(Ea*0.001*e/k_B./x) ));
+p_approx = @(Ea,Na,x) ...
+    1/2 * sqrt(Na*Nv(x)).*exp(-Ea*0.001*e./(2*k_B*x));
+p_intrinsic = @(Eg,x) ...
+    4.9e15*(0.3216*0.689)^(3/4)*sqrt(Mc*x.^3).*exp(-Eg*e./(2*k_B*x));
 
 % p_opt defines bounds for [Na Ea] in meV
 p_opt = fitoptions('Method','NonlinearLeastSquares', ...
@@ -70,11 +77,14 @@ p_coeff  = num2cell(coeffvalues(p_fit));
 set(gca,'FontSize',14);
 f1a = semilogy(1000./T,p, 'o', 'LineWidth', 2);
 hold on;
-f1b = semilogy(1000./T,p_eq(Ea,Na,T), 'k--', 'LineWidth', 2);
+f1b = semilogy(1000./T,p_eq(Ea,Na,T), 'r--', 'LineWidth', 2);
 f1c = semilogy(1000./T,p_approx(Ea,Na,T), 'k:', 'LineWidth', 2);
+Tn  = 1000:50:3000;
+f1d = semilogy(1000./Tn,p_intrinsic(Eg,Tn), 'g--', 'LineWidth', 2);
 ylabel('Löcherdichte p (cm^{-3})');
 xlabel('inverse Temperatur 1000/T (K^{-1})');
-legend('Messwerte', 'Gleichung \eqref{p_ex}', 'Gleichung \eqref{p_ap}');
+legend('Messwerte', 'Gleichung \eqref{p_exact}', ...
+       'Gleichung \eqref{p_approx}', 'Gleichung \eqref{p_intrinsic}');
 %print(f1,'-dpng', pic);
 
 %f2 = figure('Units','normalized','Position',[0 0 1 1]);
