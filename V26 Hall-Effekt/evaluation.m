@@ -65,7 +65,7 @@ p_coeff  = num2cell(coeffvalues(p_fit));
 [Ea, Na] = p_coeff{:};
 % Ea = 31.73  (31.07, 32.4)
 
-% Arrhenius-Plot von p(T)
+% Arrhenius-plot of p(T)
 %f1 = figure('Units','normalized','Position',[0 0 1 1]);
 set(gca,'FontSize',14);
 f1a = semilogy(1000./T,p, 'o', 'LineWidth', 2);
