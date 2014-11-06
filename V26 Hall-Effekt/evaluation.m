@@ -12,9 +12,6 @@ f   = 1;                % correction factor, approximately 1
 B   = 0.508648;         % magnetic field in T
 sgn = (-1).^(1:8);      % signs corresponding to V1...V8
 
-% density of states in the valence band, in cm^{-3}
-Nv  = 2 * (2*pi*mdh*k_B)^(3/2) / (100*h)^3; % * T^(3/2)
-
 % vector of temperatures, also used for accessing data files
 T = [                         82,  85,  90,  93,  95,  98, 103, ...
     105, 110, 116, 120, 125, 130, 135, 140,      145,      150, ...
@@ -46,19 +43,19 @@ for i=1:length(T)
     m(i)   = abs(R(i)) / rho(i);
 end
 
-% fit p(T)
-% p_opt defines bounds for [Na Ea] in meV
-% p_fct contains the model for p(x)
-% Nv is a known parametre
+% density of states in the valence band, in cm^{-3}
+Nv   = @(T)       2 * (2*pi*mdh*k_B*T).^(3/2) ./ (100*h)^3;
+% hole density equation
+p_eq = @(Ea,Na,x) 2*Na./(1+sqrt( 1+16*Na./Nv(x).*exp(Ea*0.001*e/k_B./x) ));
 
+% p_opt defines bounds for [Na Ea] in meV
 p_opt = fitoptions('Method','NonlinearLeastSquares', ...
        'Lower', [25 1.5e18], 'Upper', [50 2e18], 'StartPoint',[32 1.8e18]);
+   
+% p_fct contains the model for p(x)
+p_fct = fittype(p_eq, 'options', p_opt);
 
-p_fct = fittype(...
-        '2*Na/( 1+(  1+16*Na/(Nv*x^(3/2))*exp(11.6045*Ea/x) )^(1/2) )', ...
-        'problem', 'Nv', 'options', p_opt);
-
-p_fit = fit(T, p, p_fct, 'problem', Nv);
+p_fit = fit(T, p, p_fct);
 
 p_coeff  = num2cell(coeffvalues(p_fit));
 [Ea, Na] = p_coeff{:};
