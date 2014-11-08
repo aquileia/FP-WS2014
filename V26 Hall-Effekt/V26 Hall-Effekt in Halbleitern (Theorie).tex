@@ -1,0 +1,321 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[german]{babel}
+\usepackage{amssymb}
+\usepackage{latexsym}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage[a4paper]{geometry}
+\usepackage{hyperref}
+\graphicspath{{./graphics/}}
+
+\pagestyle{plain}
+
+\begin{document}
+\section{Einleitung}
+Im Versuch \emph{Hall-Effekt in Halbleitern} wird die Konzentration $n$ bzw. $p$ sowie die Beweglichkeit $\mu$ der Ladungsträger in Halbleitern ermittelt. Der zugrundeliegende Hall-Effekt beschreibt das Entstehen einer elektrischen Spannung $U_H$ in einer Probe, wenn an dieser ein konstanter Strom $I$ angelegt wird und die Probe sich in einem homogenen Magnetfeld $B$ befindet. Über das Ohmsche Gesetz lässt sich anschließend die anfangs erläuterten Größen ermitteln.\\
+In unserem Praktikumsversuch handelt es sich bei der Probe um ein mit Bor dotiertes Stück Silizium. Sie ist damit \emph{p-dotiert}, d.h. das ursprünglich perfekte Kristallgitter ist mit Störatomen versetzt, welche ein Valenzelektron weniger als die das Gitter bildende Atom besitzen. Somit herrscht ein positiver Ladungsüberschuss, welcher im Kristall wandert und somit zur Ladungsübertragung beiträgt. Im Gegensatz dazu spricht man von einer \emph{n-Dotierung}, wenn Fremdatome eingebracht werden, sodass ein negativer Ladungsüberschuss entsteht.\\
+Der in vielen Lehrbüchern der Experimentalphysik beschriebene Hall-Effekt bezieht sich immer auf eine perfekt symmetrischen quaderförmigen Probe. Diese sind schwierig herzustellen, stattdessen finden wir meistens Proben mit wesentlich abstrakteren Geometrien vor. Dazu beschrieb L.J. van der Pauw in seinem 1958 erschienenen Artikel eine Methode, mit der sich der Hall-Effekt auch bei beliebigen Geometrien der Probe ausnutzen lässt.\\
+Wir werden in unserem Versuch einen Aufbau verwenden, welcher von der Firma \emph{Keithley} vertrieben wird. Diese erleichtert uns mit einer automatisierten Messprozedur die Ermittlung der Hall-Spannungen. Zudem ermitteln wir die Temperaturabhängigkeit der Ladungsträgerkonzentration sowie die Beweglichkeit der Ladungsträger, indem wir die Messungen der Hall-Spannungen für einen größeren Temperaturbereich vornehmen.
+\newpage
+\section{Theorie}
+Die im Folgenden ausgeführten theoretischen Grundlagen folgen größtenteils der Versuchsanleitung \cite{lit:manual}, sofern nicht anders angegeben.
+Weiterhin beziehen wir die folgenden Gleichungen immer auf das im Versuch verwendete p-dotierte Silizium.
+\subsection{Elektronische Bandstruktur von Halbleitern}
+Gemäß dem Bloch-Theorem besitzt die Wellenfunktion $\psi(\vec{r})$ eines Elektrons in einem effektiven periodischen Gitterpotential die selbe Periodizität wie das Gitterpotential. Sie ist folglich eine Lösung der zeitunabhängigen Schrödinger-Gleichung
+\begin{align}
+\left(-\frac{\hbar^2}{2m}\nabla^2+V(\vec{r})\right)\psi(\vec{r})=E\psi(\vec{r})
+\end{align}
+und lautet entsprechend
+\begin{align}
+\psi(\vec{r})=\psi_{\vec{k}}(\vec{r})=u_{\vec{k}}(\vec{r})\cdot \mathrm{e}^{\mathrm{i}\vec{k}\cdot \vec{r}}
+\end{align}
+dabei ist $u_{\vec{k}}(\vec{r})$ eine gitterperiodische Funktion und $\vec{k}$ ein quantisierter Wellenvektor.\\
+Trägt man nun die möglichen Energieeigenwerte $E(\vec{k})$ gegen bestimmte Bahnen im reziproken Kristallgitter, im folgenden $\vec{k}$-Raum genannt, auf, so erhält man beispielsweise für Silizium die in Abbildung \ref{fig:Si_bandstructure} gegebene Energiedispersion, die sogenannte Bandstruktur.
+\begin{figure}[h]
+\begin{center}
+\includegraphics[angle=1.4,scale=0.5]{Si_Bandstruktur.jpeg}
+\caption{Bandstruktur von Si. \cite{lit:Iba09}}
+\label{fig:Si_bandstructure}
+\end{center}
+\end{figure}
+Die unteren Energiezustände fasst man als Valenzband zusammen, die oberen dagegen als Leitungsband. Zwischen diesen Bändern existiert meist eine Energielücke $E_g$, in der keine Energiezustände der Elektronen existieren können. 
+Für 0 K ist das Valenzband vollständig besetzt und das Leitungsband leer, sodass praktisch kein Ladungsübertrag stattfinden kann. 
+Anhand der Größe dieser Lücke kann man einen Stoff als Leiter, Halbleiter oder Isolator klassifizieren. Silizium ist ein indirekter Halbleiter, d.h. das Maximum des Valenzbandes und das Minimum des Leitungsbandes befinden sich an unterschiedlichen Punkten im $\vec{k}$-Raum. Für Raumtemperatur beträgt die Bandlücke bei Silizium 1,12 eV, für $T=0$ K ist sie etwas größer, nämlich 1,17 eV.\\
+Ein Elektron im Halbleiter lässt sich in vielen Fällen wie ein freies Teilchen behandeln, wenn man die Wechselwirkung mit dem Coulomb-Potential der Atomrümpfe sowie die Wechselwirkungen mit den anderen Elektronen in eine effektive tensorielle Masse steckt. Sie ist implizit über die Komponenten des inversen Massentensors definiert und lautet wie folgt:
+\begin{align}
+\overline{\overline{m}}_{ij}^{-1}=\frac{1}{\hbar^2}\frac{\partial^2 E(\vec{k})}{\partial k_j \partial k_i}
+\end{align}
+In der Nähe des Leitungsbandminimums lässt sich $\overline{\overline{m}}^{-1}$ diagonalisieren und unter der parabolischen Näherung lautet die Energiedispersion
+\begin{align}
+E(\vec{k})=\frac{\hbar^2}{2}\vec{k}^\intercal\cdot \overline{\overline{m}}^{-1}\cdot \vec{k}=\frac{\hbar^2}{2}\left(\frac{1}{m_x}k_x^2+\frac{1}{m_y}k_y^2+\frac{1}{m_z}k_z^2\right)
+\end{align}
+In einem indirekten Halbleiter wie Silizium sind die Massen nicht gleich. Als Folge dessen sind die Flächen konstanter Energie im $\vec{k}$-Raum Rotationsellipsoide entlang einer Rotationsachse. Die effektive Masse parallel der Achse wird als \emph{longitudinale Masse} $m_l$, senkrecht dazu als \emph{transversale Masse} $m_t$ bezeichnet.\\
+Für die Form des Valenzbandmaximums gelten andere Voraussetzungen, sodass sich $\overline{\overline{m}}^{-1}$ am $\Gamma$-Punkt nicht mehr diagonalisieren lässt. Die Bänder an diesem Punkt sind für die schweren und leichten Löcher (\emph{hh} bzw. \emph{lh}) entartet, zudem ergibt sich durch die Spin-Bahn-Wechselwirkung ein drittes abgesenktes Valenzband (vgl. Abbildung \ref{fig:valence_degen}).
+Stattdessen lautet die Energiedispersion
+\begin{align}
+E(\vec{k})_{\pm}=\frac{\hbar^2}{2m_0}\left[Ak^2\pm \sqrt{B^2k^4+C^2(k_x^2 k_y^2+k_y^2 k_z^2+k_z^2 k_x^2)}\right]
+\end{align}
+mit den Valenzbandparametern A,B und C.
+\begin{figure}[h]
+\begin{center}
+\includegraphics[angle=180,scale=0.6]{Valenzband_Entartung.jpeg}
+\caption{Bandstruktur am Maximum des Valenzbandes.}
+\label{fig:valence_degen}
+\end{center}
+\end{figure}
+\subsection{Ladungsträgerdichte in intrinsischen Halbleitern}
+In einem \emph{intrinsischen} Halbleiter können freie Ladungsträger nur durch thermische und photonische Anregung aus dem Valenzband in das Leitungsband gehoben werden. Bei Halbleitern ist die durch die Bandlücke $E_g$ verursachte Ladungsträgerkonzentration $n$ (Elektronen) bzw.$p$ (Löcher) stark temperaturabhängig.
+Die Besetzung der elektronischen Zustände folgt der Fermi-Dirac-Verteilung
+\begin{align}
+f(E,T)=\frac{1}{1+\exp\left(\frac{E-\mu}{k_B T}\right)},
+\end{align}
+dabei ist $\mu$ das chemische Potential und $k_B$ die Boltzmann-Konstante. Für $T=0$ ist $\mu$ gleich der Fermi-Energie $E_F$, die höchstmögliche Energie welche die Elektronen im Grundzustand besitzen können.\\
+Für die Berechnung der Ladungsträgerdichten werden noch die Zustandsdichten $D_C(E)$ und $D_V(E)$ im Leitungs- und Valenzband benötigt, für welche in der Nähe parabolischer Bänder gilt
+\begin{align}
+D_C(E)=M_C\cdot \frac{\sqrt{2m_{de}^3}}{2\pi^2\hbar^3}\sqrt{E-E_C},\hspace{1cm}
+D_V(E)=\frac{\sqrt{2m_{dh}^3}}{2\pi^2\hbar^3}\sqrt{E_V-E}.
+\end{align}
+$E_C$ bezeichnet die Unterkante des Leitungsbands, $E_V$ die Oberkante des Valenzbands, $M_C$ steht für die Anzahl äquivalenter Leitungsbandminima. Für Silizium ist $M_C=6$, da dessen Leitungsbandminimum sich am $X$-Punkt im $\vec{k}$-Raum befindet und die sechs möglichen Raumrichtungen energetisch gleichwertig sind.\\
+$m_{de}=\sqrt[3]{m_x m_y m_z}$ ist die effektive Zustandsdichtemasse für Elektronen (für Silizium ist $m_{de}=\sqrt[3]{m_l m_t^2}$) und entsprechend für Löcher gilt $m_{dh}=(m_{lh}^{3/2}+m_{hh}^{3/2})^{2/3}$.\\
+Setzt man die eben eingeführten Größen in die Definitionsgleichungen 
+\begin{align}
+n=\int\limits_{E_C}^\infty D_C(E)\;f(E,T)\;\mathrm{d}E,\hspace{1cm}
+p=\int\limits_{-\infty}^{E_V} D_V(E)\;[1-f(E,T)]\;\mathrm{d}E
+\end{align}
+für die Ladungsträgerkonzentrationen ein, so erhält man
+\begin{align}
+n=N_C\frac{2}{\sqrt{\pi}}F_{1/2}\left(\frac{E_F-E_C}{k_B T}\right),\hspace{1cm}p=N_V\frac{2}{\sqrt{\pi}}F_{1/2}\left(\frac{E_V-E_F}{k_B T}\right)
+\label{eq:density1}
+\end{align}
+mit den effektiven Zustandsdichten
+\begin{align}
+N_C=2M_C\left(\frac{2\pi m_{de}k_B T}{h^2}\right)^{3/2},\hspace{1cm}N_V=2\left(\frac{2\pi m_{dh}k_B T}{h^2}\right)^{3/2}.
+\end{align}
+Das Fermi-Dirac-Integral $F_{1/2}$ ist definiert durch
+\begin{align}
+F_{1/2}(\eta_f)=\int\limits_0^\infty \frac{\eta^{1/2}\;\mathrm{d}\eta}{1+\exp(\eta-\eta_f)}
+\end{align}
+mit dem Argument $\eta_f=\frac{E_F-E_C}{k_B T}$.\\
+Für $k_B T\ll E-E_F$ lässt sich die Fermi-Dirac-Statistik durch die Boltzmann-Statistik ersetzen. Dadurch ergibt sich für die Ladungsträgerkonzentrationen
+\begin{align}
+n=N_C\exp\left(-\frac{E_C-E_F}{k_B T}\right),\hspace{1cm} p=N_V\exp\left(-\frac{E_F-E_V}{k_B T}\right).
+\label{eq:density2}
+\end{align}
+Das Fermi-Niveau $E_F$ stellt sich bei gegebener Temperatur so ein, dass Ladungsneutralität gegeben ist ($n=p=n_i$, $n_i$: intrinsische Ladungsträgerdichte).\\
+Aus Gleichung (\ref{eq:density2}) folgt dann
+\begin{align}
+E_F=\frac{E_C+E_V}{2}+\frac{k_B T}{2}\ln\left(\frac{N_V}{N_C}\right)=\frac{E_C+E_V}{2}+\frac{3 k_B T}{4}\ln\left(\frac{m_{dh}}{m_{de}M_C^{2/3}}\right).
+\end{align}
+Die Fermi-Energie eines intrinsischen Halbleiters liegt somit etwa in der Mitte der Bandlücke $E_g$. Die intrinsische Ladungsträgerkonzentration $n_i$ ist somit
+\begin{align}
+n_i&=\sqrt{np}=\sqrt{N_C N_V}\exp\left(-\frac{E_g}{2k_B T}\right)\notag\\
+&=4,9\cdot 10^{15}\left(\frac{m_{de}m_{dh}}{m_0^2}\right)^{3/4}M_C^{1/2}T^{3/2}\exp\left(-\frac{E_g}{2k_B T}\right)\mathrm{cm}^{-3},
+\end{align} 
+mit der Masse $m_0$ des freien Elektrons.
+\subsection{Ladungsträgerdichte im dotierten Halbleiter}
+Mit Hilfe der Dotierung, dem Einbau von elektrisch aktiven Fremdatomen in einem Kristallgitter, lassen sich wesentlich höhere Ladungsträgerkonzentrationen erreichen als bei einem rein intrinsischen Halbleiter möglich wäre.\\
+Die rein intrinsische Leitfähigkeit lässt sich in der Praxis kaum messen, da sie meist von einer unbeabsichtigten Dotierung induzierten Leitfähigkeit überlagert wird.\\
+In einem Silizium-Kristallgitter lässt sich beispielsweise als \emph{Donator} das Element Phosphor einbauen, welches als Element der fünften Hauptgruppe im Periodensystem fünf Valenzelektronen besitzt, und somit ein Elektron zur elektrischen Leitung freigeben kann. Als möglicher \emph{Akzeptor} kann als Element der dritten Hauptgruppe Bor dienen. Dieser positive Ladungsüberschuss, im folgenden \emph{Loch} genannt, kann als Quasi-Ladungsträger innerhalb des Gitters wandern und zum Ladungsübertrag beitragen.\\
+Die entsprechende Donator- und Akzeptor-Ionisierungsenergien in einem Silizium-Gitter sind für den Donator Phosphor $E_d=45$ meV bzw. für den Akzeptor Bor $E_a=45$ meV.\\
+Für die Dichte $N_D^{+}$ der ionisierten Donatoren und $N_A^{-}$ der ionisierten Akzeptoren gilt
+\begin{align}
+N_D^{+}=\frac{N_D}{1+g_D\cdot\exp\left(\frac{E_F-E_D}{k_B T}\right)},\hspace{1cm}N_A^{-}=\frac{N_A}{1+g_A\cdot\exp\left(\frac{E_A-E_F}{k_B T}\right)},
+\label{eq:don_acc_density}
+\end{align}
+dabei ist $N_D$ bzw. $N_A$ die Dichte aller Donatoren bzw. Akzeptoren und $E_D$ bzw. $E_A$ die absolute Energie eines gebundenen Donatorelektrons bzw. Akzeptorlochs. Außerdem gelten für die Degenerationsfaktoren $g_D=2$ für Donatoren und $g_A=4$ für Akzeptoren. Wie beim intrinsischen Halbleiter stellt sich die Fermi-Energie so ein, dass Ladungsneutralität vorherrscht. Die Abbildung \ref{fig:fermi_dot} zeigt das schematische Banddiagramm, die Zustandsdichte, die Fermi-Dirac-Verteilung und die Ladungsträgerkonzentration für einen intrinsischen, einen $n$- und einen $p$-dotierten Halbleiter.\\
+\begin{figure}
+\centering
+\includegraphics[angle=180,scale=0.9]{Fermi_dot.jpeg}
+\caption{Schematisches Banddiagramm, Zustandsdichte, Fermi-Dirac-Verteilung und Ladungsträgerkonzentration für einen (a) intrinsischen ,(b) $n$-dotierten und (c) $p$-dotierten Halbleiter im thermischen Gleichgewicht. \cite{lit:Sze07}}
+\label{fig:fermi_dot}
+\end{figure}
+Für eine reine $p$-Dotierung gilt
+\begin{align}
+p=N_A^{-}+n
+\end{align}
+und somit in Boltzmann-Näherung mit (\ref{eq:density2}) und (\ref{eq:don_acc_density}) folglich
+\begin{align}
+N_V\exp\left(-\frac{E_F-E_V}{k_B T}\right)=\frac{N_A}{1+g_A\cdot\exp\left(\frac{E_A-E_F}{k_B T}\right)}+N_C\exp\left(-\frac{E_C-E_F}{k_B T}\right).
+\end{align}
+Die Fermi-Energie kann numerisch aus dieser impliziten Gleichung ermittelt werden.\\
+Für einen Temperaturbereich, in dem die intrinsische Ladungsträgerkonzentration keine Rolle spielt, d.h. $p=N_A^{-}$, folgt aus (\ref{eq:density2}) und (\ref{eq:don_acc_density}) die implizite Gleichung
+\begin{align}
+p\approx\frac{N_A}{1+g_A\frac{p}{N_V}\exp\left(\frac{E_a}{k_B T}\right)}
+\end{align}
+mit $E_a=E_A-E_V$. Aufgelöst nach $p$ ergibt sich
+\begin{align}
+p\approx 2N_A\left[1+\sqrt{1+4g_A\frac{N_A}{N_V}\exp\left(\frac{E_a}{k_B T}\right)}\right]^{-1}.
+\label{eq:density_p}
+\end{align}
+Man spricht von einer \emph{Störstellenreserve}, wenn bei niedrigen Temperaturen ($k_B T\ll E_a$) viele Akzeptoren noch nicht ionisiert sind. So vereinfacht sich (\ref{eq:density_p}) zu
+\begin{align}
+p\approx \frac{1}{2}\sqrt{N_A N_V}\exp\left(-\frac{E_a}{2k_B T}\right).
+\end{align}
+Für genügend hohe Temperaturen, wenn praktisch alle Störstellen ionisiert sind, spricht man dann von einer \emph{Störstellenerschöpfung} und es folgt
+\begin{align}
+p\approx N_A.
+\end{align}
+Die Temperaturabhängigkeit der Ladungsträgerkonzentration $n$ in einem $n$-dotierten Silizium ist in Abbildung \ref{fig:si_density_temp} zu sehen. Für $p$-dotiertes Silizium ist der qualitative Verlauf weitgehend identisch; er unterscheidet sich lediglich um einige Faktoren.
+\begin{figure}[p]
+\centering
+\includegraphics[scale=0.6]{Si_density_temp_n.jpeg}
+\caption{Qualitative Abhängigkeit der Ladungsträgerkonzentration in einem n-dotierten Halbleiter von der Temperatur. \cite{lit:GroMa14}}
+\label{fig:si_density_temp}
+\end{figure}
+Bei sehr hohen Temperaturen dagegen dominiert die intrinsische Ladungsträgerkonzentration $n_i$. Die \emph{intrinsische Temperatur} $T_i$ ist die Temperatur, bei der die intrinsische Ladungsträgerkonzentration $n_i$ gleich der durch eine Dotierung verursachte Ladungsträgerdichte ist. %Sie ist in Abbildung \ref{fig:intrin_temp} für Silizium dargestellt. 
+In Abbildung \ref{fig:fermi_density} ist die Fermi-Energie von Silizium als Funktion der Temperatur und der Störstellenkonzentration veranschaulicht.
+%\begin{figure}[h]
+%\centering
+%%\includegraphics[scale=1]{Intrin_Temp.pdf}
+%\caption{Intrinsische Temperatur als Funktion der Störstellenkonzentration. \cite{lit:Sze07}}
+%\label{fig:intrin_temp}
+%\end{figure}
+\begin{figure}[p]
+\centering
+\includegraphics[scale=0.7]{Fermi_Density.jpeg}
+\caption{Fermi-Energie von Silizium als Funktion der Temperatur und der Störstellenkonzentration. \cite{lit:Sze07}}
+\label{fig:fermi_density}
+\end{figure}
+\subsection{Bewegung von Ladungsträgern in elektromagnetischen Feldern}
+Das Drude-Modell des freien Elektronengases lässt sich auch auf Halbleiter anwenden. In einem äußeren elektrischen Feld $E$ lautet die Bewegungsgleichung des Lochs in einem Halbleiter
+\begin{align}
+m\frac{\mathrm{d}v}{\mathrm{d}t}+\frac{m}{\tau}v_d=eE,
+\end{align}
+hierbei ist $e$ die Elementarladung und $v_d=v-v_\text{therm.}$ die \emph{Driftgeschwindigkeit}, welche abhängig von der zu bewegenden Ladung parallel oder antiparallel zum elektrischen Feld ist.
+Es ist zu beachten, dass $v_d$ eine Netto-Geschwindigkeit der Ladungsträger in einem äußeren Feld ist, und somit als ein Erwartungswert betrachtet werden muss.
+Der Term $mv_d/\tau$ stellt einen durch Stößen an akustischen Phononen oder Gitterdefekten verursachte Reibung dar. Die \emph{Relaxationszeit} $\tau$ stellt mikroskopisch die mittlere Zeit zwischen zwei aufeinanderfolgenden Stößen dar.\\
+Im stationären Fall gilt dann
+\begin{align}
+v_d=\frac{e\tau}{m}E=\mu E
+\end{align}
+mit der \emph{Beweglichkeit}
+\begin{align}
+\mu=\frac{e\tau}{m}.
+\end{align}
+Für die Stromdichte $j$ in Feldrichtung erhält man
+\begin{align}
+j=epv_d=ep\mu E,
+\end{align}
+woraus mit dem Ohmschen Gesetz
+\begin{align}
+j=\sigma E
+\end{align}
+für die elektrische Leitfähigkeit folgt:
+\begin{align}
+\sigma=ep\mu=e^2p\tau/m.
+\end{align}
+Der \emph{spezifische Widerstand} als Kehrwert der Leitfähigkeit ist folglich
+\begin{align}
+\varrho=\sigma^{-1}=(ep\mu)^{-1}.
+\end{align}
+Die Streuung von Ladungsträgern an akustischen Phononen und an geladenen Störstellen stellen die größten Beiträge zur Relaxationszeit $\tau$ und somit   zur Beweglichkeit $\mu$.\\
+Für tiefe Temperaturen nimmt die Beweglichkeit mit $T^{3/2}$ zu, da die zunehmende thermische Geschwindigkeit der freien Ladungsträger zu einer geringeren Ablenkung an den geladenen Störstellen führt. Dagegen werden bei höheren Temperaturen immer mehr akustische Phononen erzeugt, an denen die Ladungsträger gestreut werden. In dem Temperaturbereich nimmt die Beweglichkeit mit $T^{-3/2}$ ab. Diese Temperaturabhängigkeit der Beweglichkeit ist in der Abbildung \ref{fig:mu-temp_dep} veranschaulicht.
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.9]{Mu_temp_dep.jpeg}
+\caption{Schematische Abhängigkeit der Beweglichkeit $\mu$ in einem Halbleiter von der Temperatur. \cite{lit:GroMa14}}
+\label{fig:mu-temp_dep}
+\end{figure}
+Setzt man die Ladungsträger neben dem elektrischen Feld $\vec{E}$ noch einem magnetischen Feld $\vec{B}$ aus, so erhalten die Leihfähigkeit $\sigma$ und der spezifische Widerstand $\varrho$ tensoriellen Charakter.
+\subsection{Hall-Effekt}
+Man betrachtet eine quaderförmige homogene Halbleiterprobe (\emph{Hall bar}), welche in $x$-Richtung von einem konstanten Strom durchflossen wird. Zudem wird in $z$-Richtung ein homogenes $B$-Feld angelegt. Die schematische Anordnung ist in Abbildung \ref{fig:hall-effect} zu sehen.
+\begin{figure}[h]
+\centering
+\includegraphics[scale=1]{Hall_effect.jpeg}
+\caption{Schematische Anordnung einer Hall-Messung. \cite{lit:Iba09}}
+\label{fig:hall-effect}
+\end{figure}
+In der Annahme, dass der Stromfluss nur in $x$-Richtung möglich ist ($j_x=j$), folgt für p-Leitung
+\begin{align}
+E_y=\frac{1}{pe}Bj=R_H B\frac{I}{bd}.
+\end{align}
+In $y$-Richtung baut sich folglich ein elektrisches Feld, das \emph{Hall-Feld} auf, und somit entsteht eine Hall-Spannung mit
+\begin{align}
+U_H=E_y\cdot b=R_H B I\frac{1}{d}.
+\end{align}
+Mit der sogenannten \emph{Hall-Konstante} $R_H=1/pe$ kann somit bei bekannter Probendicke $d$, den Magnetfeld $B$, der Stromstärke $I$ und der Hall-Spannung $U_H$ die Ladungsträgerdichte $p$ bestimmt werden.\\
+Die Beweglichkeit $\mu$ der Ladungsträger erhält man aus der Längsspannung
+\begin{align}
+U_x=E_x\cdot l=\frac{1}{ep\mu}I\frac{l}{bd}
+\end{align}
+über die Länge $l$ der Probe.\\
+Für eine nicht-quaderförmige Probengeometrie kann ebenfalls die Ladungsträgerdichte $p$ und die Beweglichkeit $\mu$ ermittelt werden. Dazu hat L.J. van der Pauw eine Methode beschrieben, welche im folgenden Abschnitt näher erläutert wird.
+\subsection{Van-der-Pauw-Methode}
+An einem planparallelen Plättchen (vgl. Abbildung \ref{fig:vdP}) werden am Rand vier kleine Kontakte M,N,O und P angebracht. Zwischen M und N lässt man einen elektrischen Strom $I_\text{MN}$ fließen und misst den Spannungsabfall $U_\text{P}-U_\text{O}$ zwischen den Kontakten O und P. Damit erhält man den Widerstand
+\begin{align}
+R_\text{MN,OP}=\frac{U_\text{P}-U_\text{O}}{I_\text{MN}}
+\end{align}
+und analog
+\begin{align}
+R_\text{NO,PM}=\frac{U_\text{M}-U_\text{P}}{I_\text{NO}}.
+\end{align}
+\begin{figure}[h]
+\centering
+\includegraphics[scale=1]{arbitrary_plate.pdf}
+\caption{Planparalleles Plättchen mit der Dicke $d$ und beliebiger Form mit vier Kontakten M,N,O und P am Rand.}
+\label{fig:vdP}
+\end{figure}
+Zwischen den Widerständen $R_\text{MN,OP}$ und $R_\text{NO,PM}$ besteht folgende Beziehung
+\begin{align}
+\exp\left(-\frac{\pi d}{\varrho}R_\text{MN,OP}\right)+\exp\left(-\frac{\pi d}{\varrho}R_\text{NO,PM}\right)=1,
+\end{align}
+wobei $d$ die Dicke und $\varrho$ der gesuchte spezifische Widerstand der scheibenförmigen Probe ist. Diese implizite Gleichung lässt sich numerisch nach $\varrho$ auflösen.\\
+Eine andere Möglichkeit ist, den spezifischen Widerstand mit der Gleichung 
+\begin{align}
+\varrho=\frac{\pi d}{\ln 2}\frac{R_\text{MN,OP}}{R_\text{NO,PM}}
+\end{align}
+zu berechnen, wobei $f$ eine Größe ist, die nur von dem Quotienten
+\begin{align}
+Q=\frac{R_\text{MN,OP}}{R_\text{NO,PM}}
+\end{align}
+abhängt. Sie ist implizit über die Gleichung
+\begin{align}
+\cosh\left(\frac{Q-1}{Q+1}\cdot\frac{\ln 2}{f}\right)=\frac{1}{2}\exp\left(\frac{\ln 2}{f}\right)
+\end{align}
+definiert, diese sei in Abbildung \ref{fig:f(Q)} als Funktion von $Q$ veranschaulicht.\\
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.9]{f(Q).pdf}
+\caption{Die Funktion $f(Q)$ dient zur Berechnung des spezifischen Widerstands $\varrho$. Dazu wird $Q$ berechnet, und der entsprechende Funktionswert $f(Q)$ aus dem Graphen abgelesen.}
+\label{fig:f(Q)}
+\end{figure}
+Möchte man nun die Ladungsträgerkonzentration über den Hall-Effekt bestimmen, so leitet man einen Strom $I_\text{MO}$ zwischen zwei nicht aufeinanderfolgenden (sie müssen nicht zwangsläufig gegenüber liegen) Kontakten. Dann bestimmt man wie bei der Berechnung des spezifischen Widerstands $\varrho$ im vorherigen Abschnitt den Widerstand $R_\text{MO,NP}$. Schaltet man nun ein homogenes Magnetfeld $B$ senkrecht zur Probe zu, so ändert sich der Widerstand um den Betrag $\Delta R_\text{MO,NP}$. Unter der Voraussetzung, dass
+\begin{enumerate}
+\item die Kontakte hinreichend klein sind und sich am Rand der Probe befinden;
+\item die Probe in der Dicke homogen ist und keine Löcher enthält,
+\end{enumerate}
+lässt sich die Hall-Konstante $R_H$ definieren durch
+\begin{align}
+R_H=\frac{d}{B}\Delta R_\text{MO,NP}.
+\end{align}
+Diese Gleichung ist insofern gültig, da das Stromlinienfeld nicht vom außen angelegten Magnetfeld beeinflusst wird. Dies gilt für jede beliebige Probengeometrie sofern obige Bedingungen erfüllt sind.\\
+Für das elektrische Feld gilt die Relation
+\begin{align}
+\vec{E}=\frac{1}{\mu}\vec{v}_d\times \vec{B}=\frac{1}{ep\mu}\vec{j}-\frac{1}{ep}(\vec{j}\times \vec{B})=\vec{E}_{\parallel}-\vec{E}_{\perp},
+\end{align}
+d.h. das elektrische Feld, beeinflusst vom Magnetfeld, lässt sich in einem Anteil parallel und senkrecht zum Stromlinienfeld aufteilen. Berechnet man nun die Hall-Spannung quer zur Probe, bspw. von P nach N (vgl. Abbildung \ref{fig:current_field}), so gilt
+\begin{figure}[h]
+\centering
+\includegraphics[scale=1]{current_field.pdf}
+\caption{Stromlinienfeld innerhalb der planparallelen Probe. Die Integrationswege von P über N' nach N ergeben die elektrischen Feldkomponenten.}
+\label{fig:current_field}
+\end{figure}
+\begin{align}
+U_\text{PN}&=\int\limits_{\mathrm{P}}^{\mathrm{N}}\vec{E}\;\mathrm{d}\vec{s}=\int\limits_{\mathrm{P}}^{\mathrm{N}^\prime}-\frac{1}{ep}(\vec{j}\times \vec{B})\;\mathrm{d}\vec{s}+\underbrace{\int\limits_{\mathrm{N}^\prime}^{\mathrm{N}}\frac{1}{ep\mu}\vec{j}\;\mathrm{d}\vec{s}}_{U_\text{offset}}\notag\\
+&=-\frac{1}{ep}\int\limits_{\mathrm{P}}^{\mathrm{N}^\prime}|\vec{j}\times\vec{B}|\;\mathrm{d}s+U_\text{offset}=-\frac{B}{ep}\int\limits_{\mathrm{P}}^{\mathrm{N}^\prime}j\;\mathrm{d}s+U_\text{offset}\notag\\
+&=-\frac{B}{ep}\int\limits_{\mathrm{P}}^{\mathrm{N}^\prime}\frac{\mathrm{d}I}{d}+U_\text{offset}=-\frac{B}{epd}\underbrace{\int\limits_{\mathrm{P}}^{\mathrm{N}^\prime}\mathrm{d}I}_{I}+U_\text{offset}\notag\\
+&=-\frac{B}{epd}\cdot I +U_\text{offset}=-R_H\frac{BI}{d}+U_\text{offset}
+\end{align}
+Somit misst man bei der Hall-Spannung immer eine Offset-Spannung mit. Diese lässt sich aber durch die Messung der Hall-Spannung mit entgegengesetzten Strom und anschließender Subtraktion der Spannungen eliminieren.\\
+Im Übrigen eignet es sich am besten, eine Probe in Kleeblatt-Form zu vermessen, da die Kontaktstellen klein genug sind, und sichergestellt ist, dass der Strom weitgehend geradlinig verlaufen kann.
+\begin{thebibliography}{10}
+\bibitem{lit:manual} W.Limmer, Anleitung zum Versuch \emph{Hall-Effekt in Halbleitern}
+\bibitem{lit:Iba09} H. Ibach und H.Lüth, \emph{Festkörperphysik}, 7.Auflage, Springer Verlag, Berlin (2009)
+\bibitem{lit:Sze07} S.M.Sze und Kwok K.Ng, \emph{Physics of semiconductor devices}, 3. Auflage, John Wiley \& Sons, Inc., New Jersey (2007)
+\bibitem{lit:GroMa14} R.Gross und A.Marx, \emph{Festkörperphysik}, 2. Auflage, Walter de Gruyther, Berlin (2014)
+\end{thebibliography}
+\end{document}
