@@ -79,12 +79,11 @@
 
 \newcommand{\RM}[1]{\MakeUppercase{\romannumeral #1}}	%roman numerals
 \newcommand{\LabView}{LabView\texttrademark}
-\newcommand{\bruch}[2]{^{#1}\!\!\!/_{\!#2} \,}
 \newcommand{\Div}[1]{\operatorname{div} \vec{#1}}
 \newcommand{\rot}[1]{\operatorname{rot} \vec{#1}}
 \newcommand{\grad}[1]{\operatorname{grad} #1}
 \newcommand{\vect}[1]{\mathop{#1}\limits^{\vbox to -.6ex{\kern-0.75ex\hbox{$\rightharpoonup$}\vss}}}
-\renewcommand{\d}{\mathrm{d}}
+\AtBeginDocument{\renewcommand{\d}{\mathrm{d}}}
 \newcommand{\dd}[1]{\tfrac{\d}{\d#1}}				%differential by...
 \newcommand{\ddp}[2]{\frac{\partial#1}{\partial#2}}		%partial differential
 \newcommand{\dds}[2]{\tfrac{\partial#1}{\partial#2}}
