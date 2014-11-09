@@ -58,10 +58,15 @@
 
 \usepackage{listings}					% code listings with syntax highlighting
 
+\lstset{
+  literate=     {ß}{{\ss}}1
+  {ö}{{\"o}}1 {ä}{{\"a}}1 {ü}{{\"u}}1
+  {Ö}{{\"O}}1 {Ä}{{\"A}}1 {Ü}{{\"U}}1
+}
 \definecolor{mlgreen}{rgb}{.035,.6,.251}
 \definecolor{mlviolett}{rgb}{.643,.259,.804}
 \lstdefinestyle{mlab}{language=Matlab,
-keywordstyle={\color{blue}}, commentstyle=\color{mlgreen}, stringstyle=\color{mlviolett}, basicstyle={\ttfamily\small}, breaklines=true}
+keywordstyle={\color{blue}}, commentstyle=\color{mlgreen}, stringstyle=\color{mlviolett}, basicstyle={\ttfamily\small}} % , breaklines=true}
 
 \usepackage[colorlinks]{hyperref}			% has to come last
 
