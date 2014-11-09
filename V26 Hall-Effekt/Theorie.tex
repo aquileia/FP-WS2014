@@ -1,20 +1,6 @@
-\documentclass[a4paper,12pt]{article}
-\usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
-\usepackage[german]{babel}
-\usepackage{amssymb}
-\usepackage{latexsym}
-\usepackage{amsfonts}
-\usepackage{amsmath}
-\usepackage{graphicx}
-\usepackage{float}
-\usepackage[a4paper]{geometry}
-\usepackage{hyperref}
-\graphicspath{{./graphics/}}
 
-\pagestyle{plain}
 
-\begin{document}
+
 \section{Einleitung}
 Im Versuch \emph{Hall-Effekt in Halbleitern} wird die Konzentration $n$ bzw. $p$ sowie die Beweglichkeit $\mu$ der Ladungsträger in Halbleitern ermittelt. Der zugrundeliegende Hall-Effekt beschreibt das Entstehen einer elektrischen Spannung $U_H$ in einer Probe, wenn an dieser ein konstanter Strom $I$ angelegt wird und die Probe sich in einem homogenen Magnetfeld $B$ befindet. Über das Ohmsche Gesetz lässt sich anschließend die anfangs erläuterten Größen ermitteln.\\
 In unserem Praktikumsversuch handelt es sich bei der Probe um ein mit Bor dotiertes Stück Silizium. Sie ist damit \emph{p-dotiert}, d.h. das ursprünglich perfekte Kristallgitter ist mit Störatomen versetzt, welche ein Valenzelektron weniger als die das Gitter bildende Atom besitzen. Somit herrscht ein positiver Ladungsüberschuss, welcher im Kristall wandert und somit zur Ladungsübertragung beiträgt. Im Gegensatz dazu spricht man von einer \emph{n-Dotierung}, wenn Fremdatome eingebracht werden, sodass ein negativer Ladungsüberschuss entsteht.\\
@@ -83,8 +69,8 @@ $E_C$ bezeichnet die Unterkante des Leitungsbands, $E_V$ die Oberkante des Valen
 $m_{de}=\sqrt[3]{m_x m_y m_z}$ ist die effektive Zustandsdichtemasse für Elektronen (für Silizium ist $m_{de}=\sqrt[3]{m_l m_t^2}$) und entsprechend für Löcher gilt $m_{dh}=(m_{lh}^{3/2}+m_{hh}^{3/2})^{2/3}$.\\
 Setzt man die eben eingeführten Größen in die Definitionsgleichungen 
 \begin{align}
-n=\int\limits_{E_C}^\infty D_C(E)\;f(E,T)\;\mathrm{d}E,\hspace{1cm}
-p=\int\limits_{-\infty}^{E_V} D_V(E)\;[1-f(E,T)]\;\mathrm{d}E
+n=\int\limits_{E_C}^\infty D_C(E)\;f(E,T)\;\d E,\hspace{1cm}
+p=\int\limits_{-\infty}^{E_V} D_V(E)\;[1-f(E,T)]\;\d E
 \end{align}
 für die Ladungsträgerkonzentrationen ein, so erhält man
 \begin{align}
@@ -97,7 +83,7 @@ N_C=2M_C\left(\frac{2\pi m_{de}k_B T}{h^2}\right)^{3/2},\hspace{1cm}N_V=2\left(\
 \end{align}
 Das Fermi-Dirac-Integral $F_{1/2}$ ist definiert durch
 \begin{align}
-F_{1/2}(\eta_f)=\int\limits_0^\infty \frac{\eta^{1/2}\;\mathrm{d}\eta}{1+\exp(\eta-\eta_f)}
+F_{1/2}(\eta_f)=\int\limits_0^\infty \frac{\eta^{1/2}\;\d \eta}{1+\exp(\eta-\eta_f)}
 \end{align}
 mit dem Argument $\eta_f=\frac{E_F-E_C}{k_B T}$.\\
 Für $k_B T\ll E-E_F$ lässt sich die Fermi-Dirac-Statistik durch die Boltzmann-Statistik ersetzen. Dadurch ergibt sich für die Ladungsträgerkonzentrationen
@@ -130,7 +116,8 @@ dabei ist $N_D$ bzw. $N_A$ die Dichte aller Donatoren bzw. Akzeptoren und $E_D$ 
 \begin{figure}
 \centering
 \includegraphics[angle=180,scale=0.9]{Fermi_dot.jpeg}
-\caption{Schematisches Banddiagramm, Zustandsdichte, Fermi-Dirac-Verteilung und Ladungsträgerkonzentration für einen (a) intrinsischen ,(b) $n$-dotierten und (c) $p$-dotierten Halbleiter im thermischen Gleichgewicht. \cite{lit:Sze07}}
+\caption[Banddiagramm, Zustandsdichte, Fermi-Dirac-Verteilung, Ladungsträgerkonzentration]
+{Schematisches Banddiagramm, Zustandsdichte, Fermi-Dirac-Verteilung und Ladungsträgerkonzentration für einen (a) intrinsischen ,(b) $n$-dotierten und (c) $p$-dotierten Halbleiter im thermischen Gleichgewicht. \cite{lit:Sze07}}
 \label{fig:fermi_dot}
 \end{figure}
 Für eine reine $p$-Dotierung gilt
@@ -183,7 +170,7 @@ In Abbildung \ref{fig:fermi_density} ist die Fermi-Energie von Silizium als Funk
 \subsection{Bewegung von Ladungsträgern in elektromagnetischen Feldern}
 Das Drude-Modell des freien Elektronengases lässt sich auch auf Halbleiter anwenden. In einem äußeren elektrischen Feld $E$ lautet die Bewegungsgleichung des Lochs in einem Halbleiter
 \begin{align}
-m\frac{\mathrm{d}v}{\mathrm{d}t}+\frac{m}{\tau}v_d=eE,
+m\frac{\d v}{\d t}+\frac{m}{\tau}v_d=eE,
 \end{align}
 hierbei ist $e$ die Elementarladung und $v_d=v-v_\text{therm.}$ die \emph{Driftgeschwindigkeit}, welche abhängig von der zu bewegenden Ladung parallel oder antiparallel zum elektrischen Feld ist.
 Es ist zu beachten, dass $v_d$ eine Netto-Geschwindigkeit der Ladungsträger in einem äußeren Feld ist, und somit als ein Erwartungswert betrachtet werden muss.
@@ -305,17 +292,10 @@ d.h. das elektrische Feld, beeinflusst vom Magnetfeld, lässt sich in einem Ante
 \label{fig:current_field}
 \end{figure}
 \begin{align}
-U_\text{PN}&=\int\limits_{\mathrm{P}}^{\mathrm{N}}\vec{E}\;\mathrm{d}\vec{s}=\int\limits_{\mathrm{P}}^{\mathrm{N}^\prime}-\frac{1}{ep}(\vec{j}\times \vec{B})\;\mathrm{d}\vec{s}+\underbrace{\int\limits_{\mathrm{N}^\prime}^{\mathrm{N}}\frac{1}{ep\mu}\vec{j}\;\mathrm{d}\vec{s}}_{U_\text{offset}}\notag\\
-&=-\frac{1}{ep}\int\limits_{\mathrm{P}}^{\mathrm{N}^\prime}|\vec{j}\times\vec{B}|\;\mathrm{d}s+U_\text{offset}=-\frac{B}{ep}\int\limits_{\mathrm{P}}^{\mathrm{N}^\prime}j\;\mathrm{d}s+U_\text{offset}\notag\\
-&=-\frac{B}{ep}\int\limits_{\mathrm{P}}^{\mathrm{N}^\prime}\frac{\mathrm{d}I}{d}+U_\text{offset}=-\frac{B}{epd}\underbrace{\int\limits_{\mathrm{P}}^{\mathrm{N}^\prime}\mathrm{d}I}_{I}+U_\text{offset}\notag\\
+U_\text{PN}&=\int\limits_{\mathrm{P}}^{\mathrm{N}}\vec{E}\;\d \vec{s}=\int\limits_{\mathrm{P}}^{\mathrm{N}^\prime}-\frac{1}{ep}(\vec{j}\times \vec{B})\;\d \vec{s}+\underbrace{\int\limits_{\mathrm{N}^\prime}^{\mathrm{N}}\frac{1}{ep\mu}\vec{j}\;\d \vec{s}}_{U_\text{offset}}\notag\\
+&=-\frac{1}{ep}\int\limits_{\mathrm{P}}^{\mathrm{N}^\prime}|\vec{j}\times\vec{B}|\;\d s+U_\text{offset}=-\frac{B}{ep}\int\limits_{\mathrm{P}}^{\mathrm{N}^\prime}j\;\d s+U_\text{offset}\notag\\
+&=-\frac{B}{ep}\int\limits_{\mathrm{P}}^{\mathrm{N}^\prime}\frac{\d I}{d}+U_\text{offset}=-\frac{B}{epd}\underbrace{\int\limits_{\mathrm{P}}^{\mathrm{N}^\prime}\d I}_{I}+U_\text{offset}\notag\\
 &=-\frac{B}{epd}\cdot I +U_\text{offset}=-R_H\frac{BI}{d}+U_\text{offset}
 \end{align}
 Somit misst man bei der Hall-Spannung immer eine Offset-Spannung mit. Diese lässt sich aber durch die Messung der Hall-Spannung mit entgegengesetzten Strom und anschließender Subtraktion der Spannungen eliminieren.\\
 Im Übrigen eignet es sich am besten, eine Probe in Kleeblatt-Form zu vermessen, da die Kontaktstellen klein genug sind, und sichergestellt ist, dass der Strom weitgehend geradlinig verlaufen kann.
-\begin{thebibliography}{10}
-\bibitem{lit:manual} W.Limmer, Anleitung zum Versuch \emph{Hall-Effekt in Halbleitern}
-\bibitem{lit:Iba09} H. Ibach und H.Lüth, \emph{Festkörperphysik}, 7.Auflage, Springer Verlag, Berlin (2009)
-\bibitem{lit:Sze07} S.M.Sze und Kwok K.Ng, \emph{Physics of semiconductor devices}, 3. Auflage, John Wiley \& Sons, Inc., New Jersey (2007)
-\bibitem{lit:GroMa14} R.Gross und A.Marx, \emph{Festkörperphysik}, 2. Auflage, Walter de Gruyther, Berlin (2014)
-\end{thebibliography}
-\end{document}
