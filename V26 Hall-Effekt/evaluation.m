@@ -71,30 +71,45 @@ p_fit = fit(T, p, p_fct);
 p_coeff  = num2cell(coeffvalues(p_fit));
 [Ea, Na] = p_coeff{:};
 % Ea = 31.73  (31.07, 32.4)
+disp(['Bandlücke: ', num2str(Ea), ' meV']);
+disp(['Akzeptor-Konzentration: ', num2str(Na), ' /cm³']);
 
 %plot ranges for theory
 Tn  = 1000:200:3000;
 Tg = logspace(1.9,3.5);
 % Arrhenius-plot of p(T)
-fig1 = figure;    %('Units','normalized','Position',[0 0 1 1]);
+fig1 = figure;      %('Units','normalized','Position',[0 0 1 1]);
 set(gca,'FontSize',14);
-semilogy(1000./T,p, 'o');
+semilogy(1000./T,p, 'o', 'LineWidth', 1.5);
 hold on;
-semilogy(1000./Tg,p_eq(Ea,Na,Tg), 'r--', 'LineWidth', 2);
-semilogy(1000./Tg,p_approx(Ea,Na,Tg), 'k:', 'LineWidth', 2);
-semilogy(1000./Tn,p_intrinsic(Eg,Tn), 'g--', 'LineWidth', 2);
-ylim([9e16 inf]);
-ylabel('Löcherdichte p ($cm^{-3}$)');
+semilogy(1000./Tn,p_intrinsic(Eg,Tn), 'g:', 'LineWidth', 2);
+semilogy(1000./Tg,p_eq(Ea,Na,Tg), 'k', 'LineWidth', 2);
+semilogy(1000./Tg,p_approx(Ea,Na,Tg), 'r:', 'LineWidth', 2);
+ylim([9e16 1e20]);
+ylabel('Löcherdichte $p~(\centi\metre^{-3})$');
 xlim([0 12.5]);
-xlabel('inverse Temperatur 1000/T ($K^{-1}$)');
-legend('Messwerte', 'Gleichung \eqref{eq:density_p}', ...
-       'Gleichung \eqref{eq:p_approx}', 'Gleichung \eqref{eq:p_intrinsic}');
+xlabel('inverse Temperatur 1000/$T~(\kelvin^{-1})$');
+legend('Messwerte', 'Gleichung \eqref{eq:p_intrinsic}', ...
+       'Gleichung \eqref{eq:density_p}', 'Gleichung \eqref{eq:p_approx}');
 hold off
-%print(f1,'-dpng', pic);
+%print(fig1,'-dpng', pic);
 matlab2tikz('p(T).tex', 'width', '\textwidth', 'encoding','UTF-8', ...
             'figurehandle', fig1, 'showInfo', false, 'parseStrings', false);
 
-%f2 = figure('Units','normalized','Position',[0 0 1 1]);
-%f2a = loglog(T,m);
-%ylabel('\mu (cm^2 / Vs)');
-%xlabel('T (K)');
+fig2 = figure;      %('Units','normalized','Position',[0 0 1 1]);
+loglog(T,m, 'o', 'LineWidth', 1.5);
+hold on;
+% you might have to play with these values c1...c3 to match your data:
+c = [6.3e5 0.61 0.38];
+loglog([170 300], c(1)*[170 300].^(-3/2), 'k', 'LineWidth', 1.5);
+loglog([38 63]  , c(2)*[35 60]  .^(3/2),  'r', 'LineWidth', 1.5);
+loglog([46.5 83], c(3)*[46.5 83].^(3/2),  'g', 'LineWidth', 1.5);
+ylabel('Beweglichkeit $\mu~(\centi\metre^2/\volt\second)$');
+xlim([40 300]);
+xlabel('Temperatur $T$ (K)');
+legend('Messwerte', '$c_1 \cdot T^{-3/2}$', ...
+       '$c_2 \cdot T^{3/2}$', '$c_3 \cdot T^{3/2}$');
+hold off;
+%print(fig2,'-dpng', pic);
+matlab2tikz('mu(T).tex', 'width', '\textwidth', 'encoding','UTF-8', ...
+            'figurehandle', fig2, 'showInfo', false, 'parseStrings', false);

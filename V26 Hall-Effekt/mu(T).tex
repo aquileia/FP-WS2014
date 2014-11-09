@@ -1,0 +1,101 @@
+% This file was created by matlab2tikz v0.5.0 (commit 800cce279cab22a09aed1380864216c9dedfbf54) running on MATLAB 8.2.
+%Copyright (c) 2008--2014, Nico SchlÃ¶mer <nico.schloemer@gmail.com>
+%All rights reserved.
+%Minimal pgfplots version: 1.3
+%
+\begin{tikzpicture}
+
+\begin{axis}[%
+width=0.95092\textwidth,
+height=0.75\textwidth,
+at={(0\textwidth,0\textwidth)},
+scale only axis,
+xmode=log,
+xmin=40,
+xmax=300,
+xminorticks=true,
+xlabel={Temperatur $T$ (K)},
+ymode=log,
+ymin=120.49333529287,
+ymax=287.343075086211,
+yminorticks=true,
+ylabel={Beweglichkeit $\mu~(\centi\metre^2/\volt\second)$},
+legend style={legend cell align=left}
+]
+\addplot [color=blue,line width=1.5pt,only marks,mark=o,mark options={solid}]
+  table[row sep=crcr]{%
+82	244.300300786938\\
+85	252.786090721705\\
+90	257.314267765106\\
+93	258.129158219425\\
+95	258.83111566487\\
+98	259.585845209269\\
+103	259.640846407217\\
+105	259.657095837514\\
+110	258.402830105037\\
+116	256.455524871269\\
+120	254.899951737343\\
+125	252.229637785867\\
+130	249.438390014947\\
+135	245.912203805534\\
+140	242.657820692944\\
+145	238.634802456646\\
+150	234.601932529588\\
+155	230.337459728688\\
+160	226.423702869282\\
+165	222.082210044402\\
+170	217.545064758772\\
+175	213.896451558582\\
+180	209.410247748308\\
+185	204.951506445784\\
+191	199.838051167483\\
+195	195.988318004159\\
+200	191.898826712964\\
+205	187.584927845995\\
+210	183.862252089627\\
+215	179.589511412717\\
+220	175.326027897898\\
+225	171.571284686148\\
+230	168.669589382853\\
+235	165.078963472015\\
+242	159.786990298345\\
+245	157.586999917893\\
+250	153.62596980649\\
+255	150.425062314759\\
+261	146.201300910057\\
+265	143.415598869528\\
+270	139.590559929408\\
+275	136.377060066437\\
+280	133.718235317397\\
+285	130.408961483718\\
+290	127.429432820283\\
+291	126.741540561473\\
+295	124.408823547897\\
+297	125.720492954517\\
+300	121.111846018363\\
+};
+\addlegendentry{Messwerte};
+
+\addplot [color=black,solid,line width=1.5pt]
+  table[row sep=crcr]{%
+170	284.22820174932\\
+300	121.243556529821\\
+};
+\addlegendentry{$c_1 \cdot T^{-3/2}$};
+
+\addplot [color=red,solid,line width=1.5pt]
+  table[row sep=crcr]{%
+38	126.308303369177\\
+63	283.502380942383\\
+};
+\addlegendentry{$c_2 \cdot T^{3/2}$};
+
+\addplot [color=green,solid,line width=1.5pt]
+  table[row sep=crcr]{%
+46.5	120.49333529287\\
+83	287.343075086211\\
+};
+\addlegendentry{$c_3 \cdot T^{3/2}$};
+
+\end{axis}
+\end{tikzpicture}%

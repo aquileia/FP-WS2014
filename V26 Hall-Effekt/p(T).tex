@@ -6,21 +6,21 @@
 \begin{tikzpicture}
 
 \begin{axis}[%
-width=0.966567\textwidth,
+width=0.958763\textwidth,
 height=0.75\textwidth,
 at={(0\textwidth,0\textwidth)},
 scale only axis,
 xmin=0,
 xmax=12.5,
-xlabel={inverse Temperatur 1000/T ($K^{-1}$)},
+xlabel={inverse Temperatur 1000/$T~(\kelvin^{-1})$},
 ymode=log,
 ymin=9e+16,
 ymax=1e+20,
 yminorticks=true,
-ylabel={Löcherdichte p ($cm^{-3}$)},
+ylabel={Löcherdichte $p~(\centi\metre^{-3})$},
 legend style={legend cell align=left}
 ]
-\addplot [color=blue,only marks,mark=o,mark options={solid}]
+\addplot [color=blue,line width=1.5pt,only marks,mark=o,mark options={solid}]
   table[row sep=crcr]{%
 12.1951219512195	9.19799779848282e+16\\
 11.7647058823529	1.17955867390416e+17\\
@@ -74,7 +74,23 @@ legend style={legend cell align=left}
 };
 \addlegendentry{Messwerte};
 
-\addplot [color=red,dashed,line width=2.0pt]
+\addplot [color=green,dotted,line width=2.0pt]
+  table[row sep=crcr]{%
+1	1.55078081815462e+17\\
+0.833333333333333	6.198706564364e+17\\
+0.714285714285714	1.72864618284833e+18\\
+0.625	3.83206324996288e+18\\
+0.555555555555556	7.26779408678282e+18\\
+0.5	1.23319506928369e+19\\
+0.454545454545455	1.92682510027295e+19\\
+0.416666666666667	2.82678672374309e+19\\
+0.384615384615385	3.94745091642555e+19\\
+0.357142857142857	5.2991431530351e+19\\
+0.333333333333333	6.88886155295108e+19\\
+};
+\addlegendentry{Gleichung \eqref{eq:p_intrinsic}};
+
+\addplot [color=black,solid,line width=2.0pt]
   table[row sep=crcr]{%
 12.5892541179417	9.00277574550656e+16\\
 11.6774210239705	1.11938730947851e+17\\
@@ -129,7 +145,7 @@ legend style={legend cell align=left}
 };
 \addlegendentry{Gleichung \eqref{eq:density_p}};
 
-\addplot [color=black,dotted,line width=2.0pt]
+\addplot [color=red,dotted,line width=2.0pt]
   table[row sep=crcr]{%
 12.5892541179417	9.23672799114088e+16\\
 11.6774210239705	1.15590602858246e+17\\
@@ -183,22 +199,6 @@ legend style={legend cell align=left}
 0.316227766016838	1.40258316336652e+19\\
 };
 \addlegendentry{Gleichung \eqref{eq:p_approx}};
-
-\addplot [color=green,dashed,line width=2.0pt]
-  table[row sep=crcr]{%
-1	1.55078081815462e+17\\
-0.833333333333333	6.198706564364e+17\\
-0.714285714285714	1.72864618284833e+18\\
-0.625	3.83206324996288e+18\\
-0.555555555555556	7.26779408678282e+18\\
-0.5	1.23319506928369e+19\\
-0.454545454545455	1.92682510027295e+19\\
-0.416666666666667	2.82678672374309e+19\\
-0.384615384615385	3.94745091642555e+19\\
-0.357142857142857	5.2991431530351e+19\\
-0.333333333333333	6.88886155295108e+19\\
-};
-\addlegendentry{Gleichung \eqref{eq:p_intrinsic}};
 
 \end{axis}
 \end{tikzpicture}%
