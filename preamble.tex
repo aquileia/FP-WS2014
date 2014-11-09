@@ -17,11 +17,9 @@
 
 %______________________________________
 %
-% This is a collection of packages and macros which I use for lab reports (Protokolle im Grundpraktikum / compte rendu en TP). In particular, it includes an extended version of my macro Titelseite, which has the following syntax:
+% This is a collection of packages and macros which I use for lab reports (Protokolle in Praktika / compte rendu en TP). In particular, it includes an extended version of my macro Titelseite, which has the following syntax:
 %	\Titelseite{Praktikum}{Nr.}{Versuch}{Versuchsdatum}{Erstabgabe}{Betreuer}{Email Betreuer}
 % If you want no list of tables, write \Titelseite[] instead of \Titelseite
-%
-% I use neither biblatex nor hyperref as these might be undesired and would have to be added after all other packages. The pgfplot-package is extremely usefull when used properly but wastes ressources if unused. If you need them, uncomment them.
 %
 % Usage example:
 %	\documentclass[paper=a4, parskip, 12pt, DIV = 14]{scrartcl}
@@ -50,7 +48,7 @@
 \usepackage{booktabs}					% nice tables
 \usepackage{enumitem}
 \usepackage{url}
-\usepackage{graphicx}						% include pictures
+\usepackage{graphicx}					% include pictures
 \usepackage{subfig}						% pictures side by side as a), b)
 %\usepackage{lscape, rotating, multirow}		% oversized tables
 %\usepackage[backend=biber, sortlocale=de_DE]{biblatex}
@@ -58,7 +56,14 @@
 \usepackage{pgfplots}
 \pgfplotsset{compat=1.7, /pgf/number format/.cd, use comma, 1000 sep={}}
 
-%\usepackage[colorlinks=false]{hyperref}		% has to come last
+\usepackage{listings}					% code listings with syntax highlighting
+
+\definecolor{mlgreen}{rgb}{.035,.6,.251}
+\definecolor{mlviolett}{rgb}{.643,.259,.804}
+\lstdefinestyle{mlab}{language=Matlab,
+keywordstyle={\color{blue}}, commentstyle=\color{mlgreen}, stringstyle=\color{mlviolett}, basicstyle={\ttfamily\small}, breaklines=true}
+
+\usepackage[colorlinks]{hyperref}			% has to come last
 
 \newcommand{\dfe}[3]{%
 	\ifdefined\deutsch #1\fi \ifdefined\francais #2\fi \ifdefined\english #3\fi}
