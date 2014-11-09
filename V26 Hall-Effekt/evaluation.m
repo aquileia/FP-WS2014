@@ -72,20 +72,27 @@ p_coeff  = num2cell(coeffvalues(p_fit));
 [Ea, Na] = p_coeff{:};
 % Ea = 31.73  (31.07, 32.4)
 
+%plot ranges for theory
+Tn  = 1000:200:3000;
+Tg = logspace(1.9,3.5);
 % Arrhenius-plot of p(T)
-%f1 = figure('Units','normalized','Position',[0 0 1 1]);
+fig1 = figure;    %('Units','normalized','Position',[0 0 1 1]);
 set(gca,'FontSize',14);
-f1a = semilogy(1000./T,p, 'o', 'LineWidth', 2);
+semilogy(1000./T,p, 'o');
 hold on;
-f1b = semilogy(1000./T,p_eq(Ea,Na,T), 'r--', 'LineWidth', 2);
-f1c = semilogy(1000./T,p_approx(Ea,Na,T), 'k:', 'LineWidth', 2);
-Tn  = 1000:50:3000;
-f1d = semilogy(1000./Tn,p_intrinsic(Eg,Tn), 'g--', 'LineWidth', 2);
-ylabel('LÃ¶cherdichte p (cm^{-3})');
-xlabel('inverse Temperatur 1000/T (K^{-1})');
+semilogy(1000./Tg,p_eq(Ea,Na,Tg), 'r--', 'LineWidth', 2);
+semilogy(1000./Tg,p_approx(Ea,Na,Tg), 'k:', 'LineWidth', 2);
+semilogy(1000./Tn,p_intrinsic(Eg,Tn), 'g--', 'LineWidth', 2);
+ylim([9e16 inf]);
+ylabel('Löcherdichte p ($cm^{-3}$)');
+xlim([0 12.5]);
+xlabel('inverse Temperatur 1000/T ($K^{-1}$)');
 legend('Messwerte', 'Gleichung \eqref{eq:density_p}', ...
        'Gleichung \eqref{eq:p_approx}', 'Gleichung \eqref{eq:p_intrinsic}');
+hold off
 %print(f1,'-dpng', pic);
+matlab2tikz('p(T).tex', 'width', '\textwidth', 'encoding','UTF-8', ...
+            'figurehandle', fig1, 'showInfo', false, 'parseStrings', false);
 
 %f2 = figure('Units','normalized','Position',[0 0 1 1]);
 %f2a = loglog(T,m);
