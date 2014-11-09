@@ -100,6 +100,7 @@ Die Fermi-Energie eines intrinsischen Halbleiters liegt somit etwa in der Mitte 
 \begin{align}
 n_i&=\sqrt{np}=\sqrt{N_C N_V}\exp\left(-\frac{E_g}{2k_B T}\right)\notag\\
 &=4,9\cdot 10^{15}\left(\frac{m_{de}m_{dh}}{m_0^2}\right)^{3/4}M_C^{1/2}T^{3/2}\exp\left(-\frac{E_g}{2k_B T}\right)\mathrm{cm}^{-3},
+\label{eq:p_intrinsic}
 \end{align} 
 mit der Masse $m_0$ des freien Elektrons.
 \subsection{Ladungsträgerdichte im dotierten Halbleiter}
@@ -138,9 +139,10 @@ mit $E_a=E_A-E_V$. Aufgelöst nach $p$ ergibt sich
 p\approx 2N_A\left[1+\sqrt{1+4g_A\frac{N_A}{N_V}\exp\left(\frac{E_a}{k_B T}\right)}\right]^{-1}.
 \label{eq:density_p}
 \end{align}
-Man spricht von einer \emph{Störstellenreserve}, wenn bei niedrigen Temperaturen ($k_B T\ll E_a$) viele Akzeptoren noch nicht ionisiert sind. So vereinfacht sich (\ref{eq:density_p}) zu
+Man spricht von einer \emph{Störstellenreserve}, wenn bei niedrigen Temperaturen ($k_B T\ll E_a$) viele Akzeptoren noch nicht ionisiert sind. So vereinfacht sich \eqref{eq:density_p} zu
 \begin{align}
 p\approx \frac{1}{2}\sqrt{N_A N_V}\exp\left(-\frac{E_a}{2k_B T}\right).
+\label{eq:p_approx}
 \end{align}
 Für genügend hohe Temperaturen, wenn praktisch alle Störstellen ionisiert sind, spricht man dann von einer \emph{Störstellenerschöpfung} und es folgt
 \begin{align}

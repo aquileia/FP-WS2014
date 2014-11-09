@@ -83,8 +83,8 @@ Tn  = 1000:50:3000;
 f1d = semilogy(1000./Tn,p_intrinsic(Eg,Tn), 'g--', 'LineWidth', 2);
 ylabel('Löcherdichte p (cm^{-3})');
 xlabel('inverse Temperatur 1000/T (K^{-1})');
-legend('Messwerte', 'Gleichung \eqref{p_exact}', ...
-       'Gleichung \eqref{p_approx}', 'Gleichung \eqref{p_intrinsic}');
+legend('Messwerte', 'Gleichung \eqref{eq:density_p}', ...
+       'Gleichung \eqref{eq:p_approx}', 'Gleichung \eqref{eq:p_intrinsic}');
 %print(f1,'-dpng', pic);
 
 %f2 = figure('Units','normalized','Position',[0 0 1 1]);
