@@ -1,5 +1,6 @@
-
-
+% !TeX encoding = UTF-8
+% !TeX root = V26_Halleffekt.tex
+% !TeX spellcheck = de_DE_frami
 
 \section{Einleitung}
 Im Versuch \emph{Hall-Effekt in Halbleitern} wird die Konzentration $n$ bzw. $p$ sowie die Beweglichkeit $\mu$ der Ladungsträger in Halbleitern ermittelt. Der zugrundeliegende Hall-Effekt beschreibt das Entstehen einer elektrischen Spannung $U_H$ in einer Probe, wenn an dieser ein konstanter Strom $I$ angelegt wird und die Probe sich in einem homogenen Magnetfeld $B$ befindet. Über das Ohmsche Gesetz lässt sich anschließend die anfangs erläuterten Größen ermitteln.\\
@@ -203,13 +204,17 @@ Der \emph{spezifische Widerstand} als Kehrwert der Leitfähigkeit ist folglich
 \end{align}
 Die Streuung von Ladungsträgern an akustischen Phononen und an geladenen Störstellen stellen die größten Beiträge zur Relaxationszeit $\tau$ und somit   zur Beweglichkeit $\mu$.\\
 Für tiefe Temperaturen nimmt die Beweglichkeit mit $T^{3/2}$ zu, da die zunehmende thermische Geschwindigkeit der freien Ladungsträger zu einer geringeren Ablenkung an den geladenen Störstellen führt. Dagegen werden bei höheren Temperaturen immer mehr akustische Phononen erzeugt, an denen die Ladungsträger gestreut werden. In dem Temperaturbereich nimmt die Beweglichkeit mit $T^{-3/2}$ ab. Diese Temperaturabhängigkeit der Beweglichkeit ist in der Abbildung \ref{fig:mu-temp_dep} veranschaulicht.
+
+Setzt man die Ladungsträger neben dem elektrischen Feld $\vec{E}$ noch einem magnetischen Feld $\vec{B}$ aus, so erhalten die Leihfähigkeit $\sigma$ und der spezifische Widerstand $\varrho$ tensoriellen Charakter.
+\enlargethispage{3em}
 \begin{figure}[h!]
 \centering
-\includegraphics[scale=0.9]{Mu_temp_dep.jpeg}
-\caption{Schematische Abhängigkeit der Beweglichkeit $\mu$ in einem Halbleiter von der Temperatur. \cite{lit:GroMa14}}
+\includegraphics[scale=0.8]{Mu_temp_dep.jpeg}
+\caption{Temperatur-Abhängigkeit der Beweglichkeit $\mu$ in Halbleitern. \cite{lit:GroMa14}}
 \label{fig:mu-temp_dep}
 \end{figure}
-Setzt man die Ladungsträger neben dem elektrischen Feld $\vec{E}$ noch einem magnetischen Feld $\vec{B}$ aus, so erhalten die Leihfähigkeit $\sigma$ und der spezifische Widerstand $\varrho$ tensoriellen Charakter.
+
+\newpage
 \subsection{Hall-Effekt}
 Man betrachtet eine quaderförmige homogene Halbleiterprobe (\emph{Hall bar}), welche in $x$-Richtung von einem konstanten Strom durchflossen wird. Zudem wird in $z$-Richtung ein homogenes $B$-Feld angelegt. Die schematische Anordnung ist in Abbildung \ref{fig:hall-effect} zu sehen.
 \begin{figure}[h]
@@ -218,6 +223,7 @@ Man betrachtet eine quaderförmige homogene Halbleiterprobe (\emph{Hall bar}), w
 \caption{Schematische Anordnung einer Hall-Messung. \cite{lit:Iba09}}
 \label{fig:hall-effect}
 \end{figure}
+
 In der Annahme, dass der Stromfluss nur in $x$-Richtung möglich ist ($j_x=j$), folgt für p-Leitung
 \begin{align}
 E_y=\frac{1}{pe}Bj=R_H B\frac{I}{bd}.
@@ -226,15 +232,26 @@ In $y$-Richtung baut sich folglich ein elektrisches Feld, das \emph{Hall-Feld} a
 \begin{align}
 U_H=E_y\cdot b=R_H B I\frac{1}{d}.
 \end{align}
-Mit der sogenannten \emph{Hall-Konstante} $R_H=1/pe$ kann somit bei bekannter Probendicke $d$, den Magnetfeld $B$, der Stromstärke $I$ und der Hall-Spannung $U_H$ die Ladungsträgerdichte $p$ bestimmt werden.\\
+Mit der sogenannten \emph{Hall-Konstante} $R_H=1/pe$ kann somit bei bekannter Probendicke $d$, den Magnetfeld $B$, der Stromstärke $I$ und der Hall-Spannung $U_H$ die Ladungsträgerdichte $p$ bestimmt werden.
+
+\newpage
 Die Beweglichkeit $\mu$ der Ladungsträger erhält man aus der Längsspannung
 \begin{align}
 U_x=E_x\cdot l=\frac{1}{ep\mu}I\frac{l}{bd}
 \end{align}
-über die Länge $l$ der Probe.\\
+über die Länge $l$ der Probe.
+
 Für eine nicht-quaderförmige Probengeometrie kann ebenfalls die Ladungsträgerdichte $p$ und die Beweglichkeit $\mu$ ermittelt werden. Dazu hat L.J. van der Pauw eine Methode beschrieben, welche im folgenden Abschnitt näher erläutert wird.
 \subsection{Van-der-Pauw-Methode}
-An einem planparallelen Plättchen (vgl. Abbildung \ref{fig:vdP}) werden am Rand vier kleine Kontakte M,N,O und P angebracht. Zwischen M und N lässt man einen elektrischen Strom $I_\text{MN}$ fließen und misst den Spannungsabfall $U_\text{P}-U_\text{O}$ zwischen den Kontakten O und P. Damit erhält man den Widerstand
+An einem planparallelen Plättchen (vgl. Abbildung \ref{fig:vdP}) werden am Rand vier kleine Kontakte M,N,O und P angebracht. Zwischen M und N lässt man einen elektrischen Strom $I_\text{MN}$ fließen und misst den Spannungsabfall $U_\text{P}-U_\text{O}$ zwischen den Kontakten O und P.
+\begin{figure}[h]
+\centering
+\includegraphics[scale=1]{arbitrary_plate.pdf}
+\caption{Planparalleles Plättchen mit der Dicke $d$ und beliebiger Form mit vier Kontakten M,N,O und P am Rand.}
+\label{fig:vdP}
+\end{figure}
+
+ Damit erhält man den Widerstand
 \begin{align}
 R_\text{MN,OP}=\frac{U_\text{P}-U_\text{O}}{I_\text{MN}}
 \end{align}
@@ -242,17 +259,12 @@ und analog
 \begin{align}
 R_\text{NO,PM}=\frac{U_\text{M}-U_\text{P}}{I_\text{NO}}.
 \end{align}
-\begin{figure}[h]
-\centering
-\includegraphics[scale=1]{arbitrary_plate.pdf}
-\caption{Planparalleles Plättchen mit der Dicke $d$ und beliebiger Form mit vier Kontakten M,N,O und P am Rand.}
-\label{fig:vdP}
-\end{figure}
 Zwischen den Widerständen $R_\text{MN,OP}$ und $R_\text{NO,PM}$ besteht folgende Beziehung
 \begin{align}
 \exp\left(-\frac{\pi d}{\varrho}R_\text{MN,OP}\right)+\exp\left(-\frac{\pi d}{\varrho}R_\text{NO,PM}\right)=1,
 \end{align}
-wobei $d$ die Dicke und $\varrho$ der gesuchte spezifische Widerstand der scheibenförmigen Probe ist. Diese implizite Gleichung lässt sich numerisch nach $\varrho$ auflösen.\\
+wobei $d$ die Dicke und $\varrho$ der gesuchte spezifische Widerstand der scheibenförmigen Probe ist. Diese implizite Gleichung lässt sich numerisch nach $\varrho$ auflösen.
+
 Eine andere Möglichkeit ist, den spezifischen Widerstand mit der Gleichung 
 \begin{align}
 \varrho=\frac{\pi d}{\ln 2}\frac{R_\text{MN,OP}}{R_\text{NO,PM}}
@@ -265,14 +277,17 @@ abhängt. Sie ist implizit über die Gleichung
 \begin{align}
 \cosh\left(\frac{Q-1}{Q+1}\cdot\frac{\ln 2}{f}\right)=\frac{1}{2}\exp\left(\frac{\ln 2}{f}\right)
 \end{align}
-definiert, diese sei in Abbildung \ref{fig:f(Q)} als Funktion von $Q$ veranschaulicht.\\
+definiert, diese sei in Abbildung \ref{fig:f(Q)} als Funktion von $Q$ veranschaulicht.
 \begin{figure}[h]
 \centering
 \includegraphics[scale=0.9]{f(Q).pdf}
 \caption{Die Funktion $f(Q)$ dient zur Berechnung des spezifischen Widerstands $\varrho$. Dazu wird $Q$ berechnet, und der entsprechende Funktionswert $f(Q)$ aus dem Graphen abgelesen.}
 \label{fig:f(Q)}
 \end{figure}
-Möchte man nun die Ladungsträgerkonzentration über den Hall-Effekt bestimmen, so leitet man einen Strom $I_\text{MO}$ zwischen zwei nicht aufeinanderfolgenden (sie müssen nicht zwangsläufig gegenüber liegen) Kontakten. Dann bestimmt man wie bei der Berechnung des spezifischen Widerstands $\varrho$ im vorherigen Abschnitt den Widerstand $R_\text{MO,NP}$. Schaltet man nun ein homogenes Magnetfeld $B$ senkrecht zur Probe zu, so ändert sich der Widerstand um den Betrag $\Delta R_\text{MO,NP}$. Unter der Voraussetzung, dass
+
+\newpage
+Möchte man nun die Ladungsträgerkonzentration über den Hall-Effekt bestimmen, so leitet man einen Strom $I_\text{MO}$ zwischen zwei nicht aufeinanderfolgenden (sie müssen nicht zwangsläufig gegenüber liegen) Kontakten. Dann bestimmt man wie bei der Berechnung des spezifischen Widerstands $\varrho$ im vorherigen Abschnitt den Widerstand $R_\text{MO,NP}$. Schaltet man nun ein homogenes Magnetfeld $B$ senkrecht zur Probe zu, so ändert sich der Widerstand um den Betrag $\Delta R_\text{MO,NP}$.
+Unter der Voraussetzung, dass
 \begin{enumerate}
 \item die Kontakte hinreichend klein sind und sich am Rand der Probe befinden;
 \item die Probe in der Dicke homogen ist und keine Löcher enthält,
@@ -281,23 +296,31 @@ lässt sich die Hall-Konstante $R_H$ definieren durch
 \begin{align}
 R_H=\frac{d}{B}\Delta R_\text{MO,NP}.
 \end{align}
-Diese Gleichung ist insofern gültig, da das Stromlinienfeld nicht vom außen angelegten Magnetfeld beeinflusst wird. Dies gilt für jede beliebige Probengeometrie sofern obige Bedingungen erfüllt sind.\\
+Diese Gleichung ist insofern gültig, da das Stromlinienfeld nicht vom außen angelegten Magnetfeld beeinflusst wird. Dies gilt für jede beliebige Probengeometrie sofern obige Bedingungen erfüllt sind.
+
 Für das elektrische Feld gilt die Relation
 \begin{align}
 \vec{E}=\frac{1}{\mu}\vec{v}_d\times \vec{B}=\frac{1}{ep\mu}\vec{j}-\frac{1}{ep}(\vec{j}\times \vec{B})=\vec{E}_{\parallel}-\vec{E}_{\perp},
 \end{align}
 d.h. das elektrische Feld, beeinflusst vom Magnetfeld, lässt sich in einem Anteil parallel und senkrecht zum Stromlinienfeld aufteilen. Berechnet man nun die Hall-Spannung quer zur Probe, bspw. von P nach N (vgl. Abbildung \ref{fig:current_field}), so gilt
+
+\begin{align}
+U_\text{PN}&=\int\limits_{\mathrm{P}}^{\mathrm{N}}\vec{E}\;\d \vec{s}
+=\int\limits_{\mathrm{P}}^{\mathrm{N}^\prime}-\frac{1}{ep}(\vec{j}\times \vec{B})\;\d\vec{s}
++\underbrace{\int\limits_{\mathrm{N}^\prime}^{\mathrm{N}}\frac{1}{ep\mu}\vec{j}\;\d \vec{s}}_{=:\, U_\text{offset}}\notag\\
+&=-\frac{1}{ep}\int\limits_{\mathrm{P}}^{\mathrm{N}^\prime}|\vec{j}\times\vec{B}|\;\d s  +  U_\text{offset}
+=-\frac{B}{ep}\int\limits_{\mathrm{P}}^{\mathrm{N}^\prime}j\;\d s  +  U_\text{offset}\notag\\
+&=-\frac{B}{ep}\int\limits_{\mathrm{P}}^{\mathrm{N}^\prime}\frac{\d I}{d}  +  U_\text{offset}
+=-\frac{B}{epd}\underbrace{\int\limits_{\mathrm{P}}^{\mathrm{N}^\prime}\d I}_{I}  +  U_\text{offset}\notag\\
+&=-\frac{B}{epd}\cdot I +U_\text{offset}=-R_H\frac{BI}{d}+U_\text{offset}
+\end{align}
+Somit misst man bei der Hall-Spannung immer eine Offset-Spannung mit. Diese lässt sich aber durch die Messung der Hall-Spannung mit entgegengesetzten Strom und anschließender Subtraktion der Spannungen eliminieren.
+
+Im Übrigen eignet es sich am besten, eine Probe in Kleeblatt-Form zu vermessen, da die Kontaktstellen klein genug sind, und sichergestellt ist, dass der Strom weitgehend geradlinig verlaufen kann.
+
 \begin{figure}[h]
 \centering
 \includegraphics[scale=1]{current_field.pdf}
 \caption{Stromlinienfeld innerhalb der planparallelen Probe. Die Integrationswege von P über N' nach N ergeben die elektrischen Feldkomponenten.}
 \label{fig:current_field}
 \end{figure}
-\begin{align}
-U_\text{PN}&=\int\limits_{\mathrm{P}}^{\mathrm{N}}\vec{E}\;\d \vec{s}=\int\limits_{\mathrm{P}}^{\mathrm{N}^\prime}-\frac{1}{ep}(\vec{j}\times \vec{B})\;\d \vec{s}+\underbrace{\int\limits_{\mathrm{N}^\prime}^{\mathrm{N}}\frac{1}{ep\mu}\vec{j}\;\d \vec{s}}_{U_\text{offset}}\notag\\
-&=-\frac{1}{ep}\int\limits_{\mathrm{P}}^{\mathrm{N}^\prime}|\vec{j}\times\vec{B}|\;\d s+U_\text{offset}=-\frac{B}{ep}\int\limits_{\mathrm{P}}^{\mathrm{N}^\prime}j\;\d s+U_\text{offset}\notag\\
-&=-\frac{B}{ep}\int\limits_{\mathrm{P}}^{\mathrm{N}^\prime}\frac{\d I}{d}+U_\text{offset}=-\frac{B}{epd}\underbrace{\int\limits_{\mathrm{P}}^{\mathrm{N}^\prime}\d I}_{I}+U_\text{offset}\notag\\
-&=-\frac{B}{epd}\cdot I +U_\text{offset}=-R_H\frac{BI}{d}+U_\text{offset}
-\end{align}
-Somit misst man bei der Hall-Spannung immer eine Offset-Spannung mit. Diese lässt sich aber durch die Messung der Hall-Spannung mit entgegengesetzten Strom und anschließender Subtraktion der Spannungen eliminieren.\\
-Im Übrigen eignet es sich am besten, eine Probe in Kleeblatt-Form zu vermessen, da die Kontaktstellen klein genug sind, und sichergestellt ist, dass der Strom weitgehend geradlinig verlaufen kann.
