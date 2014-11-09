@@ -1,0 +1,162 @@
+% Change these to the members of your group:
+%
+%\def \gpgroup {group-number}
+%\def \studenti {Person1}
+%\def \emaili {Email1@uni-ulm.de}
+%\def \studentii {Person2}
+%\def \emailii {Email2@uni-ulm.de}
+% % \def \studentiii { }	% if defined, the layout is adapted to three persons
+% % \def \emailiii { }
+%
+% select the language of the report:
+% \def \francais {}
+% \def \english {}
+% \def \deutsch {}
+
+% !TeX encoding = UTF-8
+
+%______________________________________
+%
+% This is a collection of packages and macros which I use for lab reports (Protokolle im Grundpraktikum / compte rendu en TP). In particular, it includes an extended version of my macro Titelseite, which has the following syntax:
+%	\Titelseite{Praktikum}{Nr.}{Versuch}{Versuchsdatum}{Erstabgabe}{Betreuer}{Email Betreuer}
+% If you want no list of tables, write \Titelseite[] instead of \Titelseite
+%
+% I use neither biblatex nor hyperref as these might be undesired and would have to be added after all other packages. The pgfplot-package is extremely usefull when used properly but wastes ressources if unused. If you need them, uncomment them.
+%
+% Usage example:
+%	\documentclass[paper=a4, parskip, 12pt, DIV = 14]{scrartcl}
+%	\input{preamble}
+%	\begin{document}
+%	\Titelseite{\GP}{6}{G-Modul}{14. Dezember 2012}{Erstabgabe}{Wolfgang Limmer}{wolfgang.limmer@uni-ulm.de}
+%	\section{Einleitung}
+%
+% As you see, you can directly afterwards begin with the content of your report!
+%
+% \copyright ~ Sebastian Kölle 2013
+%______________________________________
+
+
+\usepackage{lmodern}					% Type1-font
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage{microtype}					% less unnecessary hyphenation
+\usepackage[frenchb, ngerman, british]{babel}
+\usepackage{scrpage2}					% improved header
+\usepackage{dsfont}						% letters with double line, e.g. |N
+\usepackage{amsmath, amssymb}			% more math
+\usepackage{esint}						% circular and multiple integrals
+\usepackage[squaren]{SIunits}				% unit support (siunitx might be better)
+\usepackage{booktabs}					% nice tables
+\usepackage{enumitem}
+\usepackage{url}
+\usepackage{graphicx}						% include pictures
+\usepackage{subfig}						% pictures side by side as a), b)
+%\usepackage{lscape, rotating, multirow}		% oversized tables
+%\usepackage[backend=biber, sortlocale=de_DE]{biblatex}
+
+%\usepackage{pgfplots}
+%\pgfplotsset{compat=1.7, /pgf/number format/.cd, use comma, 1000 sep={}}
+
+%\usepackage[colorlinks=false]{hyperref}		% has to come last
+
+\newcommand{\dfe}[3]{%
+	\ifdefined\deutsch #1\fi \ifdefined\francais #2\fi \ifdefined\english #3\fi}
+
+\pagestyle{scrheadings}
+\setheadsepline[\textwidth]{1pt}
+\automark{section}
+\ihead{\textsc{\headmark}}
+\chead{}
+\cfoot{}
+\ohead{\dfe{Seite}{page}{page} {\pagemark}}
+
+\numberwithin{equation}{section}
+\linespread{1.1}
+\BeforeStartingTOC[toc]{\linespread{1}}	%dense table of contents
+%\lefthyphenmin=3					%prevent splitting off short syllables,
+%\righthyphenmin=3					%must be repeated after \end{otherlanguage}
+
+\newcommand{\RM}[1]{\MakeUppercase{\romannumeral #1}}	%roman numerals
+\newcommand{\LabView}{LabView\texttrademark}
+\newcommand{\bruch}[2]{^{#1}\!\!\!/_{\!#2} \,}
+\newcommand{\Div}[1]{\operatorname{div} \vec{#1}}
+\newcommand{\rot}[1]{\operatorname{rot} \vec{#1}}
+\newcommand{\grad}[1]{\operatorname{grad} #1}
+\newcommand{\vect}[1]{\mathop{#1}\limits^{\vbox to -.6ex{\kern-0.75ex\hbox{$\rightharpoonup$}\vss}}}
+\renewcommand{\d}{\mathrm{d}}
+\newcommand{\dd}[1]{\tfrac{\d}{\d#1}}				%differential by...
+\newcommand{\ddp}[2]{\frac{\partial#1}{\partial#2}}		%partial differential
+\newcommand{\dds}[2]{\tfrac{\partial#1}{\partial#2}}
+\newcommand{\somit}{\qquad\Longrightarrow\qquad}	%implies (Folgepfeil)
+\makeatletter
+\newcommand{\xRArrow}[2][]{\ext@arrow 0955{\arrowfill@{}\Relbar\Rightarrow}{#1}{#2}}
+\makeatother
+\newcommand{\cdt}{\!\cdot\!}				% less space around \cdot
+\def \dens {\tfrac{\kilo\gram\,}{\metre^3}}		% unit of density: kg/m³
+
+\newcommand{\with} {\qquad\text{\dfe{mit}{avec}{with}}\qquad}
+\newcommand{\median}[1]{\ensuremath{\langle {#1} \rangle}}
+\newcommand{\bra}[1]{\ensuremath{\langle {#1}|}}
+\newcommand{\ket}[1]{\ensuremath{|{#1}\rangle}}
+\newcommand{\braket}[2]{\ensuremath{\langle {#1}|{#2}\rangle}}
+
+\def \GP {Grundpraktikum der Physik}
+\def \FP {Fortgeschrittenenpraktikum}
+\def \TP {TP de physique }				% ajouter la matière
+\def \Ces {TP Césire }
+
+% titlepage and table of contents
+
+\newif\iflot
+\newcommand{\Titelseite}[8][\lottrue] {
+\dfe{\selectlanguage{ngerman}}{\selectlanguage{frenchb}}{\selectlanguage{british}}
+\begin{titlepage}
+	{\flushright
+	\includegraphics[width=\textwidth]{../logo_50.jpg} \\}
+	%logo of your university, width might have to be adjusted
+	\vspace{5em}
+	{\centering
+	{\huge \textbf{#2} } \\
+	\vspace{4em}
+	{\large \textbf{\textsf{\dfe{Versuch}{expérience}{experience} #3:~#4}} } \\
+	\vspace{2em}
+	{\large \dfe{Durchführung}{exécution}{execution}: #5 \\
+	#6: \today \\} }
+	
+	\vspace{3em}
+	{\large
+	\begin{tabbing}
+		\Large \dfe{Gruppe}{groupe}{group} \pgroup: \\[1mm]
+		\studenti \qquad~~ \= \texttt{\emaili}\\
+		\studentii  \> \texttt{\emailii}\\
+		\ifdefined\studentiii		\studentiii  \> \texttt{\emailiii}\\ \fi
+		\\
+		\Large \dfe{Betreuer}{enseignant}{supervisor}:\\[1mm]
+		#7 \qquad \> \texttt{#8}
+	\end{tabbing}}
+	\vspace{2em}
+
+	\dfe
+	{Wir bestätigen hiermit, dieses Protokoll selbstständig erarbeitet zu haben und um dessen gesamten Inhalt zu wissen. Zur Ausarbeitung wurden ausschließlich die angegebenen Quellen und Hilfen in Anspruch genommen.}
+	{Nous attestons d'avoir produit ce compte rendu nous-mêmes. Nous n'avons utilisé que les ressources et sources indiquées.}
+	{We hereby attest having written this lab report ourselves. We used no sources aside from those we indicated.}
+
+	\vspace{2em}
+	$\overline{\makebox[4.8cm][c]{\raisebox{0pt}[3ex]{\studenti}}}
+	\ifdefined\studentiii \hspace{1cm} \else \hfill \fi
+	\overline{\makebox[4.8cm][c]{\raisebox{0pt}[3ex]{\studentii}}}
+	\ifdefined\studentiii \hspace{1cm}
+	\overline{\makebox[4.8cm][c]{\raisebox{0pt}[3ex]{\studentiii}}} \fi$
+
+	\thispagestyle{empty}
+	\setcounter{page}{0}
+\end{titlepage}
+
+
+\tableofcontents
+\listoffigures
+#1 \iflot \listoftables \fi	% lot can be suppressed by empty optional parameter
+\enlargethispage{5\baselineskip}
+\newpage
+}
