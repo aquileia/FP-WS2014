@@ -21,10 +21,12 @@ Als letzte Vormessung drehen wir die Probe in 10\degree-Schritten von -90\degree
 \newpage
 \subsection{Messung von $\rho$, $\mu$ und $p$}
 
+Da der Versuchsaufbau für Präzisionsmessungen ausgelegt ist, wird der von der Konstantstromquelle bereitgestellte Strom über eine Stromsenke abgeführt. Diese ermöglicht eine genauere Bestimmung des durch die Probe fließenden Stroms. Für die Messung der Hallspannung genügt ein hochohmiges Voltmeter.
+
 Die Apparatur der Firma Keithley nutzt eine Schalt-Matrix aus Relais, wodurch alle vier benachbarten Kontakt-Paare in beide Stromrichtungen beschaltet werden können. Somit ergeben sich 8 Mess-Konfigurationen für die Bestimmung des spezifischen Widerstands $\rho$.\\
 Die Nummerierung der gemessenen Spannungen $V^R_1, \dots, V^R_8$ ist in Tabelle 3-3 der Versuchanleitung ersichtlich, wird hier aber nicht nochmals wiedergegeben, da die Messung ohnehin automatisiert erfolgt.
 
-Unter Kenntnis der Dicke $d$ des Plättchens, des Formfaktors $f \approx 1$ und des Stroms  $I = 100\,\micro\ampere$ erhält man
+Unter Kenntnis der Dicke $d$ des Plättchens, des Formfaktors $f \approx 1$ und des Stroms  $I = 100\,\micro\ampere$ erhält man\\[-1.2em]
 \begin{equation}
 \rho ~=~ 1,1331 \,\centi\metre^{-4} \cdot \frac{f \cdt d}{2 \cdt I} ~ \sum\limits_{i=1}^8 (-1)^i \; V^R_i
 \end{equation}
@@ -46,6 +48,7 @@ und mit Gleichung \eqref{eq:p_rho_mu} erhalten wir schließlich die Löcherkonze
 p = (e \cdt \mu \cdt \rho)^{-1}.
 \end{equation}
 
+Die Probe wird in einem Kryostat durch flüssigen Stickstoff auf 80\,K abgekühlt und anschließend durch eine Heizspule langsam aufgewärmt, während alle 5\,K eine Messung gestartet wird. Bei 300\,K wird die Messreihe beendet.
 
 \newpage
 \section{Auswertung}
@@ -146,4 +149,14 @@ Graph \ref{fig:plot_mu} für die Beweglichkeit zeigt das erwartete asymptotische
 \end{figure}
 
 
-% \section{Fehlerbetrachtung}
+\section{Fehlerdiskussion}
+Die Fehler der Anzeigen für Strom und Spannung an der Probe sind vernachlässigbar -- wie bereits erwähnt ist die Apparatur zur Anwendung in der Forschung bzw. Entwicklung konzipiert.
+
+Auch die Ausdehnung der Kontaktflächen bedingt nur eine geringe Abweichung, da die Kleeblatt-Geometrie den Einfluss der Kontakte minimiert.
+
+Ein relevanter Fehler ist hingegen das Magnetfeld: Die Skala für den Spulenstrom $I_M$ im Magneten ist relativ ungenau. Das Magnetfeld wurde nach dem erneuten Einstellen des Spulenstroms auf 13\,A nicht kontrolliert, könnte also vom erwarteten Wert abweichen.
+
+Das Hauptproblem bei allen Messungen ist allerdings die Temperatur:
+
+Ein Aufwärmen während der Messung um bis zu $\Delta T = 1\,\kelvin$ wurde als akzeptabel betrachtet, verzerrt aber die Bedingungen zwischen den 12 Teilmessungen bei jeder Temperatur. Weiterhin ist der Temperatursensor ist nicht direkt an der Probe angebracht. %, sondern an der Wand der Probenkammer.
+Insgesamt kann die Temperatur durchaus um etwa $\pm 1\,\kelvin$ vom Messwert abweichen. Die entsprechenden Fehlerbalken lägen allerdings (mit Ausnahme sehr geringer Temperaturen) innerhalb der Ausdehnung der Daten-Marker in den Plots, beeinträchtigen die Ergebnisse also nicht beträchtlich.
