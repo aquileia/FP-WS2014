@@ -2,22 +2,84 @@
 % !TeX root = V26_Halleffekt.tex
 % !TeX spellcheck = de_DE_frami
 
-Bandlücke: 31.7335 meV\\
-Akzeptor-Konzentration: 1.8e+18 /cm³\\
+\section{Durchführung}
+Wir untersuchen im Folgenden ein $d = 0,31\,\micro\metre$ dickes Scheibchen aus Bor-dotiertem Silizium. Da \textsf{B} 3 Valenzelektronen besitzt, \textsf{Si} aber 4, können diese Löcher im sonst vierbindigen Kristallgitter in das Valenzband übergehen -- der Halbleiter ist folglich p-dotiert.
+
+Anstatt die Kontaktstellen klein zu halten, vermessen wir eine Probe in Kleeblatt-Form; dabei handelt es sich um einen Wafer mit vier radialen Einschnitten. Durch die höhere Stromdichte im Zentrum dominiert dieses die elektrischen Eigenschaften der Probe, wodurch auf den vier \glqq Blättern\grqq{} relativ große Kontakte platziert werden können, ohne die Messung zu stören. Zudem sind die Abstände zweier Kontakte relativ scharf definiert, da der Strom immer über die Mitte fließt.
+
+Bevor die Probe vermessen werden kann, muss allerdings das Magnetfeld und die Ausrichtung der Probe zu diesem kalibriert werden; die Berechnung geht von einem senkrecht zur Probe angelegten Feld aus.
+
+\subsection{Vorbereitung}
+% ...
+
+
+\subsection{Messung von $\rho$, $\mu$ und $p$}
+
+Die Apparatur der Firma Keithley nutzt eine Schalt-Matrix aus Relais, wodurch alle vier benachbarten Kontakt-Paare in beide Stromrichtungen beschaltet werden können. Somit ergeben sich 8 Mess-Konfigurationen für die Bestimmung des spezifischen Widerstands $\rho$.\\
+Die Nummerierung der gemessenen Spannungen $V^R_1, \dots, V^R_8$ ist in Tabelle 3-3 der Versuchanleitung ersichtlich, wird hier aber nicht nochmals wiedergegeben, da die Messung ohnehin automatisiert erfolgt.
+
+Unter Kenntnis der Dicke $d$ des Plättchens, des Formfaktors $f \approx 1$ und des Stroms  $I = 100\,\micro\ampere$ erhält man
+\begin{equation}
+\rho ~=~ 1,1331 \,\centi\metre^{-4} \cdot \frac{f \cdt d}{2 \cdt I} ~ \sum\limits_{i=1}^8 (-1)^i \; V^R_i
+\end{equation}
+
+Da es nur zwei \glqq diagonale\grqq{} (gegenüberliegende) Verbindungen gibt, erhält man inklusive der Umpolung des Stroms 4 Beschaltungen für den Halleffekt. Während vorgesehen ist, die Messung nach Umpolen des Magnetfeldes zu wiederholen, genügen bereits diese vier Messungen, um die Offset-Spannung aus Gleichung \eqref{eq:U_offset} zu eliminieren. Diese Vereinfachung reduziert den Aufwand für die Messung beträchtlich. Die Zuordnung von $V^H_1, \dots, V^H_4$ erfolgt gemäß Tabelle 3-4 der Anleitung.
+
+Zieht man neben $d$ und $I$ (gleichbleibend zur vorherigen Messung) noch das zuvor eingestellte Magnetfeld $B$ hinzu, so ergibt sich für den Hallkoeffizienten 
+\begin{equation}
+R_H ~=~ \frac{0,25 \cdt d}{B \cdt I} ~ \sum\limits_{i=1}^4 (-1)^i \; V^H_i
+\end{equation}
+Da $R_H$ typischerweise in $\tfrac{\centi\metre^3}{\ampere\second}$ und $d$ in cm angegeben wird, ergibt sich in diesem Fall ein Vorfaktor von 2500 anstelle 0,25.
+
+Die Beweglichkeit ergibt sich zu
+\begin{equation}
+\mu ~=~ \frac{|R_H|}{\rho}
+\end{equation}
+und mit Gleichung \eqref{eq:p_rho_mu} erhalten wir schließlich die Löcherkonzentration
+\begin{equation}
+p = (e \cdt \mu \cdt \rho)^{-1}.
+\end{equation}
+
+\newpage
+\section{Auswertung}
+
+\subsection{Induktivität des Elektromagneten}
+%...
+% B = 0.038 kg/C^2  \cdot  I  +  0.012 T
+
+Da wir die angestrebte Magnetfeldstärke von $B = 0,5 \,\tesla$ nicht genau erreichen müssen, wählen wir den nächstliegenden Datenpunkt: Bei 13\,A erzeugt der Elektromagnet ein Feld von 0,509\,T.
+
+\subsection{Kennlinie der Probe}
+% U = 4.4388 \ohm  \cdt  I  +  0.8125 V
+\subsection{Ausrichtung im Magnetfeld}
+
+\subsection{Temperatur-Abhängigkeit elektrischer Eigenschaften} 
+Mithilfe eines eigens erstellten Matlab-Skripts (Listing \ref{code}) werten wir die erfasste Datenreihe von 80 bis 300\,K aus.
 
 \begin{figure}[p]
 \centering
 \input{Matlab/p(T).tex}
+\caption{Löcherdichte $p(T)$}
+\label{fig:plot_p}
 \end{figure}
+
+Die Fit-Parameter zur Modellierung der Messdaten mit Gleichung \eqref{eq:density_p} ergeben $N_A$ und $E_A$, also die Konzentration und das Energieniveau der Akzeptoren. 
+
+Wie aus Abbildung \ref{fig:plot_p} ersichtlich, bleibt das Plateau der Störstellensättigung sowohl in den Messdaten als auch in dem Plot von Gleichung \eqref{eq:density_p} nahezu aus. Dies ist durch die hohe Konzentration $N_A = 1,8\cdt 10^{18}\,\centi\metre^{-3}$ an Dotierungsatomen bedingt, aufgrund der auch bei Raumtemperatur noch einige nicht-ionisierte Bor-Atome verbleiben.
+
+Zudem nähert sich bei Erhöhung von $N_A$ auch das Akzeptorniveau dem Valenzband an (Dies ist auch der Grund, warum in Abbildung \ref{fig:fermi_density} die Fermienergie mit $N_A$ sinkt). Dabei sinkt der Abstand $E_A$ der Niveaus von den für Bor typischen 45\,meV auf einen Wert von nunmehr 31,7\,meV.
 
 \begin{figure}[p]
 \centering
 \input{Matlab/mu(T).tex}
+\caption{Beweglichkeit $\mu(T)$}
+\label{fig:plot_mu}
 \end{figure}
 
 \newpage
 \begin{addmargin}[-3em]{3em}
 \lstinputlisting[style=mlab, caption=%
-\url{https://github.com/aquileia/FP-WS2014/blob/master/V26 Hall-Effekt/Matlab/evaluation.m}
+\url{https://github.com/aquileia/FP-WS2014/blob/master/V26 Hall-Effekt/Matlab/evaluation.m}\label{code}
 ]{./Matlab/evaluation.m}
+
 \end{addmargin}
