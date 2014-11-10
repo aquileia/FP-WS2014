@@ -6,19 +6,19 @@
 \begin{tikzpicture}
 
 \begin{axis}[%
-width=0.95092\textwidth,
-height=0.75\textwidth,
+width=0.95\textheight,
+height=0.9\textwidth,
 at={(0\textwidth,0\textwidth)},
 scale only axis,
 xmode=log,
-xmin=40,
+xmin=39,
 xmax=300,
-xminorticks=true,
+xtick={40,63,100,158,251},
 xlabel={Temperatur $T$ (K)},
 ymode=log,
-ymin=120.49333529287,
-ymax=287.343075086211,
-yminorticks=true,
+ymin=120.5,
+ymax=285,
+ytick={126,158,200,251},
 ylabel={Beweglichkeit $\mu~(\centi\metre^2/\volt\second)$},
 legend style={legend cell align=left}
 ]

@@ -7,7 +7,7 @@ plot(Elektromagnet(:,1),Elektromagnet(:,2)*0.1172, 'o')
 hold on
 plot(Elektromagnet(:,1), em(1)*Elektromagnet(:,1) + em(2), 'k')
 axis([0 15 0 0.6])
-xlabel('Strom $I$ (A)')
+xlabel('Strom $I_M$ (A)')
 ylabel('Magnetfeldstärke $B$ (T)')
 matlab2tikz('B(I).tex', 'width', '\textwidth', 'encoding','UTF-8', ...
             'figurehandle', fig1, 'showInfo', false, 'parseStrings', false);
@@ -34,6 +34,6 @@ hold on
 plot(-96:5:94, 9.65+1.15*cosd(-95:5:95), 'k')
 axis([-95 95 9.6 10.85])
 xlabel('Winkel $\alpha$ (\degree)')
-ylabel('Hallspannung $U$ (mV)')
+ylabel('Hallspannung $U_H$ (mV)')
 matlab2tikz('U(alpha).tex', 'width', '\textwidth', 'encoding','UTF-8', ...
             'figurehandle', fig3, 'showInfo', false, 'parseStrings', false);
