@@ -7,11 +7,15 @@ Wir untersuchen im Folgenden ein $d = 0,31\,\micro\metre$ dickes Scheibchen aus 
 
 Anstatt die Kontaktstellen klein zu halten, vermessen wir eine Probe in Kleeblatt-Form; dabei handelt es sich um einen Wafer mit vier radialen Einschnitten. Durch die höhere Stromdichte im Zentrum dominiert dieses die elektrischen Eigenschaften der Probe, wodurch auf den vier \glqq Blättern\grqq{} relativ große Kontakte platziert werden können, ohne die Messung zu stören. Zudem sind die Abstände zweier Kontakte relativ scharf definiert, da der Strom immer über die Mitte fließt.
 
-Bevor die Probe vermessen werden kann, muss allerdings das Magnetfeld und die Ausrichtung der Probe zu diesem kalibriert werden; die Berechnung geht von einem senkrecht zur Probe angelegten Feld aus.
+Bevor die Probe vermessen werden kann, muss allerdings das Magnetfeld und die Ausrichtung der Probe zu diesem kalibriert werden; die Berechnung geht von einem senkrecht zur Probe angelegten Feld aus. Weiterhin wird geprüft, ob der spezifische Widerstand bei den verwendeten Strömen noch als ohmsch angenommen werden kann.
 
 \subsection{Vorbereitung}
-% ...
+An den Probenhalter wird anstelle des \textsf{Si}-Scheibchens ein Hall-Sensor mit bekannter Hall-Konstante angebracht, der mit $I_H = 100\,$mA versorgt wird. Für diese Konfiguration gilt $B = 0,01172 \tfrac{\tesla}{\milli\volt} \cdt U_H$, wobei $U_H$ die am Sensor gemessene Hallspannung ist.\\[1ex]
+Der Speisestrom $I_M$ des Magneten wird nun in 1\,A-Schritten bis auf 15\,A hochgefahren. Für die folgenden Versuche wird der Strom eingestellt, für den wir $B \approx 0,5 \,\tesla$ erzielen.
 
+Nun wird die Hallsonde durch unsere Probe ersetzt und die Kennlinie im Bereich $I \in [-150,~150]\,\micro\ampere$ abgenommen.
+
+Als letzte Vormessung drehen wir die Probe in 10\degree-Schritten von -90\degree bis +90\degree, um zu prüfen, ob diese wirklich senkrecht zum Magnetfeld ausgerichtet ist. Dabei messen wir die Hallspannung $U_H$ bei $I_H = 100\,\micro\ampere$ und tragen diese gegen den Winkel auf.
 
 \subsection{Messung von $\rho$, $\mu$ und $p$}
 
@@ -44,7 +48,7 @@ p = (e \cdt \mu \cdt \rho)^{-1}.
 \section{Auswertung}
 
 \subsection{Induktivität des Elektromagneten}
-%...
+
 % B = 0.038 kg/C^2  \cdot  I  +  0.012 T
 
 Da wir die angestrebte Magnetfeldstärke von $B = 0,5 \,\tesla$ nicht genau erreichen müssen, wählen wir den nächstliegenden Datenpunkt: Bei 13\,A erzeugt der Elektromagnet ein Feld von 0,509\,T.
@@ -54,16 +58,35 @@ Da wir die angestrebte Magnetfeldstärke von $B = 0,5 \,\tesla$ nicht genau erre
 \subsection{Ausrichtung im Magnetfeld}
 
 \subsection{Temperatur-Abhängigkeit elektrischer Eigenschaften} 
-Mithilfe eines eigens erstellten Matlab-Skripts (Listing \ref{code}) werten wir die erfasste Datenreihe von 80 bis 300\,K aus.
+Mithilfe eines eigens erstellten Matlab-Skripts (Listing \ref{code}) werten wir die erfasste Datenreihe von 80 bis 300\,K aus. Dabei verwerfen wir einen zusätzlich erfassten Datenpunkt bei 87\,K, welcher stark vom Verlauf der sonstigen Werte abweicht.
+
+Wie aus Plot \ref{fig:plot_p} ersichtlich, gilt die Näherung \eqref{eq:p_approx} nur für geringe Temperaturen (etwa bis 150\,K), bei denen die Störstellensättigung noch keinen merklichen Einfluss nimmt. Das genauere Modell \eqref{eq:density_p} stimmt mit den Messdaten ausgesprochen gut überein, versagt aber dabei, die intrinsische Ladungsträgerkonzentration bei extrem hohen Temperaturen ab 1000\,K zu berücksichtigen.
+Überraschenderweise liegt hier die approximative Funktion näher, ist aber ebenfalls unbrauchbar.
 
 \begin{figure}[p]
 \centering
+\begin{sideways}
 \input{Matlab/p(T).tex}
-\caption{Löcherdichte $p(T)$}
+\end{sideways}
+\caption{Arrhenius-Plot der Löcherdichte $p(T)$}
 \label{fig:plot_p}
+\vspace{1ex}
+Vergleich der Modelle \eqref{eq:density_p} und \eqref{eq:p_approx} mit den Messwerten sowie der intrinsischen Ladungsträgerkonzentration aus Gleichung \eqref{eq:p_intrinsic}.
 \end{figure}
 
-Die Fit-Parameter zur Modellierung der Messdaten mit Gleichung \eqref{eq:density_p} ergeben $N_A$ und $E_A$, also die Konzentration und das Energieniveau der Akzeptoren. 
+Die Fit-Parameter zur Modellierung der Messdaten mit Gleichung \eqref{eq:density_p} ergeben $N_A$ und $E_A$, also die Konzentration und das Energieniveau der Akzeptoren:
+\begin{table}[h!]
+\centering
+\caption{Fit-Parameter aus Plot \ref{fig:plot_p}} \label{tab:p_fit}
+\begin{tabular}{cc}
+	\toprule
+	Parameter		& Wert 							\\
+	\midrule
+	$E_A$		& $(31.7 \pm 0.7)\,$meV				\\
+	$N_A$		& $1,8 \cdt 10^{18}\,\centi\metre^{-3}$	\\
+	\bottomrule
+\end{tabular}
+\end{table}
 
 Wie aus Abbildung \ref{fig:plot_p} ersichtlich, bleibt das Plateau der Störstellensättigung sowohl in den Messdaten als auch in dem Plot von Gleichung \eqref{eq:density_p} nahezu aus. Dies ist durch die hohe Konzentration $N_A = 1,8\cdt 10^{18}\,\centi\metre^{-3}$ an Dotierungsatomen bedingt, aufgrund der auch bei Raumtemperatur noch einige nicht-ionisierte Bor-Atome verbleiben.
 
@@ -71,7 +94,9 @@ Zudem nähert sich bei Erhöhung von $N_A$ auch das Akzeptorniveau dem Valenzban
 
 \begin{figure}[p]
 \centering
+\begin{sideways}
 \input{Matlab/mu(T).tex}
+\end{sideways}
 \caption{Beweglichkeit $\mu(T)$}
 \label{fig:plot_mu}
 \end{figure}
