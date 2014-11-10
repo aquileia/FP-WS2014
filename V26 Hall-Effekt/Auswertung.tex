@@ -10,10 +10,11 @@ Anstatt die Kontaktstellen klein zu halten, vermessen wir eine Probe in Kleeblat
 Bevor die Probe vermessen werden kann, muss allerdings das Magnetfeld und die Ausrichtung der Probe zu diesem kalibriert werden; die Berechnung geht von einem senkrecht zur Probe angelegten Feld aus. Weiterhin wird geprüft, ob der spezifische Widerstand bei den verwendeten Strömen noch als ohmsch angenommen werden kann.
 
 \subsection{Vorbereitung}
-An den Probenhalter wird anstelle des \textsf{Si}-Scheibchens ein Hall-Sensor mit bekannter Hall-Konstante angebracht, der mit $I_H = 100\,$mA versorgt wird. Für diese Konfiguration gilt $B = 0,01172 \tfrac{\tesla}{\milli\volt} \cdt U_H$, wobei $U_H$ die am Sensor gemessene Hallspannung ist.\\[1ex]
+An den Probenhalter wird anstelle des \textsf{Si}-Scheibchens ein Hall-Sensor mit bekannter Hall-Konstante angebracht, der mit $I_H = 100\,$mA versorgt wird. Für diese Konfiguration gilt $B = 0,01172 \,\tfrac{\tesla}{\milli\volt} \cdt U_H$, wobei $U_H$ die am Sensor gemessene Hallspannung ist.\\[1ex]
 Der Speisestrom $I_M$ des Magneten wird nun in 1\,A-Schritten bis auf 15\,A hochgefahren. Für die folgenden Versuche wird der Strom eingestellt, für den wir $B \approx 0,5 \,\tesla$ erzielen.
 
-Nun wird die Hallsonde durch unsere Probe ersetzt und die Kennlinie im Bereich $I \in [-150,~150]\,\micro\ampere$ abgenommen.
+Nun wird die Hallsonde durch unsere Probe ersetzt. Die Kennlinie soll im Bereich $I \in [-150,~150]\,\micro\ampere$ abgenommen werden. Abhängig von dem Material der Kontakte könnte der Übergangsbereich eine Schottky-Diode bilden, wodurch Ströme in Sperrrichtung geblockt würden. Für die folgenden Messungen ist jedoch eine Umkehrung der Stromrichtung notwendig, somit muss bei der Präparation der Probe ein Kontaktmaterial mit ohmschem Übergang gewählt worden sein.\\[1ex]
+Da es sich nicht um Versuch 26 des Grundpraktikums: \glqq Kennlinien\grqq{} handelt, verzichten wir auf die Messung bei negativen Strömen.
 
 Als letzte Vormessung drehen wir die Probe in 10\degree-Schritten von -90\degree bis +90\degree, um zu prüfen, ob diese wirklich senkrecht zum Magnetfeld ausgerichtet ist. Dabei messen wir die Hallspannung $U_H$ bei $I_H = 100\,\micro\ampere$ und tragen diese gegen den Winkel auf.
 
@@ -50,8 +51,7 @@ p = (e \cdt \mu \cdt \rho)^{-1}.
 \section{Auswertung}
 
 \subsection{Induktivität des Elektromagneten}
-
-% 
+Die Messpunkte und Regression sind in Abbildung \ref{fig:plot_B} aufgetragen. Wie erwartet hängt die Magnetfeldstärke linear vom Strom ab.
 
 Da wir die angestrebte Magnetfeldstärke von $B = 0,5 \,\tesla$ nicht genau erreichen müssen, wählen wir den nächstliegenden Datenpunkt: Bei 13\,A erzeugt der Elektromagnet ein Feld von 0,509\,T.
 
@@ -60,34 +60,48 @@ Da wir die angestrebte Magnetfeldstärke von $B = 0,5 \,\tesla$ nicht genau erre
 \input{Matlab/B(I).tex}
 \caption{Magnetfeld des Elektromagneten in Funktion des Stroms $I_M$}
 \label{fig:plot_B}
+\vspace{-0.5ex}
 Regressionsgerade: $B = 0,038 \frac{\kilo\gram}{\coulomb^2}  \cdt  I  +  0,012\,\tesla$
 \end{figure}
+
+\subsection{Kennlinie der Probe}
+Wie erwartet erhalten wir bei den geringen Stromstärken, die wir anwenden, eine lineare Kennlinie (siehe Abbildung \ref{fig:plot_Kenn}). Dies bestätigt, dass die im vierten Versuchsteil errechneten spezifischen Widerstände nicht nur lokal für $I = 100\,\micro\ampere$ gültig sind, sondern für alle Ströme bs zu dieser Größenordnung.
 
 \begin{figure}[p]
 \centering
 \input{Matlab/U(I).tex}
 \caption{Kennlinie der \textsf{B}-dotierten \textsf{Si}-Probe}
 \label{fig:plot_Kenn}
+\vspace{-0.5ex}
 Regressionsgerade: $U = 4,44\,\ohm \cdt  I  +  0,81\,\volt$
 \end{figure}
+
+\subsection{Ausrichtung im Magnetfeld}
+Die effektive senkrechte Magnetfeld-Komponente beträgt $B_\perp = B \cos (\alpha)$, somit folgt auch der Spannungsverlauf dem Cosinus. Aufgrund der Offset-Spannung ist diese allerdings nicht um 0 zentriert:
+\begin{equation}
+U_H(\alpha) = U_0 \cos (\alpha + \phi) + U_\text{offset}
+\end{equation}
+
+Die Anpassung des Cosinus in Abbildung \ref{fig:plot_alpha} ergibt eine Phasenverschiebung von $\phi = 1\degree$, welche unterhalb der Genauigkeit der Justierung der Probe liegt. Somit ist die Probe nahezu perfekt ausgerichtet.
 
 \begin{figure}[p]
 \centering
 \input{Matlab/U(alpha).tex}
 \caption{Winkelabhängigkeit der Hallspannung}
 \label{fig:plot_alpha}
+\vspace{-0.5ex}
+Kurvenanpassung: $U_H(\alpha) = 1,15 \,\volt \cdt \cos (\alpha + 1\degree) + 9,65\,\volt$
 \vspace{-7em}
 \end{figure}
 
-\subsection{Kennlinie der Probe}
-
-\subsection{Ausrichtung im Magnetfeld}
-
+\newpage
 \subsection{Temperatur-Abhängigkeit elektrischer Eigenschaften} 
 Mithilfe eines eigens erstellten Matlab-Skripts (Listing \ref{code}) werten wir die erfasste Datenreihe von 80 bis 300\,K aus. Dabei verwerfen wir einen zusätzlich erfassten Datenpunkt bei 87\,K, welcher stark vom Verlauf der sonstigen Werte abweicht.
 
 Wie aus Plot \ref{fig:plot_p} ersichtlich, gilt die Näherung \eqref{eq:p_approx} nur für geringe Temperaturen (etwa bis 150\,K), bei denen die Störstellensättigung noch keinen merklichen Einfluss nimmt. Das genauere Modell \eqref{eq:density_p} stimmt mit den Messdaten ausgesprochen gut überein, versagt aber dabei, die intrinsische Ladungsträgerkonzentration bei extrem hohen Temperaturen ab 1000\,K zu berücksichtigen.
 Überraschenderweise liegt hier die approximative Funktion näher, ist aber ebenfalls unbrauchbar.
+
+Allerdings ist auch anzumerken, dass die intrinsische $e^- - h^+$-Paarbildung keinen Einfluss auf die Hallspannung hat: Die positiven und negativen Ladungsträger werden beide in die gleiche Richtung abgelenkt (da sie von entgegengesetzten Seiten des Leiters kommen) und gleichen einander aus.
 
 \begin{figure}[p]
 \centering
@@ -118,11 +132,18 @@ Wie aus Abbildung \ref{fig:plot_p} ersichtlich, bleibt das Plateau der Störstel
 
 Zudem nähert sich bei Erhöhung von $N_A$ auch das Akzeptorniveau dem Valenzband an (Dies ist auch der Grund, warum in Abbildung \ref{fig:fermi_density} die Fermienergie mit $N_A$ sinkt). Dabei sinkt der Abstand $E_A$ der Niveaus von den für Bor typischen 45\,meV auf einen Wert von nunmehr 31,7\,meV.
 
+Graph \ref{fig:plot_mu} für die Beweglichkeit zeigt das erwartete asymptotische Verhalten $\mu \propto T^{\pm 3/2}$. Aus Symmetrie-Gründen wäre die linke Asymptote bei der roten Linie zu erwarten, die Daten suggerieren allerdings eher einen Verlauf nahe der grünen Linie. Da allerdings nur sehr wenige Datenpunkte bei Temperaturen unterhalb des Scheitelpunkts vorliegen, ist letzteres nur eine grobe Schätzung.
 \begin{figure}[p]
 \centering
 \begin{sideways}
 \input{Matlab/mu(T).tex}
 \end{sideways}
-\caption{Beweglichkeit $\mu(T)$}
+\caption{doppelt-logarithmische Auftragung der Beweglichkeit $\mu(T)$}
 \label{fig:plot_mu}
+\textcolor{black}{--} Asymptote bei hohen Temperaturen\\
+\textbf{\textcolor{red}{--}} Asymptote bei tiefen Temperaturen gemäß Symmetrie\\
+\textcolor{green}{--} Asymptote bei tiefen Temperaturen gemäß Daten
 \end{figure}
+
+
+% \section{Fehlerbetrachtung}
