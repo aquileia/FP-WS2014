@@ -17,6 +17,7 @@ Nun wird die Hallsonde durch unsere Probe ersetzt und die Kennlinie im Bereich $
 
 Als letzte Vormessung drehen wir die Probe in 10\degree-Schritten von -90\degree bis +90\degree, um zu prüfen, ob diese wirklich senkrecht zum Magnetfeld ausgerichtet ist. Dabei messen wir die Hallspannung $U_H$ bei $I_H = 100\,\micro\ampere$ und tragen diese gegen den Winkel auf.
 
+\newpage
 \subsection{Messung von $\rho$, $\mu$ und $p$}
 
 Die Apparatur der Firma Keithley nutzt eine Schalt-Matrix aus Relais, wodurch alle vier benachbarten Kontakt-Paare in beide Stromrichtungen beschaltet werden können. Somit ergeben sich 8 Mess-Konfigurationen für die Bestimmung des spezifischen Widerstands $\rho$.\\
@@ -44,17 +45,42 @@ und mit Gleichung \eqref{eq:p_rho_mu} erhalten wir schließlich die Löcherkonze
 p = (e \cdt \mu \cdt \rho)^{-1}.
 \end{equation}
 
+
 \newpage
 \section{Auswertung}
 
 \subsection{Induktivität des Elektromagneten}
 
-% B = 0.038 kg/C^2  \cdot  I  +  0.012 T
+% 
 
 Da wir die angestrebte Magnetfeldstärke von $B = 0,5 \,\tesla$ nicht genau erreichen müssen, wählen wir den nächstliegenden Datenpunkt: Bei 13\,A erzeugt der Elektromagnet ein Feld von 0,509\,T.
 
+\begin{figure}[p]
+\centering
+\input{Matlab/B(I).tex}
+\caption{Magnetfeld des Elektromagneten in Funktion des Stroms $I_M$}
+\label{fig:plot_B}
+Regressionsgerade: $B = 0,038 \frac{\kilo\gram}{\coulomb^2}  \cdt  I  +  0,012\,\tesla$
+\end{figure}
+
+\begin{figure}[p]
+\centering
+\input{Matlab/U(I).tex}
+\caption{Kennlinie der \textsf{B}-dotierten \textsf{Si}-Probe}
+\label{fig:plot_Kenn}
+Regressionsgerade: $U = 4,44\,\ohm \cdt  I  +  0,81\,\volt$
+\end{figure}
+
+\begin{figure}[p]
+\centering
+\input{Matlab/U(alpha).tex}
+\caption{Winkelabhängigkeit der Hallspannung}
+\label{fig:plot_alpha}
+\vspace{-7em}
+\end{figure}
+
 \subsection{Kennlinie der Probe}
-% U = 4.4388 \ohm  \cdt  I  +  0.8125 V
+
 \subsection{Ausrichtung im Magnetfeld}
 
 \subsection{Temperatur-Abhängigkeit elektrischer Eigenschaften} 
@@ -100,11 +126,3 @@ Zudem nähert sich bei Erhöhung von $N_A$ auch das Akzeptorniveau dem Valenzban
 \caption{Beweglichkeit $\mu(T)$}
 \label{fig:plot_mu}
 \end{figure}
-
-\newpage
-\begin{addmargin}[-3em]{3em}
-\lstinputlisting[style=mlab, caption=%
-\url{https://github.com/aquileia/FP-WS2014/blob/master/V26 Hall-Effekt/Matlab/evaluation.m}\label{code}
-]{./Matlab/evaluation.m}
-
-\end{addmargin}
