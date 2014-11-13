@@ -134,13 +134,16 @@ hold off;
 
 
 %% Output with matlab2tikz:
-matlab2tikz('p(T).tex', 'width', '\textwidth', 'encoding','UTF-8', ...
-            'figurehandle', fig1, 'showInfo', false, 'parseStrings', false);
+if(exist('matlab2tikz.m','file'))
+    matlab2tikz('p(T).tex', 'width', '\textwidth', 'encoding','UTF-8', ...
+           'figurehandle', fig1, 'showInfo', false, 'parseStrings', false);
 
-matlab2tikz('mu(T).tex', 'width', '\textwidth', 'encoding','UTF-8', ...
-            'figurehandle', fig2, 'showInfo', false, 'parseStrings', false);
-
+    matlab2tikz('mu(T).tex', 'width', '\textwidth', 'encoding','UTF-8', ...
+           'figurehandle', fig2, 'showInfo', false, 'parseStrings', false);
 
 % Output in case matlab2tikz isn't available:
-%print(fig1,'-dpdf', 'p(T)');
-%print(fig2,'-dpdf', 'mu(T)');
+else
+    disp('matlab2tikz not available, switching to pdf output');
+    print(fig1,'-dpdf', 'p(T)');
+    print(fig2,'-dpdf', 'mu(T)');
+end
