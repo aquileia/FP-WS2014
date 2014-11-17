@@ -12,7 +12,7 @@ Wir werden in unserem Versuch einen Aufbau verwenden, welcher von der Firma \emp
 Die im Folgenden ausgeführten theoretischen Grundlagen folgen größtenteils der Versuchsanleitung \cite{lit:manual}, sofern nicht anders angegeben.
 Weiterhin beziehen wir die folgenden Gleichungen immer auf das im Versuch verwendete p-dotierte Silizium.
 \subsection{Elektronische Bandstruktur von Halbleitern}
-Gemäß dem Bloch-Theorem besitzt die Wellenfunktion $\psi(\vec{r})$ eines Elektrons in einem effektiven periodischen Gitterpotential die selbe Periodizität wie das Gitterpotential. Sie ist folglich eine Lösung der zeitunabhängigen Schrödinger-Gleichung
+Man betrachte ein Elektron in einem Kristallgitter mit dem effektiven periodischen Gitterpotential $V(\vec{r})$. Die Wellenfunktion $\psi(\vec{r})$ des Elektrons ist eine Lösung der zeitunabhängigen Schrödinger-Gleichung
 \begin{align}
 \left(-\frac{\hbar^2}{2m}\nabla^2+V(\vec{r})\right)\psi(\vec{r})=E\psi(\vec{r})
 \end{align}
@@ -56,13 +56,13 @@ mit den Valenzbandparametern A,B und C.
 \end{center}
 \end{figure}
 \subsection{Ladungsträgerdichte in intrinsischen Halbleitern}
-In einem \emph{intrinsischen} Halbleiter können freie Ladungsträger nur durch thermische und photonische Anregung aus dem Valenzband in das Leitungsband gehoben werden. Bei Halbleitern ist die durch die Bandlücke $E_g$ verursachte Ladungsträgerkonzentration $n$ (Elektronen) bzw.$p$ (Löcher) stark temperaturabhängig.
+In einem \emph{intrinsischen} Halbleiter können freie Ladungsträger durch thermische und photonische Anregung nur aus dem Valenzband in das Leitungsband gehoben werden. Bei Halbleitern ist die durch die Bandlücke $E_g$ verursachte Ladungsträgerkonzentration $n$ (Elektronen) bzw.$p$ (Löcher) stark temperaturabhängig.
 Die Besetzung der elektronischen Zustände folgt der Fermi-Dirac-Verteilung
 \begin{align}
 f(E,T)=\frac{1}{1+\exp\left(\frac{E-\mu}{k_B T}\right)},
 \end{align}
-dabei ist $\mu$ das chemische Potential und $k_B$ die Boltzmann-Konstante. Für $T=0$ ist $\mu$ gleich der Fermi-Energie $E_F$, die höchstmögliche Energie welche die Elektronen im Grundzustand besitzen können.\\
-Für die Berechnung der Ladungsträgerdichten werden noch die Zustandsdichten $D_C(E)$ und $D_V(E)$ im Leitungs- und Valenzband benötigt, für welche in der Nähe parabolischer Bänder gilt
+dabei ist $\mu$ das elektrochemische Potential und $k_B$ die Boltzmann-Konstante. Für $T=0$ ist $\mu$ gleich der Fermi-Energie $E_F$, die höchstmögliche Energie welche die Elektronen im Grundzustand besitzen können.\\
+Für die Berechnung der Ladungsträgerdichten werden noch die Zustandsdichten $D_C(E)$ und $D_V(E)$ im Leitungs- und Valenzband benötigt, für welche in der Näherung parabolischer Bänder gilt
 \begin{align}
 D_C(E)=M_C\cdot \frac{\sqrt{2m_{de}^3}}{2\pi^2\hbar^3}\sqrt{E-E_C},\hspace{1cm}
 D_V(E)=\frac{\sqrt{2m_{dh}^3}}{2\pi^2\hbar^3}\sqrt{E_V-E}.
@@ -207,12 +207,12 @@ Der \emph{spezifische Widerstand} als Kehrwert der Leitfähigkeit ist folglich
 Die Streuung von Ladungsträgern an akustischen Phononen und an geladenen Störstellen stellen die größten Beiträge zur Relaxationszeit $\tau$ und somit   zur Beweglichkeit $\mu$.\\
 Für tiefe Temperaturen nimmt die Beweglichkeit mit $T^{3/2}$ zu, da die zunehmende thermische Geschwindigkeit der freien Ladungsträger zu einer geringeren Ablenkung an den geladenen Störstellen führt. Dagegen werden bei höheren Temperaturen immer mehr akustische Phononen erzeugt, an denen die Ladungsträger gestreut werden. In dem Temperaturbereich nimmt die Beweglichkeit mit $T^{-3/2}$ ab. Diese Temperaturabhängigkeit der Beweglichkeit ist in der Abbildung \ref{fig:mu-temp_dep} veranschaulicht.
 
-Setzt man die Ladungsträger neben dem elektrischen Feld $\vec{E}$ noch einem magnetischen Feld $\vec{B}$ aus, so erhalten die Leihfähigkeit $\sigma$ und der spezifische Widerstand $\rho$ tensoriellen Charakter.
+Setzt man die Ladungsträger neben dem elektrischen Feld $\vec{E}$ noch einem magnetischen Feld $\vec{B}$ aus, so erhalten die Leitfähigkeit $\sigma$ und der spezifische Widerstand $\rho$ tensoriellen Charakter.
 \enlargethispage{3em}
 \begin{figure}[h!]
 \centering
 \includegraphics[scale=0.8]{Mu_temp_dep.jpeg}
-\caption{Temperatur-Abhängigkeit der Beweglichkeit $\mu$ in Halbleitern. \cite{lit:GroMa14}}
+\caption{Schematische Temperatur-Abhängigkeit der Beweglichkeit $\mu$ in Halbleitern. \cite{lit:GroMa14}}
 \label{fig:mu-temp_dep}
 \end{figure}
 
@@ -269,7 +269,7 @@ wobei $d$ die Dicke und $\rho$ der gesuchte spezifische Widerstand der scheibenf
 
 Eine andere Möglichkeit ist, den spezifischen Widerstand mit der Gleichung 
 \begin{align}
-\rho=\frac{\pi d}{\ln 2}\frac{R_\text{MN,OP}}{R_\text{NO,PM}}
+\rho=\frac{\pi d}{\ln 2}\frac{R_\text{MN,OP}+R_\text{NO,PM}}{2}f
 \end{align}
 zu berechnen, wobei $f$ eine Größe ist, die nur von dem Quotienten
 \begin{align}
@@ -300,9 +300,9 @@ R_H=\frac{d}{B}\Delta R_\text{MO,NP}.
 \end{align}
 Diese Gleichung ist insofern gültig, da das Stromlinienfeld nicht vom außen angelegten Magnetfeld beeinflusst wird. Dies gilt für jede beliebige Probengeometrie sofern obige Bedingungen erfüllt sind.
 
-Für das elektrische Feld gilt die Relation
+Für das elektrische Feld gilt die Relation (aus Drude-Modell mit Lorentz-Kraft)
 \begin{align}
-\vec{E}=\frac{1}{\mu}\vec{v}_d\times \vec{B}=\frac{1}{ep\mu}\vec{j}-\frac{1}{ep}(\vec{j}\times \vec{B})=\vec{E}_{\parallel}-\vec{E}_{\perp},
+\vec{E}=\frac{1}{\mu}\vec{v}_d-\vec{v}_d\times \vec{B}=\frac{1}{ep\mu}\vec{j}-\frac{1}{ep}(\vec{j}\times \vec{B})=\vec{E}_{\parallel}+\vec{E}_{\perp},
 \end{align}
 d.h. das elektrische Feld, beeinflusst vom Magnetfeld, lässt sich in einem Anteil parallel und senkrecht zum Stromlinienfeld aufteilen. Berechnet man nun die Hall-Spannung quer zur Probe, bspw. von P nach N (vgl. Abbildung \ref{fig:current_field}), so gilt
 
@@ -317,11 +317,11 @@ U_\text{PN}&=\int\limits_{\mathrm{P}}^{\mathrm{N}}\vec{E}\;\d \vec{s}
 &=-\frac{B}{epd}\cdot I +U_\text{offset}=-R_H\frac{BI}{d}+U_\text{offset}
 \label{eq:U_offset}
 \end{align}
-Somit misst man bei der Hall-Spannung immer eine Offset-Spannung mit. Diese lässt sich aber durch die Messung der Hall-Spannung mit entgegengesetzten Strom und anschließender Subtraktion der Spannungen eliminieren.
+Somit misst man bei der Hall-Spannung immer eine Offset-Spannung mit. Diese lässt sich aber durch die Messung der Hall-Spannung mit entgegengesetzter Magnetfeldrichtung und anschließender Subtraktion der Spannungen eliminieren.
 
 \begin{figure}[h]
 \centering
 \includegraphics[scale=1]{current_field.pdf}
-\caption[Stromlinienfeld innerhalb der planparallelen Probe.]{Stromlinienfeld innerhalb der planparallelen Probe. Die Integrationswege von P über N' nach N ergeben die elektrischen Feldkomponenten.}
+\caption[Stromlinienfeld innerhalb der planparallelen Probe.]{Stromlinienfeld innerhalb der planparallelen Probe. Die Integrationswege von P über N' nach N ergeben sich durch geschickte Ausnutzung der elektrischen Feldkomponenten.}
 \label{fig:current_field}
 \end{figure}
