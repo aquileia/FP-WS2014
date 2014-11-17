@@ -3,6 +3,8 @@
 % (c) Sebastian Koelle 2014
 % GPL3 licence
 
+warning off MATLAB:gui:latexsup:UnableToInterpretTeXString;
+
 %% constants and parametres
 e   = 1.60217656535e-19;% electron charge
 m_e = 9.10938291e-31;   % electron mass
@@ -70,7 +72,7 @@ p_intrinsic = @(Eg,x) ...
 
 
 %% least square fit of the logarithmic data
-% p_opt defines bounds for [Na Ea] in meV
+% p_opt defines bounds for [Ea, Na] in [meV, 10^8/cm^3]
 p_opt = fitoptions('Method','NonlinearLeastSquares', ...
        'Lower', [25 1.5e18], 'Upper', [50 2e18], 'StartPoint',[32 1.8e18]);
 
@@ -136,6 +138,8 @@ hold off;
 
 %% Output with matlab2tikz:
 if(exist('matlab2tikz.m','file'))
+    warning off matlab2tikz:deprecatedEnvironment;
+
     matlab2tikz('p(T).tex', 'width', '\textwidth', 'encoding','UTF-8', ...
            'figurehandle', fig1, 'showInfo', false, 'parseStrings', false);
 
