@@ -134,9 +134,7 @@ Kurvenanpassung: $U_t(\alpha) = 1,15 \,\milli\volt \cdt \cos (\alpha + 1\degree)
 Mithilfe eines eigens erstellten Matlab-Skripts (Listing \ref{code}) werten wir die erfasste Datenreihe von 80 bis 300\,K aus. Dabei verwerfen wir einen zusätzlich erfassten Datenpunkt bei 87\,K, welcher stark vom Verlauf der sonstigen Werte abweicht.
 
 Wie aus Plot \ref{fig:plot_p} ersichtlich, gilt die Näherung \eqref{eq:p_approx} nur für geringe Temperaturen (etwa bis 150\,K), bei denen die Störstellensättigung noch keinen merklichen Einfluss nimmt. Das genauere Modell \eqref{eq:density_p} stimmt mit den Messdaten ausgesprochen gut überein, versagt aber dabei, die intrinsische Ladungsträgerkonzentration bei extrem hohen Temperaturen ab 1000\,K zu berücksichtigen.
-Überraschenderweise liegt hier die approximative Funktion näher, ist aber ebenfalls unbrauchbar.
-
-Allerdings ist auch anzumerken, dass die intrinsische $e^- - h^+$-Paarbildung keinen Einfluss auf die Hallspannung hat: Die positiven und negativen Ladungsträger werden beide in die gleiche Richtung abgelenkt (da sie von entgegengesetzten Seiten des Leiters kommen) und gleichen einander aus.
+Überraschenderweise liegt hier die approximative Funktion näher, ist aber ebenfalls unbrauchbar. Die extreme Abweichung ist verständlich, da intrinsische Ladungsträger bei der Herleitung der beiden Modelle vernachlässigt wurden.
 
 \begin{figure}[p]
 \centering
@@ -149,7 +147,7 @@ Allerdings ist auch anzumerken, dass die intrinsische $e^- - h^+$-Paarbildung ke
 Vergleich der Modelle \eqref{eq:density_p} und \eqref{eq:p_approx} mit den Messwerten sowie der intrinsischen Ladungsträgerkonzentration aus Gleichung \eqref{eq:p_intrinsic}.
 \end{figure}
 
-Die Fit-Parameter zur Modellierung der Messdaten mit Gleichung \eqref{eq:density_p} ergeben $N_A$ und $E_A$, also die Konzentration und das Energieniveau der Akzeptoren:
+Die Fit-Parameter zur Modellierung der Messdaten mit Gleichung \eqref{eq:density_p} ergeben $N_A$ und $E_a$, also die Konzentration und die Ionisationsenergie der Akzeptoratome:
 \begin{table}[h!]
 \centering
 \caption{Fit-Parameter aus Plot \ref{fig:plot_p}} \label{tab:p_fit}
@@ -157,7 +155,7 @@ Die Fit-Parameter zur Modellierung der Messdaten mit Gleichung \eqref{eq:density
 	\toprule
 	Parameter		& Wert 							\\
 	\midrule
-	$E_A$		& $(31.7 \pm 0.7)\,$meV				\\
+	$E_a$		& $(30,4 \pm 0,5)\,$meV				\\
 	$N_A$		& $1,8 \cdt 10^{18}\,\centi\metre^{-3}$	\\
 	\bottomrule
 \end{tabular}
@@ -165,9 +163,9 @@ Die Fit-Parameter zur Modellierung der Messdaten mit Gleichung \eqref{eq:density
 
 Wie aus Abbildung \ref{fig:plot_p} ersichtlich, bleibt das Plateau der Störstellensättigung sowohl in den Messdaten als auch in dem Plot von Gleichung \eqref{eq:density_p} nahezu aus. Dies ist durch die hohe Konzentration $N_A = 1,8\cdt 10^{18}\,\centi\metre^{-3}$ an Dotierungsatomen bedingt, aufgrund der auch bei Raumtemperatur noch einige nicht-ionisierte Bor-Atome verbleiben.
 
-Zudem nähert sich bei Erhöhung von $N_A$ auch das Akzeptorniveau dem Valenzband an (Dies ist auch der Grund, warum in Abbildung \ref{fig:fermi_density} die Fermienergie mit $N_A$ sinkt). Dabei sinkt der Abstand $E_A$ der Niveaus von den für Bor typischen 45\,meV auf einen Wert von nunmehr 31,7\,meV.
+Zudem nähert sich bei Erhöhung von $N_A$ auch das Akzeptorniveau dem Valenzband an. Dabei sinkt der Abstand $E_a$ der Niveaus von den für Bor typischen 45\,meV auf einen Wert von nunmehr 30,4\,meV.
 
-Graph \ref{fig:plot_mu} für die Beweglichkeit zeigt das erwartete asymptotische Verhalten $\mu \propto T^{\pm 3/2}$. Aus Symmetrie-Gründen wäre die linke Asymptote bei der roten Linie zu erwarten, die Daten suggerieren allerdings eher einen Verlauf nahe der grünen Linie. Da allerdings nur sehr wenige Datenpunkte bei Temperaturen unterhalb des Scheitelpunkts vorliegen, ist letzteres nur eine grobe Schätzung.
+Graph \ref{fig:plot_mu} für die Beweglichkeit zeigt das erwartete asymptotische Verhalten $\mu \propto T^{\pm 3/2}$. Da nur sehr wenige Datenpunkte bei Temperaturen unterhalb des Scheitelpunkts vorliegen, ist die linke Asymptote nur der Anschauung halber grob eingezeichnet, um beide Äste aus Abbildung \ref{fig:mu-temp_dep} darzustellen.
 \begin{figure}[p]
 \centering
 \begin{sideways}
@@ -176,11 +174,10 @@ Graph \ref{fig:plot_mu} für die Beweglichkeit zeigt das erwartete asymptotische
 \caption{doppelt-logarithmische Auftragung der Beweglichkeit $\mu(T)$}
 \label{fig:plot_mu}
 \textcolor{black}{--} Asymptote bei hohen Temperaturen\\
-\textbf{\textcolor{red}{--}} Asymptote bei tiefen Temperaturen gemäß Symmetrie\\
-\textcolor{green}{--} Asymptote bei tiefen Temperaturen gemäß Daten
+\textcolor{red}{--} Asymptote bei tiefen Temperaturen
 \end{figure}
 
-
+\newpage
 \section{Fehlerdiskussion}
 Die Fehler der Anzeigen für Strom und Spannung an der Probe sind vernachlässigbar -- wie bereits erwähnt ist die Apparatur zur Anwendung in der Forschung bzw. Entwicklung konzipiert.
 
