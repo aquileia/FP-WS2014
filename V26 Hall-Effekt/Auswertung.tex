@@ -12,7 +12,7 @@ Bevor die Probe vermessen werden kann, muss allerdings das Magnetfeld und die Au
 \begin{figure}[p]
 \centering
 \includegraphics[width=0.3\textwidth]{trefoil.jpg}
-\caption{Foto der Probe in stilisierter Kleeblatt-Form}
+\caption{Foto der Probe in stilisierter Kleeblatt-Form.}
 \label{fig:probe}
 \end{figure}
 
@@ -56,6 +56,29 @@ p = (e \cdt \mu \cdt \rho)^{-1}.
 \end{equation}
 
 Die Probe wird in einem Kryostat durch flüssigen Stickstoff auf 80\,K abgekühlt und anschließend durch eine Heizspule langsam aufgewärmt, während alle 5\,K eine Messung gestartet wird. Bei 300\,K wird die Messreihe beendet.
+
+\begin{figure}[p]
+\centering
+\includegraphics[width=0.7\textwidth]{Keithley_rho.png}
+\caption{Messkonfigurationen für den spezifischen Widerstand $\rho$. \cite[Fig. 3-3]{lit:manual}}
+\label{fig:keithley1}
+\end{figure}
+
+\begin{figure}[p]
+\centering
+\includegraphics[width=0.7\textwidth]{Keithley_R_H.png}
+\caption{Messkonfigurationen für die Hall-Konstante $R_H$. \cite[Fig. 3-4]{lit:manual}}
+\label{fig:keithley2}
+\end{figure}
+
+\begin{figure}[p]
+\centering
+\includegraphics[width=0.9\textwidth]{Relais_new.png}
+\caption{Schema der Messelektronik: Schaltmatrix und Messinstrumente. \cite{lit:keithley}}
+\vspace{1ex}
+Für die Widerstandsmessung werden Stromquelle (6220) und -senke (6485) an benachbarte Kontakte geschaltet, bei der Hall-Konfiguration an gegenüberliegende. Die verbleibenden Kontakte sind mit dem Voltmeter (2000) verschaltet. Die in die Schaltmatrix integrierten Puffer werden nur bei hochohmigen Proben zugeschaltet.
+\label{fig:keithley3}
+\end{figure}
 
 \newpage
 \section{Auswertung}
