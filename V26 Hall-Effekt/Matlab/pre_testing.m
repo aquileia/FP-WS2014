@@ -34,6 +34,6 @@ hold on
 plot(-96:5:94, 9.65+1.15*cosd(-95:5:95), 'k')
 axis([-95 95 9.6 10.85])
 xlabel('Winkel $\alpha$ (\degree)')
-ylabel('Hallspannung $U_H$ (mV)')
+ylabel('Transversale Spannung $U_t$ (mV)')
 matlab2tikz('U(alpha).tex', 'width', '\textwidth', 'encoding','UTF-8', ...
             'figurehandle', fig3, 'showInfo', false, 'parseStrings', false);
