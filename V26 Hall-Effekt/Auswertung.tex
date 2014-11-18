@@ -26,25 +26,27 @@ Als letzte Vormessung drehen wir die Probe in 10\degree-Schritten von -90\degree
 
 
 \newpage
-\subsection{Messung von $\rho$, $\mu$ und $p$}
+\subsection{Bestimmung von $\mu ~\&~ p$ über $\rho ~\&~ R_H$}
+\enlargethispage{4em}
 
-Da der Versuchsaufbau für Präzisionsmessungen ausgelegt ist, wird der von der Konstantstromquelle bereitgestellte Strom über eine Stromsenke abgeführt. Diese ermöglicht eine genauere Bestimmung des durch die Probe fließenden Stroms. Für die Messung der Hallspannung genügt ein hochohmiges Voltmeter.
+Da der Versuchsaufbau für Präzisionsmessungen ausgelegt ist, wird der von der Konstantstromquelle bereitgestellte Strom über eine Stromsenke abgeführt. Diese ermöglicht eine genauere Bestimmung des durch die Probe fließenden Stroms. Für die Messung der Spannungen genügt ein hochohmiges Voltmeter.
 
-Die Apparatur der Firma Keithley nutzt eine Schalt-Matrix aus Relais, wodurch alle vier benachbarten Kontakt-Paare in beide Stromrichtungen beschaltet werden können. Somit ergeben sich 8 Mess-Konfigurationen für die Bestimmung des spezifischen Widerstands $\rho$.\\
-Die Nummerierung der gemessenen Spannungen $V^R_1, \dots, V^R_8$ ist in Tabelle 3-3 der Versuchanleitung ersichtlich, wird hier aber nicht nochmals wiedergegeben, da die Messung ohnehin automatisiert erfolgt.
+Die Apparatur der Firma Keithley nutzt eine Schalt-Matrix aus Relais (Abbildung \ref{fig:keithley3}), wodurch alle vier benachbarten Kontakt-Paare in beide Stromrichtungen beschaltet werden können. Somit ergeben sich 8 Mess-Konfigurationen für die Bestimmung des spezifischen Widerstands $\rho$.
+Die Nummerierung der gemessenen Spannungen $V^R_1, \dots, V^R_8$ ist in Tabelle 3-3 der Versuchanleitung (Abbildung \ref{fig:keithley1}) ersichtlich.
 
 Unter Kenntnis der Dicke $d$ des Plättchens, des Formfaktors $f \approx 1$ und des Stroms  $I = 100\,\micro\ampere$ erhält man\\[-1.2em]
 \begin{equation}
-\rho ~=~ 1,1331 \,\centi\metre^{-4} \cdot \frac{f \cdt d}{2 \cdt I} ~ \sum\limits_{i=1}^8 (-1)^i \; V^R_i
+\rho ~=~ 1,1331 \cdot \frac{f \cdt d}{2 \cdt I} ~ \sum\limits_{i=1}^8 (-1)^i \; V^R_i
 \end{equation}
 
-Da es nur zwei \glqq diagonale\grqq{} (gegenüberliegende) Verbindungen gibt, erhält man inklusive der Umpolung des Stroms 4 Beschaltungen für den Halleffekt. Während vorgesehen ist, die Messung nach Umpolen des Magnetfeldes zu wiederholen, genügen bereits diese vier Messungen, um die Offset-Spannung aus Gleichung \eqref{eq:U_offset} zu eliminieren. Diese Vereinfachung reduziert den Aufwand für die Messung beträchtlich. Die Zuordnung von $V^H_1, \dots, V^H_4$ erfolgt gemäß Tabelle 3-4 der Anleitung.
+Da es nur zwei \glqq diagonale\grqq{} (gegenüberliegende) Verbindungen gibt, erhält man inklusive der Umpolung des Stroms 4 Beschaltungen für den Halleffekt. Während das Manual \cite{lit:manual} vorsieht, die Messung nach Umpolen des Magnetfeldes zu wiederholen, genügen  gemäß dem Reziprozitätstheorem für passive Vierpole bereits diese vier Messungen, um die Offset-Spannung aus Gleichung \eqref{eq:U_offset} zu eliminieren. Diese Vereinfachung reduziert den Aufwand für die Messung beträchtlich. Die Zuordnung von $V^H_1, \dots, V^H_4$ erfolgt gemäß Tabelle 3-4 der Anleitung (Abbildung \ref{fig:keithley2}).
+% REZIPROZITÄTSTHEOREM FÜR PASSIVE VIERPOLE
 
 Zieht man neben $d$ und $I$ (gleichbleibend zur vorherigen Messung) noch das zuvor eingestellte Magnetfeld $B$ hinzu, so ergibt sich für den Hallkoeffizienten 
 \begin{equation}
 R_H ~=~ \frac{0,25 \cdt d}{B \cdt I} ~ \sum\limits_{i=1}^4 (-1)^i \; V^H_i
 \end{equation}
-Da $R_H$ typischerweise in $\tfrac{\centi\metre^3}{\ampere\second}$ und $d$ in cm angegeben wird, ergibt sich in diesem Fall ein Vorfaktor von 2500 anstelle 0,25.
+Da $R_H$ typischerweise in $\tfrac{\centi\metre^3}{\ampere\second}$, $d$ in cm und $B$ in T angegeben wird, ergibt sich in diesem Fall ein Vorfaktor von 2500 anstelle 0,25.
 
 Die Beweglichkeit ergibt sich zu
 \begin{equation}
@@ -52,10 +54,10 @@ Die Beweglichkeit ergibt sich zu
 \end{equation}
 und mit Gleichung \eqref{eq:p_rho_mu} erhalten wir schließlich die Löcherkonzentration
 \begin{equation}
-p = (e \cdt \mu \cdt \rho)^{-1}.
+p = (e \cdt R_H)^{-1}.
 \end{equation}
 
-Die Probe wird in einem Kryostat durch flüssigen Stickstoff auf 80\,K abgekühlt und anschließend durch eine Heizspule langsam aufgewärmt, während alle 5\,K eine Messung gestartet wird. Bei 300\,K wird die Messreihe beendet.
+Die Probe wird in einem Kryostat durch flüssigen Stickstoff auf 80\,K abgekühlt und anschließend durch einen Heizwiderstand langsam aufgewärmt, während alle 5\,K eine Messung gestartet wird. Bei 300\,K wird die Messreihe beendet.
 
 \begin{figure}[p]
 \centering
