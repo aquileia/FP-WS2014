@@ -3,20 +3,27 @@
 % !TeX spellcheck = de_DE_frami
 
 \section{Durchführung}
-Wir untersuchen im Folgenden ein $d = 0,31\,\micro\metre$ dickes Scheibchen aus Bor-dotiertem Silizium. Da \textsf{B} 3 Valenzelektronen besitzt, \textsf{Si} aber 4, können diese Löcher im sonst vierbindigen Kristallgitter in das Valenzband übergehen -- der Halbleiter ist folglich p-dotiert.
+Wir untersuchen im Folgenden eine $d = 0,31\,\micro\metre$ dünne Schicht aus Bor-dotiertem Silizium, die auf einem Wafer aufgetragen wurde. Da \textsf{B} 3 Valenzelektronen besitzt, \textsf{Si} aber 4, können diese Löcher im sonst vierbindigen Kristallgitter in das Valenzband übergehen -- der Halbleiter ist folglich p-dotiert.
 
-Anstatt die Kontaktstellen klein zu halten, vermessen wir eine Probe in Kleeblatt-Form; dabei handelt es sich um einen Wafer mit vier radialen Einschnitten. Durch die höhere Stromdichte im Zentrum dominiert dieses die elektrischen Eigenschaften der Probe, wodurch auf den vier \glqq Blättern\grqq{} relativ große Kontakte platziert werden können, ohne die Messung zu stören. Zudem sind die Abstände zweier Kontakte relativ scharf definiert, da der Strom immer über die Mitte fließt.
+Anstatt die Kontaktstellen klein zu halten, vermessen wir eine Probe in stilisierter Kleeblatt-Form (vier radialen Einkerbungen, vgl. Abbildung \ref{fig:probe}). Durch die höhere Stromdichte im Zentrum dominiert dieses die elektrischen Eigenschaften der Probe, wodurch auf den vier \glqq Blättern\grqq{} relativ große Kontakte platziert werden können, ohne die Messung zu stören. Zudem sind die Abstände zweier Kontakte relativ scharf definiert, da der Strom immer über die Mitte fließt.
 
-Bevor die Probe vermessen werden kann, muss allerdings das Magnetfeld und die Ausrichtung der Probe zu diesem kalibriert werden; die Berechnung geht von einem senkrecht zur Probe angelegten Feld aus. Weiterhin wird geprüft, ob der spezifische Widerstand bei den verwendeten Strömen noch als ohmsch angenommen werden kann.
+Bevor die Probe vermessen werden kann, muss allerdings das Magnetfeld und die Ausrichtung der Probe zu diesem kalibriert werden; die Berechnung geht von einem senkrecht zur Probe angelegten Feld aus. Weiterhin wird geprüft, ob die Probenkontakte bei den verwendeten Strömen noch als ohmsch angenommen werden können.
+
+\begin{figure}[p]
+\centering
+\includegraphics[width=0.3\textwidth]{trefoil.jpg}
+\caption{Foto der Probe in stilisierter Kleeblatt-Form}
+\label{fig:probe}
+\end{figure}
 
 \subsection{Vorbereitung}
 An den Probenhalter wird anstelle des \textsf{Si}-Scheibchens ein Hall-Sensor mit bekannter Hall-Konstante angebracht, der mit $I_H = 100\,$mA versorgt wird. Für diese Konfiguration gilt $B = 0,01172 \,\tfrac{\tesla}{\milli\volt} \cdt U_H$, wobei $U_H$ die am Sensor gemessene Hallspannung ist.\\[1ex]
-Der Speisestrom $I_M$ des Magneten wird nun in 1\,A-Schritten bis auf 15\,A hochgefahren. Für die folgenden Versuche wird der Strom eingestellt, für den wir $B \approx 0,5 \,\tesla$ erzielen.
+Der Spulenstrom $I_M$ des Magneten wird nun in 1\,A-Schritten bis auf 15\,A hochgefahren. Für die folgenden Versuche wird der Strom eingestellt, für den wir $B \approx 0,5 \,\tesla$ erzielen.
 
-Nun wird die Hallsonde durch unsere Probe ersetzt. Die Kennlinie soll im Bereich $I \in [-150,~150]\,\micro\ampere$ abgenommen werden. Abhängig von dem Material der Kontakte könnte der Übergangsbereich eine Schottky-Diode bilden, wodurch Ströme in Sperrrichtung geblockt würden. Für die folgenden Messungen ist jedoch eine Umkehrung der Stromrichtung notwendig, somit muss bei der Präparation der Probe ein Kontaktmaterial mit ohmschem Übergang gewählt worden sein.\\[1ex]
-Da es sich nicht um Versuch 26 des Grundpraktikums: \glqq Kennlinien\grqq{} handelt, verzichten wir auf die Messung bei negativen Strömen.
+Nun wird die Hallsonde durch unsere Probe ersetzt. Die $U$-$I$-Kennlinie zwischen zwei willkürlich gewählten Kontakten soll im Bereich $I \in [0,~150]\,\micro\ampere$ abgenommen werden. Abhängig von dem Material der Kontakte könnte der Übergangsbereich eine Schottky-Diode bilden, wodurch Ströme in Sperrrichtung geblockt würden. Da der Strom aber bei sämtlichen Messungen über gleichartige Kontakte zu- und abfließt, die ggf. zusammen in beide Richtung sperren würden, muss bei der Präparation der Probe ein Kontaktmaterial mit ohmschem Übergang gewählt worden sein.
 
-Als letzte Vormessung drehen wir die Probe in 10\degree-Schritten von -90\degree bis +90\degree, um zu prüfen, ob diese wirklich senkrecht zum Magnetfeld ausgerichtet ist. Dabei messen wir die Hallspannung $U_H$ bei $I_H = 100\,\micro\ampere$ und tragen diese gegen den Winkel auf.
+Als letzte Vormessung drehen wir die Probe in 10\degree-Schritten von -90\degree bis +90\degree, um zu prüfen, ob diese wirklich senkrecht zum Magnetfeld ausgerichtet ist. Dabei messen wir die transversale Spannung $U_t$ bei $I_H = 100\,\micro\ampere$ und tragen diese gegen den Winkel auf.
+
 
 \newpage
 \subsection{Messung von $\rho$, $\mu$ und $p$}
