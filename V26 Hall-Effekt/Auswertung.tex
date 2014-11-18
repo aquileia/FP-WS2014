@@ -85,7 +85,7 @@ Für die Widerstandsmessung werden Stromquelle (6220) und -senke (6485) an benac
 \newpage
 \section{Auswertung}
 
-\subsection{Induktivität des Elektromagneten}
+\subsection{Feldstärke des Elektromagneten}
 Die Messpunkte und Regression sind in Abbildung \ref{fig:plot_B} aufgetragen. Wie erwartet hängt die Magnetfeldstärke linear vom Strom ab.
 
 Da wir die angestrebte Magnetfeldstärke von $B = 0,5 \,\tesla$ nicht genau erreichen müssen, wählen wir den nächstliegenden Datenpunkt: Bei 13\,A erzeugt der Elektromagnet ein Feld von 0,509\,T.
@@ -96,11 +96,11 @@ Da wir die angestrebte Magnetfeldstärke von $B = 0,5 \,\tesla$ nicht genau erre
 \caption{Magnetfeld des Elektromagneten in Funktion des Stroms $I_M$}
 \label{fig:plot_B}
 \vspace{-0.5ex}
-Regressionsgerade: $B = 0,038 \frac{\kilo\gram}{\coulomb^2}  \cdt  I  +  0,012\,\tesla$
+Regressionsgerade: $B = 0,038 \,\frac{\tesla}{\ampere}  \cdt  I  +  0,012\,\tesla$
 \end{figure}
 
 \subsection{Kennlinie der Probe}
-Wie erwartet erhalten wir bei den geringen Stromstärken, die wir anwenden, eine lineare Kennlinie (siehe Abbildung \ref{fig:plot_Kenn}). Dies bestätigt, dass die im vierten Versuchsteil errechneten spezifischen Widerstände nicht nur lokal für $I = 100\,\micro\ampere$ gültig sind, sondern für alle Ströme bs zu dieser Größenordnung.
+Wie erwartet erhalten wir bei den geringen Stromstärken, die wir anwenden, eine lineare Kennlinie (siehe Abbildung \ref{fig:plot_Kenn}). Dies bestätigt, dass die im vierten Versuchsteil errechneten spezifischen Widerstände nicht nur lokal für $I = 100\,\micro\ampere$ gültig sind, sondern für alle Ströme bis zu dieser Größenordnung.
 
 \begin{figure}[p]
 \centering
@@ -112,9 +112,9 @@ Regressionsgerade: $U = 4,44\,\ohm \cdt  I  +  0,81\,\volt$
 \end{figure}
 
 \subsection{Ausrichtung im Magnetfeld}
-Die effektive senkrechte Magnetfeld-Komponente beträgt $B_\perp = B \cos (\alpha)$, somit folgt auch der Spannungsverlauf dem Cosinus. Aufgrund der Offset-Spannung ist diese allerdings nicht um 0 zentriert:
+Die effektive senkrechte Magnetfeld-Komponente beträgt $B_\perp = B \cos (\alpha)$, somit folgt auch der Spannungsverlauf dem Cosinus. Gemäß Gleichung \eqref{eq:U_offset} beinhaltet die gemessene transversale Spannung weiterhin eine winkelunabhängige Offset-Spannung:
 \begin{equation}
-U_H(\alpha) = U_0 \cos (\alpha + \phi) + U_\text{offset}
+U_t(\alpha) = U_H \cos (\alpha + \phi) + U_\text{offset}
 \end{equation}
 
 Die Anpassung des Cosinus in Abbildung \ref{fig:plot_alpha} ergibt eine Phasenverschiebung von $\phi = 1\degree$, welche unterhalb der Genauigkeit der Justierung der Probe liegt. Somit ist die Probe nahezu perfekt ausgerichtet.
@@ -122,10 +122,10 @@ Die Anpassung des Cosinus in Abbildung \ref{fig:plot_alpha} ergibt eine Phasenve
 \begin{figure}[p]
 \centering
 \input{Matlab/U(alpha).tex}
-\caption{Winkelabhängigkeit der Hallspannung}
+\caption{Winkelabhängigkeit der transversalen Spannung}
 \label{fig:plot_alpha}
 \vspace{-0.5ex}
-Kurvenanpassung: $U_H(\alpha) = 1,15 \,\volt \cdt \cos (\alpha + 1\degree) + 9,65\,\volt$
+Kurvenanpassung: $U_t(\alpha) = 1,15 \,\milli\volt \cdt \cos (\alpha + 1\degree) + 9,65\,\milli\volt$
 \vspace{-7em}
 \end{figure}
 
