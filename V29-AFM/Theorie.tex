@@ -44,7 +44,7 @@ Beim Zurückziehen der Spitze haftet diese bereits an der Probe, weshalb eine st
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=0.8\textwidth]{Fz.png}
-	\caption{Kraft-Distanz-Kurve für forward \& backward scan \cite{lit:Fz}}
+	\caption{Kraft-Distanz-Kurve für Annäherung und Entfernung von der Probe \cite{lit:Fz}}
 	\label{fig:Fz}
 \end{figure}
 
@@ -74,7 +74,7 @@ Während dieses Verfahren auch für empfindliche Materialien gut geeignet ist, t
 In Abbildung \ref{fig:Potential} sind das auf die Spitze wirkenden Potential aus Gleichung \eqref{eq:V_Spitze} sowie die für verschiedene Messmodi genutzten Bereiche des Potentials dargestellt.
 
 
-\begin{figure}[h]
+\begin{figure}[p]
 	\centering
 	\includegraphics[width=\textwidth]{AFM-fig3.png}
 	\caption[Potential $V(h)$ einer Ebene auf die Spitze]
@@ -84,28 +84,49 @@ In Abbildung \ref{fig:Potential} sind das auf die Spitze wirkenden Potential aus
 \end{figure}
 
 \subsection{Steuerung}
-Die Position (x,y,z) des Cantilevers über der Probe lässt sich bei Rasterkraft-Mikroskopen mittels Piezo-Elementen einstellen. Dabei handelt es sich um Kristalle ohne Inversionssymmetrie, bei denen der positive und negative Ladungsschwerpunkt der Elementarzelle mittels einer äußeren Spannung getrennt werden können, was zu einer Verformung der Zelle und somit des Kristalls führt. Dadurch 
+Die Position $(x,y,z)$ des Cantilevers über der Probe lässt sich bei Rasterkraft-Mikroskopen mittels Piezo-Elementen einstellen. Dabei handelt es sich um Kristalle ohne Inversionssymmetrie, bei denen der positive und negative Ladungsschwerpunkt der Elementarzelle mittels einer äußeren Spannung getrennt werden können, was zu einer Verformung der Zelle und somit des Kristalls führt. Da eine winzige Ladungstrennung bereits ein relativ starkes $E$-Feld aufbaut, lässt sich die Längenänderung mit der geforderten Präzision (\pico\metre{} bis \micro\metre) durch Anlegen entsprechend geringer Spannungen erzielen. Dabei reagieren Piezo-Elemente im Bereich bis 1V nahezu linear, die Abweichung ist gegenüber den anderen Artefakten vernachlässigbar.
 
- Neben der ursprünglich verwendeten Dreibein-Anordnung, in der je ein Piezo eine Koordinate ansteuert, werden inzwischen  zahlreiche Geräte (einschließlich des hier verwendeten easyScan E-AFM) mit Piezo-Rohrscannern ausgestattet. In Abbildung \ref{fig:tube} ist die Ansteuerung eines solchen Scanners dargestellt:\\
-Die zentrale z-Elektrode dient der 
+Neben der ursprünglich verwendeten Dreibein-Anordnung, in der je ein Piezo eine Koordinate ansteuert, werden inzwischen  zahlreiche Geräte (einschließlich des hier verwendeten easyScan E-AFM) mit Piezo-Rohrscannern ausgestattet. In Abbildung \ref{fig:tube} ist die Ansteuerung eines solchen Scanners dargestellt:\\
+Die zentrale $z$-Elektrode steuert die axiale Elongation/Kontraktion, über die vier äußeren Elektroden kann eine Biegung in $x$- bzw. $y$-Richtung erzielt werden. 
+
+Das Oberflächenprofil wird linienweise entlang der $x$-Achse abgetastet; dabei ist die Scan-Richtung typischerweise abwechselnd vorwärts und rückwärts, wodurch der Cantilever eine schleifenförmige Bahn abfährt. Nur wenn immer in der gleichen Richtung über eine Kante gescannt werden soll, wird dies auf eine der Scan-Richtungen beschränkt.
 
 
 \begin{figure}[p]
 	\centering
-	\includegraphics[width=0.6\textwidth]{piezo_tube.jpg}
+	\includegraphics[width=0.8\textwidth]{AFM-fig1.png}
+	\caption{Optische Bestimmung der auf den Cantilever wirkenden Kraft $F$. \cite{lit:grenoble}.}
+	\label{fig:laser}
+\end{figure}
+
+\begin{figure}[p]
+	\centering
+	\includegraphics[width=0.5\textwidth]{piezo_tube.jpg}
 	\caption{Piezo-Rohrscanner zur Positionierung der Spitze \cite{lit:tube}}
 	\label{fig:tube}
 \end{figure}
 
-%% TODO: Rohrscanner, Regelkreis, I-Gain & P-Gain, Artefakte
+Wie in Abbildung \ref{fig:laser} ersichtlich, wird die Auslenkung $s$ des Cantilevers über einen schräg einfallenden und am Cantilever reflektierten Laser kontrolliert. Der reflektierte Laserstrahl trifft auf eine viergeteilte Diode, die aus der Verschiebung der Intensität zwischen den vier Sektoren die Kraft $F \sim s$ berechnet.
 
-
+Da in diesem Versuch mit contact mode, constant force durchgeführt wird, ist eine Rückkopplung des Kraft-Signals zum $z$-Piezo notwendig. Hierfür definieren wir
+\begin{description}
+\item[P-Gain:] Um dem Höhenprofil ohne Kollision folgen zu können, wird eine direkte Rückkopplung benötigt, die z.B. bei einer steigenden Flanke sofort $z$ proportional zu $F$ erhöht. Die Stärke dieses \emph{proportionellen} Feedbacks wird mit dem Koeffizienten P-Gain gewichtet.
+\item[I-Gain:] Zusätzlich zur Reaktion auf Höhenänderungen muss der Piezo weiterhin die bisherige $z$-Position erhalten; ohne diese Komponente würde der Piezo immer wieder in die Ruhelage zurückgehen. Da sich die aktuelle Position aus der Summe aller bisherigen Reaktionen $\int\! F \,\d t$ ergibt, bezeichnet man den Koeffizienten für dieses \emph{integrale} Feedback als I-Gain.
+\end{description}
 
 \begin{figure}[p]
 	\centering
 	\includegraphics[width=\textwidth]{regelkreis.png}
 	\caption{Schematischer Aufbau des Regelkreises eines Rasterkraftmikroskops \cite{lit:guide}.}
+			Nach der groben Einstellung der Höhe wird diese während der Messung durch das Feedback des Kraftsensors automatisch nachreguliert.
 	\label{fig:feedback}
 \end{figure}
 
-\subsection{}
+\subsection{Artefakte}
+% Piezo: sin x != x
+% Piezo: minimal nichtlinear
+% Piezo: Hysterese
+% Spitze: doppelt, dreckig, gebrochen
+% Cantilever; gealtert, Feinriß
+% thermischer Drift, Gebäudeschwingungen
+% speed: edge overshoot
