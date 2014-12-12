@@ -18,19 +18,25 @@ Vor der eigentlichen Messung lassen sich noch die Winkelneigung in $x$- und $y$-
 Für den auszumessenden Bereich der Probe, welches in ein Raster eingeteilt ist, lässt sich neben dem Bereich sowohl die Anzahl der Samples pro Linie als auch die dafür vorgesehene Zeitspanne einstellen. Eine hohe Anzahl von Samples ist zwar wünschenswert, wird aber durch die Geometrie der Spitze am Cantilever begrenzt. Für die Zeit pro Linie gilt pauschal, dass eine längere Zeit für meist bessere Messergebnisse sorgt, u.a. weil der sogenannte \emph{overshoot} nach einer abrupten Höhenänderung im Profil gegenüber dem umgebenden Plateaus kürzer ausfällt. Jedoch kann die Probe bei zu langer Kontaktdauer beschädigt werden.\\
 Jede Linie in diesem Raster wird doppelt ausgemessen (ForwardScan und BackwardScan). Daraus kann die Kraft zwischen Spitze und Probe ermittelt werden.\\
 Im Ansichtsfenster (ScanPanel) lassen sich zudem verschiedene Fenster einblenden, welche bspw. das Höhenprofil der gescannten Linie oder die Oberansicht des abgerasterten Ausschnitts anzeigen.
+
+
 \section{Versuchsdurchführung und -auswertung} 
+
 \subsection{Ermittlung der optimalen Parameter für die Messungen}
-Im Idealfall liegt die abzumessende ebene Probe in der $x$-$y$-Ebene des AFMs. Eine vorhandene Neigung der Probenebene zur idealen Messebene lässt sich durch die Eingabe geeigneter Winkel in die Felder \emph{X-Slope} und \emph{Y-Slope} kompensieren. Die Messung der noch nicht ausgerichteten Ebene - bei unserem Versuch wurde eine glatte Siliziumoberfläche %not sure about that
-als Referenz genommen - ist in Abbildung \ref{fig:tilt} zu sehen.
+Im Idealfall liegt die abzumessende ebene Probe in der $x$-$y$-Ebene des AFMs. Eine vorhandene Neigung der Probenebene zur idealen Messebene lässt sich durch die Eingabe geeigneter Winkel in die Felder \emph{X-Slope} und \emph{Y-Slope} kompensieren.
+
+Die Messung der noch nicht ausgerichteten Ebene -- in unserem Fall diente eine glatte Siliziumoberfläche als Referenz -- ist in Abbildung \ref{fig:tilt} zu sehen. Hierbei wurden die Korrekturen bereits während der Messung vorgenommen.
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=0.5\textwidth]{tilt_tip0.png}
 	\caption{Nicht ausgerichtete Probenoberfläche.}
 	\label{fig:tilt}
 \end{figure}
-Mit der Einstellung $X$-Slope=+1,5\degree konnte dieser Tilt beseitigt werden.
 
-Im Folgenden gilt es, die idealen Einstellungen für den \emph{P-Gain} und \emph{I-Gain} empirisch zu ermitteln. Über den Rückkopplungskreis des AFM erhalten wir eine Abweichung, welche entweder proportional (P) oder integral (I) verstärkt als Signal an den $z$-Pi\"{e}zo zurückgegeben wird, welcher die Höhe des Cantilevers steuert.\\
+Mit der Einstellung $X$-Slope = +1,5\degree{} konnte der Tilt beseitigt werden, weshalb wir die Aufnahme bereits nach kurzer Zeit erfolgreich abbrechen konnten.
+
+Im Folgenden gilt es, die idealen Einstellungen für den \emph{P-Gain} und \emph{I-Gain} empirisch zu ermitteln. Über den Rückkopplungskreis des AFM erhalten wir eine Abweichung, welche entweder proportional (P) oder integral (I) verstärkt als Signal an den $z$-Pi\"{e}zo zurückgegeben wird, welcher die Höhe des Cantilevers steuert.
+
 Ein zu niedriger Wert bewirkt eine zu langsame Reaktion des Systems auf Änderungen in der Topologie der Probe, während ein zu hoher Wert das System sehr empfindlich gegen Oszillationen und Störungen werden lässt.
 
 In der Abbildung \ref{fig:gain} ist eine Messung an einem Kalibrationsgitter für verschiedene Wertepaare (P,I) der Gains zu sehen, anhand dessen wir die optimalen Werte abschätzen.
@@ -40,7 +46,10 @@ In der Abbildung \ref{fig:gain} ist eine Messung an einem Kalibrationsgitter fü
 	\caption[Bestimmung des P- und I-Gains]{Messung an einem Kalibrationsgitter für verschiedene P- und I-Gains.}
 \label{fig:gain}
 \end{figure}
-Anhand dieser Messungen erhalten wir als ideale Werte P=10 und I=10. Dies entspricht auch der Empfehlung im Handbuch des verwendeten AFMs.
+
+Anhand dieser Messungen erhalten wir als ideale Werte P = 10 und I = 10. Dies entspricht auch der Empfehlung im Handbuch des verwendeten AFMs.
+
+\newpage
 \subsection{Kalibration und Charakterisierung der Spitze}
 Zuerst wurde eine glatte Silizium-Oberfläche mit dem AFM abgerastert. Das dabei entstandene Bild ist in Abbildung \ref{fig:Si_smooth01} zu sehen.
 \begin{figure}[h]
@@ -49,6 +58,7 @@ Zuerst wurde eine glatte Silizium-Oberfläche mit dem AFM abgerastert. Das dabei
 	\caption{Messung einer glatten Silizium-Oberfläche.}
 	\label{fig:Si_smooth01}
 \end{figure}
+
 Es ist festzustellen, dass die Oberfläche nicht ideal glatt ist, sondern eine beinahe periodische Struktur aufweist. Zudem befindet sich ein Tal im abgerasterten Bereich. Dieses Tal entsteht durch die Verwendung von Rohrscannern zur Bewegung des Cantilevers.
 
 Als nächstes erfolgte eine Messung an einem Kalibrationsgitter aus Silizium. Die Abbildung \ref{fig:Si_grating} zeigt den schematischen Aufbau des Gitters.
@@ -58,6 +68,7 @@ Als nächstes erfolgte eine Messung an einem Kalibrationsgitter aus Silizium. Di
 	\caption[Schematischer Aufbau des Silizium-Kalibrationsgitters]{Schematischer Aufbau des Silizium-Kalibrationsgitters. Laut der Spezifikation beträgt der Abstand $d$ von zwei Kanten 3\micro\metre, die Höhe $h$ einer Kante 1,8\micro\metre{} und der Winkel $\alpha$ an der oberen Kante 70\degree.}
 	\label{fig:Si_grating}
 \end{figure}
+
 Die ersten Messungen am Gitter sind in Abbildung \ref{fig:Lattice1} zu sehen. Bei näherer Betrachtung (vgl. Abbildung \ref{fig:Lattice2}) ist zu erkennen, dass die ursprünglich triangulare Form der Kanten nicht mehr wiedergegeben wird. Es wird ein Defekt der Spitze am Cantilever vermutet, weswegen dieses anschließend ausgetauscht wurde.
 \begin{figure}[H]
 	\centering
@@ -93,7 +104,7 @@ Die ersten Messungen am Gitter sind in Abbildung \ref{fig:Lattice1} zu sehen. Be
 	\label{fig:Lattice2}
 \end{figure}
 
-Mit dem neuen Cantilever wurde anschließend eine weitere Messung an einer glatten Silizium-Oberfläche vorgenommen. Dabei wurde - unbeabsichtigt - ein Staubpartikel mit erfasst, dies ist deutlich in der Abbildung \ref{fig:Si_particle} zu sehen. Die Höhe des betrachteten Partikels ist $(0,17 \pm 0,04)\micro\metre$, für die maximale Breite wurde $(0.99 \pm 0,11)\micro\metre$ ermittelt.
+Mit dem neuen Cantilever wurde anschließend eine weitere Messung an einer glatten Silizium-Oberfläche vorgenommen. Dabei wurde - unbeabsichtigt - ein Staubpartikel mit erfasst, dies ist deutlich in der Abbildung \ref{fig:Si_particle} zu sehen. Die Höhe des betrachteten Partikels ist $(0,17 \pm 0,04)\micro\metre$, für die maximale Breite wurde $(0.99 \pm 0,11)\micro\metre$ ermittelt. Für Abbildung \ref{fig:Si_particle} b) wurde das Kraft-Signal gewählt, um ein plastischeres Bild des Partikels zu erhalten.
 \begin{figure}[H]
 \centering
 	\begin{minipage}{0.45\textwidth}
@@ -105,13 +116,21 @@ Mit dem neuen Cantilever wurde anschließend eine weitere Messung an einer glatt
 	\begin{minipage}{0.45\textwidth}
 	\centering
 		\includegraphics[scale=0.5]{Si_tip2_particle_c_contrast.png}
-	\caption*{b) Oberansicht}
+	\caption*{b) Oberansicht, LeverSig}
 	\end{minipage}
 	\caption[Messung mit Staubpartikel]{Messung mit neuen Cantilever an einer glatten Silizium-Oberfläche und versehentlicher Erfassung eines Staubpartikels.}
 	\label{fig:Si_particle}
+	\vspace{-1em}
 \end{figure}
 
-Daraufhin wurde wiederum das Kalibrationsgitter ausgemessen, die entsprechenden Bilder befinden sich in Abbildung \ref{fig:Lattice3}.
+Daraufhin wurde wiederum das Kalibrationsgitter ausgemessen, die entsprechenden Bilder befinden sich in Abbildung \ref{fig:Lattice3}. Wir erhalten\\[-2em]
+\begin{align*}
+\text{Höhe: }h&=(1,43\pm 0,02)\micro\metre\\
+\text{Abstand zwischen zwei Kanten: }d&=(3,84 \pm 0,02)\micro\metre\\
+\text{Winkel der Kante: }\alpha&=(84,1\pm 0,2)\degree
+\end{align*}
+Die Ursache für die vom Datenblatt abweichenden Maße ist die Tatsache, dass die Erfassung des Höhenprofils nicht senkrecht zu den Kanten stattfand, sondern vielmehr schräg über das Gitter. Dies wurde für die weiteren Messungen korrigiert.
+
 \begin{figure}[h]
 \centering
 	\begin{minipage}{0.45\textwidth}
@@ -127,18 +146,14 @@ Daraufhin wurde wiederum das Kalibrationsgitter ausgemessen, die entsprechenden 
 	\end{minipage}
 	\caption[Zweite Messung am Kalibrationsgitter]{Zweite Messung am Kalibrationsgitter. Die Messung erfolgte nur über die unteren 15\% des Bildes.}
 	\label{fig:Lattice3}
+	\vspace{-1em}
 \end{figure}
-Wir erhalten
-\begin{align*}
-\text{Höhe: }h&=(1,43\pm 0,02)\micro\metre\\
-\text{Abstand zwischen zwei Kanten: }d&=(3,84 \pm 0,02)\micro\metre\\
-\text{Winkel der Kante: }\alpha&=(84,1\pm 0,2)\degree
-\end{align*}
-Die Ursache für die vom Datenblatt abweichenden Maße ist die Tatsache, dass die Erfassung des Höhenprofils nicht senkrecht zu den Kanten stattfand, sondern vielmehr schräg über das Gitter. Dies wurde für die weiteren Messungen korrigiert.
+
+
 \subsection{Messung verschiedener Proben}
 \subsubsection{CD}
 Ein weiterer Teil der Aufgabenstellung ist die Messung der Oberflächenstruktur einer mit Daten beschriebenen CD.\\
-Die Daten werden bei der Herstellung auf die Schicht aus Polycarbonat (PC) in Form von Vertiefungen, den sogenannten \emph{pits}, in eine spiralförmige Spur gebrannt, welche sich von der Mitte der CD nach außen zieht. Der Abstand zwischen zwei Spuren beträgt 1,5\micro\metre. Sie haben typischerweise eine Tiefe von etwa 100\nano\metre und eine Länge von $850\nano\metre$ bis $3,5\micro\metre$ (gemäß \cite{lit:wiki_cd}).\\
+Die Daten werden bei der Herstellung auf die Schicht aus Polycarbonat (PC) in Form von Vertiefungen, den sogenannten \emph{pits}, in eine spiralförmige Spur gebrannt, welche sich von der Mitte der CD nach außen zieht. Der Abstand zwischen zwei Spuren beträgt 1,5\micro\metre. Sie haben typischerweise eine Tiefe von etwa 100\nano\metre{} und eine Länge von $850\nano\metre$ bis $3,5\micro\metre$ (gemäß \cite{lit:wiki_cd}).\\
 Für die Messung wird mittels eines Skalpells die reflektierende Aluminiumschicht, welche das Negativ der beschriebenen PC-Schicht darstellt aus der CD ausgeschnitten.\\
 Eine Messung ist in Abbildung \ref{fig:CD} zu sehen.
 \begin{figure}[h]
@@ -157,13 +172,22 @@ Eine Messung ist in Abbildung \ref{fig:CD} zu sehen.
 	\caption{Aufnahme einer CD.}
 	\label{fig:CD}
 \end{figure}
-Aus den Abbildungen ist zu entnehmen:
+
+Aus den Abbildungen ist zu entnehmen:\\[-1em]
 \begin{align*}
 \text{Abstand zwischen zwei Spuren: }& (1,9\pm0,5)\micro\metre\\
 \text{Tiefe der pits (abgeschätzt): }& (0,2\pm0,1)\micro\metre\\
 \text{Länge des kürzesten pits: }& 8\micro\metre 
 \end{align*}
-Der Abstand der Spuren und die Tiefe der pits entsprechen weitgehend den üblichen Ausmaßen, die Länge der pits divergiert allerdings. Das Ausmessen wird erheblich erschwert durch einen schlecht gewählten farblichen Kontrast, sowie durch die Artefakte. Diese enthalten u.a. overshoots, und Oszillationen von außen. Es ist außerdem nicht ohne weiteres erkennbar, ob es sich um eine gepresste oder gebrannte CD handelt.
+Der Abstand der Spuren und die Tiefe der pits entsprechen weitgehend den üblichen Ausmaßen, die Länge der pits divergiert allerdings. Das Ausmessen wird erheblich erschwert durch einen schlecht gewählten farblichen Kontrast, sowie durch die Artefakte. Diese enthalten u.a. Overshoots und Oszillationen von außen.
+
+Für die Frage, ob es sich um eine gepresste oder gebrannte CD handelt, betrachten wir zwei Aspekte:
+\begin{itemize}
+\item Der Aufdruck der CD ist professionell erstellt, was auf eine gepresste CD hindeutet.
+\item Die Pits liegen in Rillen, welche bei Rohlingen zur Führung des Lasers dienen, nicht aber bei gepressten CDs.
+\end{itemize}
+Unsere anfängliche Annahme einer gepressten CD lässt sich aufgrund der Rillen nahezu ausschließen, weshalb wir von einer gebrannten CD ausgehen.
+
 \subsubsection{Biologische Probe}
 Eine weitere Aufgabenstellung ist, eine biologische Probe mit dem AFM auszumessen. Hierzu wurde ein Haupthaar einem der Probanden entnommen und auf einem Deckglas präpariert. Die Abbildung \ref{fig:hair} enthält die dabei erstellten Aufnahmen.
 \begin{figure}[h]
@@ -219,6 +243,8 @@ Befindet sich nun ein Wasserfilm auf der Probe, zu sehen in Abbildung \ref{fig:S
 Die ForwardSpec-Kurven der Messung ohne und mit Wasserfilm müssten auf derselben Position liegen, vermutlich ist der Offset dem Hauchen auf die Apparatur verschuldet, sodass sich auch auf dem Cantilever Flüssigkeit angesammelt haben könnte.
 Berücksichtigen wir diesen Offset, so ist der Unterschied der BackwardSpec-Kurven mit und ohne Wasserfilm wesentlich verständlicher; die stärkere Adhäsion bewirkt eine anziehende Kraft über einen größeren Abstand der Spitze zur Probe.
 Die kleinen Oszillationen in den Kraft-Distanz-Kurven sind dem Bitrauschen zuzuordnen, welche durch die Diskretisierung des Messbereich in samples entstehen.
+
+\newpage
 \subsubsection{Messung auf einer mit SBR versetzten Silizium-Probe}
 Analog zum vorherigem Schritt wurde eine Silizium-Probe ausgemessen, welche mit \emph{Styrol-Butadien-Kautschuk} (SBR) in Form von Tropfen versetzt wurde. Beim SBR handelt es sich um ein synthetisches Gummi, welches bei Raumbedingungen ein viskoelastisches Verhalten aufweist.
 Das abgetastete Intervall verläuft über drei dieser ``Flecken'' und ist in Abbildung \ref{fig:cow_line} veranschaulicht.
