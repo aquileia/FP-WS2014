@@ -1,11 +1,11 @@
 % !TeX encoding = UTF-8
-% !TeX root = V26_Halleffekt.tex
+% !TeX root = V29_AFM.tex
 % !TeX spellcheck = de_DE_frami
 
 \section{Einleitung}
-Die Rasterkraftmikroskopie (engl. Atomic Force Microscopy, AFM) ist eine Methode, das Profil einer Probe in einem kleinen Bereich zu vermessen, der je nach Gerät von einem $\milli\metre^2$ bis hinab zu einzelnen Molekülen und Atomen reicht. Hierbei tastet eine Spitze an einem Cantilever die Probe ab und ermittelt die Kraft, die diese auf die Spitze ausübt.
+Die Rasterkraftmikroskopie (engl. Atomic Force Microscopy, AFM) ist eine Methode, das Profil einer Probe in einem kleinen Bereich zu vermessen, der je nach Gerät von einem $\milli\metre^2$ bis hinab zum Maßstab einzelner Moleküle und Atome reicht. Hierbei tastet eine Spitze an einem Cantilever die Probe ab und ermittelt die Kraft, die diese auf die Spitze ausübt.
 
-Im folgenden werden einige der wichtigsten Messmodi erklärt, die neben dem Profil auch weitere Eigenschaften des Materials an der Oberfläche ergeben; so z.B. den E-Modul und die Adhäsion.
+Im folgenden werden einige der wichtigsten Messmodi am AFM erklärt, die neben dem Profil teils auch weitere Eigenschaften des Materials an der Oberfläche ergeben; so z.B. den E-Modul und die Adhäsion.
 
 Weiterhin erstellen wir Aufnahmen verschiedener Proben, um Aussagen über deren Struktur sowie Probleme der AFM treffen zu können. 
 
@@ -26,55 +26,85 @@ Im Falle der AFM betrachten wir die Wechselwirkung zwischen einer näherungsweis
   V =  - A \cdt h^{-1} + B \cdt h^{-12} \label{eq:V_Spitze}
 \end{equation}
 
-\subsection{Mess-Modi}
-Unterhalb des Gleichgewichtsabstands $z_0$ wirken abstoßende Kräfte. Man bezeichnet dies als contact mode, da die Atome anschaulich betrachtet aneinander stoßen. Für $z > z_0$, den sogenannten non contact mode, wird die Spitze zur Probe gezogen. Eine dritte Anordnung ist der intermittent contact mode, bei dem die Spitze einer hochfrequenten Schwingung unterliegt und periodisch die Probe berührt. Dabei lässt sich aus der Modulation der Schwingungsfrequenz die Dämpfung durch die Probe und somit deren lokales E-Modul ermitteln.
-
-Weiterhin wird im contact mode üblicherweise eine der folgenden zwei Konfigurationen verwendet (Bei Proben mit extremer Topologie wird bei constant height das Abbrechen der Spitze riskiert):
-\begin{description}
- \item[constant height]: Die Position $z$ des Cantilevers bleibt konstant, das Messsignal entspricht der gemessenen Kraft.
- \item[constant force]: Die Position $z$ des Cantilevers wird nachgesteuert, um die Kraft auf einem vorgegebenen Wert zu halten.
-\end{description}
-
-In Abbildung \ref{fig:Potential} sind das auf die Spitze wirkenden Potential aus Gleichung \eqref{eq:V_Spitze} sowie die für verschiedene Messmodi genutzten Bereiche des Potentials dargestellt.
-
-\begin{figure}[h]
-	\centering
-	\includegraphics[width=0.5\textwidth]{AFM-fig3.png}
-	\caption{Potential der Probe für eine Spitze in Funktion des Abstands. \cite{lit:grenoble} bzw. \cite{lit:jpk}}
-	\label{fig:Potential}
-\end{figure}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Abbildung mit ``Force'' betitelt, im Text als Potential verwendet - korrigieren!
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-
+Die Kraft $F = - \ddp{V}{h}$ auf die Spitze führt zum Biegen des Cantilevers, der als Blattfeder mit Federkonstante $k$ beschrieben werden kann. Die senkrechte Durchbiegung $s$ ergibt sich aus dem Hooke'schen Gesetz
+\begin{equation}
+  F =  k \cdot s	\iff	s = F \div k
+\end{equation}
+Dabei ist anzumerken, dass die Höhe $h$ der Spitze über der Probe sich aus der Position $z$ des Cantilevers und dessen Durchbiegung $s$ zusammensetzt:
+\begin{equation}
+  h = z - s
+\end{equation}
 
 
 \subsection{Kraft-Distanz-Kurve}
-Wie unterscheiden sich allerdings die Ergebnisse von Messungen mit verschiedenen Modi? Dies wird am besten klar, wenn man die schematische Kraft-Distanz-Kurve in Abbildung \ref{fig:Fz} betrachtet. 
+Die schematische Kraft-Distanz-Kurve in Abbildung \ref{fig:Fz} zeigt die auf die Spitze wirkende Kraft in Funktion von $z$. Links ist die Anziehung vernachlässigbar. Der Sprung in der Mitte wird als Snap In bezeichnet, bei dem die anziehende Kraft den Cantilever so lange verbiegt, bis die Spitze in Kontakt ist ($h = h_0$). Anschließend wird die Spitze immer stärker gegen die Probe gedrückt, der dargestellte lineare Anstieg gilt näherungsweise, solange sowohl Cantilever als auch Probe nur elastisch verformt werden.
+
+Beim Zurückziehen der Spitze haftet diese bereits an der Probe, weshalb eine stärkere Gegenkraft der Blattfeder erforderlich ist als zuvor: Das Zurückspringen erfolgt bei einem etwas größeren Abstand als der Snap In.
 
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.5\textwidth]{}
-	\caption{Kraft-Distanz-Kurve}
+	\includegraphics[width=0.8\textwidth]{Fz.png}
+	\caption{Kraft-Distanz-Kurve für forward \& backward scan \cite{lit:Fz}}
 	\label{fig:Fz}
 \end{figure}
 
+Ist die Oberfläche mit Wasser benetzt, so führt die Kapilliarkraft zu einem nochmals deutlich stärkeren Adhäsion und folglich einem größeren Unterschied zwischen Annäherung und Zurückziehen.
+
+\subsection{Mess-Modi}
+\subsubsection{Contact mode}
+Die einfachste Möglichkeit zur Messung ist der contact mode, bei dem die Spitze anschaulich betrachtet die Probe berührt. Von Vorteil ist insbesondere, dass unterhalb des Gleichgewichtsabstands $h_0$ starke abstoßende Kräfte wirken und der Snap In bereits erfolgt ist. 
+
+Dabei wird üblicherweise eine der folgenden zwei Konfigurationen verwendet (Bei Proben mit extremer Topologie wird bei constant height das Abbrechen der Spitze riskiert):
+\begin{description}
+ \item[constant height:] Die Position $z$ des Cantilevers bleibt konstant, das Messsignal entspricht der gemessenen Kraft.
+ \item[constant force:] Die Position $z$ des Cantilevers wird nachgesteuert, um die Kraft auf einem vorgegebenen Wert zu halten.
+\end{description}
+
+Da die Spitze gegen die Probe gedrückt wird, ist dieses Verfahren nicht für weiche Materialien (z.B. zahlreche organische Proben) nutzbar.
+
+\subsubsection{Noncontact mode}
+Für $h > h_0$, den sogenannten non contact mode, wird die Spitze zur Probe gezogen. Allerdings gibt es durch den Snap In keinen Bereich, in dem diese anziehenden Kräfte statisch gemessen werden können -- der Cantilever biegt sich zur Probe hin und berührt diese. Aus diesem Grund wird die Spitze mittels eines Piezoelements einer hochfrequenten Schwingung unterworfen, wodurch die Spitze vor dem Snap In bereits zurückschnellt.
+
+Während dieses Verfahren auch für empfindliche Materialien gut geeignet ist, täuscht eine Flüssigkeitsschicht auf der Probe (Für Abbildung \ref{fig:Si_force-distance} entsteht dieser durch das Anhauchen.) vor, Teil der Probe zu sein und wird folglich   mit erfasst.
+
+\subsubsection{Tapping mode}
+ Eine dritte Anordnung ist der tapping bzw. intermittent mode, bei dem der Cantilever ebenfalls oszilliert, allerdings aber bei jeder Schwingung die Probe berührt. Dabei lässt sich aus der Modulation der Schwingungsfrequenz die durch die Probe bedingte Dämpfung und somit deren lokales E-Modul ermitteln.
 
 
-
-
-
-%% TODO: Rohrscanner, Regelkreis, I-Gain & P-Gain, Wasser, Forward/Backward Scan, 
-
+In Abbildung \ref{fig:Potential} sind das auf die Spitze wirkenden Potential aus Gleichung \eqref{eq:V_Spitze} sowie die für verschiedene Messmodi genutzten Bereiche des Potentials dargestellt.
 
 
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.5\textwidth]{regelkreis.png}
-	\caption{Schematischer Aufbau des Regelkreises eines Rasterkraftmikroskops.}
+	\includegraphics[width=\textwidth]{AFM-fig3.png}
+	\caption[Potential $V(h)$ einer Ebene auf die Spitze]
+		     {Potential $V(h)$ einer Ebene auf die Spitze. \cite{lit:grenoble} bzw. \cite{lit:jpk}\\
+			Einordnung der Messmodi (contact, noncontact, tapping) in den Graphen.}
+	\label{fig:Potential}
+\end{figure}
+
+\subsection{Steuerung}
+Die Position (x,y,z) des Cantilevers über der Probe lässt sich bei Rasterkraft-Mikroskopen mittels Piezo-Elementen einstellen. Dabei handelt es sich um Kristalle ohne Inversionssymmetrie, bei denen der positive und negative Ladungsschwerpunkt der Elementarzelle mittels einer äußeren Spannung getrennt werden können, was zu einer Verformung der Zelle und somit des Kristalls führt. Dadurch 
+
+ Neben der ursprünglich verwendeten Dreibein-Anordnung, in der je ein Piezo eine Koordinate ansteuert, werden inzwischen  zahlreiche Geräte (einschließlich des hier verwendeten easyScan E-AFM) mit Piezo-Rohrscannern ausgestattet. In Abbildung \ref{fig:tube} ist die Ansteuerung eines solchen Scanners dargestellt:\\
+Die zentrale z-Elektrode dient der 
+
+
+\begin{figure}[p]
+	\centering
+	\includegraphics[width=0.6\textwidth]{piezo_tube.jpg}
+	\caption{Piezo-Rohrscanner zur Positionierung der Spitze \cite{lit:tube}}
+	\label{fig:tube}
+\end{figure}
+
+%% TODO: Rohrscanner, Regelkreis, I-Gain & P-Gain, Artefakte
+
+
+
+\begin{figure}[p]
+	\centering
+	\includegraphics[width=\textwidth]{regelkreis.png}
+	\caption{Schematischer Aufbau des Regelkreises eines Rasterkraftmikroskops \cite{lit:guide}.}
 	\label{fig:feedback}
 \end{figure}
 
