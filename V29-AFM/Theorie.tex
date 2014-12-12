@@ -123,10 +123,16 @@ Da in diesem Versuch mit contact mode, constant force durchgeführt wird, ist ei
 \end{figure}
 
 \subsection{Artefakte}
-% Piezo: sin x != x
-% Piezo: minimal nichtlinear
-% Piezo: Hysterese
-% Spitze: doppelt, dreckig, gebrochen
-% Cantilever; gealtert, Feinriß
-% thermischer Drift, Gebäudeschwingungen
-% speed: edge overshoot
+Hat man ein Bild der Probe erhalten, so gilt es, Information und Fehler in der Aufnahme zu trennen. Auch ein korrekt eingestelltes AFM wird typischerweise ein gestörtes Bild ergeben, da die störenden Artefakte zahlreiche Quellen haben, darunter insbesondere:
+\begin{enumerate}
+\item Liegt die Probe nicht parallel zur $x-y$-Ebene, so zeigt sich die Neigung ebenfalls im Bild und reduziert das für die Höhe effektiv bereitstehende Farbspektrum.
+\item Die $x$- und $y$-Verschiebung mit einem Piezo-Rohrscanner wird durch Verbiegen des Rohres erzielt, weshalb die $z$-Position ebenfalls geringfügig beeinflusst wird -- das Bild scheint folglich in der Mitte eine Wölbung nach oben zu besitzen. 
+\item Die erwähnte Abweichung der Piezo-Elemente von perfekter Linearität kann zu Verzerrungen entlang aller drei Achsen führen, ist allerdings wie erwähnt klein im Vergleich zu anderen Effekten.
+\item Wir wählen als nachträgliche Bereinigung lediglich die Normierung der $x$-Linien auf $\langle x\rangle = 0$, doch dies führt bereits dazu, dass Linien mit Erhebungen (z.B. einem Partikel) einen dunkleren Hintergrund aufweisen. 
+\item Eine dreckige, abgebrochene oder nicht hinreichend spitz zulaufende Spitze kann die Flanken massiv verbreitern; im Extremfall erreicht die Spitze nicht einmal mehr den Boden einer Vertiefung.
+\item Besitzt ein Cantilever zwei herausstehende Spitzen, so misst man jede Erhebung doppelt mit leichtem Versatz.
+\item Durch Alterung und Beschädigung kann sich die Elastizität des Cantilevers verändern, wodurch die Rückkopplung ungenauer wird. Da die Federkonstanten $k$ der von uns eingesetzten Cantilever allerdings ohnehin stark streuen, ist das hier nur bedingt relevant.
+\item Ein zu schnelles Abtasten führt zu sogenannten Overshoots, bei denen der Cantilever nicht schnell genug nachgeführt wird. Dadurch werden scharfe Kanten nur noch als Wülste abgebildet.
+\item Ändert sich die Temperatur während der Messung (was insbesondere bei sehr langsamem Abtasten passiert), so verschiebt die thermische Drift die Probe unter der Spitze und das Bild erscheint verschmiert.
+\item Eines der massivsten Probleme ist die unzureichende Abschirmung von äußeren Schwingungen, insbesondere des Gebäudes und der Luft (Schall). Ersteres wurde durch einen Tisch mit Luftkissen stark reduziert, für die Unterdrückung von Schall müsste allerdings im Vakuum gemessen werden. 
+\end{enumerate}
