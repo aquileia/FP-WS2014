@@ -10,3 +10,9 @@
 08 - saturation spectroscopy, 2nd peak detail
 09 - saturation spectroscopy, 1st peak
 10 - saturation spectroscopy, overview
+11 - frequency modulation, 4th peak
+12 - same as 11
+13 - saturation spectroscopy, 4th peak high resolution
+14 - frequency modulation, 2nd peak, no averaging (else we'd lose a dip)
+15 - frequency modulation, 1st peak
+16 - frequency modulation, 
