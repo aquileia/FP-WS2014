@@ -4,7 +4,25 @@
 
 \section{Execution} % Experimental setup ?
 
+\subsection{Frequency modulation spectroscopy}
+The laser is modulated with a signal
+\begin{equation}
+ S_1 = a_1 \sin(\omega t)
+ \intertext{with}
+ \omega = 2 \pi \nu, \nu = 0.1 \mega\hertz
+\end{equation}
+
+The laser frequency follows, shifting by $\Delta \nu$ each period.
+
+The signal at the photodiode thus varies by $\Delta I = \ddp{I}{\nu} \cdt \Delta \nu$, allowing us to obtain the first derivative of the spectrum.
+
+
 \section{Analysis}
-% 1st peak & 4th peak correspond to 87 Rb
+% 1st & 4th peak correspond to 87 Rb
+% 2nd & 3rd peak correspond to 85 Rb
+% two peaks each from the hyperfine structure of 5s_{1/2} : F = I \pm 1/2
+
+% 87 Rb : 5p_{3/2} --> 5s_{1/2} F \in \{2, 3\}
+% 87 Rb : 5p_{3/2} --> 5s_{1/2} F \in \{1, 2\}
 
 \section{Discussion of errors}
