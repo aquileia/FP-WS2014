@@ -13,6 +13,7 @@
 11 - frequency modulation, 4th peak
 12 - same as 11
 13 - saturation spectroscopy, 4th peak high resolution
-14 - frequency modulation, 2nd peak, no averaging (else we'd lose a dip)
-15 - frequency modulation, 1st peak
-16 - frequency modulation, 
+14 - frequency modulation, 3rd peak, no averaging (else we'd lose a dip)
+15 - frequency modulation, 1st peak (low amplitude due to limitations of low pass filter: cut off at 2.5MHz while signal is modulated at 0.1MHz, we'd thus need a cut off at 0.2)
+16 - frequency modulation, 2nd peak
+
