@@ -1,7 +1,7 @@
  
 00 - saturation spectroscopy, overview
 01 - absorption spectroscopy, overview
-02 - same as 00
+02 - same as 03
 03 - saturation spectroscopy, 2nd peak
 04 - saturation spectroscopy, 3rd peak
 05 - saturation spectroscopy, 3rd peak detail
