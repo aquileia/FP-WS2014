@@ -1,38 +1,36 @@
 %% Process absorption spectra 
-function [ ] = V39( )
+function [ ] = V39(index)
 global gof spec model x y
 
 model = 'gauss2';
-i = 16;
-% for i=0:16
-    data = dlmread(['TEK' sprintf('%04d', i) '.CSV'], ',', 'D1..E2500');
-    rep = find(data(:,2) ~= data(1,2),1);
-    x = 1000*data(rep:end,1);
-    y = data(rep:end,2);
-    % normalize intensity (correct slope)
-    %  if ismember(i,[0,1,10])
-        [rough, gof] = fit(x,y,model,'Robust','on');
-        fine = refine_fit(rough);
-        ultra = refine_fit(fine);
-        plot(ultra,'r-',x,y,'k.',spec,'g.')
-        y = y ./ feval(ultra,x);
-    % end;
+
+data = dlmread(['TEK' sprintf('%04d', index) '.CSV'], ',', 'D1..E2500');
+rep = find(data(:,2) ~= data(1,2),1);
+x = 1000*data(rep:end,1);
+y = data(rep:end,2);
+% normalize intensity (correct slope)
+% if ismember(i,[0,1,10])
+    [rough, gof] = fit(x,y,model,'Robust','on');
+    fine = refine_fit(rough);
+    ultra = refine_fit(fine);
+    plot(ultra,'r-',x,y,'k.',spec,'g.')
+    y = y ./ feval(ultra,x);
 % end;
 
-% P1 = fit(x,1-y,'gauss1', 'Exclude', x<-15 | x> -9);
-% P2 = fit(x,1-y,'gauss1', 'Exclude', x< -5 | x>  2);
-% P3 = fit(x,1-y,'gauss1', 'Exclude', x<  7 | x> 13);
-% P4 = fit(x,1-y,'gauss1', 'Exclude', x< 13 | x> 18);
-% 
-% plot(P1,x,1-y, 'k.')
-% hold on
-% plot(P2)
-% plot(P3)
-% plot(P4)
-% hold off
-% 
-% legend('data', legend_fit(P1), legend_fit(P2), ...
-%                legend_fit(P3), legend_fit(P4), 'Location','NorthWest')
+P1 = fit(x,1-y,'gauss1', 'Exclude', x<-15 | x> -9);
+P2 = fit(x,1-y,'gauss1', 'Exclude', x< -5 | x>  2);
+P3 = fit(x,1-y,'gauss1', 'Exclude', x<  7 | x> 13);
+P4 = fit(x,1-y,'gauss1', 'Exclude', x< 13 | x> 18);
+
+plot(P1,x,1-y, 'k.')
+hold on
+plot(P2)
+plot(P3)
+plot(P4)
+hold off
+
+legend('data', legend_fit(P1), legend_fit(P2), ...
+               legend_fit(P3), legend_fit(P4), 'Location','NorthWest')
 end
 
 
