@@ -30,7 +30,30 @@ The signal at the photodiode thus varies by $\Delta I = \ddp{I}{\nu} \cdt \Delta
 
 
 % 95 \% confidence bounds of $\mu$ and $\sigma$
+\begin{table}
+ \centering
+ \caption{Position $\mu$ and width FWHM = $2 \sqrt{2 \ln 2} \; \sigma$ of the four peaks}
+ \label{tab:raw}
+ \begin{tabular}{ccc}
+  \toprule
+  Peak	& $\mu$ in mV 		& $\sigma$ in ms \\
+  \midrule
+  P1	& $-11.978 \pm 0.025$	& $1.027 \pm 0.025$ \\
+  P2	& $-1.636 \pm 0.023$	& $1.090 \pm 0.023$ \\
+  P3	& $10.162 \pm 0.026$	& $1.130 \pm 0.026$ \\
+  P4	& $14.768 \pm 0.022$	& $1.041 \pm 0.024$ \\
+  \bottomrule
+ \end{tabular}
+\end{table}
 
+As we can see from table \ref{tab:raw}, the broadening due to the doppler effect is relativly uniform and thus can be used to calculate the temperature:
+\begin{equation}
+ \sigma_\nu = \nu_o \sqrt{\frac{k T}{m c^2}} \Longrightarrow T = \frac{m c^2 \sigma_\nu^2}{k\nu_0^2}
+\end{equation}
+
+
+\input{graphics/slope.tex}
+\input{graphics/spect.tex}
 
 
 While the natural linewidth follows a lorentzian curve, the doppler broadening shows a gaussian profile \ref{lit:SAS}. As only the latter is readily available in Matlab \ref{lit:fittypes}, we shall use the gaussian fit for all peaks.

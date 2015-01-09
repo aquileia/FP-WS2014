@@ -11,19 +11,15 @@ height=0.464435\textwidth,
 at={(0\textwidth,0\textwidth)},
 scale only axis,
 separate axis lines,
-every outer x axis line/.append style={black},
-every x tick label/.append style={font=\color{black}},
 xmin=-0.02,
-xmax=0.03,
+xmax=0.025,
 xlabel={x},
-every outer y axis line/.append style={black},
-every y tick label/.append style={font=\color{black}},
 ymin=0,
 ymax=6,
-ylabel={y},
-legend style={legend cell align=left,align=left,draw=black}
+ylabel={measured intensity},
+legend style={at={(0.03,0.97)},anchor=north west,legend cell align=left,align=left,draw=black}
 ]
-\addplot [color=black,only marks,mark=*,mark options={solid}]
+\addplot [color=black,only marks,mark=*,mark options={solid}, mark size=0.3]
   table[row sep=crcr]{%
 -0.01972	0.92\\
 -0.0197	0.92\\
@@ -1323,7 +1319,7 @@ legend style={legend cell align=left,align=left,draw=black}
 };
 \addlegendentry{data};
 
-\addplot [color=green,only marks,mark=*,mark options={solid}]
+\addplot [color=green,only marks,mark=*,mark options={solid}, mark size=0.3]
   table[row sep=crcr]{%
 -0.01298	1.84\\
 -0.01296	1.84\\
