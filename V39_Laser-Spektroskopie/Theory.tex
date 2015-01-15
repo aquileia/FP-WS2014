@@ -11,7 +11,7 @@ The following elaboration of the physical basics mostly follows \cite{lit:AK_man
 \subsection{Diode laser}
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.8\textwidth]{Laser_diode.pdf}
+	\includegraphics[width=0.8\textwidth]{laser_diode.pdf}
 	\caption{Schematic setup for a diode laser in Littrow configuration. The grating is set such that the first diffraction order coincides with the output beam from the laser.}
 	\label{fig:laser_diode}
 \end{figure}
@@ -35,14 +35,14 @@ With quantum mechanics, we can predict the energy levels of the electrons in an 
 J=L+S.
 \label{eq:spin_orbit}
 \end{align}
-The sum of all $l_i$ and $s_i$ over all electrons $i$ in a filled orbit is always equal to zero, thus the total electronic angular momentum corresponds to the one of the single valence eletron, making it similar to the hydrogen atom. In the ground state, the system of electrons is described as $5{}^2S_{1/2}$. When excited to a higher state, due to the spin-orbit-coupling described in \eqref{eq:spin_orbit}, two different excited states are available: $5{}^2P_{1/2} (\sim 795}nano\metre)$ and $5{}^2P_{3/2} (\sim 780\nano\metre)$. This splitting of the energy levels due to the spin-orbit-coupling is called \emph
+The sum of all $l_i$ and $s_i$ over all electrons $i$ in a filled orbit is always equal to zero, thus the total electronic angular momentum corresponds to the one of the single valence eletron, making it similar to the hydrogen atom. In the ground state, the system of electrons is described as $5{}^2\mathrm{S}_{1/2}$. When excited to a higher state, due to the spin-orbit-coupling described in \eqref{eq:spin_orbit}, two different excited states are available: $5{}^2\mathrm{P}_{1/2} (\sim 795 \nano\metre)$ and $5{}^2\mathrm{P}_{3/2} (\sim 780\nano\metre)$. This splitting of the energy levels due to the spin-orbit-coupling is called \emph{
 fine structure}. In this experiment, because of the applicated diode laser, we will only inspect the latter transition with $780\nano\metre$.\\
 Now we're taking the \emph{spin angular momentum} $I$ of the atom nucleus into account, which depend on the nuclear structure and the isotope. Since the spin angular momentum is very small compared to the electronic angular momentum, resulting in the small \emph{hyperfine splitting}. We define the \emph{total angular moment} $F$ of the atom as follows:
 \begin{align}
 F=J+I,
 \end{align}
 whereas the magnitude of $F$ goes from $|J-I|$ to $J+I$.
-From this moment on, we need to consider the fact the Rubidium atom has two natural occuring  isotopes: 72\% abundant $^{85}\text{Rb}$ with $I=5/2$ and 28\% abundant $^{87}\text{Rb}$ with $I=3/2$. This results into two hyperfine levels within $5{}^2S_{1/2}$ and $5{}^2P_{1/2}$, while the excited state $5{}^2P_{1/2}$ splits up into four hyperfine levels.
+From this moment on, we need to consider the fact the Rubidium atom has two natural occuring  isotopes: 72\% abundant $^{85}\text{Rb}$ with $I=5/2$ and 28\% abundant $^{87}\text{Rb}$ with $I=3/2$. This results into two hyperfine levels within $5{}^2\mathrm{S}_{1/2}$ and $5{}^2\mathrm{P}_{1/2}$, while the excited state $5{}^2\mathrm{P}_{1/2}$ splits up into four hyperfine levels.
 Figure \ref{fig:hyperfine_85Rb} shows the fine and hyperfine structure of the lowest levels in $^{85}$Rb, whereas figure \ref{fig:hyperfine_8587Rb} contains the hyperfine structure of both the $^{85}\text{Rb}$ and $^{87}\text{Rb}$ isotope.
 \begin{figure}[h]
 	\centering
@@ -57,7 +57,7 @@ Figure \ref{fig:hyperfine_85Rb} shows the fine and hyperfine structure of the lo
 	\label{fig:hyperfine_8587Rb}
 \end{figure}
 Concerning the possible transitions, following the selection rule for dipole transistions yields $\Delta F=0,\pm 1$. For each isotope, a total of six transitions are possible, this can be deducted from figure \ref{fig:hyperfine_8587Rb} as well.\\
-The hyperfine splitting at the $5{}^2S_{1/2}$ level is by several orders greater than the one at $5{}^2P_{3/2}$, and thus can already be detected with the absorption spectroscopy, which is explained in the next section. Figure \ref{fig:hyperfine_ground_8587Rb} shows the relative energy gaps between the hyperfine splitting of both Rb isotopes.
+The hyperfine splitting at the $5{}^2\mathrm{S}_{1/2}$ level is by several orders greater than the one at $5{}^2\mathrm{P}_{3/2}$, and thus can already be detected with the absorption spectroscopy, which is explained in the next section. Figure \ref{fig:hyperfine_ground_8587Rb} shows the relative energy gaps between the hyperfine splitting of both Rb isotopes.
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=0.8\textwidth]{hyperfine_ground_8587Rb.pdf}
@@ -69,11 +69,11 @@ The hyperfine splitting at the $5{}^2S_{1/2}$ level is by several orders greater
 In the simpliest case of absorption spectroscopy, a gaseous sample of Rb in a cell is hit by a laser beam. We will get the relative absorption by comparing the incident laser intensity to the transmitted intensity detected by a photo diode. \emph{Stimulated absorption} occurs when the frequency of the incident beam becomes resonant with certain transition frequencies, exciting the Rb atoms to a higher level. The gained energy will be emitted \emph{spontaneously} in all directions, thus a fluorescence of the gas and a decline in the transmitted laser intensity are detected.\\
 In the reference frame of the atoms, due to the \emph{Doppler effect}, the resonance frequency $\nu_0^\prime$ is shifted such that
 \begin{align}
-\nu_0^\prime=\nu_0\left(1+\frac{v}{c},
+\nu_0^\prime=\nu_0\left(1+\frac{v}{c}\right),
 \end{align}
 whereas $v$ is the velocity of the atoms along the laser beam. Since we have a thermal gas, the velocities of the gas atoms along the laser beam are Maxwell-Boltzmann distributed as
 \begin{align}
-P(v)\d v\propto \exp\left(-\frac{mv^2}{2k_B T\right)\d v}
+P(v)\d v\propto \exp\left(-\frac{mv^2}{2k_B T}\right)\d v
 \end{align}
 We can conclude the frequency shifts are Maxwell-Boltzmann distributed as well. As a Gaussian distribution, the FWHM $\Delta\nu_{1/2}$ has the shape
 \begin{align}
@@ -90,14 +90,16 @@ At room temperature, this corresponds to a few $100\mega\hertz$. The hyperfine s
 In this spectroscopy, the incident beam will be split into two beam with different intensities. They are focused on the Rb cell from opposite directions. The partial beam with the stronger intensity is the \emph{pump beam}, the weaker one is the \emph{probe beam}. With the pump beam, atoms in the gas cell are excited to a higher level. The probe beam is used to detect the absorption by the atoms, since it isn't absorbed by the atoms which has already been excited by the pump beam. If the atom interacts with both opposing beams, the transmission ratio increases. Due to the doppler shift in two opposing directions, in a two-level-system, this interaction with both beams only occur for atoms with the velocity $v=0$ with respect to the beam direction. The absorption spectrum shows a \emph{Lamb-dip} at $\nu_0$ (see figure \ref{fig:lamb-dip}).
 \begin{figure}[h]
 	\centering
-	\begin{subfigure}
-		\includegraphics[width=0.8\textwidth]{lamb-dip.pdf}
+	\begin{subfigure}{0.45\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{lamb-dip.pdf}
 		\caption{Lamb-dip}
 		\label{fig:lamb-dip}
 	\end{subfigure}
 	\hfill
-	\begin{subfigure}
-		\includegraphics[width=0.4\textwidth]{crossover.pdf}
+	\begin{subfigure}{0.45\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{crossover.pdf}
 		\caption{Lamb-dips and crossover}
 		\label{fig:crossover}
 	\end{subfigure}
