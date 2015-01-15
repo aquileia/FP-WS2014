@@ -18,7 +18,7 @@ with
 
 The laser frequency follows, shifting by $\Delta \nu$ each period.
 
-The signal at the photodiode thus varies by $\Delta I = \ddp{I}{\nu} \cdt \Delta \nu$, allowing us to obtain the first derivative of the spectrum.
+The signal at the photodiode thus varies by $\Delta I \propto \ddp{I}{\nu} \cdt \Delta \nu$, allowing us to obtain the first derivative of the spectrum. 
 
 
 \section{Analysis}
@@ -32,30 +32,43 @@ The signal at the photodiode thus varies by $\Delta I = \ddp{I}{\nu} \cdt \Delta
 
 
 % 95 \% confidence bounds of $\mu$ and $\sigma$
-\begin{table}
+\begin{table}[h]
  \centering
  \caption{Position $\mu$ and width FWHM = $2 \sqrt{2 \ln 2} \; \sigma$ of the four peaks}
  \label{tab:raw}
- \begin{tabular}{ccc}
+ \begin{tabular}{cccc}
   \toprule
-  Peak	& $\mu$ in mV 		& $\sigma$ in ms \\
+  Peak	& $\mu$ in ms 		& $\sigma$ in ms 		& $\Delta \nu$ in GHz	\\
   \midrule
-  P1	& $-11.978 \pm 0.025$	& $1.027 \pm 0.025$ \\
-  P2	& $-1.636 \pm 0.023$	& $1.090 \pm 0.023$ \\
-  P3	& $10.162 \pm 0.026$	& $1.130 \pm 0.026$ \\
-  P4	& $14.768 \pm 0.022$	& $1.041 \pm 0.024$ \\
+  P1	& $-11.978 \pm 0.025$	& $1.027 \pm 0.025$ 	& 6.835		\\
+  P2	& $-1.636 \pm 0.023$	& $1.090 \pm 0.023$ 	& 4.256		\\
+  P3	& $10.162 \pm 0.026$	& $1.130 \pm 0.026$ 	& 1.220		\\
+  P4	& $14.768 \pm 0.022$	& $1.041 \pm 0.024$ 	& 0			\\
   \bottomrule
  \end{tabular}
 \end{table}
 
+Comparing the position of our Peaks with their relative frequencies, we can establish the scaling of our time axis:
+\begin{align}
+	\nu   &= \nu_0 ~+~ h \cdt \mu \\
+	 h    &= \frac{\nu_{P4} - \nu_{P1}}{\mu_{P4} - \mu_{P1}} = -0.25555 \,\frac{\giga\hertz}{\milli\second}\\
+	\nu_0 &= \nu_{P4} - h \cdt \mu_{P4}  = 3.774 \,\giga\hertz
+\end{align}
+
+While the offset $\nu_0$ only applies to this measurement, the scale $h$ is characteristic for our setup and will be used for any further spectra.
+
 As we can see from table \ref{tab:raw}, the broadening due to the doppler effect is relativly uniform and thus can be used to calculate the temperature:
 \begin{equation}
- \sigma_\nu = \nu_o \sqrt{\frac{k T}{m c^2}} \Longrightarrow T = \frac{m c^2 \sigma_\nu^2}{k\nu_0^2}
+ h \cdt \sigma = \sigma_\nu = \nu_o \sqrt{\frac{k T}{m c^2}} \Longrightarrow T = \frac{m c^2 h^2 \sigma^2}{k\nu_0^2}
 \end{equation}
 
 
 \input{graphics/slope.tex}
 \input{graphics/spect.tex}
+
+
+% TEK4
+% Mitte 9.576
 
 
 While the natural linewidth follows a lorentzian curve, the doppler broadening shows a gaussian profile \ref{lit:SAS}. As only the latter is readily available in Matlab \ref{lit:fittypes}, we shall use the gaussian fit for all peaks.

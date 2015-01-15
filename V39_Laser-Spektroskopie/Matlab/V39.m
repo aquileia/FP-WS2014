@@ -1,21 +1,26 @@
 %% Process absorption spectra 
-function [ ] = V39(index)
+function [ ] = V39(index, lines)
 global gof spec model x y
 
-model = 'gauss2';
+model = 'poly2';
 
 data = dlmread(['TEK' sprintf('%04d', index) '.CSV'], ',', 'D1..E2500');
 rep = find(data(:,2) ~= data(1,2),1);
 x = 1000*data(rep:end,1);
 y = data(rep:end,2);
 % normalize intensity (correct slope)
-% if ismember(i,[0,1,10])
+if (lines > 1)
     [rough, gof] = fit(x,y,model,'Robust','on');
     fine = refine_fit(rough);
     ultra = refine_fit(fine);
     plot(ultra,'r-',x,y,'k.',spec,'g.')
     y = y ./ feval(ultra,x);
-% end;
+else
+    lin = fit( x([1 end]), y([1 end]), 'poly1');
+    y = y ./ feval(lin,x);
+    plot(x,y)
+end
+
 
 P1 = fit(x,1-y,'gauss1', 'Exclude', x<-15 | x> -9);
 P2 = fit(x,1-y,'gauss1', 'Exclude', x< -5 | x>  2);
@@ -62,3 +67,14 @@ function [entry] = legend_fit(fit)
     entry = ['µ = ' format_tol(c(2), dc(2)) ' , ' ...
              '\sigma = ' format_tol(c(3)/sqrt(2), dc(3)/sqrt(2))];
 end
+
+
+
+% global x y
+% V39(4,1)
+% y = y - 0.02;
+% therm = fit(x,1-y,'gauss1','Exclude', x>9.4 & x<10.3)
+% lamb = (1-y)./ feval(therm,x);
+% lamb= lamb(xl<10.5);
+% xl= xl(xl<10.5);
+% plot(xl,1-lamb, '.');
