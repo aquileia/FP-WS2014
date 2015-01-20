@@ -5,23 +5,19 @@
 
 \begin{axis}[%
 width=0.95092\textwidth,
-height=1.003178\textwidth,
+height=0.5\textwidth,
 at={(0\textwidth,0\textwidth)},
 scale only axis,
 separate axis lines,
-every outer x axis line/.append style={black},
-every x tick label/.append style={font=\color{black}},
 xmin=-20.3077975376197,
 xmax=25.1778385772914,
 xlabel={x},
-every outer y axis line/.append style={black},
-every y tick label/.append style={font=\color{black}},
 ymin=0.967616580310881,
 ymax=5.97279792746114,
 ylabel={measured intensity},
 legend style={at={(0.03,0.97)},anchor=north west,legend cell align=left,align=left,fill=white}
 ]
-\addplot [color=black,only marks,mark=*,mark options={solid}]
+\addplot [color=black,only marks,mark=*,mark options={solid}, mark size=0.3]
   table[row sep=crcr]{%
 -19.76	0.92\\
 -19.74	0.92\\
