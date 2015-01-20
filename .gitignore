@@ -1,6 +1,11 @@
 *~
 V[0-9]*.pdf
 
+*.auxlock
+*-figure[0-9].dpth
+*-figure[0-9].md5
+*-figure[0-9].log
+
 ## Core latex/pdflatex auxiliary files:
 *.aux
 *.lof
