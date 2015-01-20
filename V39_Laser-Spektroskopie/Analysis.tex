@@ -4,7 +4,9 @@
 
 \section{Execution} % Experimental setup ?
 
-laser diode emits in the range of 740-790 nm \ref{lit:diode}
+We use a laser diode which emits in the range of 740-790 nm \ref{lit:diode} to excite the \textsf{Rb} transitions.
+
+For absorption spectroscopy, the beam is weakened before entering the gas cuvette by means of a two polarization filters. This is necessary as the full beam would 
 
 \subsection{Frequency modulation spectroscopy}
 The laser is modulated with a signal
@@ -21,11 +23,25 @@ The laser frequency follows, shifting by $\Delta \nu$ each period.
 The signal at the photodiode thus varies by $\Delta I \propto \ddp{I}{\nu} \cdt \Delta \nu$, allowing us to obtain the first derivative of the spectrum. 
 
 
+\newpage
 \section{Analysis}
 \subsection{Absorption spectroscopy}
-% TEK0001
-% Scale
-% Fit Gaussian to get average
+
+\begin{figure}[p]
+	\centering
+	\includegraphics[width=0.95\textwidth]{data/TEK0001.jpg}
+	\caption{Screenshot of the oscilloscope showing the current ramp $I(t)$ and the spectrum.}
+	\label{fig:oszi}
+\end{figure}
+
+\begin{figure}[p]
+	\centering
+	\input{graphics/graph/absorption.tex}
+	\vspace{-1ex}
+	\caption{Measured transmission intensity: All 4 peaks.}
+	\label{fig:absorption}
+	\vspace{-2em}
+\end{figure}
 
 
 \subsection{Saturation spectroscopy}
@@ -63,8 +79,19 @@ As we can see from table \ref{tab:raw}, the broadening due to the doppler effect
 \end{equation}
 
 
-\input{graphics/slope.tex}
-\input{graphics/spect.tex}
+\begin{figure}[h]
+	\centering
+	\input{graphics/graph/slope.tex}
+	\vspace{-1ex}
+	\caption{Measured transmission intensity: All 4 peaks.}
+	\label{fig:saturation}
+	\vspace{2ex}
+	\input{graphics/graph/spect.tex}
+	\vspace{-1ex}
+	\caption{Normalized absorption: All 4 peaks.}
+	\label{fig:spectrum}
+\end{figure}
+
 
 
 % TEK4
@@ -102,6 +129,111 @@ While the natural linewidth follows a lorentzian curve, the doppler broadening s
 % Aufgabe 1: Skalierung anhand zweier Literaturwerte
 % Aufgabe 2: Dopplereffekt: Breite --> Temperatur
 % Aufgabe 3: restliche Werte incl. Feinstruktur abgleichen
+
+
+\begin{figure}[p]
+	\centering
+	\includegraphics[width=0.9\textwidth, clip, trim=1.5cm 7cm 1.5cm 9cm]{graph/peak1.pdf}
+	\vspace{-2ex}
+	\caption{Lamb dips on peak 1.}
+	\label{fig:P1}
+	\vspace{2ex}
+
+	\includegraphics[width=0.9\textwidth, clip, trim=1.5cm 7cm 1.5cm 9cm]{graph/peak3.pdf}
+	\vspace{-2ex}
+	\caption{Lamb dips on peak 3.}
+	\label{fig:P3}
+	\vspace{-2em}
+\end{figure}
+
+\begin{figure}[p]
+	\centering
+	\includegraphics[width=0.9\textwidth, clip, trim=1.5cm 7cm 1.5cm 9cm]{graph/peak2.pdf}
+	\vspace{-2ex}
+	\caption{Lamb dips on peak 2.}
+	\label{fig:P2f}
+	\vspace{2ex}
+
+	\includegraphics[width=0.9\textwidth, clip, trim=1.5cm 7cm 1.5cm 9cm]{graph/peak2_detail.pdf}
+	\vspace{-2ex}
+	\caption{Lamb dips on peak 2.}
+	\label{fig:P2}
+	\vspace{-2em}
+\end{figure}
+
+\begin{figure}[p]
+	\centering
+	\includegraphics[width=0.9\textwidth, clip, trim=1.5cm 7cm 1.5cm 9cm]{graph/peak4.pdf}
+	\vspace{-2ex}
+	\caption{Lamb dips on peak 4.}
+	\label{fig:P4f}
+	\vspace{2ex}
+
+	\includegraphics[width=0.9\textwidth, clip, trim=1.5cm 7cm 1.5cm 9cm]{graph/peak4_detail.pdf}
+	\vspace{-2ex}
+	\caption{Lamb dips on peak 4. }
+	\label{fig:P4}
+	\vspace{-2em}
+\end{figure}
+
+\subsection{Frequency modulation spectroscopy}
+
+As our modulation signal $U_\text{mod}$ has a frequency of 0.1\,MHz and the high-frequency component of $U_\text{mix}$ oscillates with double that frequency, we should use a low pass filter with a cut off frequency of 0.2\,MHz at most. However,  the best filter available to us lets frequencies  up to 2.5\,MHz pass through.
+
+To rectify this issue, we apply a 5000\,Hz low pass filter as digital post processing. Based on the sample interval $T = 2\,\micro\second$ and the filter time constant $\tau = \frac{1}{2 \pi \cdt 5000\,\hertz}$ we code:
+
+\lstinputlisting[style=mlab, caption={Matlab low pass filter \cite{lit:lowpass}}\label{code:filter}\\
+]{./Matlab/lowpass5000.m}
+
+This especially has an effect on the already feeble signal from Peak 1 -- part of the modulation signal isn't filtered out and remains as noise, obscuring the data.
+
+3rd peak: no averaging (else we'd lose a dip)
+
+
+\begin{figure}[p]
+	\centering
+	\includegraphics[width=0.9\textwidth, clip, trim=1.5cm 7cm 1.5cm 9cm]{graph/peak1_fms.pdf}
+	\vspace{-2ex}
+	\caption{FMS Peak 1}
+	\label{fig:P1_fms}
+	\vspace{2ex}
+
+	\includegraphics[width=0.9\textwidth, clip, trim=1.5cm 7cm 1.5cm 9cm]{graph/peak1_filter.pdf}
+	\vspace{-2ex}
+	\caption{FMS Peak 1}
+	\label{fig:P1_filter}
+	\vspace{-2em}
+\end{figure}
+
+\begin{figure}[p]
+	\centering
+	\includegraphics[width=0.9\textwidth, clip, trim=1.5cm 7cm 1.5cm 9cm]{graph/peak2_fms.pdf}
+	\vspace{-2ex}
+	\caption{FMS Peak 2}
+	\label{fig:P2_fms}
+	\vspace{2ex}
+
+	\includegraphics[width=0.9\textwidth, clip, trim=1.5cm 7cm 1.5cm 9cm]{graph/peak4_fms.pdf}
+	\vspace{-2ex}
+	\caption{FMS Peak 4}
+	\label{fig:P4_fms}
+	\vspace{-2em}
+\end{figure}
+
+\begin{figure}[p]
+	\centering
+	\includegraphics[width=0.9\textwidth, clip, trim=1.5cm 7cm 1.5cm 9cm]{graph/peak3_fms.pdf}
+	\vspace{-2ex}
+	\caption{FMS Peak 3}
+	\label{fig:P3_fms}
+	\vspace{2ex}
+
+	\includegraphics[width=0.9\textwidth, clip, trim=1.5cm 7cm 1.5cm 9cm]{graph/peak3_filter.pdf}
+	\vspace{-2ex}
+	\caption{FMS Peak 3}
+	\label{fig:P3_filter}
+	\vspace{-2em}
+\end{figure}
 
 \section{Discussion of errors}
 % Laser wird mit zunehmender Stromstärke durchgetunt --> zunehmende Intensität im Hintergrund
