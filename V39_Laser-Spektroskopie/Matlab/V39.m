@@ -6,14 +6,15 @@ model = 'poly2';
 
 data = dlmread(['TEK' sprintf('%04d', index) '.CSV'], ',', 'D1..E2500');
 rep = find(data(:,2) ~= data(1,2),1);
-x = 3.774-255.55*data(rep:end,1);
+x = 1000*data(rep:end,1);
+% x = 3.774-255.55*data(rep:end,1);
 y = data(rep:end,2);
 % normalize intensity (correct slope)
 if (lines > 1)
     [rough, gof] = fit(x,y,model,'Robust','on');
     fine = refine_fit(rough);
     ultra = refine_fit(fine);
-    plot(ultra,'r-',x,y,'k.',spec,'g.')
+    plot(ultra,'r-',x,y,'k.')
     y = y ./ feval(ultra,x);
 elseif  (lines == 1)
     lin = fit( x([1 end]), y([1 end]), 'poly1');
@@ -21,21 +22,26 @@ elseif  (lines == 1)
     plot(x,y)
 end
 
+% ylabel('normalized transmission intensity')
+% xlabel('Frequency \nu in GHz')
 
-% P1 = fit(x,1-y,'gauss1', 'Exclude', x<-15 | x> -9);
-% P2 = fit(x,1-y,'gauss1', 'Exclude', x< -5 | x>  2);
-% P3 = fit(x,1-y,'gauss1', 'Exclude', x<  7 | x> 13);
-% P4 = fit(x,1-y,'gauss1', 'Exclude', x< 13 | x> 18);
-% 
-% plot(P1,x,1-y, 'k.')
-% hold on
-% plot(P2)
-% plot(P3)
-% plot(P4)
-% hold off
-% 
-% legend('data', legend_fit(P1), legend_fit(P2), ...
-%                legend_fit(P3), legend_fit(P4), 'Location','NorthWest')
+if (lines == 4)
+    P1 = fit(x,1-y,'gauss1', 'Exclude', x<-15 | x> -9);
+    P2 = fit(x,1-y,'gauss1', 'Exclude', x< -5 | x>  2);
+    P3 = fit(x,1-y,'gauss1', 'Exclude', x<  7 | x> 13);
+    P4 = fit(x,1-y,'gauss1', 'Exclude', x< 13 | x> 18);
+    
+    plot(P1,x,1-y, 'k.')
+    hold on
+    plot(P2)
+    plot(P3)
+    plot(P4)
+    hold off
+    
+    legend('data', legend_fit(P1), legend_fit(P2), ...
+           legend_fit(P3), legend_fit(P4), 'Location','NorthWest')
+end
+
 end
 
 
