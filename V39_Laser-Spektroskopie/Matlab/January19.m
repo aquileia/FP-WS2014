@@ -20,7 +20,7 @@ y = y - 0.02;
 therm = fit(x,1-y,'gauss1','Exclude', x>4.26 & x<4.46)
 lamb = (1-y)./ feval(therm,x);
 plot(therm,x,1-y)
-legend('Peak 2', 'doppler shift', 'Location','NorthWest')
+legend('Peak 2', 'fit: doppler broadened peak', 'Location','NorthWest')
 xlabel('Frequency \nu in GHz')
 ylabel('normalized absorption')
 print('-dpdf', 'peak2');
@@ -62,7 +62,7 @@ gauss = fit( x3,y3, 'gauss1')
 plot(gauss,x,y4)
 ylabel('normalized absorption'),
 xlabel('Frequency \nu in GHz')
-legend('Peak 4', 'doppler shift', 'Location','NorthWest')
+legend('Peak 4', 'fit: doppler broadened peak', 'Location','NorthWest')
 print('-dpdf', 'peak4');
 
 lamb = y4./feval(gauss, x);

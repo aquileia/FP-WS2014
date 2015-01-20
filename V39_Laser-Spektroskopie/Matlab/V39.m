@@ -6,8 +6,8 @@ model = 'poly2';
 
 data = dlmread(['TEK' sprintf('%04d', index) '.CSV'], ',', 'D1..E2500');
 rep = find(data(:,2) ~= data(1,2),1);
-x = 1000*data(rep:end,1);
-% x = 3.774-255.55*data(rep:end,1);
+% x = 1000*data(rep:end,1);
+x = 3.774-255.55*data(rep:end,1);
 y = data(rep:end,2);
 % normalize intensity (correct slope)
 if (lines > 1)
@@ -26,10 +26,10 @@ end
 % xlabel('Frequency \nu in GHz')
 
 if (lines == 4)
-    P1 = fit(x,1-y,'gauss1', 'Exclude', x<-15 | x> -9);
-    P2 = fit(x,1-y,'gauss1', 'Exclude', x< -5 | x>  2);
-    P3 = fit(x,1-y,'gauss1', 'Exclude', x<  7 | x> 13);
-    P4 = fit(x,1-y,'gauss1', 'Exclude', x< 13 | x> 18);
+    P1 = fit(x,1-y,'gauss1', 'Exclude', x<6.07 | x>7.61 );
+    P2 = fit(x,1-y,'gauss1', 'Exclude', x<3.26 | x>5.05 );
+    P3 = fit(x,1-y,'gauss1', 'Exclude', x<0.45 | x>1.99 );
+    P4 = fit(x,1-y,'gauss1', 'Exclude', x<-0.83| x>0.45 );
     
     plot(P1,x,1-y, 'k.')
     hold on
@@ -39,7 +39,11 @@ if (lines == 4)
     hold off
     
     legend('data', legend_fit(P1), legend_fit(P2), ...
-           legend_fit(P3), legend_fit(P4), 'Location','NorthWest')
+           legend_fit(P3), legend_fit(P4)) % 'Location','NorthWest'
+    
+    xlim([-2.5 9])
+    xlabel('Frequency $\nu ~ (\giga\hertz)$')
+    ylabel('normalized intensity')
 end
 
 end
@@ -70,8 +74,8 @@ function [entry] = legend_fit(fit)
     h = [coeffvalues(fit); confint(fit)];
     c = h(1,:);
     dc = max(h(3,:)-c, c-h(2,:));
-    entry = ['µ = ' format_tol(c(2), dc(2)) ' , ' ...
-             '\sigma = ' format_tol(c(3)/sqrt(2), dc(3)/sqrt(2))];
+    entry = ['$\mu = ' format_tol(c(2), dc(2)) ' , ' ...
+             '\sigma = ' format_tol(c(3)/sqrt(2), dc(3)/sqrt(2)),'$'];
 end
 
 

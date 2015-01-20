@@ -4,117 +4,134 @@
 
 \section{Execution} % Experimental setup ?
 
-We use a laser diode which emits in the range of 740-790 nm \ref{lit:diode} to excite the \textsf{Rb} transitions.
+We use a laser diode which emits in the range of 740-790 nm \cite{lit:diode} to excite the \textsf{Rb} transitions.
 
-For absorption spectroscopy, the beam is weakened before entering the gas cuvette by means of a two polarization filters. This is necessary as the full beam would 
+The laser diode is driven by a current $I(t)$ consisting of a constant base to select the emitted wavelength plus a saw tooth signal to sweep through the relevant part of the spectrum. As the change in wavelength $\Delta \lambda \propto \Delta I$ and $\Delta \nu \approx - \frac{c}{\lambda^2}\Delta \lambda$ for $\Delta \nu \ll \nu$, we can directly transfer this spectrum into the frequency space.\\
+As the rubidium D2 line is around $380 \,\tera\hertz$ and the observed frequency range spans only 7\,GHz, we can safely use this approximation.
+
+\subsection{Absorption spectroscopy}
+
+For absorption spectroscopy, the beam is weakened before entering the gas cuvette by means of a two polarization filters. This is necessary as the full beam would not only saturate the transitions but also threaten to damage the photo diode.
+
+By adjusting the diode current, the wavelength ramp is chosen so that the spectrum fits on a segment between two mode hops of the laser.
+
+When switching to the saturation spectroscopy, the beam passes through the cuvette (pump beam to saturate the transitions) and a small part of it is reflected back (probe beam). In order to couple out the probe beam with a beam splitter, we place a $\lambda/4$ waveplate between the cuvette and the mirror at 45\degree which the beam passes twice, thus changing polarization by 90\degree.
+
+In the saturation mode, we measure both a full spectrum as well as detail spectra of the lamb dips on each of the peaks.
 
 \subsection{Frequency modulation spectroscopy}
 The laser is modulated with a signal
 \begin{equation}
- S_1 = a_1 \sin(\omega t)
-\end{equation}
-with
-\begin{equation}
- \omega = 2 \pi \nu,~ \nu = 0.1 \mega\hertz
+ U_\text{mod} = U_1 \sin(\omega t) \qquad \omega = 2 \pi \nu,~ \nu = 0.1\,\mega\hertz
 \end{equation}
 
 The laser frequency follows, shifting by $\Delta \nu$ each period.
 
-The signal at the photodiode thus varies by $\Delta I \propto \ddp{I}{\nu} \cdt \Delta \nu$, allowing us to obtain the first derivative of the spectrum. 
+The signal at the photodiode thus varies by $\Delta I \propto \ddp{I}{\nu} \cdt \Delta \nu$, allowing us to obtain the first derivative of the spectrum.
+
+This measurement is done once for each of the four peaks.
 
 
 \newpage
 \section{Analysis}
 \subsection{Absorption spectroscopy}
 
-\begin{figure}[p]
+It has to be noted that, as the original spectrum is plotted against the wavelength, the numbering of the peaks is inverse to the order which would have been used on a frequency spectrum -- peak 4 corresponds to the lowest frequency, which we set to $0 \,\hertz$.
+
+As the screenshots taken from the oscilloscope aren't sufficient to obtain precise information (cp. figure \ref{fig:oszi}), we analyzed our data with Matlab.
+
+While we measure the voltage $U_\text{photo}~[\volt]$ from the photo diode in function of the time $t~[\milli\second]$, both data sets are only proportional to relevant quantities; we thus will transform these for our plots in the further sections.
+
+It is to be noted that, while figure \ref{fig:absorption} shows the absorption spectrum, one can still see some small indentations near where lamb dips would appear if it were a saturation spectrum. This could either be reflected light acting as a probe beam (unlikely as the main beam is much more powerful) or due to the doppler broadening not completely smearing the hyperfine structure of the excited state.
+
+\begin{figure}[h]
 	\centering
 	\includegraphics[width=0.95\textwidth]{data/TEK0001.jpg}
 	\caption{Screenshot of the oscilloscope showing the current ramp $I(t)$ and the spectrum.}
 	\label{fig:oszi}
+	\vspace{-2em}
 \end{figure}
 
 \begin{figure}[p]
 	\centering
 	\input{graphics/graph/absorption.tex}
-	\vspace{-1ex}
-	\caption{Measured transmission intensity: All 4 peaks.}
-	\label{fig:absorption}
 	\vspace{-2em}
+	\caption{Measured transmission intensity, full absorption spectrum.}
+	\label{fig:absorption}
+	\vspace{-1em}
 \end{figure}
 
+\begin{figure}[p]
+	\centering
+	\input{graphics/graph/slope.tex}
+	\vspace{-2em}
+	\caption{Measured transmission intensity, full saturation spectrum.}
+	\label{fig:saturation}
+\end{figure}
 
+\newpage
 \subsection{Saturation spectroscopy}
+As can be seen in figures \ref{fig:saturation} and especially in \ref{fig:spectrum}, the only mode hop lies outside the relevant range.
 
+The output power of the diode laser varies with the provided current, thus our spectrum is deformed by this envelope function(figure \ref{fig:saturation}). After normalizing the data, we can determine position and width of the four peaks.
 
-% 95 \% confidence bounds of $\mu$ and $\sigma$
+While the natural linewidth follows a lorentzian curve, the considerably larger doppler broadening shows a gaussian profile \cite{lit:SAS}. As only the latter is readily available in Matlab \cite{lit:fittypes}, we shall use the gaussian fit for all peaks. This provides a significant boost in precision compared to manual reading and allows us to specify errors via the 95\% tolerance intervals of the fit parameters.
+
+The obtained values are given in table \ref{tab:raw} alongside the corresponding relative frequencies taken from literature \cite{lit:Rb85, lit:Rb87}.
+
 \begin{table}[h]
  \centering
  \caption{Position $\mu$ and width FWHM = $2 \sqrt{2 \ln 2} \; \sigma$ of the four peaks}
  \label{tab:raw}
- \begin{tabular}{cccc}
+ \begin{tabular}{ccccc}
   \toprule
-  Peak	& $\mu$ in ms 		& $\sigma$ in ms 		& $\Delta \nu$ in GHz	\\
+  Peak	& ground state 	& $\mu$ in ms 		& $\sigma$ in ms 		& $\Delta \nu$ in GHz	\\
   \midrule
-  P1	& $-11.978 \pm 0.025$	& $1.027 \pm 0.025$ 	& 6.835		\\
-  P2	& $-1.636 \pm 0.023$	& $1.090 \pm 0.023$ 	& 4.256		\\
-  P3	& $10.162 \pm 0.026$	& $1.130 \pm 0.026$ 	& 1.220		\\
-  P4	& $14.768 \pm 0.022$	& $1.041 \pm 0.024$ 	& 0			\\
+  P1		& $^{87}\mathsf{Rb}~5s_{1/2}$(F=2)	& $-11.978 \pm 0.025$	& $1.027 \pm 0.025$ 	& 6.835		\\
+  P2		& $^{85}\mathsf{Rb}~5s_{1/2}$(F=3)	& $-1.636 \pm 0.023$	& $1.090 \pm 0.023$ 	& 4.256		\\
+  P3		& $^{85}\mathsf{Rb}~5s_{1/2}$(F=2)	& $10.162 \pm 0.026$	& $1.130 \pm 0.026$ 	& 1.220		\\
+  P4		& $^{87}\mathsf{Rb}~5s_{1/2}$(F=1)	& $14.768 \pm 0.022$	& $1.041 \pm 0.024$ 	& 0			\\
   \bottomrule
  \end{tabular}
 \end{table}
 
+\begin{figure}[p]
+	\centering
+	\input{graphics/graph/spect.tex}
+	\vspace{-2em}
+	\caption{Normalized absorption, full saturation spectrum in time space.}
+	\label{fig:spectrum}
+	\vspace{1em}
+	\input{graphics/graph/spectrum.tex}
+	\vspace{-2em}
+	\caption{Normalized absorption, full saturation spectrum in frequency space.}
+	\label{fig:spectrum2}
+\end{figure}
+
 Comparing the position of our Peaks with their relative frequencies, we can establish the scaling of our time axis:
 \begin{align}
 	\nu   &= \nu_0 ~+~ h \cdt \mu \\
-	 h    &= \frac{\nu_{P4} - \nu_{P1}}{\mu_{P4} - \mu_{P1}} = -0.25555 \,\frac{\giga\hertz}{\milli\second}\\
+	 h    &= \frac{\nu_{P4} - \nu_{P1}}{\mu_{P4} - \mu_{P1}} = -0.25555 \,\frac{\giga\hertz}{\micro\second}\\
 	\nu_0 &= \nu_{P4} - h \cdt \mu_{P4}  = 3.774 \,\giga\hertz
 \end{align}
 
 While the offset $\nu_0$ only applies to this measurement, the scale $h$ is characteristic for our setup and will be used for any further spectra.
 
-As we can see from table \ref{tab:raw}, the broadening due to the doppler effect is relativly uniform and thus can be used to calculate the temperature:
+\newpage
+The two remaining peaks which weren't used for establishing the scale lie relatively near to their theoretical positions, at 4.192\,GHz (-1.5\%) and 1.177\,GHz (-3.5\%) respectively.
+
+As we can see from table \ref{tab:raw}, the broadening due to the doppler effect is relatively uniform and thus can be used to calculate the temperature:
 \begin{equation}
- h \cdt \sigma = \sigma_\nu = \nu_o \sqrt{\frac{k T}{m c^2}} \Longrightarrow T = \frac{m c^2 h^2 \sigma^2}{k\nu_0^2}
+ h \cdt \sigma = \sigma_\nu = \nu \sqrt{\frac{k_B T}{m c^2}} ~\Longrightarrow~
+T = \frac{m c^2}{k_B} \, \frac{\sigma_\nu^2}{\nu^2} \approx 475\,\kelvin
 \end{equation}
 
+As the masses and peak widths of $^{85}\mathsf{Rb}$ and $^{87}\mathsf{Rb}$ differ, both were calculated separately and averaged.
 
-\begin{figure}[h]
-	\centering
-	\input{graphics/graph/slope.tex}
-	\vspace{-1ex}
-	\caption{Measured transmission intensity: All 4 peaks.}
-	\label{fig:saturation}
-	\vspace{2ex}
-	\input{graphics/graph/spect.tex}
-	\vspace{-1ex}
-	\caption{Normalized absorption: All 4 peaks.}
-	\label{fig:spectrum}
-\end{figure}
+The obtained temperature is obviously incorrect, which seems to be a problem with the data: The typical FWHM at room temperature would be around 400\,MHz whereas we have  $2 \sqrt{2 \ln 2} \; \sigma \approx 640\,$MHz, which can easily be verified by looking at graph \ref{fig:spectrum2}.
 
 
-
-% TEK4
-% Mitte 9.576
-
-
-Peak1: Lamb-Dips at
-3.376
-3.421
-3.464
-3.503
-3.588
-
-
-While the natural linewidth follows a lorentzian curve, the doppler broadening shows a gaussian profile \ref{lit:SAS}. As only the latter is readily available in Matlab \ref{lit:fittypes}, we shall use the gaussian fit for all peaks.
-
-
-
-% 1st & 4th peak correspond to 87 Rb
-% 2nd & 3rd peak correspond to 85 Rb
-% two peaks each from the hyperfine structure of 5s_{1/2} : F = I \pm 1/2
-
-% 87 Rb : 5p_{3/2} --> 5s_{1/2} F \in \{2, 3\}
+% 85 Rb : 5p_{3/2} --> 5s_{1/2} F \in \{2, 3\}
 % absolute								relative
 % 384 229, 141 GHz						1, 220 GHz
 % 384 232, 177 GHz						4, 256
@@ -123,24 +140,23 @@ While the natural linewidth follows a lorentzian curve, the doppler broadening s
 % 384 234, 756 GHz						6, 835
 % 384 227, 921 GHz						0
 
-% 1. Peak: 0 MHz, 157 MHz, 424 MHz echt
-% 4. Peak: 0 MHz, 72 MHz, 229 MHz echt
 
-% Aufgabe 1: Skalierung anhand zweier Literaturwerte
-% Aufgabe 2: Dopplereffekt: Breite --> Temperatur
-% Aufgabe 3: restliche Werte incl. Feinstruktur abgleichen
+\subsubsection{Lamb dips}
+
+While the lamb dips on peak 1 and 3 could be measured directly (cp. figure \ref{fig:P1} \& \ref{fig:P3}), the other peaks had to be flattened to access the dips. We applied a gaussian fit to them  (cp. figure \ref{fig:P2f} \& \ref{fig:P4f}) and substracted it in order to separate the dips (cp. figure \ref{fig:P2} \& \ref{fig:P4}).
+
 
 
 \begin{figure}[p]
 	\centering
 	\includegraphics[width=0.9\textwidth, clip, trim=1.5cm 7cm 1.5cm 9cm]{graph/peak1.pdf}
-	\vspace{-2ex}
+	\vspace{-1ex}
 	\caption{Lamb dips on peak 1.}
 	\label{fig:P1}
 	\vspace{2ex}
 
 	\includegraphics[width=0.9\textwidth, clip, trim=1.5cm 7cm 1.5cm 9cm]{graph/peak3.pdf}
-	\vspace{-2ex}
+	\vspace{-1ex}
 	\caption{Lamb dips on peak 3.}
 	\label{fig:P3}
 	\vspace{-2em}
@@ -149,14 +165,14 @@ While the natural linewidth follows a lorentzian curve, the doppler broadening s
 \begin{figure}[p]
 	\centering
 	\includegraphics[width=0.9\textwidth, clip, trim=1.5cm 7cm 1.5cm 9cm]{graph/peak2.pdf}
-	\vspace{-2ex}
+	\vspace{-1ex}
 	\caption{Lamb dips on peak 2.}
 	\label{fig:P2f}
 	\vspace{2ex}
 
 	\includegraphics[width=0.9\textwidth, clip, trim=1.5cm 7cm 1.5cm 9cm]{graph/peak2_detail.pdf}
-	\vspace{-2ex}
-	\caption{Lamb dips on peak 2.}
+	\vspace{-1ex}
+	\caption{Lamb dips on peak 2 after deducting the fit from figure \ref{fig:P2f}.}
 	\label{fig:P2}
 	\vspace{-2em}
 \end{figure}
@@ -164,31 +180,33 @@ While the natural linewidth follows a lorentzian curve, the doppler broadening s
 \begin{figure}[p]
 	\centering
 	\includegraphics[width=0.9\textwidth, clip, trim=1.5cm 7cm 1.5cm 9cm]{graph/peak4.pdf}
-	\vspace{-2ex}
+	\vspace{-1ex}
 	\caption{Lamb dips on peak 4.}
 	\label{fig:P4f}
 	\vspace{2ex}
 
 	\includegraphics[width=0.9\textwidth, clip, trim=1.5cm 7cm 1.5cm 9cm]{graph/peak4_detail.pdf}
-	\vspace{-2ex}
-	\caption{Lamb dips on peak 4. }
+	\vspace{-1ex}
+	\caption{Lamb dips on peak 4 after deducting the fit from figure \ref{fig:P4f}.}
 	\label{fig:P4}
 	\vspace{-2em}
 \end{figure}
 
+\newpage
 \subsection{Frequency modulation spectroscopy}
 
-As our modulation signal $U_\text{mod}$ has a frequency of 0.1\,MHz and the high-frequency component of $U_\text{mix}$ oscillates with double that frequency, we should use a low pass filter with a cut off frequency of 0.2\,MHz at most. However,  the best filter available to us lets frequencies  up to 2.5\,MHz pass through.
+As our modulation signal $U_\text{mod}$ has a frequency of 0.1\,MHz and the high-frequency component of $U_\text{mix}$ oscillates with double that frequency, we should use a low pass filter with a cut off frequency of 0.2\,MHz at most. However,  the best filter available to us lets frequencies  up to 2.5\,MHz pass through. As an additional measure, we averaged over multiple trigger periods via the oscilloscope.
 
-To rectify this issue, we apply a 5000\,Hz low pass filter as digital post processing. Based on the sample interval $T = 2\,\micro\second$ and the filter time constant $\tau = \frac{1}{2 \pi \cdt 5000\,\hertz}$ we code:
+This especially has an effect on the already feeble signal from Peak 1 -- part of the modulation signal isn't filtered out and remains as noise, obscuring the data. For Peak 3, the averaging of the oscilloscope had to be deactivated as it averaged out one of the dips.
+
+To rectify this issue, we applied a 5000\,Hz low pass filter as digital post processing for these two peaks. Based on the sample interval $T = 2\,\micro\second$ and the filter time constant $\tau = \frac{1}{2 \pi \cdt 5000\,\hertz}$ we code:
 
 \lstinputlisting[style=mlab, caption={Matlab low pass filter \cite{lit:lowpass}}\label{code:filter}\\
 ]{./Matlab/lowpass5000.m}
 
-This especially has an effect on the already feeble signal from Peak 1 -- part of the modulation signal isn't filtered out and remains as noise, obscuring the data.
+While the low pass filter massively improves the identification of the zero crossings, the method still yields less reliable data compared to the standard saturation spectroscopy. However, this is an issue with the setup we used and not the frequency modulation spectroscopy itself -- correctly done, it can give the most detailed results of the three presented methods.
 
-3rd peak: no averaging (else we'd lose a dip)
-
+As to the data analysis, each second zero point doesn't correspond to a lamb dip but to a local absorption maximum
 
 \begin{figure}[p]
 	\centering
@@ -215,25 +233,22 @@ This especially has an effect on the already feeble signal from Peak 1 -- part o
 
 	\includegraphics[width=0.9\textwidth, clip, trim=1.5cm 7cm 1.5cm 9cm]{graph/peak4_fms.pdf}
 	\vspace{-2ex}
-	\caption{FMS Peak 4}
+	\caption{FMS Peak 4, the middle data tip was placed accidentally}
 	\label{fig:P4_fms}
 	\vspace{-2em}
 \end{figure}
 
 \begin{figure}[p]
 	\centering
-	\includegraphics[width=0.9\textwidth, clip, trim=1.5cm 7cm 1.5cm 9cm]{graph/peak3_fms.pdf}
+	\includegraphics[width=0.9\textwidth, clip, trim=1.3cm 7cm 1.5cm 9cm]{graph/peak3_fms.pdf}
 	\vspace{-2ex}
 	\caption{FMS Peak 3}
 	\label{fig:P3_fms}
 	\vspace{2ex}
 
-	\includegraphics[width=0.9\textwidth, clip, trim=1.5cm 7cm 1.5cm 9cm]{graph/peak3_filter.pdf}
+	\includegraphics[width=0.9\textwidth, clip, trim=1.3cm 7cm 1.5cm 9cm]{graph/peak3_filter.pdf}
 	\vspace{-2ex}
 	\caption{FMS Peak 3}
 	\label{fig:P3_filter}
 	\vspace{-2em}
 \end{figure}
-
-\section{Discussion of errors}
-% Laser wird mit zunehmender Stromstärke durchgetunt --> zunehmende Intensität im Hintergrund
