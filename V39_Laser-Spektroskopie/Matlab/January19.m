@@ -82,3 +82,40 @@ xlabel('Frequency \nu in GHz')
 ylabel('normalized absorption'),
 print('-dpdf', 'peak4_detail');
 
+
+%-- 20.01.2015 03:04 --%
+% FMS
+
+a = 2e-6 * 2*pi*5000;
+
+index = 15;
+extract
+fig1 = figure();
+plot(x,y)
+lin = fit( x([1 end]), y([1 end]), 'poly1')
+y = y - feval(lin,x);
+legend('Peak 1')
+ylabel('differential transmission')
+xlabel('Frequency \nu in GHz')
+print(fig1, '-dpdf', 'peak1_fms');
+
+yf = filter(a, [1 a-1], y);
+plot(x,yf);
+plot(x,yf+0.0013*x -0.00538, [3 4], [0 0]);
+xlim([3 4])
+legend('Peak 1, filtered', 'Location','NorthWest')
+
+index = 14;
+extract
+fig3 = figure();
+plot(x,y)
+legend('Peak 3')
+ylabel('differential transmission')
+xlabel('Frequency \nu in GHz')
+print(fig3, '-dpdf', 'peak3_fms');
+
+yf = filter(a, [1 a-1], y);
+plot(x,yf+0.03*x- 0.119)
+xlim([3.43 4.05]);
+legend('Peak 3, filtered', 'Location','NorthWest')
+print(fig3, '-dpdf', 'peak3_filter');
