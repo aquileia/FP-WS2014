@@ -71,7 +71,7 @@ It is to be noted that, while figure \ref{fig:absorption} shows the absorption s
 
 \newpage
 \subsection{Saturation spectroscopy}
-As can be seen in figures \ref{fig:saturation} and especially in \ref{fig:spectrum}, the only mode hop lies outside the relevant range.
+As can be seen in figures \ref{fig:saturation} and especially \ref{fig:spectrum}, the only mode hop lies outside the relevant range.
 
 The output power of the diode laser varies with the provided current, thus our spectrum is deformed by this envelope function(figure \ref{fig:saturation}). After normalizing the data, we can determine position and width of the four peaks.
 
@@ -87,10 +87,10 @@ The obtained values are given in table \ref{tab:raw} alongside the corresponding
   \toprule
   Peak	& ground state 	& $\mu$ in ms 		& $\sigma$ in ms 		& $\Delta \nu$ in GHz	\\
   \midrule
-  P1		& $^{87}\mathsf{Rb}~5s_{1/2}$(F=2)	& $-11.978 \pm 0.025$	& $1.027 \pm 0.025$ 	& 6.835		\\
-  P2		& $^{85}\mathsf{Rb}~5s_{1/2}$(F=3)	& $-1.636 \pm 0.023$	& $1.090 \pm 0.023$ 	& 4.256		\\
-  P3		& $^{85}\mathsf{Rb}~5s_{1/2}$(F=2)	& $10.162 \pm 0.026$	& $1.130 \pm 0.026$ 	& 1.220		\\
-  P4		& $^{87}\mathsf{Rb}~5s_{1/2}$(F=1)	& $14.768 \pm 0.022$	& $1.041 \pm 0.024$ 	& 0			\\
+  P1		& $^{87}\mathsf{Rb}~5s_{1/2}$(F=1)	& $-11.978 \pm 0.025$	& $1.027 \pm 0.025$ 	& 6.835		\\
+  P2		& $^{85}\mathsf{Rb}~5s_{1/2}$(F=2)	& $-1.636 \pm 0.023$	& $1.090 \pm 0.023$ 	& 4.256		\\
+  P3		& $^{85}\mathsf{Rb}~5s_{1/2}$(F=3)	& $10.162 \pm 0.026$	& $1.130 \pm 0.026$ 	& 1.220		\\
+  P4		& $^{87}\mathsf{Rb}~5s_{1/2}$(F=2)	& $14.768 \pm 0.022$	& $1.041 \pm 0.024$ 	& 0			\\
   \bottomrule
  \end{tabular}
 \end{table}
@@ -140,11 +140,94 @@ The obtained temperature is obviously incorrect, which seems to be a problem wit
 % 384 234, 756 GHz						6, 835
 % 384 227, 921 GHz						0
 
-
+\newpage
 \subsubsection{Lamb dips}
 
-While the lamb dips on peak 1 and 3 could be measured directly (cp. figure \ref{fig:P1} \& \ref{fig:P3}), the other peaks had to be flattened to access the dips. We applied a gaussian fit to them  (cp. figure \ref{fig:P2f} \& \ref{fig:P4f}) and substracted it in order to separate the dips (cp. figure \ref{fig:P2} \& \ref{fig:P4}).
+While the lamb dips on peak 1 and 3 could be measured directly (cp. figure \ref{fig:P1} \& \ref{fig:P3}), the other peaks had to be flattened to access the dips. We applied a gaussian fit to them  (cp. figure \ref{fig:P2f} \& \ref{fig:P4f}) and subtracted it in order to separate the dips (cp. figure \ref{fig:P2} \& \ref{fig:P4}).
 
+Table \ref{tab:dips} shows the frequencies of the observed lamb dips in comparison to the theoretical frequencies. All observed dips could be matched to either lamb dips or crossover dips.
+
+\begin{table}[h]
+   \centering
+   \caption{Lamb dips observed for the different peaks}
+	\label{tab:dips}
+   \begin{subtable}{0.48\textwidth}
+	\centering
+	\caption{Peak 1: $^{87}\mathsf{Rb}~5s_{1/2}$(F=1)}
+	\begin{tabular}{ccc}
+		\toprule
+		 excited state 					& $\Delta \nu$ in MHz	& at \\
+		\midrule
+		$^{87}\mathsf{Rb}~5p_{3/2}$(F=0)	& 0					& 0		\\
+		$^{87}\mathsf{Rb}~5p_{3/2}$(F=1)	& 72					& 85		\\
+		$^{87}\mathsf{Rb}~5p_{3/2}$(F=2)	& 229				& 205	\\[1ex]
+		crossover		\\[-0.5ex]
+		\midrule
+		F=0 \& F=1					& 36					& 39		\\
+		F=1 \& F=2					& 115				& 124	\\
+		F=0 \& F=2					& 151				& --		\\
+		\bottomrule
+	\end{tabular}
+   \end{subtable}
+   \hfill
+   \begin{subtable}{0.48\textwidth}
+	\centering
+	\caption{Peak 4: $^{87}\mathsf{Rb}~5s_{1/2}$(F=2)}
+	\begin{tabular}{ccc}
+		\toprule
+		 excited state 					& $\Delta \nu$ in MHz	& at \\
+		\midrule
+		$^{87}\mathsf{Rb}~5p_{3/2}$(F=1)	& 0					& -30		\\
+		$^{87}\mathsf{Rb}~5p_{3/2}$(F=2)	& 157				& 151	\\
+		$^{87}\mathsf{Rb}~5p_{3/2}$(F=3)	& 424				& 445	\\[1ex]
+		crossover		\\[-0.5ex]
+		\midrule
+		F=1 \& F=2					& 79					& 66		\\
+		F=2 \& F=3					& 212				& 216	\\
+		F=1 \& F=3					& 291				& 302	\\
+		\bottomrule
+	\end{tabular}
+   \end{subtable}
+   \\[2em]
+
+   \begin{subtable}{0.48\textwidth}
+	\centering
+	\caption{Peak 2: $^{85}\mathsf{Rb}~5s_{1/2}$(F=2)}
+	\begin{tabular}{ccc}
+		\toprule
+		 excited state 					& $\Delta \nu$ in MHz	& at \\
+		\midrule
+		$^{85}\mathsf{Rb}~5p_{3/2}$(F=1)	& 0					&  --	\\
+		$^{85}\mathsf{Rb}~5p_{3/2}$(F=2)	& 29					&  --	\\
+		$^{85}\mathsf{Rb}~5p_{3/2}$(F=3)	& 92					& 92	\\[1ex]
+		crossover		\\[-0.5ex]
+		\midrule
+		F=0 \& F=1					& 15					& 11	\\
+		F=1 \& F=2					& 46					& 47	\\
+		F=0 \& F=2					& 61					&  --	\\
+		\bottomrule
+	\end{tabular}
+   \end{subtable}
+   \hfill
+   \begin{subtable}{0.48\textwidth}
+	\centering
+	\caption{Peak 3: $^{85}\mathsf{Rb}~5s_{1/2}$(F=3)}
+	\begin{tabular}{ccc}
+		\toprule
+		 excited state 					& $\Delta \nu$ in MHz	& at \\
+		\midrule
+		$^{85}\mathsf{Rb}~5p_{3/2}$(F=2)	& 0					& 0		\\
+		$^{85}\mathsf{Rb}~5p_{3/2}$(F=3)	& 63					& 63		\\
+		$^{85}\mathsf{Rb}~5p_{3/2}$(F=4)	& 184				& 164	\\[1ex]
+		crossover		\\[-0.5ex]
+		\midrule
+		F=1 \& F=2					& 32					& 34		\\
+		F=2 \& F=3					& 92					& 98		\\
+		F=1 \& F=3					& 124				& --		\\
+		\bottomrule
+	\end{tabular}
+   \end{subtable}
+\end{table}
 
 
 \begin{figure}[p]
@@ -198,7 +281,6 @@ While the lamb dips on peak 1 and 3 could be measured directly (cp. figure \ref{
 As our modulation signal $U_\text{mod}$ has a frequency of 0.1\,MHz and the high-frequency component of $U_\text{mix}$ oscillates with double that frequency, we should use a low pass filter with a cut off frequency of 0.2\,MHz at most. However,  the best filter available to us lets frequencies  up to 2.5\,MHz pass through. As an additional measure, we averaged over multiple trigger periods via the oscilloscope.
 
 This especially has an effect on the already feeble signal from Peak 1 -- part of the modulation signal isn't filtered out and remains as noise, obscuring the data. For Peak 3, the averaging of the oscilloscope had to be deactivated as it averaged out one of the dips.
-
 To rectify this issue, we applied a 5000\,Hz low pass filter as digital post processing for these two peaks. Based on the sample interval $T = 2\,\micro\second$ and the filter time constant $\tau = \frac{1}{2 \pi \cdt 5000\,\hertz}$ we code:
 
 \lstinputlisting[style=mlab, caption={Matlab low pass filter \cite{lit:lowpass}}\label{code:filter}\\
@@ -206,7 +288,53 @@ To rectify this issue, we applied a 5000\,Hz low pass filter as digital post pro
 
 While the low pass filter massively improves the identification of the zero crossings, the method still yields less reliable data compared to the standard saturation spectroscopy. However, this is an issue with the setup we used and not the frequency modulation spectroscopy itself -- correctly done, it can give the most detailed results of the three presented methods.
 
-As to the data analysis, each second zero point doesn't correspond to a lamb dip but to a local absorption maximum
+As to the data analysis, each second zero point doesn't correspond to a lamb dip but to a local absorption maximum. Only falling slopes correspond to a transmission maximum.
+
+Unlike the saturation spectroscopy, next to no zero crossings could be related to actual transitions. The structures of peak 2 and 3 can't be explained at all, while peak 1 and 4 show considerable deviations: 
+
+\begin{table}[h]
+   \centering
+   \caption{Structure of peak 1 and 4 for frequency modulation spectroscopy}
+	\label{tab:dips}
+   \begin{subtable}{0.48\textwidth}
+	\centering
+	\caption{Peak 1: $^{87}\mathsf{Rb}~5s_{1/2}$(F=1)}
+	\begin{tabular}{ccc}
+		\toprule
+		 excited state 					& $\Delta \nu$ in MHz	& at \\
+		\midrule
+		$^{87}\mathsf{Rb}~5p_{3/2}$(F=0)	& 0					& -30		\\
+		$^{87}\mathsf{Rb}~5p_{3/2}$(F=1)	& 72					& 65		\\
+		$^{87}\mathsf{Rb}~5p_{3/2}$(F=2)	& 229				& 264	\\[1ex]
+		crossover		\\[-0.5ex]
+		\midrule
+		F=0 \& F=1					& 36					& 35		\\
+		F=1 \& F=2					& 115				& --		\\
+		F=0 \& F=2					& 151				& 175	\\
+		\bottomrule
+	\end{tabular}
+   \end{subtable}
+   \hfill
+   \begin{subtable}{0.48\textwidth}
+	\centering
+	\caption{Peak 4: $^{87}\mathsf{Rb}~5s_{1/2}$(F=2)}
+	\begin{tabular}{ccc}
+		\toprule
+		 excited state 					& $\Delta \nu$ in MHz	& at \\
+		\midrule
+		$^{87}\mathsf{Rb}~5p_{3/2}$(F=1)	& 0					& -35		\\
+		$^{87}\mathsf{Rb}~5p_{3/2}$(F=2)	& 157				& --		\\
+		$^{87}\mathsf{Rb}~5p_{3/2}$(F=3)	& 424				& 456	\\[1ex]
+		crossover		\\[-0.5ex]
+		\midrule
+		F=1 \& F=2					& 79					& 77		\\
+		F=2 \& F=3					& 212				& 208	\\
+		F=1 \& F=3					& 291				& --		\\
+		\bottomrule
+	\end{tabular}
+   \end{subtable}
+\vspace{-3em}
+\end{table}
 
 \begin{figure}[p]
 	\centering
