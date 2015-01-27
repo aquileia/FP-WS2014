@@ -40,7 +40,7 @@ for i=1:11
     end
     lambda_lin(:,i)=polyval(y2(i,:),X2);         
 end
-f2=plot(X2,lambda_lin);
+plot(X2,lambda_lin);
 
 y2_mod=[y2(1:4,:);y2(6:end,:)];
 
@@ -75,7 +75,7 @@ x_lambda100(k)=y3(2)+avg_slope2.*(I_min100+(P_lambda1064(k,1)-15)./20.*I_gap100)
 x_lambda150(k)=y3(2)+avg_slope2.*(I_min150+(P_lambda1064(k,1)-15)./20.*I_gap150)+y3(1).*P_lambda1064(k,1);
 end
 f4=figure;
-f4=plot(x_lambda50,P_lambda1064(:,4),x_lambda100,P_lambda1064(:,3),x_lambda150,P_lambda1064(:,2),'LineStyle','none','Marker','x','MarkerSize',8);
+plot(x_lambda50,P_lambda1064(:,4),x_lambda100,P_lambda1064(:,3),x_lambda150,P_lambda1064(:,2),'LineStyle','none','Marker','x','MarkerSize',8);
 xlabel('Wavelength $\lambda(\nano\metre)$');
 ylabel('Detected photo detector power $P(\milli\watt)$');
 
@@ -83,23 +83,23 @@ ylabel('Detected photo detector power $P(\milli\watt)$');
 % max Nd:YAG power output at lambda=808nm resp. T=
 f5=figure;
 p_max(:,1)=P1064_P808(:,1).*y1(8,1)+y1(8,2); % not taking I<220mA into account
-f5=plot(p_max,P1064_P808(:,2),'LineStyle','none','Marker','x','MarkerSize',8);
+plot(p_max,P1064_P808(:,2),'LineStyle','none','Marker','x','MarkerSize',8);
 xlabel('Laser diode input power $P_\text{Diode,808}(\milli\watt)$');
 ylabel('Detected photo detector power $P_{1064}(\milli\watt)$');
 hold on
 y5=polyfit(p_max,P1064_P808(:,2),n);
 P1064_lin=polyval(y5,p_max);
-f5=plot(p_max,P1064_lin,'r');
+plot(p_max,P1064_lin,'r');
 
 %% Power output of the frequency-doubled P_532 depending on the P_808
 f6=figure;
 plot(P532_P808(:,1),P532_P808(:,2),'LineStyle','none','Marker','x','MarkerSize',8)
-f6=xlabel('Laser diode input power $P_\text{Diode,808}(\milli\watt)$');
+xlabel('Laser diode input power $P_\text{Diode,808}(\milli\watt)$');
 ylabel('Detected second harmonic power $P_{532}(\milli\watt)$');
 hold on
 y6=polyfit(P532_P808(:,1),P532_P808(:,2),2);
 P532_lin=polyval(y6,P532_P808(:,1));
-f6=plot(P532_P808(:,1),P532_lin,'r');
+plot(P532_P808(:,1),P532_lin,'r');
 
 % matlab2tikz('P.tex', 'width', '0.9\textwidth','figurehandle',f1, 'encoding','UTF-8', 'showInfo', false, 'parseStrings', false);
 % matlab2tikz('lambda1.tex', 'width', '0.9\textwidth','figurehandle',f2, 'encoding','UTF-8', 'showInfo', false, 'parseStrings', false);
