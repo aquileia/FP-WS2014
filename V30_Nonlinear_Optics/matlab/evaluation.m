@@ -9,13 +9,13 @@ close all
 %load('evaluation.mat')
 f1=figure;
 plot(X1,P)
-l1=legend('$15\degree\celsius$','$17\degree\celsius$','$19\degree\celsius$','$21\degree\celsius$','$23\degree\celsius$','$25\degree\celsius$','$27\degree\celsius$','$29\degree\celsius$','$31\degree\celsius$','$33\degree\celsius$','$35\degree\celsius$','Location','northwest');
+l1=legend('$15\celsius$','$17\celsius$','$19\celsius$','$21\celsius$','$23\celsius$','$25\celsius$','$27\celsius$','$29\celsius$','$31\celsius$','$33\celsius$','$35\celsius$','Location','northwest');
 xlabel('injection current $I(\milli\ampere)$');
 ylabel('Detected photo detector power $P(\milli\watt)$');
 
 f2=figure;
 plot(X2,lambda,'LineStyle','none','Marker','x','MarkerSize',8)
-l2=legend('$15\degree\celsius$','$17\degree\celsius$','$19\degree\celsius$','$21\degree\celsius$','$23\degree\celsius$','$25\degree\celsius$','$27\degree\celsius$','$29\degree\celsius$','$31\degree\celsius$','$33\degree\celsius$','$35\degree\celsius$','Location','northeastoutside');
+l2=legend('$15\celsius$','$17\celsius$','$19\celsius$','$21\celsius$','$23\celsius$','$25\celsius$','$27\celsius$','$29\celsius$','$31\celsius$','$33\celsius$','$35\celsius$','Location','northeastoutside');
 xlabel('injection current $I(\milli\ampere)$');
 ylabel('Wavelength $\lambda(\nano\metre)$');
 hold on
