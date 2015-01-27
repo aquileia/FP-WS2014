@@ -81,7 +81,7 @@ ylabel('Detected photo detector power $P(\milli\watt)$');
 %% Power output P_1064 of the Nd:YAG depending on input power P_808
 % max Nd:YAG power output at lambda=808nm resp. T=
 f5=figure;
-p_max(:,1)=P1064_P808(:,1).*y1(8,1)+y1(8,2); % not taking I<220mA into account
+p_max=polyval(y1(8,:), P1064_P808(:,1)); % not taking I<220mA into account
 plot(p_max,P1064_P808(:,2),'LineStyle','none','Marker','x','MarkerSize',8);
 xlabel('Laser diode input power $P_\text{Diode,808}(\milli\watt)$');
 ylabel('Detected photo detector power $P_{1064}(\milli\watt)$');
@@ -90,15 +90,17 @@ y5=polyfit(p_max,P1064_P808(:,2),n);
 P1064_lin=polyval(y5,p_max);
 plot(p_max,P1064_lin,'r');
 
-%% Power output of the frequency-doubled P_532 depending on the P_808
+%% Power output of the frequency-doubled P_532 depending on P_1064
 f6=figure;
-plot(P532_P808(:,1),P532_P808(:,2),'LineStyle','none','Marker','x','MarkerSize',8)
-xlabel('Laser diode input power $P_\text{Diode,808}(\milli\watt)$');
+P6_808  = polyval(y1(8,:), P532_P808(:,1));
+P6_1064 = polyval(y5, P6_808);
+plot(P6_1064,P532_P808(:,2),'LineStyle','none','Marker','x','MarkerSize',8)
+xlabel('Expected fundamental power $P_{1064}(\milli\watt)$');
 ylabel('Detected second harmonic power $P_{532}(\milli\watt)$');
 hold on
-y6=polyfit(P532_P808(:,1),P532_P808(:,2),2);
-P532_lin=polyval(y6,P532_P808(:,1));
-plot(P532_P808(:,1),P532_lin,'r');
+y6=polyfit(P6_1064,P532_P808(:,2),2);
+P532_lin=polyval(y6,P6_1064);
+plot(P6_1064,P532_lin,'r');
 
 % matlab2tikz('P.tex', 'width', '0.9\textwidth','figurehandle',f1, 'encoding','UTF-8', 'showInfo', false, 'parseStrings', false);
 % matlab2tikz('lambda1.tex', 'width', '0.9\textwidth','figurehandle',f2, 'encoding','UTF-8', 'showInfo', false, 'parseStrings', false);
