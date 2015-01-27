@@ -97,7 +97,7 @@ ylabel('Detected photo detector power $P_{1064}(\milli\watt)$');
 %% Power output of the frequency-doubled P_532 depending on P_1064
 f6=figure;
 P6_808  = polyval(y1(8,:), P532_P808(:,1));
-P6_1064 = polyval(y5, P6_808);
+P6_1064 = feval(fit5, P6_808);
   fit6 = fit(P6_1064,P532_P808(:,2),'poly2');
   cf = coeffvalues(fit6);
   dcf = mean(abs(confint(fit6) - [cf; cf]),1);
