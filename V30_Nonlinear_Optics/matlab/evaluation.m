@@ -83,26 +83,30 @@ ylabel('Detected photo detector power $P(\milli\watt)$');
 %% Power output P_1064 of the Nd:YAG depending on input power P_808
 % max Nd:YAG power output at lambda=808nm resp. T=
 f5=figure;
-p_max=polyval(y1(8,:), P1064_P808(:,1)); % not taking I<220mA into account
-plot(p_max,P1064_P808(:,2),'LineStyle','none','Marker','x','MarkerSize',8);
+p_max=polyval(y1(8,:), P1064_P808(:,1)); % not taking I<220mA into accoun
+  fit5 = fit(p_max,P1064_P808(:,2),'poly1');
+  cf = coeffvalues(fit5);
+  dcf = mean(abs(confint(fit5) - [cf; cf]),1);
+  entry = ['$(' format_tol(cf(1), dcf(1)) ') \cdot P_\text{Diode,808}' ...
+         ' + (' format_tol(cf(2), dcf(2)),')\milli\watt$'];
+plot(fit5, p_max, P1064_P808(:,2), 'x')
+legend('data', entry, 'Location','NorthWest')
 xlabel('Laser diode input power $P_\text{Diode,808}(\milli\watt)$');
 ylabel('Detected photo detector power $P_{1064}(\milli\watt)$');
-hold on
-y5=polyfit(p_max,P1064_P808(:,2),n);
-P1064_lin=polyval(y5,p_max);
-plot(p_max,P1064_lin,'r');
 
 %% Power output of the frequency-doubled P_532 depending on P_1064
 f6=figure;
 P6_808  = polyval(y1(8,:), P532_P808(:,1));
 P6_1064 = polyval(y5, P6_808);
-plot(P6_1064,P532_P808(:,2),'LineStyle','none','Marker','x','MarkerSize',8)
+  fit6 = fit(P6_1064,P532_P808(:,2),'poly2');
+  cf = coeffvalues(fit6);
+  dcf = mean(abs(confint(fit6) - [cf; cf]),1);
+  entry = ['$(' format_tol(cf(1), dcf(1)) ') \milli\watt^{-1}' ...
+                '\cdot P_\text{Diode,808}^2 ~+~ \mathcal{O}(1)$'];
+plot(fit6, P6_1064, P532_P808(:,2), 'x')
+legend('data', entry, 'Location','NorthWest')
 xlabel('Expected fundamental power $P_{1064}(\milli\watt)$');
 ylabel('Detected second harmonic power $P_{532}(\milli\watt)$');
-hold on
-y6=polyfit(P6_1064,P532_P808(:,2),2);
-P532_lin=polyval(y6,P6_1064);
-plot(P6_1064,P532_lin,'r');
 
 % matlab2tikz('P.tex', 'width', '0.9\textwidth','figurehandle',f1, 'encoding','UTF-8', 'showInfo', false, 'parseStrings', false);
 % matlab2tikz('lambda1.tex', 'width', '0.9\textwidth','figurehandle',f2, 'encoding','UTF-8', 'showInfo', false, 'parseStrings', false);
