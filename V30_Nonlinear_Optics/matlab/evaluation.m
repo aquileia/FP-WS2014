@@ -2,6 +2,8 @@
 
 warning off MATLAB:gui:latexsup:UnableToInterpretTeXString;
 warning off matlab2tikz:deprecatedEnvironment;
+clc
+close all
 
 %% Plot P and lambda graph
 %load('evaluation.mat')
