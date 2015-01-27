@@ -69,11 +69,10 @@ I_max150=(150-y1(11,2))/y1(11,1);
 I_gap150=I_max150-I_min150;
 
 % evaluate from lambda graph
-for k=1:25
-x_lambda50(k)=y3(2)+avg_slope2.*(I_min50+(P_lambda1064(k,1)-15)./20.*I_gap50)+y3(1).*P_lambda1064(k,1);
-x_lambda100(k)=y3(2)+avg_slope2.*(I_min100+(P_lambda1064(k,1)-15)./20.*I_gap100)+y3(1).*P_lambda1064(k,1);
-x_lambda150(k)=y3(2)+avg_slope2.*(I_min150+(P_lambda1064(k,1)-15)./20.*I_gap150)+y3(1).*P_lambda1064(k,1);
-end
+x_lambda50  = y3(2)+avg_slope2*(I_min50 + (P_lambda1064(:,1)-15)./20.*I_gap50 ) + y3(1).*P_lambda1064(:,1);
+x_lambda100 = y3(2)+avg_slope2*(I_min100+ (P_lambda1064(:,1)-15)./20.*I_gap100) + y3(1).*P_lambda1064(:,1);
+x_lambda150 = y3(2)+avg_slope2*(I_min150+ (P_lambda1064(:,1)-15)./20.*I_gap150) + y3(1).*P_lambda1064(:,1);
+
 f4=figure;
 plot(x_lambda50,P_lambda1064(:,4),x_lambda100,P_lambda1064(:,3),x_lambda150,P_lambda1064(:,2),'LineStyle','none','Marker','x','MarkerSize',8);
 xlabel('Wavelength $\lambda(\nano\metre)$');
