@@ -86,7 +86,7 @@ f5=figure;
 p_max=polyval(y1(8,:), P1064_P808(:,1)); % not taking I<220mA into accoun
   fit5 = fit(p_max,P1064_P808(:,2),'poly1');
   cf = coeffvalues(fit5);
-  dcf = mean(abs(confint(fit5) - [cf; cf]),1);
+  dcf = max(abs(confint(fit5) - [cf; cf]));
   entry = ['$(' format_tol(cf(1), dcf(1)) ') \cdot P_\text{Diode,808}' ...
          ' + (' format_tol(cf(2), dcf(2)),')\milli\watt$'];
 plot(fit5, p_max, P1064_P808(:,2), 'x')
