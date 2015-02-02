@@ -5,9 +5,31 @@
 \section{Introduction}
 
 \section{Theory}
+Consider a system of two energy levels $E_1,~E_2$ which each can hold a large number $n_1,~n_2$ of electrons (as the Pauli theorem forbids them to be in the same quantum state, these levels stretch over numerous atoms). The energy difference $\Delta E = h \nu$ shall correspond to photons in or around the visible spectrum.
+
+In thermodynamic equilibrium, the electrons are distributed corresponding to the Fermi-Dirac distribution, which can be approximated with the Boltzmann distribution for relatively high temperatures $T$, including room temperature:
+\begin{align}
+Z   ~&=~ \left( e^{-E_1/k_B T} + e^{-E_2/k_B T} \right) \\
+n_1 ~=~ n_{tot} \cdot \frac{e^{-E_1/k_B T}}{Z} &\qquad
+n_2 ~=~ n_{tot} \cdot \frac{e^{-E_2/k_B T}}{Z} \\
+\frac{n_2}{n_1} ~&=~ e^{- \Delta E/k_B T} ~<~ 1
+\end{align}
+
+By pumping electrons out of the lower level $E_1$ and to the upper level $E_2$ (by means which shall be discussed later), we can achieve $n_2 \gg n_1$ (population inversion) and
+
+
+% resonator
+% gain, losses
 
 \subsection{Laser diode}
+A laser diode is a p-n junction with a band gap $\Delta E$ where a voltage is applied in forward direction. Electrons flow onto the conduction band of the n-side, while they are drawn from the valence band of the p-side, which is equivalent to positive virtual particles $h^+$ called holes.
 
+As each electron hole recombination produces one photon, the output power is proportional to the applied injection current $I$. As we are only interested in the power $P$ of the laser beam, we first need to provide the threshold current $I_{min}$ at which the gain through stimulated emission outbalances the losses. With increasing temperature the collision rate of the electrons increases, causing electrons to disperse their energy in multiple steps and thus without emitting a photon. These additional losses lead to an increased threshold, resulting in less laser power at a given current.
+
+
+Due to the fact that we have energy bands instead of levels, laser diodes emit in a considerable spectral range. Additionally, the wavelength and output power vary with both the temperature of the diode:
+
+By adjusting the resonator, a sharp peak can be selected for which the photons are coupled back 
 
 \subsection{Nd:YAG laser}
 The laser is based on a Nd:YAG crystal (yttrium aluminium garnet doped with neodymium).
@@ -58,3 +80,16 @@ dispersion relation: $c = n c_0 = \lambda \nu$
 \end{equation}
 
 Thus the refraction index of the material has to be the same for both wavelengths. As most materials show normal diffraction, i.e. $n(\lambda) \searrow$, 
+
+
+
+
+
+% merge into literature:
+
+% R. Willingale: \emph{lecture notes, Lasers and Quantum Optics}. University of Leicester 2007.\\
+% \url{http://www.star.le.ac.uk/~zrw/courses/lect4313.html}
+% crop image:
+% http://www.star.le.ac.uk/~zrw/courses/lect4313_fig16.jpg
+
+% http://www.atlas.uni-wuppertal.de/FP/anleitungen/fpI-09/diodenlaser.pdf
