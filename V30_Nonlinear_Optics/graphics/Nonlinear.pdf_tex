@@ -1,0 +1,20 @@
+%% Creator: Inkscape 0.48.5, www.inkscape.org
+%% PDF/EPS/PS + LaTeX output extension by Johan Engelen, 2010
+%% Accompanies image file 'Nonlinear2.pdf' (pdf, eps, ps)
+%%
+%% To include the image in your LaTeX document, write
+%%   \def\svgwidth{<desired width>}
+%%   \input{<filename>.pdf_tex}
+\begingroup%
+  \setlength{\unitlength}{\svgwidth}%
+  \global\let\svgwidth\undefined%
+  \begin{picture}(1,0.85375736)%
+    \put(0,0){\includegraphics[width=\unitlength]{Nonlinear.pdf}}%
+    \put(0.6,0.45){\makebox(0,0)[lb]{\smash{outgoing field strength $\vec E$}}}%
+    \put(0.21,0.58){\rotatebox{90}{\makebox(0,0)[lb]{\smash{polarisation $\vec P$}}}}%
+    \put(0.5,0.75){\makebox(0,0)[lb]{\smash{nonlinear dielectric polarisation}}}%
+    \put(0.5,0.365){\makebox(0,0)[lb]{\smash{low field strength}}}%
+    \put(0.5,0.165){\makebox(0,0)[lb]{\smash{high field strength}}}%
+    \put(0.4,0.01){\makebox(0,0)[lb]{\smash{incident light field}}}%
+  \end{picture}%
+\endgroup%
