@@ -16,11 +16,13 @@ In order to determine the power output of a diode laser, we measure the power of
 
 The injection currents $I$ and the temperatures $T$ are chosen such that
 \begin{align*}
-I=&0,40,80,\dots,200\milli\ampere\\
-I=&200,220,240,\dots,500\milli\ampere\\
-T=&15,17,19,\dots,35\celsius.
+I~&=~0,40,80,\dots,200\milli\ampere\\
+I~&=~200,220,240,\dots,500\milli\ampere\\
+T~&=~15,17,19,\dots,35\celsius.
 \end{align*}
 The measured powers are plotted against $I$ for various $T$ in figure \ref{fig:measurement_P}.
+
+\newpage
 
 \begin{figure}[h]
 	\centering
@@ -34,12 +36,16 @@ We can assume the increase of power $P(I,T)$ is linear to $I$, above a particula
 m_1=(0,5356\pm 0,0030)\tfrac{\milli\watt}{\milli\ampere}.
 \label{eq:avg_slope1}
 \end{align}
+
 This can be used for further measurements and calculations.
 We can also see the power $P$ is decreasing with rising temperature $T$, also shifting the threshold current $I_\text{min}$ to slightly higher values. This could be further evaluated with more data points in the relevant current range.
 A possible reason for this power decrease is the broadening of the stimulated emission energy distribution. Since we only measure the mean of this distribution, and the total energy stays the same, the peak power is lower.
+
+\newpage
 \subsubsection{Diode laser: Emitted wavelength $\lambda(I,T)$}
 \label{sec:diode_laser_lambda}
 The next step is to determine the emitted wavelength $\lambda(I,T)$ of the diode laser, which is also dependent on the injection current $I$ and the temperature $T$. This is mostly due to the change of the refractive index in the active medium with a higher charge carrier density, and semi-conductors are very temperature-dependent in general.
+
 The setup for this measurement is the same as shown in figure \ref{fig:setup_P}. The photo detector is swapped for a different one with a adjustable semi-transparent bar to reduce the radiation power onto the detector. It is connected to a wavemeter, which gives us a wavelength $\lambda$.
 Measurements for currents $I=200,220,\dots,500\milli\ampere$ and temperatures $T=15,17,\dots,35\celsius$ are plotted in figure \ref{fig:lambda1}.
 
@@ -63,11 +69,13 @@ c_1=&(0,0027\pm 0,0004)\tfrac{\nano\metre}{\milli\ampere}\\
 c_2=&(0,288\pm 0,013)\tfrac{\nano\metre}{\kelvin}.
 \end{align*}
 Equation \eqref{eq:lambda1} will be used for another evaluation in following.
-\subsection{Measurements of the Nd:YAG laser}
+
+
+\subsection{Measurements of the Nd:YAG laser} \label{sec:1064}
 \subsubsection{Mean lifetime $\tau_{1/2}$ of the $^4\mathrm{F}_{3/2}$ state}
 We use the diode laser as a pump for the active medium, which is a Nd:YAG crystal (as explained in the theory). By modulating the laser diode with a set frequency, it is turned on and off periodically. This results in the Nd:YAG being pumped periodically as well. After filtering out the pump beam with an optical filter, a photo detector measures the signal. Both this signal and the frequency modulation signal are displayed in a two-channel oscilloscope (an exemplary picture is depicted in figure \ref{fig:tau_osci}). This setup can be seen in figure \ref{fig:setup_tau}.
 
-\begin{figure}
+\begin{figure}[h]
 	\centering
 	\includegraphics[width=0.9\textwidth]{setup_tau.pdf}
 	\caption[Setup for measuring the lifetime of the $^4\mathrm{F}_{3/2}$ state]{Setup for measuring the lifetime of the $^4\mathrm{F}_{3/2}$ state. In addition to previous setups, the collimated beam is focused (C) on the Nd:YAG rod (D), and passes through a RG 1000 filter (F) which absorbs the remaining part of the pump beam. Both the modulated signal of the diode laser and the photo detector (G) are displayed in an oscilloscope (see figure \ref{fig:tau_osci}). \cite{lit:manual}}
@@ -86,44 +94,46 @@ We keep the current $I$ and the temperature $T$ constant. The mean lifetime $\ta
 \begin{table}[h]
 	\centering
 	\caption{Results for the mean lifetimes $\tau_{1/2}$.}
-	\begin{tabular}{|c|c|}
-	\hline
+	\begin{tabular}{c @{\qquad} c}
+	\toprule
 	$T_\text{decay}~(\milli\second)$ & $\tau_{1/2}~(\milli\second)$\\
-	\hline
+	\midrule
 	2,925	& 0,2\\
 	2	& 0,22\\
 	2,5 &	0,21\\
-	\hline
+	\bottomrule
 	\end{tabular}
 	\label{tab:tau}
 \end{table}
 
-This gives us the average of $\tau_\text{1/2,mean}=(0,21\pm 0,01)\milli\second$, which is slightly lower than the estimated value of $0,25\milli\second$ given from \cite{lit:manual}. A reason for this deviation is unknown, reading errors and misadjustment of the focusing unit are probable.
+This gives us the average of $\tau_\text{1/2,mean}=(0,21\pm 0,01)\,\milli\second$, which is slightly lower than the estimated value of $0,25\milli\second$ given from \cite{lit:manual}. A reason for this deviation is unknown, reading errors and misadjustment of the focusing unit are probable.
+
+\newpage
 \subsubsection{Nd:YAG laser power $P$ for various pump laser wavelengths}
 For a given pump laser power $P_\text{diode}$, we inspect the wavelength dependence of the Nd:YAG laser output. Since the wavelength depends on the injection current $I$ and the temperature $T$ - as shown in section \ref{sec:diode_laser_lambda}, we can use its results to determine the corresponding wavelengths at given $P_\text{diode}=50,100,150\milli\watt$.
 This is done as follows:
 We take the measurements plotted in figure \ref{fig:measurement_P}. As we concluded those slopes are linear beyond the threshold current, we use the curve fit for $T=15\celsius$ and $T=35\celsius$ to the model function
-\begin{align}
+\begin{equation}
 P_\text{diode}=m_1\cdot I+P_0(T),
 \label{eq:P_linear}
-\end{align}
+\end{equation}
 while $P_0(T)$ is the temperature-dependent offset. Since $P_\text{diode}$ is kept constant, we can solve equation \eqref{eq:P_linear} using \eqref{eq:avg_slope1} for 
-\begin{align}
+\begin{equation}
 I=\tfrac{P_\text{diode}-P_0(T)}{m}.
-\end{align}
+\end{equation}
 We can associate the currents $I_\text{min}$ to $T=15\celsius$ and $I_\text{max}$ to $T=35\celsius$ at a given $P_\text{diode}$. Those values are given in table \ref{tab:current_P}.
 
 \begin{table}[h]
 	\centering
 	\caption{Currents for given $T$ and $P_\text{diode}$}
-	\begin{tabular}{|c|c c|}
-	\hline
+	\begin{tabular}{c @{\qquad} c c}
+	\toprule
 	$P_\text{diode}~(\milli\watt)$ & $I_\text{min}~(\milli\ampere)$ & $I_\text{max}~(\milli\ampere)$\\
-	\hline
+	\midrule
 	50 & 292.75 & 312.71\\
 	100 & 385.18 & 406.69\\
 	150 & 477.60 & 500.66\\
-	\hline
+	\bottomrule
 	\end{tabular}
 	\label{tab:current_P}
 \end{table}
@@ -141,9 +151,9 @@ which can be inserted into equation \eqref{eq:lambda1}. We receive
 and can compute the wavelength $\lambda_{P_\text{diode}}$ associated with $I$ and $T$ at a given $P_\text{diode}$.
 For the measurement, we add a laser mirror in the existing setup and adjust the distance and angle to the Nd:YAG rod (see figure \ref{fig:setup_Nd:YAG}).
 
-\begin{figure}[h]
+\begin{figure}[p]
 	\centering
-	\includegraphics[width=0.9\textwidth]{setup_Nd:YAG.pdf}
+	\includegraphics[width=0.9\textwidth]{setup_Nd_YAG.pdf}
 	\caption[Setup of the Nd:YAG laser]{Setup of the Nd:YAG laser. A second resonator (E) is added and adjusted to maximize the output power. \cite{lit:manual}}
 	\label{fig:setup_Nd:YAG}
 \end{figure}
@@ -152,7 +162,7 @@ We figured the output power is maximized in multimode operation. This is achieve
 The photo detector is set to detect the output power $P$ at the output wavelength of $\lambda=1064\nano\metre$. The measurements are conducted by determining the power while increasing the temperature and the current coarsely to keep the diode power mostly constant.
 The results are depicted in figure \ref{fig:lambda2}.
 
-\begin{figure}[h]
+\begin{figure}[p]
 	\centering
 	\input{graphics/lambda2.tex}
 	\caption{Nd:YAG laser output power $P_{1064}(\lambda)$.}
@@ -176,23 +186,25 @@ It is obvious that the Nd:YAG laser power is linear to the diode laser power, at
 \eta=\tfrac{P_{1064}}{P_\text{diode}}\approx 9\%,
 \end{align}
 which is rather low, but is reasonable since the main part of the power stays in between the resonators and is used to pump the Nd:YAG.
+
 \subsubsection{Second Harmonic Generation}
 Finally we investigate the non-linear effects of a Nd:YAG by inserting a KTP crystal, which leads to a frequency doubling. The resulting Nd:YAG laser beam emits at $\lambda=532\nano\metre$ and can be seen now. After filtering out the other wavelengths, the output power $P_{532}$ is measured for various injection currents $I$. The experimental setup therefore is shown in figure \ref{fig:setup_Nd:YAG_SHG}.
 
-\begin{figure}
+\begin{figure}[p]
 	\centering
-	\includegraphics[width=0.9\textwidth]{setup_Nd:YAG_SHG.pdf}
+	\includegraphics[width=0.9\textwidth]{setup_Nd_YAG_SHG.pdf}
 	\caption[Setup for Second Harmonic Generation]{Setup for Second Harmonic Generation. A KTP crystal in a holder (K) for frequency doubling is set in midst of the Nd:YAG - resonator system. The filter (F) is replaced by a BG39 filter which absorbs infrared light and let the radiation at $\lambda=532\nano\metre$ pass. \cite{lit:manual}}
 	\label{fig:setup_Nd:YAG_SHG}
 \end{figure}
 
 Since $P_\text{diode}$ is linear to the injection current $I$, and as proved in the previous section, $P_{1064}$ is linear to $P_\text{diode}$, we can plot the output power $P_{532}$ of the second harmonic generation against the fundamental power $P_{1064}$, as depicted in figure \ref{fig:P532}.
 
-\begin{figure}[h]
+\begin{figure}[p]
 	\centering
 	\input{graphics/P532.tex}
 	\caption{Nd:YAG SHG power $P_{532}$ against fundamental power $P_{1064}$.}
 	\label{fig:P532}
+	\vspace{-1em}
 \end{figure}
 
 After phase matching, as shown in the theory part, we recieve the relation $ P_{532}\propto P_{1064}^2$. Thus we fit a second degree polynom to our data and get the red fit curve as in figure \ref{fig:P532}. The quadratic dependence is recognizable, there is still a linear term contributing to the output power $P_{532}$. The reasons for that are measurement errors and the possibility of not having properly matched the phases of the fundamental wave and the SHG. Another reason is the fact we also took the data point below the threshold current into the data evaluation.
