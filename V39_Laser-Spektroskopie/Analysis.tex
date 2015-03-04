@@ -15,9 +15,17 @@ For absorption spectroscopy, the beam is weakened before entering the gas cuvett
 
 By adjusting the diode current, the wavelength ramp is chosen so that the spectrum fits on a segment between two mode hops of the laser.
 
-When switching to the saturation spectroscopy, the beam passes through the cuvette (pump beam to saturate the transitions) and a small part of it is reflected back (probe beam). In order to couple out the probe beam with a beam splitter, we place a $\lambda/4$ waveplate between the cuvette and the mirror at 45\degree which the beam passes twice, thus changing polarization by 90\degree.
+When switching to the saturation spectroscopy, the beam passes through the cuvette (pump beam to saturate the transitions) and a small part of it is reflected back (probe beam), as seen in figure \ref{fig:setup_abs}. In order to couple out the probe beam with a beam splitter, we place a $\lambda/4$ waveplate between the cuvette and the mirror at 45\degree which the beam passes twice, thus changing polarization by 90\degree.
 
 In the saturation mode, we measure both a full spectrum as well as detail spectra of the lamb dips on each of the peaks.
+
+\begin{figure}[h]
+	\centering
+	\def\svgwidth{\textwidth}
+	\input{graphics/setup.pdf_tex}
+	\caption{Setup for absorption spectroscopy \cite{lit:AK_manual2012}}
+	\label{fig:setup_abs}
+\end{figure}
 
 \subsection{Frequency modulation spectroscopy}
 The laser is modulated with a signal
@@ -30,6 +38,7 @@ The laser frequency follows, shifting by $\Delta \nu$ each period.
 The signal at the photodiode thus varies by $\Delta I \propto \ddp{I}{\nu} \cdt \Delta \nu$, allowing us to obtain the first derivative of the spectrum.
 
 This measurement is done once for each of the four peaks.
+
 
 
 \newpage

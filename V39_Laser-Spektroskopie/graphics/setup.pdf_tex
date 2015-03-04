@@ -1,0 +1,25 @@
+% !TeX root = ../V39_Spectroscopy_Rb.tex
+
+%% Creator: Inkscape 0.48.5, www.inkscape.org
+%% PDF/EPS/PS + LaTeX output extension by Johan Engelen, 2010
+%% Accompanies image file 'setup.pdf' (pdf, eps, ps)
+%%
+%% To include the image in your LaTeX document, write
+%%   \def\svgwidth{<desired width>}
+%%   \input{<filename>.pdf_tex}
+\begingroup%
+  \setlength{\unitlength}{\svgwidth}%
+  \global\let\svgwidth\undefined%
+  \begin{picture}(1,0.32477769)%
+    \put(0,0){\includegraphics[width=\unitlength]{setup.pdf}}%
+    \put(0.075,0.093){\makebox(0,0)[lb]{\smash{laser}}}%
+    \put(0.210,0.045){\makebox(0,0)[lb]{\smash{optical isolator}}}%
+    \put(0.385,0.160){\makebox(0,0)[lb]{\smash{$\lambda/2$}}}%
+    \put(0.460,0.036){\makebox(0,0)[lb]{\smash{PBS}}}%
+    \put(0.450,0.009){\makebox(0,0)[lb]{\smash{(beam splitter)}}}%
+    \put(0.630,0.090){\makebox(0,0)[lb]{\smash{Rb cuvette}}}%
+    \put(0.779,0.170){\makebox(0,0)[lb]{\smash{$\lambda/4$-waveplate}}}%
+    \put(0.908,0.022){\makebox(0,0)[lb]{\smash{mirror}}}%
+    \put(0.533,0.253){\makebox(0,0)[lb]{\smash{photodiode}}}%
+  \end{picture}%
+\endgroup%
