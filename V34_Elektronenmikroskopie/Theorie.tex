@@ -3,8 +3,8 @@
 % !TeX spellcheck = de_DE_frami
 
 \section{Einleitung}
-Die Transmissions-Elektronen-Mikroskopie (TEM) ermöglicht es, Bilder mit sehr großer Auflösung von atomaren Strukturen aufzunehmen. Man macht sich die Welleneigenschaft von stark beschleunigten Elektronen mittels der de-Broglie-Hypothese zunutze. Somit erreicht man Wellenlängen im Bereich von $\lambda=4\pico\metre$.
-Die bisherigen Lichtmikroskope sind dagegen nur für das sichtbare Lichtspektrum von $\lambda=400\dots 700\nano\metre$ vorgesehen, was die Auflösung entsprechend begrenzt.\\
+Die Transmissions-Elektronen-Mikroskopie (TEM) ermöglicht es, Bilder mit sehr großer Auflösung von atomaren Strukturen aufzunehmen. Man macht sich die Welleneigenschaft von stark beschleunigten Elektronen mittels der de-Broglie-Hypothese zunutze. Somit erreicht man Wellenlängen im Bereich von $\lambda=4\,\pico\metre$.
+Die bisherigen Lichtmikroskope sind dagegen nur für das sichtbare Lichtspektrum von $\lambda=400\dots 700\,\nano\metre$ vorgesehen, was die Auflösung entsprechend begrenzt.\\
 Analog zum Lichtmikroskop lassen sich in der Elektronenoptik ebenso Linsensysteme erstellen. Die Linsen werden dagegen von Magnetfeldern erzeugt, durch welche die Elektronen entsprechend abgelenkt werden. Im Gegensatz existieren nach einem Theorem von Scherzer nur konvexe Magnetolinsen, welche zudem bestimmte Aberrationen besitzen. Zudem muss für den optischen Weg der Elektronen ein Hochvakuum aufgebaut werden, welches die Untersuchung von lebenden biologischen Proben unmöglich macht. Es ist eine entsprechende Präparation der zu untersuchenden Proben notwendig.\\
 Wir werden uns im folgenden Versuch im Wesentlichen mit der Funktionsweise des TEMs beschäftigen. Aufgrund einiger Analogien zwischen Lichtmikroskop und TEM werden wir zunächst ein klassisches optisches System aufbauen und die Prinzipien der geometrischen Optik sowie der Beugung von Licht, insbesondere die Fraunhofer Beugung, näher betrachten.
 Im Anschluss studieren wir einige Betriebsmodi des TEM und nehmen entsprechend Bilder eines Siliziumgitters zur Kalibration und einer unbekannten metallischen Probe zur Bestimmung auf.
@@ -130,11 +130,11 @@ wobei $\Theta(x)$ die Heaviside-Funktion ist. Die Fouriertransformierte ist
 \begin{align}
 \mathcal{F}[\tau(x)](\nu)&=\int\limits_{-\infty}^{\infty}\tau(x)\exp(-2\pi\mathrm{i}\nu x)\d x=\int\limits_{-\infty}^{\infty}\Theta\left(\frac{b}{2}-|x|\right)\exp(-2\pi\mathrm{i}\nu x)\d x\nonumber\\
 &=\int\limits_{-\frac{b}{2}}^{\frac{b}{2}}\exp(-2\pi\mathrm{i}\nu x)\d x=
-\dots=b~\mathrm{sinc}(\pi b\nu)
+\dots=b \sinc(\pi b\nu)
 \end{align}
 mit der sinc-Funktion, welche definiert ist durch
 \begin{align}
-\mathrm{sinc}(x)=\frac{\sin(x)}{x}.
+\sinc(x)=\frac{\sin(x)}{x}.
 \end{align}
 
 \textbf{Beugung an einem Gitter}
@@ -146,7 +146,7 @@ Ein unendlich großes ideales Gitter lässt sich durch die Transmissionsfunktion
 beschreiben, wobei $\delta(x)$ die Deltafunktion und $g$ die Gitterkonstante des Gitters ist. Diese Funktion nennt man den Delta- oder Dirac-Kamm. Dessen Fouriertransformation ist wiederum ein Dirac-Kamm, jedoch mit einer modifizierten Gitterkonstante.
 Betrachten wir ein endliches Gitter mit einer endlichen Anzahl $N$ an infinitesimal dünnen Spalten. Dessen Transmissionsfunktion $\tau(x)$ lautet
 \begin{align}
-\tau(x)=\sum\limits_{n=-0}^{N-1} \delta(x-ng).
+\tau(x)=\sum\limits_{n=0}^{N-1} \delta(x-ng).
 \end{align}
 Die Fouriertransformierte ist entsprechend
 \begin{align}
@@ -155,7 +155,7 @@ Die Fouriertransformierte ist entsprechend
 \end{align}
 In der Praxis haben die Gitterspalte eine endliche Breite $b$, vergleichbar mit einem Einzelspalt. Hier können wir das Faltungstheorem anwenden, und das Fraunhofer Beugungsbild des endlichen realen Gitters ist entsprechend
 \begin{align}
-\mathcal{F}[\tau(x)](\nu)=b~\exp(-\mathrm{i}\pi\nu g(N-1))\cdt \frac{\sin(\pi\nu gN)}{\sin(\pi\nu g)}\mathrm{sinc}(\pi b\nu).
+\mathcal{F}[\tau(x)](\nu)=b~\exp(-\mathrm{i}\pi\nu g(N-1))\cdt \frac{\sin(\pi\nu gN)}{\sin(\pi\nu g)} \sinc(\pi b\nu).
 \end{align}
 
 \textbf{Beugung an zweidimensionalen Objekten}
