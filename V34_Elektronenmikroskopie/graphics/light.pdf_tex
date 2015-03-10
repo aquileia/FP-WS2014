@@ -1,0 +1,23 @@
+% !TeX root = ../V34_TEM.tex
+
+%% Creator: Inkscape 0.48.5, www.inkscape.org
+%% PDF/EPS/PS + LaTeX output extension by Johan Engelen, 2010
+%% Accompanies image file 'light.pdf' (pdf, eps, ps)
+%%
+%% To include the image in your LaTeX document, write
+%%   \def\svgwidth{<desired width>}
+%%   \input{<filename>.pdf_tex}
+\begingroup%
+  \setlength{\unitlength}{\svgwidth}%
+  \global\let\svgwidth\undefined%
+  \begin{picture}(1,0.24768965)%
+    \put(0,0){\includegraphics[width=\unitlength]{light.pdf}}%
+    \put(0.04,0.125){\smash{Laser}}%
+    \put(0.22,0){\smash{$L_1$}}%
+    \put(0.32,0){\smash{$L_2$}}%
+    \put(0.40,0){\smash{O}}%
+    \put(0.58,0){\smash{$L_3$}}%
+    \put(0.82,0){\smash{$L_4$}}%
+    \put(0.97,0){\smash{B}}%
+  \end{picture}%
+\endgroup%
