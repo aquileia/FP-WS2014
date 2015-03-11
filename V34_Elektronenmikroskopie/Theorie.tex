@@ -4,36 +4,43 @@
 
 \section{Einleitung}
 Die Transmissions-Elektronen-Mikroskopie (TEM) ermöglicht es, Bilder mit sehr großer Auflösung von atomaren Strukturen aufzunehmen. Man macht sich die Welleneigenschaft von stark beschleunigten Elektronen mittels der de-Broglie-Hypothese zunutze. Somit erreicht man Wellenlängen im Bereich von $\lambda=4\,\pico\metre$.
-Die bisherigen Lichtmikroskope sind dagegen nur für das sichtbare Lichtspektrum von $\lambda=400\dots 700\,\nano\metre$ vorgesehen, was die Auflösung entsprechend begrenzt.\\
-Analog zum Lichtmikroskop lassen sich in der Elektronenoptik ebenso Linsensysteme erstellen. Die Linsen werden dagegen von Magnetfeldern erzeugt, durch welche die Elektronen entsprechend abgelenkt werden. Im Gegensatz existieren nach einem Theorem von Scherzer nur konvexe Magnetolinsen, welche zudem bestimmte Aberrationen besitzen. Zudem muss für den optischen Weg der Elektronen ein Hochvakuum aufgebaut werden, welches die Untersuchung von lebenden biologischen Proben unmöglich macht. Es ist eine entsprechende Präparation der zu untersuchenden Proben notwendig.\\
+Die bisherigen Lichtmikroskope sind dagegen nur für das sichtbare Lichtspektrum von $\lambda=400\dots 700\,\nano\metre$ vorgesehen, was die Auflösung entsprechend begrenzt.
+
+Analog zum Lichtmikroskop lassen sich in der Elektronenoptik ebenso Linsensysteme erstellen. Die Linsen werden dagegen von Magnetfeldern erzeugt, durch welche die Elektronen entsprechend abgelenkt werden. Im Gegensatz existieren nach einem Theorem von Scherzer nur konvexe Magnetolinsen, welche zudem bestimmte Aberrationen besitzen. Zudem muss für den optischen Weg der Elektronen ein Hochvakuum aufgebaut werden, welches die Untersuchung von lebenden biologischen Proben unmöglich macht. Es ist eine entsprechende Präparation der zu untersuchenden Proben notwendig.
+
 Wir werden uns im folgenden Versuch im Wesentlichen mit der Funktionsweise des TEMs beschäftigen. Aufgrund einiger Analogien zwischen Lichtmikroskop und TEM werden wir zunächst ein klassisches optisches System aufbauen und die Prinzipien der geometrischen Optik sowie der Beugung von Licht, insbesondere die Fraunhofer Beugung, näher betrachten.
 Im Anschluss studieren wir einige Betriebsmodi des TEM und nehmen entsprechend Bilder eines Siliziumgitters zur Kalibration und einer unbekannten metallischen Probe zur Bestimmung auf.
+
+\newpage
 \section{Theorie}
 \subsection{Geometrische Optik}
 Auf makroskopischer Ebene in einem homogenen Medium lässt sich eine elektromagnetische Lichtwelle als Strahl ausgehend von der Quelle beschreiben. Diese breitet sich in Richtung des Wellenvektors aus. Für den Strahlengang durch eine dünne konvexe Linse gilt die Linsengleichung
-\begin{align}
+\begin{equation}
 \frac{1}{f}=\frac{1}{g}+\frac{1}{b},
 \label{eq:abb_gleichung}
-\end{align}
+\end{equation}
 wobei $f$ die Brennweite der Linse, $g$ die Gegenstandsweite zur Linse, und $b$ der entsprechende Abstand zur Linse ist. Für $g=\infty$, dies entspricht einen Strahl parallel zur optischen Achse, ist $b=f$. Ist dagegen $b=\infty$, so gilt $g=f$. Damit lassen sich optische Abbildungen wie in Abbildung \ref{fig:geo_optik} konstruieren.
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.8\textwidth]{linsengleichung.pdf}
+	\includegraphics[width=0.9\textwidth]{linsengleichung.pdf}
 	\caption{Konstruktion einer Abbildung mit der Linsengleichung.}
 	\label{fig:geo_optik}
 \end{figure}
+
 Die Trajektorie eines Elektrons im TEM lässt sich in Näherung ebenso als geradlinigen Strahl beschreiben, weshalb die Betrachtung über die geometrische Optik zulässig ist.
+
 \subsection{Abbildungsfehler}
 Sowohl optische als auch magnetische Linsen sind im Allgemeinen nicht stigmatisch, d.h. ein Punkt der Gegenstandsebene wird nicht auf einem Punkt in der Bildebene abgebildet. Im folgenden lassen sich die Abbildungsfehler, die sogenannten \emph{Aberrationen}, grob in zwei Kategorien einteilen.
 \subsubsection{Chromatische Aberration}
 Dieser Fehler beruht auf der wellenlängenabhängigen Brechungszahl $n(\lambda)$ (\emph{Dispersion}). Die Linse besitzt für verschiedene Wellenlängen unterschiedliche Foki, dies ist in Abbildung \ref{fig:chromatic_abb} veranschaulicht.
 Beheben lässt sich die chromatische Aberrationen bei optischen Linsen durch das Anbringen eines \emph{Achromaten}, eine konkave Linse mit einer anormalen Dispersion. Für magnetische Linsen existiert dagegen keine Korrektur dieser Art.
-\subsubsection{Monochromatische Aberrationen}
-Die Ursache dieser Aberrationen ist die Geometrie der durchlaufenden Linse.\\
-\newline
-\textbf{Sphärische Aberration}
 
-Diese Aberration taucht bei den meisten sphärisch geschliffenen Linsen auf und hat als Ursache, dass achsenferne Strahlen nicht mehr der paraxialen Näherung genügen. Sie werden in einem anderen Brennpunkt fokussiert als achsennahe Strahlen (vgl. Abbildung \ref{fig:spheric_abb}), für welche die Abbildungsgleichung \eqref{eq:abb_gleichung} gilt.\\
+\subsubsection{Monochromatische Aberrationen}
+Die Ursache dieser Aberrationen ist die Geometrie der durchlaufenden Linse.
+
+\subsubsection*{Sphärische Aberration}
+Diese Aberration taucht bei den meisten sphärisch geschliffenen Linsen auf und hat als Ursache, dass achsenferne Strahlen nicht mehr der paraxialen Näherung genügen. Sie werden in einem anderen Brennpunkt fokussiert als achsennahe Strahlen (vgl. Abbildung \ref{fig:spheric_abb}), für welche die Abbildungsgleichung \eqref{eq:abb_gleichung} gilt.
+
 Diese Aberration lässt sich minimieren durch
 \begin{itemize}
 	\item Unterdrückung der achsenfernen Strahlen mit z.B. einer Lochblende. Jedoch treten so Intensitätsverluste auf;
@@ -42,13 +49,10 @@ Diese Aberration lässt sich minimieren durch
 	\item speziell geschliffene asphärische Linsen.
 \end{itemize}
 
+\subsubsection*{Astigmatismus}
+Der Abbildungsfehler entsteht, wenn das Objekt sich nicht auf der optischen Achse, sondern versetzt davon befindet. Dadurch fallen die Strahlenbündel schräg in die Linse, und es ergeben sich unterschiedliche Brennweiten in der sogenannten \emph{Meridional-} (M) und \emph{Sagittalebene} (S), wie in Abbildung \ref{fig:astigmatismus} veranschaulicht wird.
 
-\textbf{Astigmatismus}
-
-Der Abbildungsfehler entsteht, wenn das Objekt sich nicht auf der optischen Achse, sondern versetzt davon befindet. Dadurch fallen die Strahlenbündel schräg in die Linse, und es ergeben sich unterschiedliche Brennweiten in der sogenannten \emph{Meridional-} (M) und \emph{Sagittalebene} (S), wie in Abbildung \ref{fig:astigmatismus} veranschaulicht wird.\\
-
-\textbf{Koma}
-
+\subsubsection*{Koma}
 Betrachtet man nun auch die Strahlen, welche nicht achsenparallel in die Linse einfallen, so werden diese unterschiedlich an der Linse gebrochen und in einem anderem Bildpunkt der Bildebene fokussiert. Bei sphärischen Linsen entstehen dadurch Ringe, welche einen Schweif bilden (lat. \emph{coma}). Dies ist in Abbildung \ref{fig:koma} veranschaulicht. Die Koma ist eine Überlagerung der sphärischen Aberration und des Astigmatismus.
 Sie kann gemildert werden durch Abdecken der achsenfernen Strahlen, jedoch bleibt so der Astigmatismus schiefer Bündel bestehen.
 
@@ -82,7 +86,9 @@ Sie kann gemildert werden durch Abdecken der achsenfernen Strahlen, jedoch bleib
 		\label{fig:koma}
 	\end{subfigure}
 	\caption{Abbildungsfehler in der geometrischen Optik.}
+	\vspace{-3em}
 \end{figure}
+
 \subsection{Beugung}
 Wir betrachten im Folgenden die Beugung der elektromagnetischen Welle an einem Objekt. Aufgrund des Teilchen-Wellen-Dualismus gilt die Betrachtung auch für die im TEM beschleunigten Elektronen.
 \subsubsection{Fraunhofer Beugung}
@@ -118,9 +124,9 @@ Durch Einsetzen der inversen Fouriertransformierten lässt sich ebenso zeigen, d
 Damit lassen sich u.a. Beugungsbilder von Objekten, die einer Modulierung unterliegen, wesentlich einfacher berechnen. Dies wird im folgenden Abschnitt gezeigt.
 \subsubsection{Berechnung von Beugungsbildern}
 Wir betrachten im Folgenden die Fouriertransformierten $\mathcal{F}[](\nu)$ verschiedener Geometrien, welche durch die Transmissionsfunktion $\tau(x)$ beschrieben werden.
-$\nu$ bezeichnet im Folgenden die Ortsfrequenz.\\
+$\nu$ bezeichnet im Folgenden die Ortsfrequenz.
 
-\textbf{Beugung am einem Spalt}
+\subsubsection*{Beugung am einem Spalt}
 
 Für den Spalt mit Breite $b$ ist die Transmissionsfunktion
 \begin{align}
@@ -128,16 +134,19 @@ Für den Spalt mit Breite $b$ ist die Transmissionsfunktion
 \end{align}
 wobei $\Theta(x)$ die Heaviside-Funktion ist. Die Fouriertransformierte ist
 \begin{align}
-\mathcal{F}[\tau(x)](\nu)&=\int\limits_{-\infty}^{\infty}\tau(x)\exp(-2\pi\mathrm{i}\nu x)\d x=\int\limits_{-\infty}^{\infty}\Theta\left(\frac{b}{2}-|x|\right)\exp(-2\pi\mathrm{i}\nu x)\d x\nonumber\\
-&=\int\limits_{-\frac{b}{2}}^{\frac{b}{2}}\exp(-2\pi\mathrm{i}\nu x)\d x=
-\dots=b \sinc(\pi b\nu)
+\mathcal{F}[\tau(x)](\nu)
+&=\int\limits_{-\infty}^{\infty}\tau(x)\exp(-2\pi\mathrm{i}\nu x)\d x
+ =\int\limits_{-\infty}^{\infty}\Theta\left(\frac{b}{2}-|x|\right)\exp(-2\pi\mathrm{i}\nu x)\d x\nonumber\\
+&=\int\limits_{-\frac{b}{2}}^{\frac{b}{2}}\exp(-2\pi\mathrm{i}\nu x)\d x
+ =\dots=b \sinc(\pi b\nu)
+\label{eq:sinc}
 \end{align}
 mit der sinc-Funktion, welche definiert ist durch
 \begin{align}
 \sinc(x)=\frac{\sin(x)}{x}.
 \end{align}
 
-\textbf{Beugung an einem Gitter}
+\subsubsection*{Beugung an einem Gitter}
 
 Ein unendlich großes ideales Gitter lässt sich durch die Transmissionsfunktion
 \begin{align}
@@ -151,14 +160,16 @@ Betrachten wir ein endliches Gitter mit einer endlichen Anzahl $N$ an infinitesi
 Die Fouriertransformierte ist entsprechend
 \begin{align}
 \mathcal{F}[\tau(x)](\nu)&=\int\limits_{-\infty}^{\infty}\sum\limits_{n=0}^{N-1} \delta(x-ng)\exp(-2\pi\mathrm{i}\nu x)\d x=\sum\limits_{n=-0}^{N-1}\exp(-\mathrm{i}2\pi\nu ng)\nonumber\\
-&=\frac{\exp(\mathrm{i}2\pi\nu gN)-1}{\exp(\mathrm{i}2\pi\nu g)-1}=\dots =\exp(-\mathrm{i}\pi\nu g(N-1))\cdt \frac{\sin(\pi\nu gN)}{\sin(\pi\nu g)}.
+&=\frac{\exp(\mathrm{i}2\pi\nu gN)-1}{\exp(\mathrm{i}2\pi\nu g)-1}
+=\dots
+=~\exp(-\mathrm{i}\pi\nu g(N-1))\cdt \frac{\sin(\pi\nu gN)}{\sin(\pi\nu g)}.
 \end{align}
 In der Praxis haben die Gitterspalte eine endliche Breite $b$, vergleichbar mit einem Einzelspalt. Hier können wir das Faltungstheorem anwenden, und das Fraunhofer Beugungsbild des endlichen realen Gitters ist entsprechend
 \begin{align}
 \mathcal{F}[\tau(x)](\nu)=b~\exp(-\mathrm{i}\pi\nu g(N-1))\cdt \frac{\sin(\pi\nu gN)}{\sin(\pi\nu g)} \sinc(\pi b\nu).
 \end{align}
 
-\textbf{Beugung an zweidimensionalen Objekten}
+\subsubsection*{Beugung an zweidimensionalen Objekten}
 
 Die Fraunhofer Beugung an zweidimensionalen Objekten lässt sich analog zum eindimensionalen berechnen. Hierzu wenden wir die zweidimensionale Fouriertransformation auf die Transmissionsfunktion $\tau(q_1,q_2)$ an, wobei $q_1,~q_2$ entsprechend gewählte allgemeine Koordinaten sind. Dadurch lässt sich der Integrand separieren.\\
 Beispielsweise lässt sich ein rechteckiges Objekt als senkrechte Überlagerung von zwei Spalten auffassen. Oft wird eine Koordinatentransformation in Polarkoordinaten durchgeführt, beispielsweise für den Fall der Beugung an einer Lochblende mit Radius $\rho_0$. Dessen Transmissionsfunktion $\tau(\rho)$ ist definiert durch
@@ -179,6 +190,8 @@ Die Fouriertransformierte der Lochblende ist dann
 \mathcal{F}[\tau(\rho)](r,d)=\dots =2\pi\rho_0^2\cdt\frac{J_1\left(\frac{kr\rho_0}{d}\right)}{\frac{kr\rho_0}{d}},
 \end{align}
 hierbei ist $J_1(x)$ die \emph{Bessel-}Funktion erster Ordnung und erster Art, $d$ wiederum der Abstand der Lochblende zur Bildebene und $r$ die radiale Koordinate in der Bildebene.
+
+
 \subsubsection{Bragg-Beugung}
 Wir betrachten nun die Beugung einer Welle an einem (nicht absorbierenden) dreidimensionalen Objekt. Für den Versuch wird die Beugung in einem Kristallgitter behandelt. Dieses bildet mit den das Gitter bildenden Kristallatomen sogenannte $\emph{Netzebenen}$ aus. Diese hängen von der Kristallstruktur bzw. deren Einheitszellen ab.\\
 Zur Charakterisierung der Kristallstruktur verwendet man die Basisvektoren $\vec{a}_1,~\vec{a}_2$ und $\vec{a}_3$, welche die Einheitszelle bilden. Im reziproken Raum definiert man sich entsprechend die reziproken Basisvektoren $\vec{g}_1,~\vec{g}_2,~\vec{g}_3$ mit
@@ -213,10 +226,11 @@ dabei ist $n$ die Beugungsordnung und $\theta$ der Winkel zur Netzebene.
 Wichtig ist zu beachten, dass im Gegensatz zur Röntgenbeugung die Elektronenbeugung aufgrund der viel kleineren de-Broglie-Wellenlänge relativ schwach ist (vgl. \autoref{fig:laue_bedingung}).
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.8\textwidth]{laue_bedingung.pdf}
-	\caption[Laue-Bedingung]{Veranschaulichung der Laue-Bedingung im reziproken Raum mit der Ewald-Kugel.}
+	\includegraphics[width=0.75\textwidth]{laue_bedingung.pdf}
+	\caption[Laue-Bedingung]{Ewald-Kugel zur Darstellung der Laue-Bedingung im reziproken Raum.}
 	\label{fig:laue_bedingung}
 \end{figure}
+
 \subsection{Kikuchi-Linien}
 Die Kikuchi-Linien entstehen im TEM durch Mehrfachstreuung von Elektronen, vor allem bei dickeren Proben. Hier wird ein Teil der Elektronen elastisch gestreut nach der Laue-Bedingung, wodurch sich im Beugungsbild weitgehend diskrete Beugungsreflexe ergeben. Diese sind durch paarweise parallel verlaufende Kikuchi-Linien, welche Bänder bilden, verbunden. Sie entstehen durch inelastische Streuung der Elektronen, dabei streuen sie diffus in alle Richtungen und werden anschließend an den Netzebenen wieder elastisch gestreut (Bragg-Beugung).
 Aufgrund dessen kann jeder Kikuchi-Linie die Miller-Indizes der Netzebenenschar, an dem die Beugung stattfand, zugeordnet werden. Die Breite der Bänder hängt zudem im Wesentlichen vom Verhältnis der Wellenlänge $\lambda$ zum Netzebenenabstand $d_{hkl}$ ab.
