@@ -11,7 +11,7 @@ Nun werden verschiedene Objekte O durch zwei Linsen (Objektiv $L_3$, Okular $L_4
 
 \begin{figure}[h]
 	\centering
-	\def\svgwidth{0.7\textwidth}
+	\def\svgwidth{0.75\textwidth}
 	\input{graphics/light.pdf_tex}
 	\caption{Zeichnung Lichtmikroskop, Abbildung des Objektes}
 	\label{fig:light}
@@ -19,10 +19,7 @@ Nun werden verschiedene Objekte O durch zwei Linsen (Objektiv $L_3$, Okular $L_4
 
 
 \subsubsection{Spalte und Gitter}
-Für den Einzelspalt erwarten wir als Intensitätsverlauf im Beugungsbild gemäß Gleichung \eqref{eq:sinc} den Sinus Cardinalis. Das charakteristische Merkmal, das breite Hauptmaximum, ist in unserem Photo jedoch nicht richtig erkennbar (siehe Abb. \ref{fig:Einzel_BG}). Wir vermuten, dass dies am Spalt selbst liegt -- als wir diesen gegen das Licht hielten, war eine schwache zweite Linie erkennbar. Bei einem Doppelspalt wäre das Hauptmaximum gleich breit wie die Nebenmaxima, was das beobachtete Muster erklären würde.
-
-% scharfe Beugungsmaxima
-% 1D-Gitter: zu erkennen, dass kleine Strukturen im Beugungsbild groß abgebildet werden und umgekehrt -- deshalb auch "reziproker Raum"
+\enlargethispage{2\baselineskip}
 
 \begin{figure}[p]
 	\centering
@@ -66,20 +63,32 @@ Für den Einzelspalt erwarten wir als Intensitätsverlauf im Beugungsbild gemä�
 	\vspace{-5em}
 \end{figure}
 
-\subsubsection{Einstein-Portrait}
+Für den Einzelspalt erwarten wir als Intensitätsverlauf im Beugungsbild gemäß Gleichung \eqref{eq:sinc} den Sinus Cardinalis. Das charakteristische Merkmal, das breite Hauptmaximum, ist in unserem Photo jedoch nicht richtig erkennbar (siehe Abb. \ref{fig:Einzel_BG}). Wir vermuten, dass dies am Spalt selbst liegt -- als wir diesen gegen das Licht hielten, war eine schwache zweite Linie erkennbar. Bei einem Doppelspalt wäre das Hauptmaximum gleich breit wie die Nebenmaxima, was das beobachtete Muster erklären würde.
 
+Das Beugungsbild eines perfekten Gitters wäre ein Delta-Kamm, durch die endliche Spaltbreite ist diesem eine $\sinc$-Funktion als Hüllkurve überlagert (Abb. \ref{fig:Gitter_BG}). Da wir den reziproken Raum abbilden, sind kleine Strukturen im Beugungsbild groß und umgekehrt -- da die Spaltbreite deutlich kleiner ist als der Spaltabstand, ist die Hüllkurve breit gegenüber dem Abstand der Maxima.
+
+Das 2D-Gitter ist die Überlagerung zweier 1D-Gitter, somit ist das Beugungsbild ein Punktgitter entlang zweier Achsen (Abb. \ref{fig:Gitter_2D_BG}). Aus diesem ist anhand der gleichen Abstände erkennbar, dass die zwei Gitterkonstanten gleich sind (Netz mit quadratischen Maschen).
+
+
+\newpage
+\subsubsection{Einstein-Portrait}
+Auf einem Dia ist das Portrait Einsteins abgebildet, allerdings ist dieses durch ein Gitter überlagert, wodurch man nur ein verschwommenes Bild erhält (Abb. \ref{fig:Einstein_B}). Da das Gitter deutlich feiner ist als das Portrait, zeigen sich im Beugungsbild die typischen Punktreflexe eines Gitters (Abb. \ref{fig:Einstein_BG}). Gemäß dem Faltungstheorem enthält jeder dieser Reflexe die Information des Portraits.
+
+Selektieren wir durch eine Rechteckblende im Brennpunkt von $L_3$ ausschließlich das Hauptmaximum (Abb. \ref{fig:Einstein_hell_B}), so entfällt die Information des Gitters und erhalten ein gefiltertes Bild. Diese Methode wird als Hellfeld-Mikroskopie bezeichnet.
+
+Verschieben wir die Rechteckblende so, dass lediglich das Licht eines Nebenmaximums hindurch gelangt (Abb. \ref{fig:Einstein_dunkel_B}), so sehen wir im Bild nur das am Objekt gestreute Licht und sehen folglich das Portrait auf dunklem Hintergrund, daher auch der Name Dunkelfeld-Mikroskopie. Der Kontrast ist typischerweise besser, allerdings ist die Intensität des gestreuten Lichts verständlicherweise deutlich geringer als im Hellfeld.
 
 \begin{figure}[p]
 	\centering
 	\begin{subfigure}[b]{0.49\textwidth}
 		\includegraphics[width=\textwidth]{data/optics/06_Einstein_Bild}
-		\caption{Bild}
+		\caption{Bild}				\label{fig:Einstein_B}
 	\end{subfigure}
 	\begin{subfigure}[b]{0.49\textwidth}
 		\includegraphics[width=\textwidth]{data/optics/06_Einstein_Beugung}
 		\caption{Beugungsbild} 		\label{fig:Einstein_BG}
 	\end{subfigure}
-	\caption{Einstein-Portrait}				\label{fig:Einstein}
+	\caption{Einstein-Portrait}			\label{fig:Einstein}
 	\vspace{-1em}
 \end{figure}
 
@@ -87,11 +96,11 @@ Für den Einzelspalt erwarten wir als Intensitätsverlauf im Beugungsbild gemä�
 	\centering
 	\begin{subfigure}{0.49\textwidth}
 		\includegraphics[width=\textwidth]{data/optics/06_Einstein_Hell_Bild}
-		\caption{Hellfeld-Bild}
+		\caption{Hellfeld-Bild}				\label{fig:Einstein_hell_B}
 	\end{subfigure}
 	\begin{subfigure}{0.49\textwidth}
 		\includegraphics[width=\textwidth]{data/optics/06_Einstein_Hell_Beugung}
-		\caption{Beugungsbild: Hauptmaximum} 		\label{fig:Einstein_hell_BG}
+		\caption{Beugungsbild: Hauptmaximum}	\label{fig:Einstein_hell_BG}
 	\end{subfigure}
 	\caption{Einstein-Portrait im Hellfeld}		\label{fig:Einstein_hell}
 	\vspace{-1em}
@@ -101,13 +110,13 @@ Für den Einzelspalt erwarten wir als Intensitätsverlauf im Beugungsbild gemä�
 	\centering
 	\begin{subfigure}{0.49\textwidth}
 		\includegraphics[width=\textwidth]{data/optics/06_Einstein_Dunkel_Bild}
-		\caption{Dunkelfeld-Bild}
+		\caption{Dunkelfeld-Bild}				 \label{fig:Einstein_dunkel_B}
 	\end{subfigure}
 	\begin{subfigure}{0.49\textwidth}
 		\includegraphics[width=\textwidth]{data/optics/06_Einstein_Dunkel_Beugung}
-		\caption{Beugungsbild: Nebenmaximum}		 \label{fig:Einstein_dunkel_BG}
+		\caption{Beugungsbild: Nebenmaximum}	 \label{fig:Einstein_dunkel_BG}
 	\end{subfigure}
-	\caption{Einstein-Portrait im Dunkelfeld}	\label{fig:Einstein_dunkel}
+	\caption{Einstein-Portrait im Dunkelfeld}		\label{fig:Einstein_dunkel}
 	\vspace{-5em}
 \end{figure}
 
