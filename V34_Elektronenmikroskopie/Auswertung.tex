@@ -125,36 +125,78 @@ Verschieben wir die Rechteckblende so, dass lediglich das Licht eines Nebenmaxim
 
 \newpage
 \subsection{Transmissions-Elektronenmikroskop}
+Das TEM ist analog zum Lichtmikroskop aufgebaut, wobei wir Elektronen anstelle von Photonen verwenden, da ihre De-Broglie-Wellenlänge
+\begin{equation}
+\lambda = \frac{h}{p} \stackrel{200\,\kilo\electronvolt}{=} 2,5\,\pico\metre
+\end{equation}
+ein deutlich höheres Auflösungsvermögen ermöglicht.
 
-Unterfokus: Objekt unter Fokusebene (durch geringere Brennweite = stärkere Anregung der Spulen), im Bild 1. Saum dominierend hell (Fresnelsaum)
-
-Überfokus analog
-
-Diffractogramm: Fouriertrafo der Abbildung (aber wegen überlagerung mit ... schlechteres bild als im echten beugungsmodus)
-
-Dunkler Ring im Diffractogramm normal, bei zweizähligem Astigmatismus wäre es zur Ellipse verzerrt, wird durch 2 Stigmatoren (Multipole) korrigiert
+Der Versuchsaufbau ist in Abbildung \ref{fig:setup} dargestellt, die Linsen sind dabei als Magnetlinsen ausgeführt. Da letztere nur als Sammellinse (und nicht als Zerstreuungslinse) dienen können, sind die gewöhnlichen Korrekturen (z.B. Dubletts gegen chromatische Aberration) nicht anwendbar. Anstelle dessen wird das Energiespektrum der Elektronen eingeschränkt (Dispersion weniger relevant) und achsferne Strahlen durch zwei Multipole (Stigmatoren) korrigiert.
 
 
-Aufnahmen:
-Unter-, Über-, Fokus (F, Ü, U)
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.75\textwidth]{Zeiss_TEM109.png}
+	\caption{Querschnitt eines TEM (Zeiss TEM109) \cite{lit:tueb}}
+	\label{fig:setup}
+\end{figure}
+
+\subsubsection{Unter-, Über-, Fokus}
+Liegt die Probe exakt im Fokus der Objektivlinse, so wird sie ohne Interferenzeffekte abgebildet (Abb. \ref{fig:Fokus}). Eine Abweichung von dieser Einstellung wird  als Defokus bezeichnet und führt zu Fresnelsäumen im Bild: Bedingt durch Interferenz bilden sich an Kanten eine Streifenschar aus abwechselnd hellen und dunklen Bereichen.
+
+Wird die Objektivlinse stärker angeregt, so verringert sich die Brennweite und das Objekt liegt unterhalb der Fokusebene. Diese Form der Defokussierung wird als Unterfokus bezeichnet und zeigt sich im Bild durch einen hellen ersten Saum am Rand der Probe  (Abb. \ref{fig:Unter}). Analog spricht man bei positivem Defokus von Überfokus und erkennt dies daran, dass der erste Fresnelsaum dunkel ist  (Abb. \ref{fig:Ueber}).
+\begin{figure}[p]
+	\vspace{-1.5em}
+	\centering
+	\includegraphics[width=0.68\textwidth]{data/Im_1.jpg}
+	\vspace{-1.5ex}
+	\caption{Rand einer Probe im Fokus, keine Fresnelstreifen}			\label{fig:Fokus}
+	\vspace{-1em}
+\end{figure}
+
+\begin{figure}[p]
+	\centering
+	\includegraphics[width=0.68\textwidth]{data/Im_3.jpg}
+	\vspace{-1.5ex}
+	\caption{Rand einer Probe im Unterfokus, erster Fresnelsaum hell}		\label{fig:Unter}
+	\vspace{-1em}
+\end{figure}
+
+\begin{figure}[p]
+	\centering
+	\includegraphics[width=0.68\textwidth]{data/Im_2.jpg}
+	\vspace{-1.5ex}
+	\caption{Rand einer Probe im Unterfokus, erster Fresnelsaum dunkel}	\label{fig:Ueber}
+	\vspace{-9em}
+\end{figure}
+
+\subsubsection{Diffractogramm}
+Das Diffractogramm ist die 2D-Fouriertransformation der Abbildung. Da die Qualität eines solchen errechneten Beugungsbildes geringer ist als eine Aufnahme im Beugungsmodus, wird in diesem Protokoll auf die Wiedergabe eines Diffractogramms verzichtet. Aus einer TEM-Aufnahme kann z.B. mit der Software ImageJ das Diffractogramm auch nachträglich berechnet werden.
+
+% Diffractogramme nicht auf USB Stick dabei: freies Programm ImageJ, wahrscheinlich auch matlab (2D fft)
+
+Normalerweise zeigt sich im Diffractogramm ein dunkler Ring, welcher zur Einstellung der Stigmatoren genutzt wird: Zweizähliger Astigmatismus führt zur Verzerrung dieses Rings zu einer Ellipse, bei korrekter Abstimmung der Spannungen an den Mutipolen erhält man wieder einen Kreis.
+
+\subsubsection{}
 High resolution (mehrere bilder mit Netz ebenen)
-Beugung (verdeckter Null Strahl zum Schutz der Kamera)
-Bright, Dark Field
-
-Diffractogramme nicht auf USB Stick dabei: freies Programm ImageJ, wahrscheinlich auch matlab (2D fft)
-
+Im_5, Im_6
 Meist nur eine Schar Netzebenen sichtbar (anstatt kariert) da die meisten Körner nicht in der fokusebene orientiert sind und somit nur eine Achse passt
 
 
-Beugung: gewisse ringe auf unterschiedlichen Bildern an besten sichtbar, überlagern (entweder nur Messwerte oder Bilder)
-Bei 340mm Kamera abstand (30000x Vergrößerung)
-300mm Schirm Abstand (26500x Vergrößerung)
-
+Bright, Dark Field
+Im_11 - Im_20
 Brightfield: objektivblende lässt nur Hauptstrahl durch
 Darkfield: ... nur Ausschnitt aus erstem beugungsRing durch
 Zwei Bilder für unterschiedlichen Azimutwinkel --> unterschiedliche cluster leuchten auf (zwei verschiedene Orientierungen)
 
 
+
+\subsubsection{}
+Beugung (verdeckter Null Strahl zum Schutz der Kamera)
+
+Beugung: gewisse ringe auf unterschiedlichen Bildern an besten sichtbar, überlagern (entweder nur Messwerte oder Bilder)
+Bei 340mm Kamera abstand (30000x Vergrößerung)
+300mm Schirm Abstand (26500x Vergrößerung)
 
 
 2. Probe
@@ -165,7 +207,6 @@ Zwei Bilder für unterschiedlichen Azimutwinkel --> unterschiedliche cluster leu
 1-1+-1, -11+-1, ..., 002, ..., 004 Reflexe zu sehen
 
 
-
 Bei der ersten probe
 Träger = Kupfernetz + Kohlenstoff-Folie
 Probe = kristallines Pulver (durch verdunsten des lösungsmittels gleichmäßig verteilt)
@@ -173,4 +214,15 @@ Probe = kristallines Pulver (durch verdunsten des lösungsmittels gleichmäßig 
 Erste probe Edelmetall (zu bestimmen, vermutlich Gold), zweite probe Si Kristall
 
 
+\begin{figure}[p]
+	\centering
+	\includegraphics[width=0.9\textwidth]{data/Im_10.jpg}
+	\caption{Beugungsbild des Edelmetall-Pulvers}		\label{fig:Edel}
+\end{figure}
 
+\begin{figure}[p]
+	\centering
+	\includegraphics[width=0.9\textwidth]{data/Im_22.jpg}
+	\caption{Beugungsbild des Silizium-Kristalls (110 Orientierung)}	\label{fig:Si}
+	\vspace{-5em}
+\end{figure}
