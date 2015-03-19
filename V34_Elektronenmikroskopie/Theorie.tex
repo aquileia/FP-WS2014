@@ -172,19 +172,16 @@ In der Praxis haben die Gitterspalte eine endliche Breite $b$, vergleichbar mit 
 \subsubsection*{Beugung an zweidimensionalen Objekten}
 
 Die Fraunhofer Beugung an zweidimensionalen Objekten lässt sich analog zum eindimensionalen berechnen. Hierzu wenden wir die zweidimensionale Fouriertransformation auf die Transmissionsfunktion $\tau(q_1,q_2)$ an, wobei $q_1,~q_2$ entsprechend gewählte allgemeine Koordinaten sind. Dadurch lässt sich der Integrand separieren.\\
-Beispielsweise lässt sich ein rechteckiges Objekt als senkrechte Überlagerung von zwei Spalten auffassen. Oft wird eine Koordinatentransformation in Polarkoordinaten durchgeführt, beispielsweise für den Fall der Beugung an einer Lochblende mit Radius $\rho_0$. Dessen Transmissionsfunktion $\tau(\rho)$ ist definiert durch
-\begin{align}
-\tau(\rho)=\mathrm{circ}\left(\frac{\rho}{\rho_0}\right)
-\end{align}
-mit der Kreisfunktion
-\begin{align}
-\mathrm{circ}(x)=\left\{
-	\begin{array}{l l}
-	1 \quad x\le 1\\
-	0 \quad x > 1
-	\end{array}
-	\right. .
-\end{align}
+Beispielsweise lässt sich ein rechteckiges Objekt als senkrechte Überlagerung von zwei Spalten auffassen. Oft wird eine Koordinatentransformation in Polarkoordinaten durchgeführt, beispielsweise für den Fall der Beugung an einer Lochblende mit Radius $\rho_0$. Dessen Transmissionsfunktion $\tau(\rho)$ ist definiert durch die Kreisfunktion
+\begin{equation}
+\tau(\rho) = \mathrm{circ}\left(\frac{\rho}{\rho_0}\right)
+\with \mathrm{circ}(x) =
+\begin{cases}
+	1 & x \le 1\\
+	0  & x < 1
+\end{cases}
+\end{equation}
+
 Die Fouriertransformierte der Lochblende ist dann
 \begin{align}
 \mathcal{F}[\tau(\rho)](r,d)=\dots =2\pi\rho_0^2\cdt\frac{J_1\left(\frac{kr\rho_0}{d}\right)}{\frac{kr\rho_0}{d}},
