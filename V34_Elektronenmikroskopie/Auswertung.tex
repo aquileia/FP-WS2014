@@ -173,7 +173,7 @@ Wird die Objektivlinse stärker angeregt, so verringert sich die Brennweite und 
 \end{figure}
 
 \subsubsection{Diffraktogramm und Beugungsbild}
-Das Diffraktogramm ist die 2D-Fouriertransformation der Abbildung. Da die Qualität eines solchen errechneten Beugungsbildes geringer ist als eine Aufnahme im Beugungsmodus, wird in diesem Protokoll auf die Wiedergabe von Diffraktogrammen verzichtet. Aus einer TEM-Aufnahme kann z.B. mit der Software ImageJ das Diffraktogramm auch nachträglich berechnet werden.
+Das Diffraktogramm ist die 2D-Fouriertransformation der Abbildung. Da die Qualität eines solchen errechneten Beugungsbildes geringer ist als eine Aufnahme im Beugungsmodus, wird in diesem Protokoll auf die Wiedergabe von Diffraktogrammen verzichtet. Aus einer TEM-Aufnahme kann z.B. mit der Software ImageJ \cite{lit:ImageJ} das Diffraktogramm auch nachträglich berechnet werden.
 
 % Diffraktogramme nicht auf USB Stick dabei: freies Programm ImageJ, wahrscheinlich auch matlab (2D fft)
 
@@ -229,13 +229,14 @@ Zudem ist der \textsf{Si}-Kristall entlang der 110 Achse orientiert, folglich tr
 Aus diesem Grund erwarten wir folgende Reflexe für die beiden Proben, wobei Vorzeichen vernachlässigt wurden:
 
 \begin{table}[h]
+\centering
 \caption{Zulässige Reflexe}
-\begin{tabular}{*{12}c}
+\begin{tabular}{*{13}c}
 	\toprule
-	Metall-Pulver		& 111	& 002	& 220	& 113	& 222	& 004	& 331	& 224	& 115	& 440	& \dots	\\
-	\textsf{Si}-Kristall	& 111	&		& 220	& 113	&		& 004	& 331	& 224	& 115	& 440	&  \dots	\\
+	Metall-Pulver		& 111	& 002	& 220	& 113	& 222	& 004	& 331	& 224	& 115	& 333	& 440	& \dots	\\
+	\textsf{Si}-Kristall	& 111	&		& 220	& 113	&		& 004	& 331	& 224	& 115	& 333	& 440	&  \dots	\\
 	\midrule
-	$h^2 + k^2 + l^2$	& 3		& 4		& 8		& 11		& 12		& 16		& 19		& 24		& 27		& 32 \\
+	$h^2 + k^2 + l^2$	& 3		& 4		& 8		& 11		& 12		& 16		& 19		& 24		& 27		& 27		& 32 \\
 	\bottomrule
 \end{tabular}
 \end{table}
@@ -245,6 +246,65 @@ Aus diesem Grund erwarten wir folgende Reflexe für die beiden Proben, wobei Vor
 Für sämtliche Beugungsbilder wurde das TEM auf 340\,mm Kameraabstand (entsprechend 30000\,facher Vergrößerung) bzw. 300\,mm Schirmabstand (26500x Vergrößerung) eingestellt.
 
 Neben Abbildung \ref{fig:Edel} und \ref{fig:Si} wurde jeweils noch eine Aufnahme bei schwächerer Belichtung erstellt, da auf diesen die hellsten Beugungsordnungen schärfer sind. Die Abstände $\kappa$ in Pixeln der verschiedenen Beugungsordnungen vom Ursprung wurden aus den Ringdurchmessern bzw. den Abständen gegenüberliegender Punkte ermittelt, da das Halbieren der Längen die Ablesefehler verringert.
+
+Mithilfe der bekannten Gitterkonstante $a_\mathsf{Si} = 543,102\,\pico\metre$ \cite{lit:nist} lässt sich der Maßstab des Beugungsbildes ermitteln:
+\begin{equation}
+\kappa ~\propto~ \frac{1}{d_{hkl}}		\somit c ~:=~ \kappa \cdt d_{hkl}
+\end{equation}
+
+Wie in Tabelle \ref{tab:Si} ersichtlich, konnten wir auch die eigentlich in der Diamant-Konfiguration fehlenden Reflexe bei 002 und 222 messen. Dies wäre nur bei unterschiedlichen Atomen in der zweiatomigen Basis zu erwarten, was bei Silizium aber nicht der Fall ist.
+
+\begin{table}[p]
+\centering
+\caption{Beugungsreflexe für den 110 orientierten \textsf{Si}-Kristall}	\label{tab:Si}
+\begin{tabular}{*4c}
+	\toprule
+	Anzahl $n$		& $h\,k\,l$		& $\kappa$ in px	& $c$ in pm$\cdt$px	\\
+	\midrule
+	4	& 111		& 142 $\pm$ 2	& 44500 $\pm$ 700	\\
+	2	& 002		& 164 $\pm$ 4	& 44400 $\pm$ 1100	\\
+	2	& 220		& 231 $\pm$ 2	& 44300 $\pm$ 400	\\
+	4	& 113		& 271 $\pm$ 2	& 44400 $\pm$ 400	\\
+	4	& 222		& 283 $\pm$ 2	& 44300 $\pm$ 400	\\
+	2	& 004		& 328 $\pm$ 2	& 44530 $\pm$ 280	\\
+	4	& 331		& 355 $\pm$ 2	& 44170 $\pm$ 250	\\
+	4	& 224		& 400 $\pm$ 2	& 44340 $\pm$ 230	\\
+	2	& 115 \& 333	& 422 $\pm$ 2	& 44110 $\pm$ 210	\\
+	2	& 440		& 460 $\pm$ 2	& 44160 $\pm$ 200	\\
+	\midrule
+		&			&			& 44320 $\pm$ 200	\\
+	\bottomrule
+\end{tabular}
+\end{table}
+
+Abschließend ermitteln wir die Gitterkonstante der unbekannten Probe:
+\begin{equation}
+a^* = \frac{c \cdt h^2 + k^2 + l^2}{\kappa}
+\end{equation}
+
+\begin{table}[p]
+\centering
+\caption{Beugungsreflexe für das Metall-Pulver}	\label{tab:Edel}
+\begin{tabular}{*3c}
+	\toprule
+	$h\,k\,l$	& $\kappa$ in px	& $a^*$ in pm	\\
+	\midrule
+	111		& 184 $\pm$ 3		& 418,2 $\pm$ 2,8		\\
+	002		& 211 $\pm$ 3		& 416 $\pm$ 4		\\
+	220		& 298 $\pm$ 3		& 419 $\pm$ 5		\\
+	113		& 351 $\pm$ 3		& 421 $\pm$ 5		\\
+	331		& 465 $\pm$ 3		& 420 $\pm$ 7		\\
+	135		& 627 $\pm$ 3		& 417 $\pm$ 8		\\
+	\midrule
+			&				& 418,5 $\pm$ 2,8	\\
+	\bottomrule
+\end{tabular}
+\end{table}
+
+Wir erhalten eine Gitterkonstante von $a^* = 418,5 \pm 2,8$\,pm, welche leicht oberhalb der Werte für Edelmetalle liegt. Unser Wert kommt $a_\mathsf{Ag} = 408,53\,\pico\metre$ und $a_\mathsf{Au} = 407,82\,\pico\metre$ recht nahe, weshalb es sich um eines dieser beiden Edelmetale handeln dürfte \cite{lit:elements}.
+
+Da es sich um Nanopartikel handelt, könnten diese auch durch Verspannungen eine leicht andere Gitterkonstante aufweisen als üblich -- allerdings ist dieser Effekt meist entgegengesetzt, da die Oberflächenspannung die Partikel zusammendrückt.
+
 
 
 \begin{figure}[p]
@@ -259,30 +319,6 @@ Neben Abbildung \ref{fig:Edel} und \ref{fig:Si} wurde jeweils noch eine Aufnahme
 	\caption{Beugungsbild des Silizium-Kristalls (110 Orientierung)}	\label{fig:Si}
 	\vspace{-5em}
 \end{figure}
-
-
-\begin{table}[h]
-\caption{Beugungsreflexe für den 110 orientierten \textsf{Si}-Kristall}
-\begin{tabular}{*{12}c}
-	\toprule
-	\midrule
-	\bottomrule
-\end{tabular}
-\end{table}
-
-\begin{table}[h]
-\caption{Beugungsreflexe für das Metall-Pulver}
-\begin{tabular}{*{12}c}
-	\toprule
-	\midrule
-	\bottomrule
-\end{tabular}
-\end{table}
-
-
-
-
-
 
 
 
