@@ -14,7 +14,7 @@ Nun werden verschiedene Objekte O durch zwei Linsen (Objektiv $L_3$, Okular $L_4
 	\def\svgwidth{0.75\textwidth}
 	\input{graphics/light.pdf_tex}
 	\caption{Zeichnung Lichtmikroskop, Abbildung des Objektes}
-	\label{fig:light}
+	\label{fig:Mikroskop}
 \end{figure}
 
 
@@ -133,13 +133,15 @@ ein deutlich höheres Auflösungsvermögen ermöglicht.
 
 Der Versuchsaufbau ist in Abbildung \ref{fig:setup} dargestellt, die Linsen sind dabei als Magnetlinsen ausgeführt. Da letztere nur als Sammellinse (und nicht als Zerstreuungslinse) dienen können, sind die gewöhnlichen Korrekturen (z.B. Dubletts gegen chromatische Aberration) nicht anwendbar. Anstelle dessen wird das Energiespektrum der Elektronen eingeschränkt (Dispersion weniger relevant) und achsferne Strahlen durch zwei Multipole (Stigmatoren) korrigiert.
 
-
+ Ziel ist es, ein metallisches Pulver zu identifizieren, dabei kommen die festen Edelmetalle in Frage: \textsf{Ru, Os} (hpc) und \textsf{Rh, Pd, Ag, Ir, Pt, Au} (fcc). Als Träger dient ein Kupfer-Netz, das mit einem Kohlenstoff-Film überzogen ist; auf diesem werden die Partikel (durch Verdunstung aus einem Lösungsmittel) abgeschieden. Zur Kalibrierung dient ein dünn geschliffener Silizium-Kristall als Referenzprobe.
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.75\textwidth]{Zeiss_TEM109.png}
+	\includegraphics[width=0.7\textwidth]{Zeiss_TEM109.png}
 	\caption{Querschnitt eines TEM (Zeiss TEM109) \cite{lit:tueb}}
 	\label{fig:setup}
+	\vspace{-4em}
 \end{figure}
+
 
 \subsubsection{Unter-, Über-, Fokus}
 Liegt die Probe exakt im Fokus der Objektivlinse, so wird sie ohne Interferenzeffekte abgebildet (Abb. \ref{fig:Fokus}). Eine Abweichung von dieser Einstellung wird  als Defokus bezeichnet und führt zu Fresnelsäumen im Bild: Bedingt durch Interferenz bilden sich an Kanten eine Streifenschar aus abwechselnd hellen und dunklen Bereichen.
@@ -150,7 +152,7 @@ Wird die Objektivlinse stärker angeregt, so verringert sich die Brennweite und 
 	\centering
 	\includegraphics[width=0.68\textwidth]{data/Im_1.jpg}
 	\vspace{-1.5ex}
-	\caption{Rand einer Probe im Fokus, keine Fresnelstreifen}			\label{fig:Fokus}
+	\caption{Rand der Probe im Fokus, keine Fresnelstreifen}			\label{fig:Fokus}
 	\vspace{-1em}
 \end{figure}
 
@@ -158,7 +160,7 @@ Wird die Objektivlinse stärker angeregt, so verringert sich die Brennweite und 
 	\centering
 	\includegraphics[width=0.68\textwidth]{data/Im_3.jpg}
 	\vspace{-1.5ex}
-	\caption{Rand einer Probe im Unterfokus, erster Fresnelsaum hell}		\label{fig:Unter}
+	\caption{Rand der Probe im Unterfokus, erster Fresnelsaum hell}		\label{fig:Unter}
 	\vspace{-1em}
 \end{figure}
 
@@ -166,58 +168,89 @@ Wird die Objektivlinse stärker angeregt, so verringert sich die Brennweite und 
 	\centering
 	\includegraphics[width=0.68\textwidth]{data/Im_2.jpg}
 	\vspace{-1.5ex}
-	\caption{Rand einer Probe im Unterfokus, erster Fresnelsaum dunkel}	\label{fig:Ueber}
+	\caption{Rand der Probe im Unterfokus, erster Fresnelsaum dunkel}	\label{fig:Ueber}
 	\vspace{-9em}
 \end{figure}
 
-\subsubsection{Diffractogramm}
-Das Diffractogramm ist die 2D-Fouriertransformation der Abbildung. Da die Qualität eines solchen errechneten Beugungsbildes geringer ist als eine Aufnahme im Beugungsmodus, wird in diesem Protokoll auf die Wiedergabe eines Diffractogramms verzichtet. Aus einer TEM-Aufnahme kann z.B. mit der Software ImageJ das Diffractogramm auch nachträglich berechnet werden.
+\subsubsection{Diffraktogramm und Beugungsbild}
+Das Diffraktogramm ist die 2D-Fouriertransformation der Abbildung. Da die Qualität eines solchen errechneten Beugungsbildes geringer ist als eine Aufnahme im Beugungsmodus, wird in diesem Protokoll auf die Wiedergabe von Diffraktogrammen verzichtet. Aus einer TEM-Aufnahme kann z.B. mit der Software ImageJ das Diffraktogramm auch nachträglich berechnet werden.
 
-% Diffractogramme nicht auf USB Stick dabei: freies Programm ImageJ, wahrscheinlich auch matlab (2D fft)
+% Diffraktogramme nicht auf USB Stick dabei: freies Programm ImageJ, wahrscheinlich auch matlab (2D fft)
 
-Normalerweise zeigt sich im Diffractogramm ein dunkler Ring, welcher zur Einstellung der Stigmatoren genutzt wird: Zweizähliger Astigmatismus führt zur Verzerrung dieses Rings zu einer Ellipse, bei korrekter Abstimmung der Spannungen an den Mutipolen erhält man wieder einen Kreis.
+Normalerweise zeigt sich im Diffraktogramm ein dunkler Ring, welcher zur Einstellung der Stigmatoren genutzt wird: Zweizähliger Astigmatismus führt zur Verzerrung dieses Rings zu einer Ellipse, bei korrekter Abstimmung der Spannungen an den Multipolen erhält man wieder einen Kreis.
 
-\subsubsection{}
-High resolution (mehrere bilder mit Netz ebenen)
-Im_5, Im_6
-Meist nur eine Schar Netzebenen sichtbar (anstatt kariert) da die meisten Körner nicht in der fokusebene orientiert sind und somit nur eine Achse passt
+Da die untersuchten Edelmetall-Partikel zufällig orientiert sind, erhalten wir im Beugungsbild Ringe (siehe Abb. \ref{fig:Edel}) anstelle von scharfen Reflexen: Für jeden Azimutwinkel finden sich entsprechend orientierte Partikel, sodass die Bragg-Bedingung erfüllt wird.
 
+Die monokristalline \textsf{Si}-Probe ergibt erwartungsgemäß punktförmige Beugungsreflexe (Abb. \ref{fig:Si}).
 
-Bright, Dark Field
-Im_11 - Im_20
-Brightfield: objektivblende lässt nur Hauptstrahl durch
-Darkfield: ... nur Ausschnitt aus erstem beugungsRing durch
-Zwei Bilder für unterschiedlichen Azimutwinkel --> unterschiedliche cluster leuchten auf (zwei verschiedene Orientierungen)
+\subsubsection{Hellfeld \& Dunkelfeld}
+Alle Partikel der Probe tragen zum Hauptstrahl bei, somit sieht man trotz Abblendung aller höheren Ordnungen im Hellfeld-Modus die gesamte Probe (Abb. \ref{fig:TEM_Hell}). Für das Dunkelfeld wählt man mit der Blende jedoch nur einen Ausschnitt des ersten Beugungsringes, im Bild leuchten nur die Partikel mit diesem Azimutwinkel auf (Abb. \ref{fig:TEM_Dunkel}).
 
+\begin{figure}[p]
+	\centering
+	\includegraphics[width=0.9\textwidth]{data/Im_11.jpg}
+	\caption{Hellfeld-Bild der Probe, alle Partikel sichtbar}					\label{fig:TEM_Hell}
+\end{figure}
 
-
-\subsubsection{}
-Beugung (verdeckter Null Strahl zum Schutz der Kamera)
-
-Beugung: gewisse ringe auf unterschiedlichen Bildern an besten sichtbar, überlagern (entweder nur Messwerte oder Bilder)
-Bei 340mm Kamera abstand (30000x Vergrößerung)
-300mm Schirm Abstand (26500x Vergrößerung)
-
-
-2. Probe
-- convergent beam (Kreise mit gebogenem Linien, geben Aufschluss über dicke der probe)
-- Beugung, gleiche Einstellungen wie bei der ersten probe
-
-110 Orientierung
-1-1+-1, -11+-1, ..., 002, ..., 004 Reflexe zu sehen
+\begin{figure}[p]
+	\centering
+	\includegraphics[width=0.9\textwidth]{data/Im_14b.jpg}
+	\caption{Dunkelfeld-Bild der Probe, nur korrekt orientierte Partikel sichtbar}	\label{fig:TEM_Dunkel}
+	\vspace{-3em}
+\end{figure}
 
 
-Bei der ersten probe
-Träger = Kupfernetz + Kohlenstoff-Folie
-Probe = kristallines Pulver (durch verdunsten des lösungsmittels gleichmäßig verteilt)
 
-Erste probe Edelmetall (zu bestimmen, vermutlich Gold), zweite probe Si Kristall
+
+\subsubsection{Zulässige Reflexe}
+Die Reflexe welcher Ebenen (h\,k\,l) sind im Beugungsbild beobachtbar?
+
+Aus Abb. \ref{fig:laue_bedingung} geht hervor, dass die Laue-Bedingung für alle betrachteten Reflexe näherungsweise erfüllt ist und somit nicht weiter berücksichtigt werden muss.
+
+Es entfallen jedoch alle Reflexe, für die der Strukturfaktor der Basis 0 wird, da sich in diesem Fall die Teilwellen unterschiedlicher Netzebenen aufheben. Sei $f$ der atomare Streufaktor des Elements, dann gilt für fcc-Gitter:
+\begin{equation}
+S_{hkl}^{fcc} = f \cdt\! \left[1 + i^{2(k+l)} +  i^{2(h+l)} +  i^{2(h+k)} \right] =
+\begin{cases}
+4 f	& h\,k\,l \text{ gerade} \lor h\,k\,l \text{ ungerade}\\
+0	& \text{sonst}
+\end{cases}
+\end{equation}
+
+Das Diamant-Kristallgitter des Siliziums besteht aus zwei um $(\frac14 \frac14 \frac14)$ verschobenen fcc-Gittern, was die zulässigen Reflexe nochmals einschränkt:
+\begin{equation}
+S_{hkl}^\mathsf{Si} =  S_{hkl}^{fcc} \cdt \left[1 + i^{h+k+l} \right] \somit \tfrac14 ~ (h+k+l) \in \mathds{N}
+\end{equation}
+
+Zudem ist der \textsf{Si}-Kristall entlang der 110 Achse orientiert, folglich tritt nur an zu dieser senkrechten Ebenen Bragg-Reflexion auf:
+\begin{equation}
+(h\,k\,l) \perp [1\,1\,0]		\quad\iff\quad	1 \cdt h + 1 \cdt k + 0 \cdt l = 0
+\end{equation}
+
+Aus diesem Grund erwarten wir folgende Reflexe für die beiden Proben, wobei Vorzeichen vernachlässigt wurden:
+
+\begin{table}[h]
+\caption{Zulässige Reflexe}
+\begin{tabular}{*{12}c}
+	\toprule
+	Metall-Pulver		& 111	& 002	& 220	& 113	& 222	& 004	& 331	& 224	& 115	& 440	& \dots	\\
+	\textsf{Si}-Kristall	& 111	&		& 220	& 113	&		& 004	& 331	& 224	& 115	& 440	&  \dots	\\
+	\midrule
+	$h^2 + k^2 + l^2$	& 3		& 4		& 8		& 11		& 12		& 16		& 19		& 24		& 27		& 32 \\
+	\bottomrule
+\end{tabular}
+\end{table}
+
+\newpage
+\subsubsection{Bestimmung der Gitterkonstante}
+Für sämtliche Beugungsbilder wurde das TEM auf 340\,mm Kameraabstand (entsprechend 30000\,facher Vergrößerung) bzw. 300\,mm Schirmabstand (26500x Vergrößerung) eingestellt.
+
+Neben Abbildung \ref{fig:Edel} und \ref{fig:Si} wurde jeweils noch eine Aufnahme bei schwächerer Belichtung erstellt, da auf diesen die hellsten Beugungsordnungen schärfer sind. Die Abstände $\kappa$ in Pixeln der verschiedenen Beugungsordnungen vom Ursprung wurden aus den Ringdurchmessern bzw. den Abständen gegenüberliegender Punkte ermittelt, da das Halbieren der Längen die Ablesefehler verringert.
 
 
 \begin{figure}[p]
 	\centering
 	\includegraphics[width=0.9\textwidth]{data/Im_10.jpg}
-	\caption{Beugungsbild des Edelmetall-Pulvers}		\label{fig:Edel}
+	\caption{Beugungsbild des Edelmetall-Pulvers}				\label{fig:Edel}
 \end{figure}
 
 \begin{figure}[p]
@@ -226,3 +259,42 @@ Erste probe Edelmetall (zu bestimmen, vermutlich Gold), zweite probe Si Kristall
 	\caption{Beugungsbild des Silizium-Kristalls (110 Orientierung)}	\label{fig:Si}
 	\vspace{-5em}
 \end{figure}
+
+
+\begin{table}[h]
+\caption{Beugungsreflexe für den 110 orientierten \textsf{Si}-Kristall}
+\begin{tabular}{*{12}c}
+	\toprule
+	\midrule
+	\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[h]
+\caption{Beugungsreflexe für das Metall-Pulver}
+\begin{tabular}{*{12}c}
+	\toprule
+	\midrule
+	\bottomrule
+\end{tabular}
+\end{table}
+
+
+
+
+
+
+
+
+
+% Edelmetall-Probe:
+% High resolution (mehrere bilder mit Netz ebenen)
+% Im_5, Im_6
+% Meist nur eine Schar Netzebenen sichtbar (anstatt kariert) da die meisten Körner nicht in der fokusebene orientiert sind und somit nur eine Achse passt
+
+
+
+
+% Si
+% convergent beam (Kreise mit gebogenem Linien, geben Aufschluss über dicke der probe)
+% Im_20
