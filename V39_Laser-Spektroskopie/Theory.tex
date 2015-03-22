@@ -9,20 +9,24 @@ The first step is to conduct an absorption spectroscopy of the Rb gas. Because o
 
 \newpage
 \section{Theory}
-The following elaboration of the physical basics mostly follows \cite{lit:AK_manual2012} and \cite{lit:SAS} unless stated otherwise.
+The following elaboration of the physical basics is based on  \cite{lit:AK_manual2012} and \cite{lit:SAS}.
 
 \subsection{Diode laser}
 \begin{figure}[bh]
 	\centering
 	\includegraphics[width=0.8\textwidth]{laser_diode.pdf}
-	\caption[Schematic setup for a diode laser in Littrow configuration]{Schematic setup for a diode laser in Littrow configuration. The grating is set such that the first diffraction order coincides with the output beam from the laser.}
+	\caption[Schematic of a diode laser in Littrow configuration]{Schematic setup for a diode laser in Littrow configuration. The angle of the grating is set such that the first diffraction order coincides with the output beam from the laser diode. While all components are fixed here, the collimator and the grating are movable for necessary adjustment of the laser.}
 	\label{fig:laser_diode}
 \end{figure}
 
-In a diode laser, the pn transition is the active medium. A voltage is applied on the diode to neutralize the internal electrical field and thus the excess electrons of the n-layer are able to recombine with the defect electrons, namely 'holes', of the p-layer. In this process, the electrons total energy decrease. The energy difference between the two levels is emitted as a electromagnetic wave, as $\Delta E=h\nu$, while $h$ is the Planck constant.\\
-The two ends of the laser diode form the \emph{internal resonator}. One of the ends is a mirror with a 100\% reflectance, while the other end is a semi-permeable medium, which reflects most of emitted beam and thus works as a laser pump. The electrons in the diode will be excited with the energy they previously emitted, and emit the energy again with the same wavelength. By setting a certain length of the laser diode, you can amplify a particular range of wavelengths. Due to the size of the diode casing, usually a few millimeters, the free spectral range is roughly $100\giga\hertz$, while the line width is usually about $100\mega\hertz$.
+In a diode laser, the pn transition is the active medium. A voltage is applied on the diode to neutralize the internal electrical field and thus the excess electrons of the n-layer are able to recombine with the defect electrons, namely 'holes', of the p-layer. In this process, the electrons total energy decrease. The energy difference between the two levels is emitted as a electromagnetic wave with frequency $\nu=\Delta E/h$, while $h$ is the Planck constant.\\
+The two ends of the laser diode form the \emph{internal resonator}. One of the ends is a mirror with a 100\% reflectance, while the other end is a semi-permeable medium, which reflects most of emitted beam and thus works as a laser pump. The electrons in the diode will be excited with the energy they previously emitted, and emit the energy again with the same wavelength, direction and polarization (i.e. stimulated emission). By setting a certain length of the laser diode, you can amplify a particular range of wavelengths. Due to the size of the diode casing, the free spectral range (FSR) is given by
+\begin{equation}
+\Delta \nu=\frac{c}{2L}.
+\end{equation}
+For an usual casing with a few millimeters of size for $L$, the FSR is roughly $100\giga\hertz$, while the line width is usually about $100\mega\hertz$ \cite{lit:AK_manual2012}.
 
-For further narrowing of the line width, since it is needed for our spectroscopy, we will use an \emph{external resonator} in Littrow configuration. It consists of the reflective back side of the laser diode and a particular grating which is set in a way (see figure \ref{fig:laser_diode}) such as the first order diffraction beam is reflected back into the diode laser. Since the diffraction is wavelength-dependent, we can configure the diode laser as desired. The usual obtained line widths are below $1\mega\hertz$.\\
+For further narrowing of the line width, since it is needed for our spectroscopy, we will use an \emph{external resonator} in Littrow configuration. It consists of the reflective back side of the laser diode and a particular grating being set on an angle (see figure \ref{fig:laser_diode}) such that the first order diffraction beam is reflected back into the diode laser (see \cite{lit:AK_manual2012}). Since the diffraction is wavelength-dependent, we can configure the diode laser as desired. The usual obtained line widths are below $1\mega\hertz$.\\
 Taking the gains of all the components into account, we can set the diode laser (see figure~\ref{fig:gain_profiles}) to a certain frequency.
 \begin{figure}[h]
 	\centering
@@ -31,11 +35,11 @@ Taking the gains of all the components into account, we can set the diode laser 
 	\label{fig:gain_profiles}
 \end{figure}
 
-By changing the injection current onto the laser diode, the gain profile of the internal resonator is shifted due to the altered refractive index. It also sets the frequency range. The external resonator can be modified by altering the angle and the position of the grating. For this, the coarse tuning is done with fine adjustment screws, whereas the fine tuning is done with a piezo. A change in temperature shifts all the profiles, but each with a different shift. To avoid this during the measurements, the temperature has to be necessarily kept constant.
+By changing the injection current and the temperature of the laser diode, the gain profile of the internal resonator is shifted due to the altered refractive index. It also sets the frequency range. The external resonator can be modified by altering the angle and the position of the grating. For this, the coarse tuning is done with fine adjustment screws, whereas the fine tuning is done with a piezo. A change in temperature shifts all the profiles, but each with a different shift. To avoid this during the measurements, the temperature has to be necessarily kept constant.
 
 In the \emph{single mode}, only the resonance mode with the highest amplification oscillates and the laser emits quasi-monochromatic light.
 When varying the laser cavity during the tuning, the number of waves in the cavity will stay constant for a certain time, but the frequency is changed. If the laser cavity is varied too far, the number of half-wavelengths inside the cavity will jump up or down by one or two. The laser frequency jumps back into the original range. These jumps are called \emph{mode hops}.\\
-Before the measurements, the temperature, current, the angle and position of the grating are set so that the spectrum of the measured sample lies within two mode hops.
+Before the measurements, the temperature, current, the angle and position of the grating are set so that the spectrum of the measured sample lies within two relatively good mode hops.
 
 \subsection{Structure of the Rb atom}
 With quantum mechanics, we can predict the energy levels of the electrons in an atom. For a multi-electron system, those calculations are rather difficult. For this, we use the central field approximation, in which many inter-atom interactions are ignored. Each electron can be described with the quantum numbers $n$ (principle quantum number), $l$ (orbital angular momentum), $m_l$, $s$ (spin) and $m_s$ (further explanations of those numbers can be found in every book about atom physics). The quantum numbers $l$ and $s$ of all electrons can be summed up to the total quantum numbers $L$ and $S$, resulting in the magnitude of the total electronic angular moment $J$, defined as
@@ -43,13 +47,12 @@ With quantum mechanics, we can predict the energy levels of the electrons in an 
 J=L+S.
 \label{eq:spin_orbit}
 \end{align}
-The sum of all $l_i$ and $s_i$ over all electrons $i$ in a filled orbit is always equal to zero, thus the total electronic angular momentum corresponds to the one of the single valence electron, making it similar to the hydrogen atom. In the ground state, the system of electrons is described as $5{}^2\mathrm{S}_{1/2}$. When excited to a higher state, due to the spin-orbit-coupling described in equation \eqref{eq:spin_orbit}, two different excited states are available: $5{}^2\mathrm{P}_{1/2} (\approx 795 \nano\metre)$ and $5{}^2\mathrm{P}_{3/2} (\approx 780\nano\metre)$. This splitting of the energy levels due to the spin-orbit-coupling is called \emph{
-fine structure}. In this experiment, because of the applied diode laser, we will only inspect the latter transition with $780\nano\metre$.\\
+The sum of all $l_i$ and $s_i$ over all electrons $i$ in a filled orbit is always equal to zero, thus the total electronic angular momentum corresponds to the one of the single valence electron, making it similar to the hydrogen atom. In the ground state, the orbit of the electron in Rb atom is described as $5{}^2\mathrm{S}_{1/2}$. In a higher state, due to the spin-orbit-coupling described in equation \eqref{eq:spin_orbit}, two different excited states are available: $5{}^2\mathrm{P}_{1/2} (\approx 795 \nano\metre)$ and $5{}^2\mathrm{P}_{3/2} (\approx 780\nano\metre)$. This splitting of the energy levels due to the spin-orbit-coupling is called \emph{fine structure}. In this experiment, because of the applied diode laser, we will only inspect the latter transition with $780\nano\metre$ known as D$_2$ transition.\\
 Now we're taking the \emph{spin angular momentum} $I$ of the atom nucleus into account, which depend on the nuclear structure and the isotope. The spin angular momentum is very small compared to the electronic angular momentum, resulting in the small \emph{hyperfine splitting}. We define the \emph{total angular moment} $F$ of the atom as follows:
 \begin{align}
 F=J+I,
 \end{align}
-where the magnitude of $F$ goes from $|J-I|$ to $J+I$.
+where the magnitude of $F$ goes from $|J-I|$ to $|J+I| $.
 
 From this moment on, we need to consider the fact the Rubidium atom has two natural occurring  isotopes: 72\% abundant $^{85}\text{Rb}$ with $I=5/2$ and 28\% abundant $^{87}\text{Rb}$ with $I=3/2$. This results in two hyperfine levels within $5{}^2\mathrm{S}_{1/2}$ and $5{}^2\mathrm{P}_{1/2}$, while the excited state $5{}^2\mathrm{P}_{1/2}$ splits up into four hyperfine levels.
 Figure \ref{fig:hyperfine_85Rb} shows the fine and hyperfine structure of the lowest levels in $^{85}$Rb, where figure \ref{fig:hyperfine_8587Rb} contains the hyperfine structure of both the $^{85}\text{Rb}$ and $^{87}\text{Rb}$ isotope.
@@ -90,9 +93,9 @@ P(v)\d v\propto \exp\left(-\frac{mv^2}{2k_B T}\right)\d v
 \end{align}
 We can conclude the frequency shifts are Maxwell-Boltzmann distributed as well. As a Gaussian distribution, the FWHM $\Delta\nu_{1/2}$ has the shape
 \begin{align}
-\Delta\nu_{1/2}=2\frac{v}{c}\sqrt{\frac{k_B T}{m}2\log 2}
+\Delta\nu_{1/2}=2\frac{\nu}{c}\sqrt{\frac{k_B T}{m}2\log 2}
 \end{align}
-At room temperature, this corresponds to a few $100\mega\hertz$. The hyperfine splittings of the P levels can't be resolved like this, only the hyperfine splittings of the S levels are visible (see figure \ref{fig:abs_spec}).
+At room temperature, this corresponds to around $4                                                                                                                                                                                                                                                                                                               00\mega\hertz$. The hyperfine splittings of the P levels can't be resolved like this, only the hyperfine splittings of the S levels are visible (see figure \ref{fig:abs_spec}).
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=0.8\textwidth]{abs_spec.pdf}
@@ -103,7 +106,7 @@ At room temperature, this corresponds to a few $100\mega\hertz$. The hyperfine s
 \newpage
 \subsubsection{Saturated absorption spectroscopy}
 \enlargethispage{4em}
-In this spectroscopy, the incident beam will be split into two beams with different intensities. They are focused on the Rb cell from opposite directions. The partial beam with the stronger intensity is the \emph{pump beam}, the weaker one is the \emph{probe beam}. With the pump beam, atoms in the gas cell are excited to a higher level. The probe beam is used to detect the absorption by the atoms, since it isn't absorbed by the atoms which has already been excited by the pump beam. If the atom interacts with both opposing beams, the transmission ratio increases. Due to the doppler shift in two opposing directions, in a two-level-system, this interaction with both beams only occur for atoms with the velocity $v=0$ with respect to the beam direction. The absorption spectrum shows a \emph{Lamb-dip} at $\nu_0$ (see figure \ref{fig:lamb-dip}).
+In this spectroscopy, the incident beam will be split into two beams with different intensities. The schematic of the setup is shown in figure \ref{fig:setup_abs}. They are focused on the Rb cell from opposite directions. The partial beam with the stronger intensity is the \emph{pump beam}, the weaker one is the \emph{probe beam}. With the pump beam, atoms in the gas cell are excited to a higher level. The probe beam is used to detect the absorption by the atoms, since it isn't absorbed by the atoms which has already been excited by the pump beam. If the atom interacts with both opposing beams, the transmission ratio increases. Due to the doppler shift in two opposing directions, in a two-level-system, this interaction with both beams only occur for atoms with the velocity $v=0$ with respect to the beam direction. The absorption spectrum shows a \emph{Lamb-dip} at $\nu_0$ (see figure \ref{fig:lamb-dip}).
 
 \begin{figure}[h]
 	\centering
