@@ -13,7 +13,7 @@ Nun werden verschiedene Objekte O durch zwei Linsen (Objektiv $L_3$, Okular $L_4
 	\centering
 	\def\svgwidth{0.75\textwidth}
 	\input{graphics/light.pdf_tex}
-	\caption{Zeichnung Lichtmikroskop, Abbildung des Objektes}
+	\caption{\marker Zeichnung Lichtmikroskop, Abbildung des Objektes}
 	\label{fig:Mikroskop}
 \end{figure}
 
@@ -168,7 +168,7 @@ Wird die Objektivlinse stärker angeregt, so verringert sich die Brennweite und 
 	\centering
 	\includegraphics[width=0.68\textwidth]{data/Im_2.jpg}
 	\vspace{-1.5ex}
-	\caption{Rand der Probe im Überfokus, erster Fresnelsaum dunkel}	\label{fig:Ueber}
+	\caption{\marker Rand der Probe im Überfokus, erster Fresnelsaum dunkel}	\label{fig:Ueber}
 	\vspace{-9em}
 \end{figure}
 
@@ -247,7 +247,9 @@ Für sämtliche Beugungsbilder wurde das TEM auf 340\,mm Kameraabstand (entsprec
 
 Neben Abbildung \ref{fig:Edel} und \ref{fig:Si} wurde jeweils noch eine Aufnahme bei schwächerer Belichtung erstellt, da auf diesen die hellsten Beugungsordnungen schärfer sind. Die Abstände $\kappa$ in Pixeln der verschiedenen Beugungsordnungen vom Ursprung wurden aus den Ringdurchmessern bzw. den Abständen gegenüberliegender Punkte ermittelt, da das Halbieren der Längen die Ablesefehler verringert.
 
+{\marker
 Der Fehler $\Delta \kappa$ variierte zwischen $\pm 2$ und $\pm 4$ Pixeln, je nach Breite des gemessenen Peaks bzw. Rings. Aus diesem erhielten wir mit Gleichungen \eqref{eq:scale} und \eqref{eq:da} die Genauigkeit des Ergebnisses.
+}
 
 Mithilfe der bekannten Gitterkonstante $a_\mathsf{Si} = 543,102\,\pico\metre$ \cite{lit:nist} lässt sich der Maßstab des Beugungsbildes ermitteln:
 \begin{equation}
@@ -281,11 +283,12 @@ Wie in Tabelle \ref{tab:Si} ersichtlich, konnten wir auch die eigentlich in der 
 \end{table}
 
 Abschließend ermitteln wir die Gitterkonstante der unbekannten Probe:
+{\marker
 \begin{align}
 a^*		~&=~ \frac{c \cdt \sqrt{h^2 + k^2 + l^2}}{\kappa}	\\
 \Delta a^*	~&=~ \frac{\sqrt{h^2 + k^2 + l^2}}{\kappa^2} \cdt \sqrt{ (\kappa ~ \Delta c)^2 + (c ~ \Delta \kappa)^2}
 \label{eq:da}
-\end{align}
+\end{align}}
 
 \begin{table}[p]
 \centering
@@ -294,12 +297,12 @@ a^*		~&=~ \frac{c \cdt \sqrt{h^2 + k^2 + l^2}}{\kappa}	\\
 	\toprule
 	$h\,k\,l$	& $\kappa$ in px	& $a^*$ in pm	\\
 	\midrule
-	111		& 184 $\pm$ 3		& 417 $\pm$ 8		\\
-	002		& 211 $\pm$ 3		& 420 $\pm$ 7		\\
-	220		& 298 $\pm$ 3		& 421 $\pm$ 5		\\
-	113		& 351 $\pm$ 3		& 419 $\pm$ 5		\\
-	331		& 465 $\pm$ 3		& 416 $\pm$ 4		\\
-	135		& 627 $\pm$ 3		& 418,2 $\pm$ 2,8		\\
+	111		& 184 $\pm$ 3		& \marker	417 $\pm$ 8		\\
+	002		& 211 $\pm$ 3		& \marker	420 $\pm$ 7		\\
+	220		& 298 $\pm$ 3		& \marker	421 $\pm$ 5		\\
+	113		& 351 $\pm$ 3		& \marker	419 $\pm$ 5		\\
+	331		& 465 $\pm$ 3		& \marker	416 $\pm$ 4		\\
+	135		& 627 $\pm$ 3		& \marker	418,2 $\pm$ 2,8		\\
 	\midrule
 			&				& 418,5 $\pm$ 2,8	\\
 	\bottomrule
@@ -319,6 +322,7 @@ Da es sich um Nanopartikel handelt, könnten diese auch durch Verspannungen eine
 	\begin{picture}(1,0.75)
 		\put(0,0){\includegraphics[width=\unitlength]{data/Im_10c.jpg}}
 		\color{yellow!60!orange}
+		\marker
 		\put(0.5	,0.28   ){111}
 		\put(0.5	,0.23   ){002}
 		\put(0.5	,0.18   ){220}
@@ -337,6 +341,7 @@ Da es sich um Nanopartikel handelt, könnten diese auch durch Verspannungen eine
 	\begin{picture}(1,0.75)
 		\put(0,0){\includegraphics[width=\unitlength]{data/Im_22.jpg}}
 		\color{yellow!60!orange}
+		\marker
 		\put(0.36	,0.395	){002}
 		\put(0.4	,0.3		){111}
 		\put(0.52	,0.275	){111}
