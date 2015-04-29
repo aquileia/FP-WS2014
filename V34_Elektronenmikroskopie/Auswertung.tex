@@ -247,9 +247,12 @@ Für sämtliche Beugungsbilder wurde das TEM auf 340\,mm Kameraabstand (entsprec
 
 Neben Abbildung \ref{fig:Edel} und \ref{fig:Si} wurde jeweils noch eine Aufnahme bei schwächerer Belichtung erstellt, da auf diesen die hellsten Beugungsordnungen schärfer sind. Die Abstände $\kappa$ in Pixeln der verschiedenen Beugungsordnungen vom Ursprung wurden aus den Ringdurchmessern bzw. den Abständen gegenüberliegender Punkte ermittelt, da das Halbieren der Längen die Ablesefehler verringert.
 
+Der Fehler $\Delta \kappa$ variierte zwischen $\pm 2$ und $\pm 4$ Pixeln, je nach Breite des gemessenen Peaks bzw. Rings. Aus diesem erhielten wir mit Gleichungen \eqref{eq:scale} und \eqref{eq:da} die Genauigkeit des Ergebnisses.
+
 Mithilfe der bekannten Gitterkonstante $a_\mathsf{Si} = 543,102\,\pico\metre$ \cite{lit:nist} lässt sich der Maßstab des Beugungsbildes ermitteln:
 \begin{equation}
 \kappa ~\propto~ \frac{1}{d_{hkl}}		\somit c ~:=~ \kappa \cdt d_{hkl}
+\label{eq:scale}
 \end{equation}
 
 Wie in Tabelle \ref{tab:Si} ersichtlich, konnten wir auch die eigentlich in der Diamant-Konfiguration fehlenden Reflexe bei 002 und 222 messen. Dies wäre nur bei unterschiedlichen Atomen in der zweiatomigen Basis zu erwarten, was bei Silizium aber nicht der Fall ist.
@@ -278,9 +281,11 @@ Wie in Tabelle \ref{tab:Si} ersichtlich, konnten wir auch die eigentlich in der 
 \end{table}
 
 Abschließend ermitteln wir die Gitterkonstante der unbekannten Probe:
-\begin{equation}
-a^* = \frac{c \cdt h^2 + k^2 + l^2}{\kappa}
-\end{equation}
+\begin{align}
+a^*		~&=~ \frac{c \cdt \sqrt{h^2 + k^2 + l^2}}{\kappa}	\\
+\Delta a^*	~&=~ \frac{\sqrt{h^2 + k^2 + l^2}}{\kappa^2} \cdt \sqrt{ (\kappa ~ \Delta c)^2 + (c ~ \Delta \kappa)^2}
+\label{eq:da}
+\end{align}
 
 \begin{table}[p]
 \centering
@@ -289,12 +294,12 @@ a^* = \frac{c \cdt h^2 + k^2 + l^2}{\kappa}
 	\toprule
 	$h\,k\,l$	& $\kappa$ in px	& $a^*$ in pm	\\
 	\midrule
-	111		& 184 $\pm$ 3		& 418,2 $\pm$ 2,8		\\
-	002		& 211 $\pm$ 3		& 416 $\pm$ 4		\\
-	220		& 298 $\pm$ 3		& 419 $\pm$ 5		\\
-	113		& 351 $\pm$ 3		& 421 $\pm$ 5		\\
-	331		& 465 $\pm$ 3		& 420 $\pm$ 7		\\
-	135		& 627 $\pm$ 3		& 417 $\pm$ 8		\\
+	111		& 184 $\pm$ 3		& 417 $\pm$ 8		\\
+	002		& 211 $\pm$ 3		& 420 $\pm$ 7		\\
+	220		& 298 $\pm$ 3		& 421 $\pm$ 5		\\
+	113		& 351 $\pm$ 3		& 419 $\pm$ 5		\\
+	331		& 465 $\pm$ 3		& 416 $\pm$ 4		\\
+	135		& 627 $\pm$ 3		& 418,2 $\pm$ 2,8		\\
 	\midrule
 			&				& 418,5 $\pm$ 2,8	\\
 	\bottomrule
@@ -365,6 +370,9 @@ Da es sich um Nanopartikel handelt, könnten diese auch durch Verspannungen eine
 	\vspace{-5em}
 \end{figure}
 
+
+% I = imread('Im22.png');
+% I2 = im2double(I);
 
 
 
