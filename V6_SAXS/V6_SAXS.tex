@@ -1,0 +1,35 @@
+% !TeX encoding = UTF-8
+% !TeX root = V6_SAXS.tex
+% !TeX spellcheck = en_US
+
+\documentclass[a4paper, parskip=half, 12pt, bibliography=totocnumbered]{scrartcl}
+
+\def \english {}
+\input{../preamble_Murat}
+
+\graphicspath{{./graphics/}}
+
+\newcommand{\keV}{\kilo\electronvolt}
+
+\begin{document}
+\Titelseite[]{\FP \\[1ex] (advanced physics lab)}{6}{Structure determination via X-ray scattering}{21. \& 28. June 2015}{report, first edition}{Parisa Bakhtiarpour}{}
+
+\include{Theory}
+
+\include{Analysis}
+
+\begin{thebibliography}{10}
+\bibitem{lit:ersson}
+N.Ersson: \emph{Powder Diffraction Line Profiles in Guinier-Type Focusing Cameras}.\\
+Journal of Applied Crystallography 12 (1979), p.\,295\\
+\url{http://journals.iucr.org/j/issues/1979/03/00/a18160/a18160.pdf}
+
+\bibitem{lit:Gal}
+J. Gal et al.: \emph{Fast high-resolution characterization of powders using an imaging plate Guinier camera}.\\
+Nuclear Instruments and Methods in Physics Research 2005, p.\,145\\
+\url{http://www.geocities.ws/sunshine_mike_69/14_Guinier_Camera_670.pdf}
+
+% https://books.google.de/books?id=wmQ_lFIMkFYC&pg=PA32&lpg=PA32&dq=guinier+powder+diffractometer+film
+% http://journals.iucr.org/j/issues/1979/03/00/a18160/a18160.pdf
+\end{thebibliography}
+\end{document}
