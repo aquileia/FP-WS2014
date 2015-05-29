@@ -1,0 +1,23 @@
+% !TeX root = ../V7_Lichtbeugung.tex
+
+%% Creator: Inkscape 0.48.5, www.inkscape.org
+%% PDF/EPS/PS + LaTeX output extension by Johan Engelen, 2010
+%% Accompanies image file 'light.pdf' (pdf, eps, ps)
+%%
+%% To include the image in your LaTeX document, write
+%%   \def\svgwidth{<desired width>}
+%%   \input{<filename>.pdf_tex}
+\begingroup%
+  \setlength{\unitlength}{\svgwidth}%
+  \global\let\svgwidth\undefined%
+  \begin{picture}(1,0.56268192)%
+    \put(0,0){\includegraphics[width=\unitlength]{NahFern.pdf}}%
+    \put(0.1128,0.275){b}%
+    \put(0.0292,0.5258){x}%
+    \put(0.15   ,0.5214){Fresnelbeugung}%
+    \put(0.4254,0.0371){Übergangszone}%
+    \put(0.175  ,0.0371){Nahzone}%
+    \put(0.8085,0.5214){Fraunhoferbeugung}%
+    \put(0.85   ,0.0371){Fernzone}%
+  \end{picture}%
+\endgroup%

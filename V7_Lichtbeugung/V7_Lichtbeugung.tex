@@ -1,0 +1,51 @@
+% !TeX encoding = UTF-8
+% !TeX root = V7_Lichtbeugung.tex
+% !TeX spellcheck = de_DE_frami
+
+\documentclass[a4paper, parskip=half, 12pt, bibliography=totocnumbered]{scrartcl}
+
+\def \deutsch {}
+\input{../preamble_Murat}
+
+\graphicspath{{./graphics/}}
+
+\usepackage{latexsym}
+\usepackage{amsfonts}
+\usepackage{float}
+\usepackage[counterclockwise]{rotating}
+
+\DeclareMathOperator{\sinc}{sinc}
+\DeclareMathOperator{\const}{const}
+\newcommand{\Fint}[1][\int]{\!#1\limits_{-\infty}^{\infty}\!}
+\newcommand{\marker}{}		%\color{magenta}
+
+\begin{document}
+\Titelseite[]{\FP}{7}{Lichtbeugung}{7. Mai 2015}{Erstabgabe}{Tibor Lehnert}{}
+
+\include{Theorie}
+
+\include{Auswertung}
+
+\begin{thebibliography}{10}
+\bibitem{lit:goodman96} J.W.Goodman, \emph{Introduction to Fourier Optics}, Mac Graw Hill, 2nd edition, 1996
+
+\bibitem{lit:wiki_astigma} Wikipedia.org, Abbildungsfehler, Datum: 24.11.2013\\
+\url{http://commons.wikimedia.org/wiki/File:Meridional%2BSagittalPlane.png}
+
+\bibitem{lit:ImageJ} National Institutes of Health (USA): \emph{Image Processing and Analysis in Java}.\\
+\url{http://imagej.nih.gov/ij/}
+
+\bibitem{lit:nist} National Institute of Standards and Technology (USA): \emph{Constants, Units, and Uncertainty}.\\
+\url{http://physics.nist.gov/cgi-bin/cuu/Value?asil}
+
+\bibitem{lit:GroMa14} R. Gross, A. Marx: \emph{Festkörperphysik}. 2. Auflage, Walter de Gruyther, Berlin (2014)
+
+\bibitem{lit:HL-Laser} H. Fouckhardt: \emph{Halbleiterlaser: Verwendung Fourier-optischer Methoden}.\\
+\url{https://books.google.de/books?id=QTspBAAAQBAJ&pg=PA30#v=onepage&q&f=false}
+
+\bibitem{lit:DR}
+	Demtröder, Wolfgang:~ \emph{Experimentalphysik 2}.~ 5.\,Auflage,\\
+	Springer Verlag, Heidelberg 2009.	\hfill		Kapitel 10.6 - 10.7
+\end{thebibliography}
+
+\end{document}
