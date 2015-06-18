@@ -1,0 +1,23 @@
+% !TeX root = ../../V7_Lichtbeugung.tex
+\begin{tikzpicture}
+
+\begin{axis}[%
+width=0.95\textwidth,
+height=0.5\textwidth,
+xmin=-pi,
+xmax=pi,
+xlabel={$x$},
+ymin=-1.1,
+ymax=1.1,
+extra y ticks = 0,
+extra y tick style = {grid=major}
+% ylabel={$y$ bzw. $y \div i \pi$},
+]
+\addplot [samples=500, color=black]
+plot (\x, {sin(360 * \x / (2*pi)});
+
+\addplot [ycomb, color=red]
+plot coordinates {(-1,-1) (1,1)};
+
+\end{axis}
+\end{tikzpicture}%
