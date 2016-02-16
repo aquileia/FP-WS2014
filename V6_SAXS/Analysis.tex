@@ -1,3 +1,7 @@
+% !TeX encoding = UTF-8
+% !TeX root = V6_SAXS.tex
+% !TeX spellcheck = en_US
+
 We generate $40\,\keV$ x-ray radiation via bremsstrahlung from electrons emitted by a titanate ($\mathsf{TiO_4}$) probe accelerated in a capacitor.
 
 The setup consists of three measurement spots at which x-rays can be applied by opening a shutter for 1 hour (Guinier) or 2 hours (front \& back scattering) respectively.
@@ -5,7 +9,22 @@ The setup consists of three measurement spots at which x-rays can be applied by 
 
 
 % Guinier
-As the high intensity of the unscattered beam could damage the film, it is only exposed for 3\,s during a pre-measurement to generate a line on the film denoting 0\,\degree. Thereafter, we switch to 'EXP' mode where the central beam is blocked.
+As the high intensity of the unscattered beam could damage the film, it is only exposed for 3\,s during a pre-measurement to generate a line on the film denoting 0\,\degree. Thereafter, we switch to 'EXP' mode where the central beam is blocked. The border of the covered area is clearly visible on the film as a ridge in the background noise.
+
+
+
+\begin{figure}[h]
+	\centering
+	\vspace{1ex}
+	\def\svgwidth{0.5\textwidth}
+W	\input{graphics/Guinier_angle.pdf_tex}
+	\caption{Angle relation for the Guinier camera: $180\degree - \beta = 180\degree - 2 \alpha$}
+	\label{fig:guinier_geom}
+%	\vspace{-3em}
+\end{figure}
+
+
+
 
 
 
@@ -27,5 +46,74 @@ Third measurement
 \begin{itemize}\itemsep-5pt
 	\item front scattering: stretched polymer
 	\item Guinier mode: polymer
-	\item back scattering: lithium flouride crystal \textsf{LiF}
+	\item back scattering: lithium fluoride crystal \textsf{LiF}
 \end{itemize}
+
+
+As seen in figure \ref{fig:guinier_geom}, the spectrum recorded on the Guinier camera isn't distorted as it would be for a planar detector -- the position on the film linearly corresponds to the scattering angle, making the method useful for large scattering angles. Due to the slanted incident beam, we measure only one radial profile of the scattering intensities (instead of seeing it mirrored on the incident beam). As the film covers about 270\,\degree and the incident beam is slanted by ca. 45\,\degree, we can detect diffracted beams up to approximately $\alpha_{max} =\tfrac12 \beta_{max} = \tfrac12 \cdt (\tfrac{270}{2}\,\degree + 2 \cdt 45\,\degree) \approx 110\,\degree$.
+
+The exact calibration is done via a silicon sample. However, the silicon powder is mounted on sticky tape which introduces its own diffraction pattern. To discern these lines, we also measure a piece of tape by itself.
+
+
+
+
+The edge of the beam stopper can be clearly seen at 16.5\,mm, below which the background intensity is massively reduced. The considerable differences in shape for the three curves were caused by two errors:
+\begin{enumerate}
+\item
+For the reference crystal, the timer wasn't set correctly, leading to an exposure time of nearly 2 1/2 hours. As this increases the intensity of both data and background, it has little effect on our measurement.
+\item
+While transferring the film with the spectrum of the polymer, the film accidentally dropped out of the envelope and was exposed to sunlight. As the hitherto unexposed areas of the film are more sensitive, this reduces the contrast considerably.
+\end{enumerate}
+
+
+
+Silicon:
+24.1 ?
+% 36.5 is the tape ?
+48.9
+52.0
+73.9 ?
+81.6
+85.6
+96.7
+101.4
+119.0
+131.4
+151.1
+
+
+
+Polymer:
+20.3
+36.9
+39.1
+41
+43.4
+51.9
+62.1
+68.2
+70.1
+71.5
+73.9
+80.7
+91.1
+94.6
+98.6
+133.8
+
+
+
+
+
+
+
+
+
+\begin{figure}[h]
+	\centering
+	\def\svgwidth{0.5\textwidth}
+	\input{data/profiles/Guinier.tex}
+	\caption{Unadjusted spectra for the three measurements in Guinier mode.}
+	\label{fig:guinier_spec}
+%	\vspace{-3em}
+\end{figure}

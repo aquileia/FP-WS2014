@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="210mm"
+   height="297mm"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.48.5 r10040"
+   sodipodi:docname="Guinier_angle2.pdf">
+  <defs
+     id="defs4" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="1.53"
+     inkscape:cx="396.08017"
+     inkscape:cy="369.64644"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:window-width="944"
+     inkscape:window-height="1001"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="0" />
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Ebene 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <path
+       sodipodi:type="arc"
+       style="opacity:0.98999999000000005;fill:#ffffff;fill-opacity:0.19607843000000000;stroke:#000000;stroke-width:1.8;stroke-miterlimit:22.92558479;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+       id="path2985"
+       sodipodi:cx="460.89108"
+       sodipodi:cy="574.6394"
+       sodipodi:rx="208.41585"
+       sodipodi:ry="208.41585"
+       d="m 669.30693,574.6394 a 208.41585,208.41585 0 1 1 -416.8317,0 208.41585,208.41585 0 1 1 416.8317,0 z" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 252.51485,577.06515 208.87129,-0.9406 126.77228,163.36634"
+       id="path3763"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="ccc" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:1,2;stroke-dashoffset:0"
+       d="m 462.0915,575.89159 207.84314,0"
+       id="path3767"
+       inkscape:connector-curvature="0" />
+    <path
+       sodipodi:type="arc"
+       style="opacity:0.98999999;fill:#ffffff;fill-opacity:0.19607843;stroke:#000000;stroke-width:1;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:1, 2;stroke-dashoffset:0"
+       id="path3769"
+       sodipodi:cx="462.09149"
+       sodipodi:cy="574.58441"
+       sodipodi:rx="56.209152"
+       sodipodi:ry="56.209152"
+       d="M 518.30064,574.58441 A 56.209152,56.209152 0 0 1 495.9917,619.42017"
+       sodipodi:start="0"
+       sodipodi:end="0.92340416"
+       sodipodi:open="true" />
+    <path
+       transform="translate(-210.74094,2.4187175)"
+       sodipodi:type="arc"
+       style="opacity:0.98999999;fill:#ffffff;fill-opacity:0.19607843;stroke:#000000;stroke-width:1;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:1, 2;stroke-dashoffset:0"
+       id="path3769-1"
+       sodipodi:cx="462.09149"
+       sodipodi:cy="574.58441"
+       sodipodi:rx="56.209152"
+       sodipodi:ry="56.209152"
+       d="m 518.30064,574.58441 a 56.209152,56.209152 0 0 1 -5.50874,24.26804"
+       sodipodi:start="0"
+       sodipodi:end="0.44642686"
+       sodipodi:open="true" />
+    <text
+       xml:space="preserve"
+       style="font-size:12px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:LM Roman 12;-inkscape-font-specification:LM Roman 12"
+       x="435.94772"
+       y="477.85239"
+       id="text3789"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3791" /></text>
+    <text
+       xml:space="preserve"
+       style="font-size:12px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:LM Roman 12;-inkscape-font-specification:LM Roman 12"
+       x="269.93466"
+       y="587.65631"
+       id="text3801"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3803"
+         x="269.93466"
+         y="587.65631">\alpha</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:12px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:LM Roman 12;-inkscape-font-specification:LM Roman 12"
+       x="472.90768"
+       y="591.30988"
+       id="text3801-7"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3803-4"
+         x="472.90768"
+         y="591.30988">\beta</tspan></text>
+    <path
+       transform="translate(125.6302,164.99016)"
+       sodipodi:type="arc"
+       style="opacity:0.98999999;fill:#ffffff;fill-opacity:0.19607843;stroke:#000000;stroke-width:1;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:1, 2;stroke-dashoffset:0"
+       id="path3769-1-1"
+       sodipodi:cx="462.09149"
+       sodipodi:cy="574.58441"
+       sodipodi:rx="56.209152"
+       sodipodi:ry="56.209152"
+       d="m 411.27918,550.55156 a 56.209152,56.209152 0 0 1 16.84428,-20.75154"
+       sodipodi:start="3.5833858"
+       sodipodi:end="4.0634831"
+       sodipodi:open="true" />
+    <path
+       style="fill:none;stroke:#ff0000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="M 252.28758,576.54519 587.5817,739.94388"
+       id="path3011"
+       inkscape:connector-curvature="0" />
+  </g>
+</svg>

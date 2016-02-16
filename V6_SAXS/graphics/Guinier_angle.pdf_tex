@@ -1,0 +1,16 @@
+% !TeX root = ../V6_SAXS.tex
+
+%% To include the image in your LaTeX document, write
+%%   \input{Guinier_angle.pdf_tex}
+
+%%
+\begingroup%
+  \setlength{\unitlength}{\svgwidth}%
+  \global\let\svgwidth\undefined%
+  \begin{picture}(1,1)%
+    \put(0,0){\includegraphics[width=\unitlength]{Guinier_angle.pdf}}%
+    \put(0.08,0.46){$\alpha$}%
+    \put(0.71,0.155){$\alpha$}%
+    \put(0.57,0.44){$\beta$}%
+  \end{picture}%
+\endgroup%
